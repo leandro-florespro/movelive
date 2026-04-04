@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoveLive Pro | Estrutura de Captação para Personal Trainers</title>
+    <meta name="description" content="Alavanque a captação de alunos através do aumento de autoridade e organização. Transforme seu Instagram em um canal profissional.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            900: '#1e3a8a',
+                            950: '#0f172a',
+                        }
+                    },
+                    keyframes: {
+                        'scale-pulse': {
+                            '0%, 100%': { transform: 'scale(1)' },
+                            '50%': { transform: 'scale(1.05)' },
+                        }
+                    },
+                    animation: {
+                        'scale-pulse': 'scale-pulse 0.8s ease-in-out infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <style>
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(calc(-50% - 1rem)); }
+        }
+        .animate-scroll {
+            animation: scroll 25s linear infinite;
+        }
+        .animate-scroll:hover {
+            animation-play-state: paused;
+        }
+        .highlight-text {
+            background-image: linear-gradient(120deg, #2563eb, #3b82f6);
+            background-repeat: no-repeat;
+            background-size: 0% 100%;
+            transition: background-size 1s cubic-bezier(0.22, 1, 0.36, 1);
+            -webkit-box-decoration-break: clone;
+            box-decoration-break: clone;
+            padding: 0.1em 0.3em;
+            border-radius: 0.2em;
+            color: inherit;
+        }
+        .highlight-text.active {
+            background-size: 100% 100%;
+            color: #ffffff;
+            transition: background-size 1s cubic-bezier(0.22, 1, 0.36, 1), color 0.3s ease;
+        }
+    </style>
+</head>
+<body class="font-sans text-slate-800 bg-slate-50 antialiased">
+
+    <!-- Header -->
+    <header class="absolute md:fixed w-full bg-white/90 backdrop-blur-md shadow-sm z-50 transition-all duration-300" id="header">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#" class="text-2xl font-bold text-brand-950 tracking-tight">MoveLive<span class="text-brand-600">.pro</span></a>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#problema" class="text-slate-600 hover:text-brand-600 font-medium transition-colors">O Problema</a>
+                    <a href="#exemplos" class="text-slate-600 hover:text-brand-600 font-medium transition-colors">Exemplos</a>
+                    <a href="#solucao" class="text-slate-600 hover:text-brand-600 font-medium transition-colors">A Solução</a>
+                    <a href="#investimento" class="text-slate-600 hover:text-brand-600 font-medium transition-colors">Investimento</a>
+                    <a href="#processo" class="text-slate-600 hover:text-brand-600 font-medium transition-colors">Como Funciona</a>
+                    <a href="#sobre" class="text-slate-600 hover:text-brand-600 font-medium transition-colors">Quem Sou</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 md:pt-40 md:pb-28 bg-brand-950 text-white overflow-hidden relative">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 opacity-10">
+            <svg class="h-full w-full" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <pattern id="hero-pattern" width="40" height="40" patternUnits="userSpaceOnUse">
+                        <path d="M0 40L40 0H20L0 20M40 40V20L20 40" stroke="currentColor" stroke-width="2" fill="none"/>
+                    </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#hero-pattern)"/>
+            </svg>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-4xl mx-auto">
+                <span class="text-brand-500 font-semibold tracking-wider uppercase text-sm mb-4 block">Para Personal Trainers</span>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 leading-tight">
+                    Alavanque sua captação de alunos transmitindo <span class="text-brand-500">autoridade e organização</span>
+                </h1>
+                <p class="text-lg md:text-xl text-slate-300 mb-10 leading-relaxed max-w-3xl mx-auto">
+                    O seu problema não é falta de seguidores, e sim de uma estrutura que passe credibilidade e profissionalismo. Transforme o interesse gerado no Instagram em alunos reais elevando a percepção de valor do seu trabalho.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="https://wa.me/5548988366755" target="_blank" rel="noopener noreferrer" class="bg-brand-600 hover:bg-brand-500 text-white px-8 py-4 rounded-full font-bold text-lg transition-all shadow-[0_0_20px_rgba(37,99,235,0.4)] hover:shadow-[0_0_30px_rgba(37,99,235,0.6)] transform hover:-translate-y-1">
+                        Eu Quero Um Posicionamento Digital Premium
+                    </a>
+                </div>
+                <p class="mt-6 text-sm text-slate-400 flex items-center justify-center gap-2">
+                    <i class="ph-fill ph-check-circle text-brand-500"></i> Organização gera previsibilidade e vendas.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section id="problema" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-brand-950 mb-4">Qual a importância do posicionamento digital?</h2>
+                <p class="text-lg text-slate-600">Ter um posicionamento digital moderno e profissional transmite <strong>informação, identificação, credibilidade e segurança</strong> para quem chega até você, sendo a <strong>vitrine imediata do seu estilo de trabalho e competência profissional</strong>.</p>
+                <p class="text-lg text-slate-600 mt-4">Sem ele você sofre com problemas como:</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-4">
+                <!-- Error 1 -->
+                <div class="bg-slate-50 p-5 rounded-xl border border-slate-100 flex gap-4 items-start">
+                    <div class="w-10 h-10 bg-red-100 text-red-600 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                        <i class="ph ph-link-break text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-base font-bold text-brand-950 mb-1">Link na bio amador</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">Usar agregadores genéricos ou mandar direto para o WhatsApp sem filtro faz você perder a chance de se apresentar como autoridade.</p>
+                    </div>
+                </div>
+
+                <!-- Error 2 -->
+                <div class="bg-slate-50 p-5 rounded-xl border border-slate-100 flex gap-4 items-start">
+                    <div class="w-10 h-10 bg-red-100 text-red-600 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                        <i class="ph ph-chats text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-base font-bold text-brand-950 mb-1">Excesso de curiosos</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">Gastar horas no Direct ou WhatsApp explicando preços para pessoas que não estão prontas para comprar.</p>
+                    </div>
+                </div>
+
+                <!-- Error 3 -->
+                <div class="bg-slate-50 p-5 rounded-xl border border-slate-100 flex gap-4 items-start">
+                    <div class="w-10 h-10 bg-red-100 text-red-600 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                        <i class="ph ph-presentation-chart text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-base font-bold text-brand-950 mb-1">Baixa percepção de valor</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">Sem mostrar diferenciais e resultados, o cliente foca apenas no preço, e não na transformação.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio / Examples Section -->
+    <section id="exemplos" class="py-24 bg-brand-950 text-white overflow-hidden relative">
+        <!-- Decorative glow -->
+        <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-500 rounded-full mix-blend-screen filter blur-[100px] opacity-20 transform translate-x-1/2 -translate-y-1/2"></div>
+        <div class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-500 rounded-full mix-blend-screen filter blur-[100px] opacity-20 transform -translate-x-1/2 translate-y-1/2"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="inline-block py-1 px-3 rounded-full bg-brand-800/50 text-brand-200 border border-brand-700/50 font-semibold text-sm mb-4">Exemplos</span>
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight">Um novo ativo digital</h2>
+                <p class="text-xl text-brand-200">Design profissional, carregamento rápido e 100% adaptável a celular, tablet ou computador.</p>
+            </div>
+        </div>
+
+        <!-- Marquee Container -->
+        <div class="relative w-full overflow-hidden pb-10 pt-4">
+            <!-- Fade edges -->
+            <div class="absolute top-0 bottom-0 left-0 w-12 md:w-32 bg-gradient-to-r from-brand-950 to-transparent z-20 pointer-events-none"></div>
+            <div class="absolute top-0 bottom-0 right-0 w-12 md:w-32 bg-gradient-to-l from-brand-950 to-transparent z-20 pointer-events-none"></div>
+            
+            <div class="flex gap-8 w-max animate-scroll hover:[animation-play-state:paused] px-4">
+                <!-- Set 1 -->
+                <!-- Example 1 -->
+                <div class="w-[280px] md:w-[350px] flex-shrink-0 group rounded-3xl overflow-hidden border border-brand-800 bg-brand-900 shadow-2xl hover:shadow-brand-500/20 transition-all duration-500 transform hover:-translate-y-2">
+                    <div class="aspect-[3/4] bg-slate-800 relative overflow-hidden">
+                        <img src="exemplo1.webp" alt="Exemplo de Posicionamento Digital 1" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700" onerror="this.src='https://placehold.co/600x800/1e293b/94a3b8?text=Exemplo+1'">
+                    </div>
+                </div>
+
+                <!-- Example 2 -->
+                <div class="w-[280px] md:w-[350px] flex-shrink-0 group rounded-3xl overflow-hidden border border-brand-800 bg-brand-900 shadow-2xl hover:shadow-brand-500/20 transition-all duration-500 transform hover:-translate-y-2">
+                    <div class="aspect-[3/4] bg-slate-800 relative overflow-hidden">
+                        <img src="exemplo2.webp" alt="Exemplo de Posicionamento Digital 2" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700" onerror="this.src='https://placehold.co/600x800/1e293b/94a3b8?text=Exemplo+2'">
+                    </div>
+                </div>
+
+                <!-- Example 3 -->
+                <div class="w-[280px] md:w-[350px] flex-shrink-0 group rounded-3xl overflow-hidden border border-brand-800 bg-brand-900 shadow-2xl hover:shadow-brand-500/20 transition-all duration-500 transform hover:-translate-y-2">
+                    <div class="aspect-[3/4] bg-slate-800 relative overflow-hidden">
+                        <img src="exemplo3.webp" alt="Exemplo de Posicionamento Digital 3" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700" onerror="this.src='https://placehold.co/600x800/1e293b/94a3b8?text=Exemplo+3'">
+                    </div>
+                </div>
+                
+                <!-- Set 2 (Duplicated for infinite scroll) -->
+                <!-- Example 1 -->
+                <div class="w-[280px] md:w-[350px] flex-shrink-0 group rounded-3xl overflow-hidden border border-brand-800 bg-brand-900 shadow-2xl hover:shadow-brand-500/20 transition-all duration-500 transform hover:-translate-y-2">
+                    <div class="aspect-[3/4] bg-slate-800 relative overflow-hidden">
+                        <img src="exemplo1.webp" alt="Exemplo de Posicionamento Digital 1" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700" onerror="this.src='https://placehold.co/600x800/1e293b/94a3b8?text=Exemplo+1'">
+                    </div>
+                </div>
+
+                <!-- Example 2 -->
+                <div class="w-[280px] md:w-[350px] flex-shrink-0 group rounded-3xl overflow-hidden border border-brand-800 bg-brand-900 shadow-2xl hover:shadow-brand-500/20 transition-all duration-500 transform hover:-translate-y-2">
+                    <div class="aspect-[3/4] bg-slate-800 relative overflow-hidden">
+                        <img src="exemplo2.webp" alt="Exemplo de Posicionamento Digital 2" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700" onerror="this.src='https://placehold.co/600x800/1e293b/94a3b8?text=Exemplo+2'">
+                    </div>
+                </div>
+
+                <!-- Example 3 -->
+                <div class="w-[280px] md:w-[350px] flex-shrink-0 group rounded-3xl overflow-hidden border border-brand-800 bg-brand-900 shadow-2xl hover:shadow-brand-500/20 transition-all duration-500 transform hover:-translate-y-2">
+                    <div class="aspect-[3/4] bg-slate-800 relative overflow-hidden">
+                        <img src="exemplo3.webp" alt="Exemplo de Posicionamento Digital 3" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700" onerror="this.src='https://placehold.co/600x800/1e293b/94a3b8?text=Exemplo+3'">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section (The Flow & Filter) -->
+    <section id="solucao" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Centered Intro -->
+            <div class="max-w-3xl mx-auto text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-brand-950 mb-6">Te proponho um fluxo estruturado que filtra e converte visitantes</h2>
+                <p class="text-lg text-slate-600 leading-relaxed mb-6">
+                    A solução é criar um <strong>caminho lógico e profissional</strong>. O seu posicionamento digital atua como o seu melhor ativo: ele <strong>apresenta seu trabalho, aumenta sua autoridade e filtra quem realmente tem interesse</strong>.
+                </p>
+                <div class="bg-brand-50 border border-brand-100 rounded-2xl p-6 text-left shadow-sm inline-block">
+                    <p class="text-lg font-medium text-brand-800 leading-relaxed flex items-start gap-3">
+                        <i class="ph-fill ph-trend-up text-2xl text-brand-600 mt-0.5 flex-shrink-0"></i>
+                        <span><strong>E o melhor:</strong> quando o cliente entende o seu valor antes mesmo de falar com você, a objeção de preço desaparece. Uma página premium eleva a percepção do seu serviço, permitindo que você <strong>cobre mais caro pelos serviços que já presta</strong>.</span>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Horizontal Figure -->
+            <div class="max-w-4xl mx-auto mb-20">
+                <div class="bg-white p-6 md:p-8 rounded-3xl shadow-xl border border-slate-100 relative w-full">
+                    <div class="absolute -top-4 -right-2 md:-top-5 md:-right-5 bg-brand-500 text-white px-4 py-2 rounded-lg text-sm md:text-base font-bold shadow-lg transform rotate-3 z-20">
+                        O Fim dos Curiosos
+                    </div>
+                    <div class="flex flex-col md:flex-row items-center justify-between gap-4 md:gap-6">
+                        <!-- Instagram -->
+                        <div class="w-full md:w-1/3 bg-slate-50 border border-slate-200 rounded-xl p-4 flex flex-col items-center text-center gap-3">
+                            <div class="w-12 h-12 rounded-full bg-pink-100 flex items-center justify-center flex-shrink-0">
+                                <i class="ph ph-instagram-logo text-3xl text-pink-500"></i>
+                            </div>
+                            <div>
+                                <p class="font-bold text-brand-950">Instagram</p>
+                                <p class="text-xs text-slate-500 leading-tight mt-1">Mostra seu dia a dia e resultados</p>
+                            </div>
+                        </div>
+                        
+                        <i class="ph ph-arrow-down md:-rotate-90 text-2xl text-slate-300 flex-shrink-0"></i>
+                        
+                        <!-- Site -->
+                        <div class="w-full md:w-1/3 bg-brand-50 border border-brand-200 rounded-xl p-4 flex flex-col items-center text-center gap-3 transform md:scale-110 shadow-md relative z-10">
+                            <div class="w-12 h-12 rounded-full bg-brand-100 flex items-center justify-center flex-shrink-0">
+                                <i class="ph ph-browser text-3xl text-brand-600"></i>
+                            </div>
+                            <div>
+                                <p class="font-bold text-brand-950">Posicionamento Digital</p>
+                                <p class="text-xs text-slate-500 leading-tight mt-1">Tira as dúvidas e prepara para fechar</p>
+                            </div>
+                        </div>
+                        
+                        <i class="ph ph-arrow-down md:-rotate-90 text-2xl text-slate-300 flex-shrink-0"></i>
+                        
+                        <!-- WhatsApp -->
+                        <div class="w-full md:w-1/3 bg-green-50 border border-green-200 rounded-xl p-4 flex flex-col items-center text-center gap-3">
+                            <div class="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0">
+                                <i class="ph ph-whatsapp-logo text-3xl text-green-500"></i>
+                            </div>
+                            <div>
+                                <p class="font-bold text-brand-950">WhatsApp</p>
+                                <p class="text-xs text-slate-500 leading-tight mt-1">Novo aluno pronto para começar</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3 Steps Text (Grid) -->
+            <div class="grid md:grid-cols-3 gap-10 max-w-5xl mx-auto">
+                <!-- Step 1 -->
+                <div class="flex flex-col items-center text-center gap-4">
+                    <div class="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-blue-300 to-blue-400 text-white rounded-full flex items-center justify-center font-bold text-2xl shadow-md">1</div>
+                    <div>
+                        <h4 class="text-xl font-bold text-brand-950 mb-3">Instagram (Atração)</h4>
+                        <p class="text-slate-600 text-sm leading-relaxed">Seu conteúdo chama atenção. Ao invés de mandar direto para o Whatsapp ou para um link genérico, você terá um endereço personalizado na web, funcionando como seu consultório online, disponível 24 horas por dia.</p>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="flex flex-col items-center text-center gap-4">
+                    <div class="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-600 text-white rounded-full flex items-center justify-center font-bold text-2xl shadow-md">2</div>
+                    <div>
+                        <h4 class="text-xl font-bold text-brand-950 mb-3">Site Personalizado</h4>
+                        <p class="text-slate-600 text-sm leading-relaxed">Um posicionamento digital profissional que explica seu método, mostra seu trabalho, o resultado dos seus alunos e tira todas as dúvidas do seu cliente antes mesmo de ele te dar um 'oi'. Ele reduz os curiosos e facilita a tomada de decisão.</p>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="flex flex-col items-center text-center gap-4">
+                    <div class="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-blue-700 to-blue-800 text-white rounded-full flex items-center justify-center font-bold text-2xl shadow-md">3</div>
+                    <div>
+                        <h4 class="text-xl font-bold text-brand-950 mb-3">WhatsApp (Fechamento)</h4>
+                        <p class="text-slate-600 text-sm leading-relaxed">Transforme seu WhatsApp em uma ferramenta de fechamento, não de dúvidas básicas. Você pula a etapa das explicações repetitivas e vai direto para o que importa: dar boas-vindas ao seu novo aluno.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Personalization Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-brand-950 mb-4">Seu consultório digital.</h2>
+                <p class="text-lg text-slate-600">Seu site será um <strong>espaço exclusivo para apresentar suas especialidades, depoimentos e modalidades</strong>. Um ambiente completo que <strong>prova sua competência, educa seu público e encurta a distância entre o interesse e o fechamento no WhatsApp</strong>.</p>
+            </div>
+
+            <div class="text-center mb-10">
+                <p class="text-sm font-bold text-brand-500 uppercase tracking-widest">Elementos que sua página pode ter</p>
+            </div>
+        </div>
+
+        <div class="relative w-full overflow-hidden py-4">
+            <!-- Fade gradients -->
+            <div class="absolute inset-y-0 left-0 w-16 md:w-32 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
+            <div class="absolute inset-y-0 right-0 w-16 md:w-32 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
+            
+            <div class="flex gap-8 w-max animate-scroll hover:[animation-play-state:paused] px-4">
+                <!-- First set -->
+                <div class="flex items-center gap-3 bg-slate-50 border border-slate-100 px-6 py-4 rounded-2xl shadow-sm">
+                    <i class="ph-fill ph-camera text-3xl text-brand-500"></i>
+                    <span class="font-bold text-brand-950 text-lg whitespace-nowrap">Fotos</span>
+                </div>
+                <div class="flex items-center gap-3 bg-slate-50 border border-slate-100 px-6 py-4 rounded-2xl shadow-sm">
+                    <i class="ph-fill ph-video-camera text-3xl text-brand-500"></i>
+                    <span class="font-bold text-brand-950 text-lg whitespace-nowrap">Vídeos</span>
+                </div>
+                <div class="flex items-center gap-3 bg-slate-50 border border-slate-100 px-6 py-4 rounded-2xl shadow-sm">
+                    <i class="ph-fill ph-chat-teardrop-text text-3xl text-brand-500"></i>
+                    <span class="font-bold text-brand-950 text-lg whitespace-nowrap">Depoimentos</span>
+                </div>
+                <div class="flex items-center gap-3 bg-slate-50 border border-slate-100 px-6 py-4 rounded-2xl shadow-sm">
+                    <i class="ph-fill ph-image text-3xl text-brand-500"></i>
+                    <span class="font-bold text-brand-950 text-lg whitespace-nowrap">Antes e Depois</span>
+                </div>
+                <div class="flex items-center gap-3 bg-slate-50 border border-slate-100 px-6 py-4 rounded-2xl shadow-sm">
+                    <i class="ph-fill ph-text-align-left text-3xl text-brand-500"></i>
+                    <span class="font-bold text-brand-950 text-lg whitespace-nowrap">Textos</span>
+                </div>
+                <div class="flex items-center gap-3 bg-slate-50 border border-slate-100 px-6 py-4 rounded-2xl shadow-sm">
+                    <i class="ph-fill ph-certificate text-3xl text-brand-500"></i>
+                    <span class="font-bold text-brand-950 text-lg whitespace-nowrap">Certificados</span>
+                </div>
+                <div class="flex items-center gap-3 bg-slate-50 border border-slate-100 px-6 py-4 rounded-2xl shadow-sm">
+                    <i class="ph-fill ph-map-pin text-3xl text-brand-500"></i>
+                    <span class="font-bold text-brand-950 text-lg whitespace-nowrap">Localização (Google Maps)</span>
+                </div>
+                <div class="flex items-center gap-3 bg-slate-50 border border-slate-100 px-6 py-4 rounded-2xl shadow-sm">
+                    <i class="ph-fill ph-plus-circle text-3xl text-brand-500"></i>
+                    <span class="font-bold text-brand-950 text-lg whitespace-nowrap">E mais...</span>
+                </div>
+                
+                <!-- Duplicate set for infinite scroll -->
+                <div class="flex items-center gap-3 bg-slate-50 border border-slate-100 px-6 py-4 rounded-2xl shadow-sm">
+                    <i class="ph-fill ph-camera text-3xl text-brand-500"></i>
+                    <span class="font-bold text-brand-950 text-lg whitespace-nowrap">Fotos</span>
+                </div>
+                <div class="flex items-center gap-3 bg-slate-50 border border-slate-100 px-6 py-4 rounded-2xl shadow-sm">
+                    <i class="ph-fill ph-video-camera text-3xl text-brand-500"></i>
+                    <span class="font-bold text-brand-950 text-lg whitespace-nowrap">Vídeos</span>
+                </div>
+                <div class="flex items-center gap-3 bg-slate-50 border border-slate-100 px-6 py-4 rounded-2xl shadow-sm">
+                    <i class="ph-fill ph-chat-teardrop-text text-3xl text-brand-500"></i>
+                    <span class="font-bold text-brand-950 text-lg whitespace-nowrap">Depoimentos</span>
+                </div>
+                <div class="flex items-center gap-3 bg-slate-50 border border-slate-100 px-6 py-4 rounded-2xl shadow-sm">
+                    <i class="ph-fill ph-image text-3xl text-brand-500"></i>
+                    <span class="font-bold text-brand-950 text-lg whitespace-nowrap">Antes e Depois</span>
+                </div>
+                <div class="flex items-center gap-3 bg-slate-50 border border-slate-100 px-6 py-4 rounded-2xl shadow-sm">
+                    <i class="ph-fill ph-text-align-left text-3xl text-brand-500"></i>
+                    <span class="font-bold text-brand-950 text-lg whitespace-nowrap">Textos</span>
+                </div>
+                <div class="flex items-center gap-3 bg-slate-50 border border-slate-100 px-6 py-4 rounded-2xl shadow-sm">
+                    <i class="ph-fill ph-certificate text-3xl text-brand-500"></i>
+                    <span class="font-bold text-brand-950 text-lg whitespace-nowrap">Certificados</span>
+                </div>
+                <div class="flex items-center gap-3 bg-slate-50 border border-slate-100 px-6 py-4 rounded-2xl shadow-sm">
+                    <i class="ph-fill ph-map-pin text-3xl text-brand-500"></i>
+                    <span class="font-bold text-brand-950 text-lg whitespace-nowrap">Localização (Google Maps)</span>
+                </div>
+                <div class="flex items-center gap-3 bg-slate-50 border border-slate-100 px-6 py-4 rounded-2xl shadow-sm">
+                    <i class="ph-fill ph-plus-circle text-3xl text-brand-500"></i>
+                    <span class="font-bold text-brand-950 text-lg whitespace-nowrap">E mais...</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-12 flex flex-col sm:flex-row justify-center gap-4 px-4">
+            <a href="https://wa.me/5548988366755" target="_blank" rel="noopener noreferrer" class="bg-brand-600 hover:bg-brand-500 text-white px-8 py-4 rounded-full font-bold text-lg transition-all shadow-[0_0_20px_rgba(37,99,235,0.4)] hover:shadow-[0_0_30px_rgba(37,99,235,0.6)] transform hover:-translate-y-1 text-center">
+                Eu Quero Melhorar Minha Presença Digital
+            </a>
+        </div>
+    </section>
+
+    <!-- Value & Pricing Section -->
+    <section id="investimento" class="py-24 bg-slate-50 border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-4xl mx-auto mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-brand-950 mb-6 leading-tight">Quanto vale ter uma estrutura trabalhando por você 24h por dia, todos os dias?</h2>
+                <p class="text-xl text-slate-600">Enquanto você está dando aula, dormindo ou aproveitando seu descanso — <strong>sua página está captando, filtrando e enviando alunos prontos para o WhatsApp</strong>.</p>
+            </div>
+
+            <div class="max-w-3xl mx-auto flex flex-col gap-10">
+                <!-- Core Deliverables -->
+                <div class="bg-white rounded-3xl p-6 md:p-8 border border-slate-200 shadow-none">
+                    <h3 class="text-2xl md:text-3xl font-bold text-brand-950 mb-8 flex items-center gap-3">
+                        <i class="ph-fill ph-check-circle text-brand-500"></i>
+                        Você vai receber:
+                    </h3>
+                    <ul class="space-y-6">
+                        <li class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="ph-fill ph-layout text-[24px] text-blue-900"></i>
+                            </div>
+                            <span class="text-slate-700 text-lg mt-2.5"><strong>Página profissional</strong> alinhada ao seu trabalho e ao seu estilo de atendimento</span>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="ph-fill ph-megaphone text-[24px] text-blue-900"></i>
+                            </div>
+                            <span class="text-slate-700 text-lg mt-2.5"><strong>Comunicação clara</strong> sobre como, onde e com quem você trabalha</span>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="ph-fill ph-package text-[24px] text-blue-900"></i>
+                            </div>
+                            <span class="text-slate-700 text-lg mt-2.5"><strong>Apresentação clara dos seus produtos</strong>, como: Avaliação Física, Consultoria Online, Acompanhamento Presencial ou outros</span>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="ph-fill ph-star text-[24px] text-blue-900"></i>
+                            </div>
+                            <span class="text-slate-700 text-lg mt-2.5"><strong>Escolher se vai divulgar ou não os valores</strong> dos seus serviços</span>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="ph-fill ph-cursor-click text-[24px] text-blue-900"></i>
+                            </div>
+                            <span class="text-slate-700 text-lg mt-2.5"><strong>Botões diretos para WhatsApp e Instagram</strong> ou outros destinos de sua preferência</span>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="ph-fill ph-target text-[24px] text-blue-900"></i>
+                            </div>
+                            <span class="text-slate-700 text-lg mt-2.5"><strong>Estrutura pensada para converter</strong> visitantes em alunos reais</span>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="ph-fill ph-arrows-clockwise text-[24px] text-blue-900"></i>
+                            </div>
+                            <span class="text-slate-700 text-lg font-medium mt-1.5"><strong>3 meses de alterações ilimitadas</strong> — A partir da data em que seu site ficar pronto, você pode coletar depoimentos de alunos, tirar novas fotos das suas aulas, gravar novos vídeos, alterar textos, etc. durante 90 dias!</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Bonuses -->
+                <div class="bg-blue-200 rounded-3xl p-6 md:p-8 border border-blue-300 shadow-none">
+                    <h3 class="text-2xl md:text-3xl font-bold text-blue-950 mb-10 flex items-center gap-3">
+                        <i class="ph-fill ph-gift text-blue-600 text-[32px]"></i>
+                        Ainda leva como BÔNUS, sem custo algum:
+                    </h3>
+                    <ul class="grid sm:grid-cols-2 gap-8">
+                        <li class="flex flex-col gap-4">
+                            <div class="bg-white w-16 h-16 rounded-full flex items-center justify-center flex-shrink-0 shadow-sm">
+                                <i class="ph ph-camera text-[32px] text-blue-600"></i>
+                            </div>
+                            <span class="text-slate-900 font-medium text-lg"><strong>Edição Profissional de Fotos</strong><br><span class="text-slate-600 text-base font-normal">(caso queira estilizar fotos ou inserir cenários diferentes em fotos simples)</span></span>
+                        </li>
+                        <li class="flex flex-col gap-4">
+                            <div class="bg-white w-16 h-16 rounded-full flex items-center justify-center flex-shrink-0 shadow-sm">
+                                <i class="ph ph-instagram-logo text-[32px] text-blue-600"></i>
+                            </div>
+                            <span class="text-slate-900 font-medium text-lg"><strong>Bio estratégica</strong> para Instagram</span>
+                        </li>
+                        <li class="flex flex-col gap-4">
+                            <div class="bg-white w-16 h-16 rounded-full flex items-center justify-center flex-shrink-0 shadow-sm">
+                                <i class="ph ph-chat-circle-text text-[32px] text-blue-600"></i>
+                            </div>
+                            <span class="text-slate-900 font-medium text-lg"><strong>Mensagens prontas</strong> para responder interessados no WhatsApp</span>
+                        </li>
+                        <li class="flex flex-col gap-4">
+                            <div class="bg-white w-16 h-16 rounded-full flex items-center justify-center flex-shrink-0 shadow-sm">
+                                <i class="ph ph-paint-brush text-[32px] text-blue-600"></i>
+                            </div>
+                            <span class="text-slate-900 font-medium text-lg"><strong>Logotipo Profissional criado para você</strong><br><span class="text-slate-600 text-base font-normal">Pode ser usado no site, em camisas, bonés, canecas, etc.</span></span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Comparison -->
+                <div class="bg-slate-400 rounded-3xl p-6 md:p-8 border-none shadow-none">
+                    <h3 class="text-2xl md:text-3xl font-bold text-slate-900 mb-8">Se você fosse montar isso por conta própria, pagaria:</h3>
+                    
+                    <div class="flex flex-col">
+                        <div class="flex justify-between items-center py-4 border-b border-slate-500">
+                            <span class="text-slate-800 font-medium text-lg">Programador</span>
+                            <span class="text-red-800 font-bold text-lg line-through">R$800 – R$2.000</span>
+                        </div>
+                        <div class="flex justify-between items-center py-4 border-b border-slate-500">
+                            <span class="text-slate-800 font-medium text-lg">Copywriting</span>
+                            <span class="text-red-800 font-bold text-lg line-through">R$300 – R$1.000</span>
+                        </div>
+                        <div class="flex justify-between items-center py-4 border-b border-slate-500">
+                            <span class="text-slate-800 font-medium text-lg">Edição de fotos</span>
+                            <span class="text-red-800 font-bold text-lg line-through">R$100 – R$300</span>
+                        </div>
+                        <div class="flex justify-between items-center py-4 border-b border-slate-500">
+                            <span class="text-slate-800 font-medium text-lg">Domínio + hospedagem</span>
+                            <span class="text-red-800 font-bold text-lg line-through">R$150+/ano</span>
+                        </div>
+                        <div class="flex justify-between items-center py-4 border-b border-slate-500">
+                            <span class="text-slate-800 font-medium text-lg">Logo + identidade visual</span>
+                            <span class="text-red-800 font-bold text-lg line-through">R$150 – R$500</span>
+                        </div>
+                        <div class="flex justify-between items-center py-4 border-b border-slate-500">
+                            <span class="text-slate-800 font-medium text-lg">Agência (mensal)</span>
+                            <span class="text-red-800 font-bold text-lg line-through">R$500+/mês</span>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8 bg-slate-300 p-6 rounded-2xl">
+                        <p class="text-orange-800 font-bold text-lg mb-1">O verdadeiro custo oculto:</p>
+                        <p class="text-slate-800 font-medium">Isso sem contar o tempo perdido e a dor de cabeça de tentar coordenar profissionais diferentes ou aprender a fazer tudo isso sozinho.</p>
+                    </div>
+                </div>
+
+                <!-- Offer Card -->
+                <div class="bg-slate-900 rounded-3xl p-6 md:p-8 shadow-none border-none text-white overflow-hidden">
+                    <div class="relative z-10 text-center">
+                        <p class="text-slate-300 text-xl font-medium mb-8">Na MoveLive, você recebe tudo isso pronto, organizado e funcionando:</p>
+                        
+                        <div class="mb-10 flex flex-col items-center justify-center">
+                            <div class="flex items-baseline gap-3">
+                                <span class="text-6xl md:text-7xl font-black tracking-tight text-white">R$600</span>
+                                <span class="text-slate-400 text-xl">à vista no PIX</span>
+                            </div>
+                            <div class="mt-4 text-xl text-slate-300 bg-slate-800 px-6 py-2 rounded-full inline-block border border-slate-700">
+                                ou <span class="font-bold text-white">12x de R$61</span> no cartão
+                            </div>
+                        </div>
+                        
+                        <div class="flex flex-col gap-4 mb-10 max-w-sm mx-auto text-left">
+                            <div class="flex items-center gap-3 text-slate-200 text-lg">
+                                <i class="ph-fill ph-shield-check text-green-500 text-[24px] flex-shrink-0"></i>
+                                <span>Investimento único</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-slate-200 text-lg">
+                                <i class="ph-fill ph-shield-check text-green-500 text-[24px] flex-shrink-0"></i>
+                                <span>Sem mensalidade</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-slate-200 text-lg">
+                                <i class="ph-fill ph-shield-check text-green-500 text-[24px] flex-shrink-0"></i>
+                                <span>Sem surpresas</span>
+                            </div>
+                        </div>
+                        
+                        <a href="https://wa.me/5548988366755" target="_blank" rel="noopener noreferrer" class="block w-full bg-green-500 hover:bg-green-400 text-slate-900 text-center font-bold text-xl py-5 rounded-2xl transition-colors">
+                            Eu Quero!
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="processo" class="py-24 bg-slate-50 border-y border-slate-100 relative overflow-hidden">
+        <!-- Decorative background elements -->
+        <div class="absolute top-0 left-1/2 w-full max-w-7xl -translate-x-1/2 h-full overflow-hidden pointer-events-none">
+            <div class="absolute top-20 left-10 w-72 h-72 bg-brand-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30"></div>
+            <div class="absolute bottom-20 right-10 w-72 h-72 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-20">
+                <span class="inline-block py-1 px-3 rounded-full bg-brand-100 text-brand-700 font-semibold text-sm mb-4">Processo Simples e Rápido</span>
+                <h2 class="text-4xl md:text-5xl font-bold text-brand-950 mb-2 tracking-tight">Do rascunho ao ar em 3 dias</h2>
+                <p class="text-lg font-medium text-brand-600 mb-6">(Como funciona?)</p>
+                <p class="text-xl text-slate-600">Um método <strong>rápido e direto</strong> ao ponto para <strong>colocar sua estrutura no ar.</strong></p>
+            </div>
+
+            <div class="relative">
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 relative z-10">
+                    <!-- Step 1 -->
+                    <div class="relative group h-full flex flex-col items-center">
+                        <div class="w-16 h-16 bg-brand-600 text-white rounded-full flex items-center justify-center text-2xl font-bold shadow-lg mb-6 relative z-20 group-hover:scale-110 transition-transform duration-300 shrink-0">1</div>
+                        <div class="bg-white rounded-3xl p-8 shadow-lg border border-slate-100 w-full flex-grow flex flex-col text-center items-center group-hover:-translate-y-2 transition-transform duration-300">
+                            <h3 class="text-xl font-bold text-brand-950 mb-3">Mande para mim "Eu Quero!"</h3>
+                            <p class="text-slate-600 leading-relaxed flex-grow">Faça isso pelo Direct do Instagram ou pelo Whatsapp. A partir daí eu cuido de tudo.</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="relative group h-full flex flex-col items-center">
+                        <div class="w-16 h-16 bg-brand-600 text-white rounded-full flex items-center justify-center text-2xl font-bold shadow-lg mb-6 relative z-20 group-hover:scale-110 transition-transform duration-300 shrink-0">2</div>
+                        <div class="bg-white rounded-3xl p-8 shadow-lg border border-slate-100 w-full flex-grow flex flex-col text-center items-center group-hover:-translate-y-2 transition-transform duration-300">
+                            <h3 class="text-xl font-bold text-brand-950 mb-3">Briefing rápido</h3>
+                            <p class="text-slate-600 leading-relaxed flex-grow">Te envio um formulário curto (5 minutos) com o básico: seu nome profissional, especialidade, onde atende e suas redes.</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="relative group h-full flex flex-col items-center">
+                        <div class="w-16 h-16 bg-brand-600 text-white rounded-full flex items-center justify-center text-2xl font-bold shadow-lg mb-6 relative z-20 group-hover:scale-110 transition-transform duration-300 shrink-0">3</div>
+                        <div class="bg-white rounded-3xl p-8 shadow-lg border border-slate-100 w-full flex-grow flex flex-col text-center items-center group-hover:-translate-y-2 transition-transform duration-300">
+                            <h3 class="text-xl font-bold text-brand-950 mb-3">Pagamento</h3>
+                            <p class="text-slate-600 leading-relaxed flex-grow">Após o briefing, você faz o investimento. PIX à vista ou parcelado no cartão.</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="relative group h-full flex flex-col items-center">
+                        <div class="w-16 h-16 bg-brand-600 text-white rounded-full flex items-center justify-center text-2xl font-bold shadow-lg mb-6 relative z-20 group-hover:scale-110 transition-transform duration-300 shrink-0">4</div>
+                        <div class="bg-white rounded-3xl p-8 shadow-lg border border-slate-100 w-full flex-grow flex flex-col text-center items-center group-hover:-translate-y-2 transition-transform duration-300">
+                            <h3 class="text-xl font-bold text-brand-950 mb-3">Seu site estará pronto e rodando em no máximo 3 dias</h3>
+                            <p class="text-slate-600 leading-relaxed flex-grow">Pronto para colocar na bio do Instagram, divulgar em grupos de WhatsApp, Facebook — e até seus familiares e amigos divulgarem.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CTA Button -->
+                <div class="mt-16 flex flex-col sm:flex-row justify-center gap-4 px-4">
+                    <a href="https://wa.me/5548988366755" target="_blank" rel="noopener noreferrer" class="bg-brand-600 hover:bg-brand-500 text-white px-8 py-4 rounded-full font-bold text-lg transition-all shadow-[0_0_20px_rgba(37,99,235,0.4)] hover:shadow-[0_0_30px_rgba(37,99,235,0.6)] transform hover:-translate-y-1 text-center">
+                        Eu Quero Me Destacar No Mercado Ganhando Autoridade
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="sobre" class="py-24 bg-white border-y border-slate-100 relative overflow-hidden">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="flex flex-col items-center">
+                
+                <!-- Photo (Smaller & Circular) -->
+                <div class="relative mb-12 flex justify-center">
+                    <div class="relative">
+                        <!-- Decorative background offset -->
+                        <div class="absolute inset-0 bg-brand-500 rounded-full transform -translate-x-3 translate-y-3 opacity-10"></div>
+                        <div class="absolute inset-0 bg-brand-900 rounded-full transform translate-x-3 -translate-y-3 opacity-5"></div>
+                        
+                        <!-- Main image -->
+                        <div class="relative w-64 h-64 md:w-72 md:h-72 rounded-full overflow-hidden shadow-2xl bg-slate-100 border-4 border-white z-10">
+                            <!-- Espaço para colocar a sua foto (tamanho ideal: 600x600 pixels, formato .webp recomendado) -->
+                            <img 
+                                src="foto-perfil.webp" 
+                                alt="Leandro - Especialista em posicionamento digital" 
+                                class="w-full h-full object-cover"
+                                referrerPolicy="no-referrer"
+                            />
+                            <!-- Overlay gradient for depth -->
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Content -->
+                <div class="text-center max-w-3xl">
+                    <span class="inline-block py-1 px-3 rounded-full bg-brand-100 text-brand-700 font-semibold text-sm mb-6">Leandro Flores</span>
+                    
+                    <h2 class="text-3xl md:text-4xl font-bold text-brand-950 mb-8 leading-tight">
+                        Especialista em posicionamento digital para personal trainers.
+                    </h2>
+                    
+                    <div class="space-y-6 text-lg text-slate-600 leading-relaxed text-left md:text-center">
+                        <p>
+                            Comecei estudando <strong class="text-brand-900 font-semibold">marketing de resposta direta</strong> — a área do marketing focada em uma coisa só: fazer pessoas agirem. Comprar, entrar em contato, virar aluno.
+                        </p>
+                        
+                        <p>
+                            Percebi que a maioria dos personais tem o que é mais difícil de ensinar: resultado real, comprometimento e experiência. <strong class="text-brand-900 font-semibold">O que falta é estrutura para mostrar isso de forma profissional.</strong>
+                        </p>
+                        
+                        <p>
+                            Desde 2022 trabalho com criação de páginas e posicionamento digital. Em 2026 decidi focar 100% no nicho de educação física — porque é onde eu vejo o maior gap entre o quanto o profissional entrega e o quanto a presença digital dele comunica isso.
+                        </p>
+                        
+                        <div class="pt-8 mt-8 border-t border-slate-100 flex justify-center">
+                            <p class="text-2xl font-bold text-brand-500 flex items-center gap-3">
+                                <i class="ph-fill ph-lightning"></i>
+                                A MoveLive nasceu disso.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Guarantee Section -->
+    <section class="py-20 bg-brand-950 text-white relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-96 h-96 bg-brand-800 rounded-full mix-blend-screen filter blur-[100px] opacity-30 transform translate-x-1/2 -translate-y-1/2"></div>
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <div class="inline-flex items-center justify-center w-72 h-72 md:w-80 md:h-80 rounded-full bg-brand-800/50 border-4 border-white mb-8 shadow-2xl overflow-hidden">
+                <!-- Espaço para colocar a sua foto (tamanho ideal: 800x800 pixels, formato .webp recomendado) -->
+                <img src="foto-garantia.webp" alt="Garantia" class="w-full h-full object-cover" referrerPolicy="no-referrer" />
+            </div>
+            <h2 class="text-3xl md:text-5xl font-bold mb-8 tracking-tight text-white animate-scale-pulse drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]">Teste por 30 dias. Sem risco nenhum.</h2>
+            <div class="space-y-6 text-lg md:text-xl text-slate-300 leading-relaxed max-w-3xl mx-auto">
+                <p class="font-bold text-white text-2xl mb-4">Você recebe. Você aprova. Ou eu devolvo tudo.</p>
+                <p>
+                    Após o pagamento, sua página fica pronta em <strong>até 3 dias</strong> — e você ainda tem <strong>3 meses de alterações ilimitadas</strong> para ir ajustando conforme seu trabalho evolui.
+                </p>
+                <p>
+                    Mas se em <strong>até 30 dias</strong> você sentir que a página não representa bem o seu trabalho, que não ficou do jeito que você esperava, ou que simplesmente não era o momento certo — <strong class="highlight-text">eu devolvo 100% do seu dinheiro no PIX.</strong>
+                </p>
+                <p>
+                    <strong>Sem perguntas. Sem formulário. Sem enrolação.</strong>
+                </p>
+                <p class="font-medium text-white">
+                    Eu só peço sua confiança para trabalhar. <strong>Se não entregar, não fico com seu dinheiro.</strong>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA / Contact Section -->
+    <section id="contato" class="py-24 bg-brand-50 relative overflow-hidden border-t border-slate-200">
+        <!-- Decorative elements -->
+        <div class="absolute top-0 left-0 w-64 h-64 bg-brand-200 rounded-full mix-blend-multiply filter blur-3xl opacity-50 transform -translate-x-1/2 -translate-y-1/2"></div>
+        <div class="absolute bottom-0 right-0 w-64 h-64 bg-brand-300 rounded-full mix-blend-multiply filter blur-3xl opacity-50 transform translate-x-1/2 translate-y-1/2"></div>
+
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <div class="w-20 h-20 bg-white rounded-full shadow-md flex items-center justify-center mx-auto mb-8">
+                <i class="ph-fill ph-chat-circle-text text-4xl text-brand-600"></i>
+            </div>
+            <h2 class="text-3xl md:text-5xl font-bold text-brand-950 mb-6">Pronto para começar!?</h2>
+            <div class="text-xl text-slate-600 mb-10 max-w-2xl mx-auto space-y-4">
+                <p>
+                    Me manda <strong>"Eu Quero!"</strong> no WhatsApp ou Instagram que eu já começo a trabalhar.
+                </p>
+                <p>
+                    Se quiser podemos conversar antes — me chama também. Posso reservar um horário rápido para alinharmos tudo com calma, sem compromisso.
+                </p>
+            </div>
+            
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+                <a href="https://wa.me/5548988366755" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-full font-bold text-lg transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2 transform hover:-translate-y-1">
+                    <i class="ph ph-whatsapp-logo text-2xl"></i>
+                    Eu quero!
+                </a>
+                <a href="https://instagram.com/leandro.florespro" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-600 hover:opacity-90 text-white px-8 py-4 rounded-full font-bold text-lg transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2 transform hover:-translate-y-1 border-none">
+                    <i class="ph ph-instagram-logo text-2xl"></i>
+                    Eu quero!
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-950 text-slate-400 py-12 border-t border-brand-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex flex-col items-center md:items-start gap-1">
+                <span class="text-xl font-bold text-white tracking-tight mb-1">MoveLive<span class="text-brand-500">.pro</span></span>
+                <span class="text-sm text-slate-400">Posicionamento digital para Personal Trainers</span>
+                <a href="mailto:contato@movelive.pro" class="text-sm text-brand-400 hover:text-brand-300 transition-colors">contato@movelive.pro</a>
+            </div>
+            <p class="text-sm text-center md:text-right">
+                &copy; <span id="year"></span> Leandro Flores. Todos os direitos reservados.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Vanilla JS Scripts -->
+    <script>
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 10) {
+                header.classList.add('shadow-md');
+                header.classList.remove('shadow-sm');
+            } else {
+                header.classList.remove('shadow-md');
+                header.classList.add('shadow-sm');
+            }
+        });
+
+        // Highlight animation on scroll
+        const highlightObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    highlightObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.highlight-text').forEach(el => {
+            highlightObserver.observe(el);
+        });
+    </script>
+</body>
+</html>
