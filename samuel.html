@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samuel Rodrigues | Personal Trainer & Coach</title>
+    
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Configuração do Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            DEFAULT: '#EAB308', // Amber 500
+                            dark: '#CA8A04',    // Amber 600
+                        },
+                        dark: {
+                            900: '#111827',
+                            950: '#030712',
+                            800: '#1F2937',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Alpine.js -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <style>
+        [x-cloak] { display: none !important; }
+        .text-gradient {
+            background: linear-gradient(to right, #EAB308, #FDE047);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .bg-gradient-dark {
+            background: linear-gradient(180deg, #030712 0%, #111827 100%);
+        }
+    </style>
+</head>
+<body class="bg-dark-950 text-gray-300 font-sans antialiased selection:bg-brand selection:text-dark-950 overflow-x-hidden">
+
+    <!-- Navbar -->
+    <nav x-data="{ isOpen: false, scrolled: false }" 
+         @scroll.window="scrolled = (window.pageYOffset > 20)"
+         :class="{ 'bg-dark-950/90 backdrop-blur-md shadow-lg': scrolled, 'bg-transparent': !scrolled }"
+         class="fixed w-full z-50 transition-all duration-300 border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#" class="font-heading text-2xl font-black text-white tracking-tighter">
+                        SAMUEL<span class="text-brand">RODRIGUES</span>
+                    </a>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#metodo" class="text-sm font-medium hover:text-brand transition-colors">O Método</a>
+                    <a href="#sobre" class="text-sm font-medium hover:text-brand transition-colors">Sobre Mim</a>
+                    <a href="#planos" class="text-sm font-medium hover:text-brand transition-colors">Planos</a>
+                    <a href="#contato" class="bg-brand hover:bg-brand-dark text-dark-950 px-6 py-2.5 rounded-full font-bold transition-all transform hover:scale-105 shadow-[0_0_15px_rgba(234,179,8,0.3)]">
+                        Começar Agora
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button @click="isOpen = !isOpen" class="text-gray-300 hover:text-white focus:outline-none">
+                        <i class="ph" :class="isOpen ? 'ph-x' : 'ph-list'" style="font-size: 28px;"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Panel -->
+        <div x-show="isOpen" 
+             x-transition:enter="transition ease-out duration-200"
+             x-transition:enter-start="opacity-0 -translate-y-4"
+             x-transition:enter-end="opacity-100 translate-y-0"
+             x-transition:leave="transition ease-in duration-150"
+             x-transition:leave-start="opacity-100 translate-y-0"
+             x-transition:leave-end="opacity-0 -translate-y-4"
+             @click.away="isOpen = false"
+             class="md:hidden bg-dark-900 border-b border-white/10 absolute w-full" x-cloak>
+            <div class="px-4 pt-2 pb-6 space-y-2 shadow-2xl">
+                <a href="#metodo" @click="isOpen = false" class="block px-3 py-3 rounded-md text-base font-medium hover:bg-dark-800 hover:text-brand">O Método</a>
+                <a href="#sobre" @click="isOpen = false" class="block px-3 py-3 rounded-md text-base font-medium hover:bg-dark-800 hover:text-brand">Sobre Mim</a>
+                <a href="#planos" @click="isOpen = false" class="block px-3 py-3 rounded-md text-base font-medium hover:bg-dark-800 hover:text-brand">Planos</a>
+                <a href="#contato" @click="isOpen = false" class="block px-3 py-3 mt-4 text-center rounded-md text-base font-bold bg-brand text-dark-950 hover:bg-brand-dark">
+                    Agendar Avaliação
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+        <!-- Background Elements -->
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] opacity-20 pointer-events-none">
+            <div class="absolute inset-0 bg-brand blur-[120px] rounded-full mix-blend-screen"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Copy -->
+                <div data-aos="fade-right">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 mb-6">
+                        <i class="ph-fill ph-instagram-logo text-brand"></i>
+                        <span class="text-xs font-medium uppercase tracking-wider text-gray-300">@samuelrodrigues.coach</span>
+                    </div>
+                    <h1 class="font-heading text-5xl lg:text-7xl font-black text-white leading-[1.1] mb-6">
+                        Transforme seu corpo com um treino <span class="text-gradient">feito para você.</span>
+                    </h1>
+                    <p class="text-lg lg:text-xl text-gray-400 mb-8 max-w-lg">
+                        Chega de treinos genéricos. Alcance sua melhor forma com um acompanhamento personalizado, focado na sua rotina e nos seus objetivos reais.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#contato" class="flex items-center justify-center gap-2 bg-brand hover:bg-brand-dark text-dark-950 px-8 py-4 rounded-full font-bold text-lg transition-all transform hover:scale-105 shadow-[0_0_20px_rgba(234,179,8,0.4)]">
+                            <i class="ph-fill ph-whatsapp text-2xl"></i>
+                            Falar no WhatsApp
+                        </a>
+                        <a href="#metodo" class="flex items-center justify-center px-8 py-4 rounded-full font-bold text-lg text-white border border-white/20 hover:bg-white/5 transition-colors">
+                            Entender o Método
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Image Placeholder -->
+                <div class="relative" data-aos="fade-left" data-aos-delay="200">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-brand/20 to-transparent rounded-3xl transform rotate-3 scale-105 blur-lg"></div>
+                    <div class="relative rounded-3xl overflow-hidden border border-white/10 bg-dark-800 aspect-[4/5] flex items-center justify-center group">
+                        
+                        <!-- PLACEHOLDER IMAGE (Substitua samuel.webp) -->
+                        <img src="samuel.webp" alt="Foto de Samuel Rodrigues" class="absolute inset-0 w-full h-full object-cover object-top z-10 opacity-0 transition-opacity duration-500" onload="this.classList.remove('opacity-0')" onerror="this.style.display='none'; document.getElementById('placeholder-text').style.display='flex'">
+                        
+                        <!-- Fallback Text if image is missing -->
+                        <div id="placeholder-text" class="absolute inset-0 flex flex-col items-center justify-center text-center p-6 z-0">
+                            <i class="ph ph-image text-6xl text-gray-600 mb-4"></i>
+                            <p class="text-gray-500 font-medium">Insira sua foto aqui</p>
+                            <p class="text-sm text-gray-600 mt-2">Salve a imagem como <br><code class="text-brand">samuel.webp</code> na mesma pasta.</p>
+                            <p class="text-xs text-gray-600 mt-1">Tamanho ideal: 800x1000px</p>
+                        </div>
+
+                        <!-- Overlay Gradient -->
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark-950 via-dark-950/20 to-transparent z-20"></div>
+                    </div>
+                    
+                    <!-- Floating Badge -->
+                    <div class="absolute -bottom-6 -left-6 bg-dark-900 border border-white/10 p-4 rounded-2xl shadow-xl z-30 flex items-center gap-4 animate-bounce" style="animation-duration: 3s;">
+                        <div class="w-12 h-12 rounded-full bg-brand/20 flex items-center justify-center">
+                            <i class="ph-fill ph-fire text-brand text-2xl"></i>
+                        </div>
+                        <div>
+                            <p class="text-white font-bold text-lg leading-tight">Resultados</p>
+                            <p class="text-gray-400 text-sm">Comprovados</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Framework PAS (Problema, Agitação, Solução) -->
+    <section id="metodo" class="py-24 bg-dark-900 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Problema -->
+            <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+                <h2 class="font-heading text-3xl md:text-4xl font-bold text-white mb-6">Você treina, treina e <span class="text-red-500">não vê resultados?</span></h2>
+                <p class="text-xl text-gray-400">A maioria das pessoas desiste da academia nos primeiros meses. Não por falta de vontade, mas por falta de direção.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Agitação 1 -->
+                <div class="bg-dark-950 border border-white/5 p-8 rounded-2xl hover:border-brand/30 transition-colors" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-14 h-14 rounded-xl bg-red-500/10 flex items-center justify-center mb-6">
+                        <lord-icon
+                            src="https://cdn.lordicon.com/nocovwne.json"
+                            trigger="loop"
+                            delay="1500"
+                            colors="primary:#ef4444,secondary:#ffffff"
+                            style="width:35px;height:35px">
+                        </lord-icon>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Treinos de Gaveta</h3>
+                    <p class="text-gray-400">Fazer a mesma ficha genérica que o instrutor passou para outras 50 pessoas não vai resolver o seu problema específico.</p>
+                </div>
+
+                <!-- Agitação 2 -->
+                <div class="bg-dark-950 border border-white/5 p-8 rounded-2xl hover:border-brand/30 transition-colors" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-14 h-14 rounded-xl bg-red-500/10 flex items-center justify-center mb-6">
+                        <lord-icon
+                            src="https://cdn.lordicon.com/gqzfzudq.json"
+                            trigger="loop"
+                            delay="1500"
+                            colors="primary:#ef4444,secondary:#ffffff"
+                            style="width:35px;height:35px">
+                        </lord-icon>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Estagnação</h3>
+                    <p class="text-gray-400">Você até perdeu peso no início, mas agora a balança travou, o espelho não muda e a desmotivação começa a bater forte.</p>
+                </div>
+
+                <!-- Agitação 3 -->
+                <div class="bg-dark-950 border border-white/5 p-8 rounded-2xl hover:border-brand/30 transition-colors" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-14 h-14 rounded-xl bg-red-500/10 flex items-center justify-center mb-6">
+                        <lord-icon
+                            src="https://cdn.lordicon.com/usownftb.json"
+                            trigger="loop"
+                            delay="1500"
+                            colors="primary:#ef4444,secondary:#ffffff"
+                            style="width:35px;height:35px">
+                        </lord-icon>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Risco de Lesões</h3>
+                    <p class="text-gray-400">Executar exercícios sem a técnica correta ou com cargas inadequadas é o caminho mais rápido para dores e afastamento.</p>
+                </div>
+            </div>
+
+            <!-- Solução -->
+            <div class="mt-20 bg-gradient-to-r from-brand/20 to-transparent border border-brand/20 rounded-3xl p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8" data-aos="zoom-in">
+                <div class="max-w-2xl">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand/20 text-brand text-sm font-bold mb-4">
+                        <i class="ph-fill ph-check-circle"></i> A Solução Definitiva
+                    </div>
+                    <h3 class="font-heading text-3xl font-bold text-white mb-4">O método focado na sua individualidade.</h3>
+                    <p class="text-gray-300 text-lg">
+                        Com um planejamento estratégico, ajustamos o volume, a intensidade e a escolha dos exercícios exatamente para o seu nível atual. Sem extremismos, criando uma rotina que você consegue manter e que gera resultados visíveis.
+                    </p>
+                </div>
+                <div class="flex-shrink-0">
+                    <a href="#contato" class="inline-flex items-center justify-center bg-brand hover:bg-brand-dark text-dark-950 px-8 py-4 rounded-full font-bold text-lg transition-all transform hover:scale-105">
+                        Quero Mudar Meu Corpo
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Sobre o Profissional -->
+    <section id="sobre" class="py-24 bg-dark-950">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div class="order-2 md:order-1" data-aos="fade-right">
+                    <h2 class="font-heading text-4xl font-black text-white mb-6">Quem será o seu <span class="text-brand">Coach?</span></h2>
+                    <p class="text-gray-400 text-lg mb-6 leading-relaxed">
+                        Muito prazer, sou <span class="text-white font-bold">Samuel Rodrigues</span>. Sou um profissional apaixonado por transformar vidas através do movimento. Meu objetivo não é apenas passar exercícios, mas educar você sobre o próprio corpo e construir hábitos duradouros.
+                    </p>
+                    <p class="text-gray-400 text-lg mb-8 leading-relaxed">
+                        Acredito que o fitness deve se adaptar à sua vida, e não o contrário. Com base em ciência e experiência prática, desenvolvo estratégias reais para pessoas reais que buscam hipertrofia, emagrecimento ou qualidade de vida.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-6 mb-8">
+                        <div>
+                            <p class="text-4xl font-black text-white mb-1">+<span class="text-brand">100</span></p>
+                            <p class="text-sm text-gray-500 uppercase tracking-wider font-medium">Alunos Atendidos</p>
+                        </div>
+                        <div>
+                            <p class="text-4xl font-black text-white mb-1"><span class="text-brand">100</span>%</p>
+                            <p class="text-sm text-gray-500 uppercase tracking-wider font-medium">Foco no Resultado</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="order-1 md:order-2 relative" data-aos="fade-left">
+                    <!-- Decorative square -->
+                    <div class="absolute inset-0 border-2 border-brand/30 rounded-3xl translate-x-4 translate-y-4"></div>
+                    <div class="relative bg-dark-800 rounded-3xl aspect-square overflow-hidden border border-white/10 flex items-center justify-center group">
+                        
+                        <!-- PLACEHOLDER IMAGE (Substitua samuel2.webp) -->
+                        <img src="samuel2.webp" alt="Foto de Samuel Rodrigues" class="absolute inset-0 w-full h-full object-cover object-center z-10 opacity-0 transition-opacity duration-500" onload="this.classList.remove('opacity-0')" onerror="this.style.display='none'; document.getElementById('placeholder-sobre').style.display='flex'">
+                        
+                        <!-- Fallback Text if image is missing -->
+                        <div id="placeholder-sobre" class="absolute inset-0 flex flex-col items-center justify-center text-center p-6 z-0">
+                            <i class="ph ph-image text-6xl text-gray-600 mb-4"></i>
+                            <p class="text-gray-500 font-medium">Insira sua foto aqui</p>
+                            <p class="text-sm text-gray-600 mt-2">Salve a imagem como <br><code class="text-brand">samuel2.webp</code> na mesma pasta.</p>
+                            <p class="text-xs text-gray-600 mt-1">Tamanho ideal: 800x800px</p>
+                        </div>
+
+                        <!-- Overlay Gradient -->
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark-950 via-transparent to-transparent z-20"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Planos e Serviços (Alpine Tabs) -->
+    <section id="planos" class="py-24 bg-dark-900 border-y border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" x-data="{ tab: 'online' }">
+            
+            <div class="text-center max-w-3xl mx-auto mb-12" data-aos="fade-up">
+                <h2 class="font-heading text-4xl font-black text-white mb-4">Escolha o formato ideal para você</h2>
+                <p class="text-gray-400 text-lg">Serviços desenhados para atender sua necessidade, seja presencialmente ou à distância.</p>
+            </div>
+
+            <!-- Tab Buttons -->
+            <div class="flex justify-center mb-12" data-aos="fade-up" data-aos-delay="100">
+                <div class="bg-dark-950 p-1 rounded-full border border-white/10 inline-flex">
+                    <button @click="tab = 'online'" 
+                            :class="tab === 'online' ? 'bg-brand text-dark-950 shadow-md' : 'text-gray-400 hover:text-white'"
+                            class="px-8 py-3 rounded-full font-bold text-sm transition-all duration-300">
+                        Consultoria Online
+                    </button>
+                    <button @click="tab = 'presencial'" 
+                            :class="tab === 'presencial' ? 'bg-brand text-dark-950 shadow-md' : 'text-gray-400 hover:text-white'"
+                            class="px-8 py-3 rounded-full font-bold text-sm transition-all duration-300">
+                        Personal Presencial
+                    </button>
+                </div>
+            </div>
+
+            <!-- Tab Content: Online -->
+            <div x-show="tab === 'online'" 
+                 x-transition:enter="transition ease-out duration-300"
+                 x-transition:enter-start="opacity-0 translate-y-4"
+                 x-transition:enter-end="opacity-100 translate-y-0"
+                 class="max-w-4xl mx-auto" x-cloak>
+                <div class="bg-dark-950 border border-white/10 rounded-3xl p-8 md:p-12 shadow-2xl relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-64 h-64 bg-brand/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+                    
+                    <div class="grid md:grid-cols-2 gap-12 relative z-10">
+                        <div>
+                            <h3 class="text-3xl font-heading font-bold text-white mb-4">Consultoria Online</h3>
+                            <p class="text-gray-400 mb-8">Liberdade para treinar onde e quando quiser, com a segurança de ter um planejamento feito por um especialista.</p>
+                            
+                            <ul class="space-y-4 mb-8">
+                                <li class="flex items-start gap-3">
+                                    <i class="ph-fill ph-check-circle text-brand text-xl mt-0.5"></i>
+                                    <span class="text-gray-300">Análise de perfil e objetivos</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i class="ph-fill ph-check-circle text-brand text-xl mt-0.5"></i>
+                                    <span class="text-gray-300">Planilha de treinos individualizada (App)</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i class="ph-fill ph-check-circle text-brand text-xl mt-0.5"></i>
+                                    <span class="text-gray-300">Vídeos demonstrativos de execução</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i class="ph-fill ph-check-circle text-brand text-xl mt-0.5"></i>
+                                    <span class="text-gray-300">Suporte via WhatsApp para dúvidas</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i class="ph-fill ph-check-circle text-brand text-xl mt-0.5"></i>
+                                    <span class="text-gray-300">Ajustes periódicos de acordo com a evolução</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="flex flex-col justify-center">
+                            <div class="bg-dark-900 border border-white/5 rounded-2xl p-8 text-center">
+                                <p class="text-gray-400 font-medium mb-2">Investimento em você</p>
+                                <p class="text-white text-lg mb-6">Planos a partir de</p>
+                                <a href="#contato" class="block w-full bg-brand hover:bg-brand-dark text-dark-950 py-4 rounded-xl font-bold text-lg transition-colors">
+                                    Consultar Valores
+                                </a>
+                                <p class="text-xs text-gray-500 mt-4"><i class="ph ph-lock"></i> Pagamento seguro. Sem fidelidade abusiva.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab Content: Presencial -->
+            <div x-show="tab === 'presencial'" 
+                 x-transition:enter="transition ease-out duration-300"
+                 x-transition:enter-start="opacity-0 translate-y-4"
+                 x-transition:enter-end="opacity-100 translate-y-0"
+                 class="max-w-4xl mx-auto" x-cloak>
+                <div class="bg-dark-950 border border-brand/30 rounded-3xl p-8 md:p-12 shadow-[0_0_30px_rgba(234,179,8,0.1)] relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-64 h-64 bg-brand/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+                    
+                    <div class="grid md:grid-cols-2 gap-12 relative z-10">
+                        <div>
+                            <div class="inline-block px-3 py-1 bg-brand/20 text-brand text-xs font-bold uppercase tracking-wider rounded-full mb-4">Premium</div>
+                            <h3 class="text-3xl font-heading font-bold text-white mb-4">Personal Presencial</h3>
+                            <p class="text-gray-400 mb-8">Acompanhamento lado a lado. Correção em tempo real, motivação extra e extração do seu máximo potencial em cada série.</p>
+                            
+                            <ul class="space-y-4 mb-8">
+                                <li class="flex items-start gap-3">
+                                    <i class="ph-fill ph-star text-brand text-xl mt-0.5"></i>
+                                    <span class="text-gray-300">Tudo incluso na consultoria online</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i class="ph-fill ph-star text-brand text-xl mt-0.5"></i>
+                                    <span class="text-gray-300">Correção biomecânica em tempo real</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i class="ph-fill ph-star text-brand text-xl mt-0.5"></i>
+                                    <span class="text-gray-300">Ajuste de cargas e intensidade na hora</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i class="ph-fill ph-star text-brand text-xl mt-0.5"></i>
+                                    <span class="text-gray-300">Motivação e cobrança presencial</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i class="ph-fill ph-star text-brand text-xl mt-0.5"></i>
+                                    <span class="text-gray-300">Horários fixos para garantir a disciplina</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="flex flex-col justify-center">
+                            <div class="bg-dark-900 border border-white/5 rounded-2xl p-8 text-center">
+                                <p class="text-gray-400 font-medium mb-2">Vagas Limitadas na Agenda</p>
+                                <p class="text-white text-sm mb-6">Verifique a disponibilidade de horários para a sua região.</p>
+                                <a href="#contato" class="block w-full bg-brand hover:bg-brand-dark text-dark-950 py-4 rounded-xl font-bold text-lg transition-colors">
+                                    Verificar Agenda
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section id="contato" class="py-24 relative overflow-hidden">
+        <div class="absolute inset-0 bg-brand"></div>
+        <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9IiMwMDAwMDAiIGZpbGwtb3BhY2l0eT0iMC4xIi8+PC9zdmc+')] opacity-30"></div>
+        
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center" data-aos="zoom-in">
+            <h2 class="font-heading text-4xl md:text-5xl font-black text-dark-950 mb-6">Pronto para dar o primeiro passo?</h2>
+            <p class="text-dark-800 text-xl font-medium mb-10 max-w-2xl mx-auto">
+                Clique no botão abaixo para me chamar no WhatsApp. Vamos bater um papo rápido para eu entender seu objetivo e te mostrar como posso te ajudar.
+            </p>
+            
+            <!-- Substitua o link do href pelo link do WhatsApp real: https://wa.me/55DDDNUMERO?text=SuaMensagem -->
+            <a href="https://wa.me/" target="_blank" class="inline-flex items-center justify-center gap-3 bg-dark-950 hover:bg-dark-900 text-white px-10 py-5 rounded-full font-bold text-xl transition-all transform hover:scale-105 shadow-2xl">
+                <i class="ph-fill ph-whatsapp text-3xl text-green-500"></i>
+                Falar com o Treinador
+            </a>
+            <p class="mt-6 text-dark-800 font-medium text-sm">Sem compromisso. Respondo o mais rápido possível.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark-950 border-t border-white/5 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="text-center md:text-left">
+                <a href="#" class="font-heading text-xl font-black text-white tracking-tighter block mb-2">
+                    SAMUEL<span class="text-brand">RODRIGUES</span>
+                </a>
+                <p class="text-gray-500 text-sm">Transformando corpos e mentes através do treinamento.</p>
+            </div>
+            
+            <div class="flex gap-4">
+                <a href="https://instagram.com/samuelrodrigues.coach" target="_blank" class="w-10 h-10 rounded-full bg-dark-900 border border-white/10 flex items-center justify-center text-gray-400 hover:text-brand hover:border-brand transition-colors">
+                    <i class="ph-fill ph-instagram-logo text-xl"></i>
+                </a>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 pt-8 border-t border-white/5 text-center">
+            <p class="text-gray-600 text-sm">&copy; <span x-data x-text="new Date().getFullYear()"></span> Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Inicialização AOS e Lordicon -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.lordicon.com/lordicon.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({
+                once: true,
+                offset: 50,
+                duration: 800,
+                easing: 'ease-out-cubic',
+            });
+        });
+    </script>
+</body>
+</html>
