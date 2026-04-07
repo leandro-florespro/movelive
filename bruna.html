@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bruna Nunes | Reabilitação e Musculação Terapêutica</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Alpine.js -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#fff7ed',
+                            100: '#ffedd5',
+                            500: '#f97316', /* Laranja vibrante */
+                            600: '#ea580c',
+                            900: '#7c2d12',
+                            950: '#431407',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom subtle gradient background */
+        .bg-gradient-subtle {
+            background: linear-gradient(135deg, #fff7ed 0%, #ffffff 100%);
+        }
+        .text-gradient {
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-image: linear-gradient(to right, #ea580c, #7c2d12);
+        }
+        .hero-bg {
+            /* Placeholder para a imagem de fundo */
+            background-image: url('brunabg.webp');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800 antialiased bg-white selection:bg-brand-500 selection:text-white">
+
+    <!-- Navbar -->
+    <nav x-data="{ isOpen: false, scrolled: false }" 
+         @scroll.window="scrolled = (window.pageYOffset > 20)"
+         :class="{'bg-white/95 backdrop-blur-md shadow-sm': scrolled, 'bg-transparent': !scrolled}"
+         class="fixed w-full z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#" class="font-heading font-bold text-2xl tracking-tight transition-colors" :class="scrolled ? 'text-brand-950' : 'text-white'">
+                        Bruna<span class="text-brand-500">Nunes</span>
+                    </a>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#sobre" class="font-medium transition-colors" :class="scrolled ? 'text-gray-600 hover:text-brand-600' : 'text-gray-200 hover:text-white'">Sobre</a>
+                    <a href="#metodologia" class="font-medium transition-colors" :class="scrolled ? 'text-gray-600 hover:text-brand-600' : 'text-gray-200 hover:text-white'">Metodologia</a>
+                    <a href="#servicos" class="font-medium transition-colors" :class="scrolled ? 'text-gray-600 hover:text-brand-600' : 'text-gray-200 hover:text-white'">Serviços</a>
+                    <a href="https://wa.me/5511999999999?text=Olá,%20gostaria%20de%20agendar%20uma%20avaliação!" target="_blank" class="bg-brand-600 hover:bg-brand-700 text-white px-6 py-2.5 rounded-full font-medium transition-all shadow-lg shadow-brand-500/30 hover:shadow-brand-500/50 transform hover:-translate-y-0.5">
+                        Agendar Avaliação
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button @click="isOpen = !isOpen" class="focus:outline-none transition-colors" :class="scrolled ? 'text-gray-600 hover:text-brand-600' : 'text-white'">
+                        <i class="ph ph-list text-3xl" x-show="!isOpen"></i>
+                        <i class="ph ph-x text-3xl" x-show="isOpen" x-cloak></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div x-show="isOpen" 
+             x-transition:enter="transition ease-out duration-200"
+             x-transition:enter-start="opacity-0 -translate-y-2"
+             x-transition:enter-end="opacity-100 translate-y-0"
+             x-transition:leave="transition ease-in duration-150"
+             x-transition:leave-start="opacity-100 translate-y-0"
+             x-transition:leave-end="opacity-0 -translate-y-2"
+             class="md:hidden bg-white border-t border-gray-100 absolute w-full shadow-lg" x-cloak>
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="#sobre" @click="isOpen = false" class="block px-3 py-3 text-base font-medium text-gray-700 hover:text-brand-600 hover:bg-brand-50 rounded-lg">Sobre</a>
+                <a href="#metodologia" @click="isOpen = false" class="block px-3 py-3 text-base font-medium text-gray-700 hover:text-brand-600 hover:bg-brand-50 rounded-lg">Metodologia</a>
+                <a href="#servicos" @click="isOpen = false" class="block px-3 py-3 text-base font-medium text-gray-700 hover:text-brand-600 hover:bg-brand-50 rounded-lg">Serviços</a>
+                <a href="https://wa.me/5511999999999" target="_blank" class="block w-full text-center mt-4 bg-brand-600 text-white px-6 py-3 rounded-xl font-medium shadow-md">
+                    Falar no WhatsApp
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section (PAS Framework) -->
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden hero-bg">
+        <!-- Overlay escuro para a imagem de fundo -->
+        <div class="absolute inset-0 bg-gray-900/80"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+                
+                <!-- Copy -->
+                <div data-aos="fade-right" data-aos-duration="1000">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-500/20 border border-brand-500/30 text-brand-100 font-medium text-sm mb-6 backdrop-blur-sm">
+                        <i class="ph-fill ph-sparkle"></i> Especialista em Movimento
+                    </div>
+                    
+                    <h1 class="font-heading font-extrabold text-4xl sm:text-5xl lg:text-6xl leading-[1.1] text-white mb-6">
+                        Recupere sua Liberdade de Movimento e <span class="text-brand-500">Viva Sem Dor.</span>
+                    </h1>
+                    
+                    <div class="space-y-4 mb-8 text-lg text-gray-300">
+                        <!-- Problema -->
+                        <p><strong class="text-white font-semibold">Dores constantes e lesões</strong> estão te impedindo de treinar ou realizar atividades simples do dia a dia?</p>
+                        <!-- Agitação -->
+                        <p>Tentar treinar por conta própria ou com métodos genéricos só agrava o problema. Cada dia com dor é um dia a menos de qualidade de vida e liberdade.</p>
+                        <!-- Solução -->
+                        <p>Através da <strong class="text-brand-400 font-semibold">musculação terapêutica e do pilates</strong>, eu ajudo você a reabilitar seu corpo, fortalecer suas articulações e recuperar sua confiança.</p>
+                    </div>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="https://wa.me/5511999999999?text=Olá,%20gostaria%20de%20agendar%20uma%20avaliação!" target="_blank" class="flex items-center justify-center gap-2 bg-brand-600 hover:bg-brand-500 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all shadow-lg shadow-brand-600/30 hover:shadow-brand-500/50 transform hover:-translate-y-1">
+                            <i class="ph ph-whatsapp text-2xl"></i> Agendar Avaliação
+                        </a>
+                        <a href="#metodologia" class="flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white border border-white/20 px-8 py-4 rounded-xl font-medium text-lg transition-all backdrop-blur-sm">
+                            Entender o Método
+                        </a>
+                    </div>
+                    
+                    <div class="mt-8 flex items-center gap-4 text-sm text-gray-400 font-medium">
+                        <div class="flex -space-x-2">
+                            <img class="w-8 h-8 rounded-full border-2 border-gray-900" src="https://i.pravatar.cc/100?img=1" alt="Aluno">
+                            <img class="w-8 h-8 rounded-full border-2 border-gray-900" src="https://i.pravatar.cc/100?img=2" alt="Aluno">
+                            <img class="w-8 h-8 rounded-full border-2 border-gray-900" src="https://i.pravatar.cc/100?img=3" alt="Aluno">
+                        </div>
+                        <p>Junte-se a dezenas de alunos reabilitados.</p>
+                    </div>
+                </div>
+                
+                <!-- Image Placeholder -->
+                <div class="relative lg:ml-auto" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-brand-600 to-orange-400 rounded-[2rem] transform rotate-3 scale-105 opacity-30 blur-lg"></div>
+                    <div class="relative bg-gray-900 p-2 rounded-[2rem] shadow-2xl border border-gray-800">
+                        <!-- PLACEHOLDER IMAGEM: Substitua 'bruna1.webp' pelo nome do seu arquivo -->
+                        <img src="bruna1.webp" alt="Bruna Nunes - Personal Trainer" class="w-full max-w-md mx-auto rounded-[1.5rem] object-cover aspect-[4/5] bg-gray-800" onerror="this.src='https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'; this.alt='Placeholder Image';">
+                        
+                        <!-- Floating Badge -->
+                        <div class="absolute -bottom-6 -left-6 bg-gray-900 p-4 rounded-2xl shadow-xl border border-gray-800 flex items-center gap-4 animate-bounce" style="animation-duration: 3s;">
+                            <div class="w-12 h-12 bg-brand-900/50 rounded-full flex items-center justify-center text-brand-500">
+                                <i class="ph-fill ph-heartbeat text-2xl"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-400 font-medium">Especialidade em</p>
+                                <p class="font-bold text-white">Reabilitação</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre Section -->
+    <section id="sobre" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="order-2 lg:order-1 relative" data-aos="fade-up">
+                    <div class="aspect-square rounded-3xl overflow-hidden bg-gray-100 relative">
+                        <img src="bruna2.webp" alt="Pilates e Reabilitação" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1518611012118-696072aa579a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80';">
+                        <div class="absolute inset-0 bg-brand-900/10 mix-blend-multiply"></div>
+                    </div>
+                </div>
+                
+                <div class="order-1 lg:order-2" data-aos="fade-up" data-aos-delay="200">
+                    <h2 class="font-heading font-bold text-3xl sm:text-4xl text-brand-950 mb-6">Muito prazer, <br><span class="text-brand-600">sou Bruna Nunes.</span></h2>
+                    <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                        Sou especialista em movimento, focada em ajudar pessoas a superarem dores e limitações físicas através da união perfeita entre a ciência da reabilitação e o treinamento de força.
+                    </p>
+                    <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                        Meu propósito não é apenas passar um treino, mas sim entender a raiz do seu problema. Utilizando técnicas de <strong>Pilates</strong> e <strong>Musculação Terapêutica</strong>, crio um ambiente seguro para que você recupere sua funcionalidade, trate lesões e volte a ter autonomia sobre o próprio corpo.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="border-l-4 border-brand-500 pl-4">
+                            <h4 class="font-bold text-xl text-brand-950">Foco</h4>
+                            <p class="text-gray-600">Reabilitação e prevenção</p>
+                        </div>
+                        <div class="border-l-4 border-brand-500 pl-4">
+                            <h4 class="font-bold text-xl text-brand-950">Método</h4>
+                            <p class="text-gray-600">Pilates + Musculação</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Metodologia / Serviços -->
+    <section id="servicos" class="py-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+                <h2 class="font-heading font-bold text-3xl sm:text-4xl text-brand-950 mb-4">Como funciona o método <span class="text-brand-600">Mover</span>?</h2>
+                <p class="text-lg text-gray-600">Uma abordagem integrada que respeita a sua individualidade biológica, focada em resultados duradouros e qualidade de vida.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 hover:shadow-xl transition-shadow duration-300 group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-14 h-14 bg-brand-50 rounded-2xl flex items-center justify-center text-brand-600 mb-6 group-hover:bg-brand-600 group-hover:text-white transition-colors">
+                        <i class="ph ph-first-aid text-3xl"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-xl text-brand-950 mb-3">Reabilitação de Lesões</h3>
+                    <p class="text-gray-600 leading-relaxed">Avaliação minuciosa e protocolos específicos para tratar dores crônicas, pós-operatórios e lesões articulares, devolvendo sua mobilidade com segurança.</p>
+                </div>
+                
+                <!-- Card 2 -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 hover:shadow-xl transition-shadow duration-300 group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-14 h-14 bg-brand-50 rounded-2xl flex items-center justify-center text-brand-600 mb-6 group-hover:bg-brand-600 group-hover:text-white transition-colors">
+                        <i class="ph ph-person-simple-stretch text-3xl"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-xl text-brand-950 mb-3">Pilates Clínico</h3>
+                    <p class="text-gray-600 leading-relaxed">Exercícios focados no fortalecimento do core, melhora da postura, flexibilidade e consciência corporal. Ideal para quem busca movimento sem impacto agressivo.</p>
+                </div>
+                
+                <!-- Card 3 -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 hover:shadow-xl transition-shadow duration-300 group" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-14 h-14 bg-brand-50 rounded-2xl flex items-center justify-center text-brand-600 mb-6 group-hover:bg-brand-600 group-hover:text-white transition-colors">
+                        <i class="ph ph-barbell text-3xl"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-xl text-brand-950 mb-3">Musculação Terapêutica</h3>
+                    <p class="text-gray-600 leading-relaxed">Treinamento de força adaptado para proteger suas articulações enquanto constrói massa muscular, essencial para a longevidade e proteção do corpo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Intermediário -->
+    <section class="py-20 bg-brand-950 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-brand-400 via-transparent to-transparent"></div>
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10" data-aos="zoom-in">
+            <h2 class="font-heading font-bold text-3xl sm:text-4xl text-white mb-6">Não deixe a dor ditar os limites da sua vida.</h2>
+            <p class="text-brand-100 text-lg mb-10 max-w-2xl mx-auto">Dê o primeiro passo para um corpo forte, funcional e livre de dores. Agende uma avaliação detalhada e descubra o plano ideal para você.</p>
+            <a href="https://wa.me/5511999999999" target="_blank" class="inline-flex items-center justify-center gap-2 bg-brand-500 hover:bg-brand-400 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all shadow-lg shadow-brand-500/20 transform hover:-translate-y-1">
+                <i class="ph ph-calendar-plus text-2xl"></i> Quero Agendar Minha Avaliação
+            </a>
+        </div>
+    </section>
+
+    <!-- FAQ (Alpine.js) -->
+    <section class="py-24 bg-white">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="font-heading font-bold text-3xl sm:text-4xl text-brand-950 mb-4">Dúvidas Frequentes</h2>
+            </div>
+            
+            <div class="space-y-4" x-data="{ selected: null }">
+                <!-- Pergunta 1 -->
+                <div class="border border-gray-200 rounded-2xl overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                    <button @click="selected !== 1 ? selected = 1 : selected = null" class="w-full flex justify-between items-center p-6 bg-white hover:bg-gray-50 transition-colors">
+                        <span class="font-semibold text-brand-950 text-left">Nunca treinei antes, esse método serve para mim?</span>
+                        <i class="ph ph-caret-down text-xl text-brand-600 transition-transform duration-300" :class="selected === 1 ? 'rotate-180' : ''"></i>
+                    </button>
+                    <div x-show="selected === 1" x-collapse class="px-6 pb-6 text-gray-600">
+                        Com certeza! A avaliação inicial serve exatamente para entender o seu nível atual. O treinamento é 100% adaptado à sua capacidade, começando do básico e evoluindo com segurança.
+                    </div>
+                </div>
+
+                <!-- Pergunta 2 -->
+                <div class="border border-gray-200 rounded-2xl overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+                    <button @click="selected !== 2 ? selected = 2 : selected = null" class="w-full flex justify-between items-center p-6 bg-white hover:bg-gray-50 transition-colors">
+                        <span class="font-semibold text-brand-950 text-left">Tenho hérnia de disco/condromalácia, posso fazer musculação?</span>
+                        <i class="ph ph-caret-down text-xl text-brand-600 transition-transform duration-300" :class="selected === 2 ? 'rotate-180' : ''"></i>
+                    </button>
+                    <div x-show="selected === 2" x-collapse class="px-6 pb-6 text-gray-600">
+                        Sim, e deve! A musculação terapêutica é essencial para fortalecer a musculatura ao redor da lesão, estabilizando a articulação e aliviando a dor. Tudo é feito com controle rigoroso de carga e amplitude.
+                    </div>
+                </div>
+
+                <!-- Pergunta 3 -->
+                <div class="border border-gray-200 rounded-2xl overflow-hidden" data-aos="fade-up" data-aos-delay="300">
+                    <button @click="selected !== 3 ? selected = 3 : selected = null" class="w-full flex justify-between items-center p-6 bg-white hover:bg-gray-50 transition-colors">
+                        <span class="font-semibold text-brand-950 text-left">Como funciona a avaliação inicial?</span>
+                        <i class="ph ph-caret-down text-xl text-brand-600 transition-transform duration-300" :class="selected === 3 ? 'rotate-180' : ''"></i>
+                    </button>
+                    <div x-show="selected === 3" x-collapse class="px-6 pb-6 text-gray-600">
+                        A avaliação é o nosso ponto de partida. Analisamos seu histórico, queixas de dor, postura, mobilidade e padrões de movimento. Com esses dados, traçamos a melhor estratégia (Pilates, Musculação ou ambos) para o seu caso.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-950 text-brand-100 py-12 border-t border-brand-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="text-center md:text-left">
+                    <a href="#" class="font-heading font-bold text-2xl text-white tracking-tight block mb-2">
+                        Bruna<span class="text-brand-500">Nunes</span>
+                    </a>
+                    <p class="text-sm text-brand-300">Reabilitação, Pilates e Musculação Terapêutica.</p>
+                </div>
+                
+                <div class="flex gap-4">
+                    <a href="#" class="w-10 h-10 rounded-full bg-brand-900 flex items-center justify-center hover:bg-brand-500 hover:text-white transition-colors">
+                        <i class="ph-fill ph-instagram-logo text-xl"></i>
+                    </a>
+                    <a href="https://wa.me/5511999999999" class="w-10 h-10 rounded-full bg-brand-900 flex items-center justify-center hover:bg-brand-500 hover:text-white transition-colors">
+                        <i class="ph-fill ph-whatsapp-logo text-xl"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="mt-12 pt-8 border-t border-brand-900 text-center text-sm text-brand-400">
+                <p>&copy; 2024 Bruna Nunes. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize Animate On Scroll
+        AOS.init({
+            once: true,
+            offset: 50,
+            duration: 800,
+            easing: 'ease-out-cubic',
+        });
+    </script>
+</body>
+</html>
