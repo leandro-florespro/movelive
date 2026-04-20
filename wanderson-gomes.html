@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wanderson Gomes | Emagrecimento Feminino</title>
+    <meta name="description" content="Perca até 10 cm de barriga em 12 semanas com o método Queima Intensa. Especialista em emagrecimento feminino.">
+    
+    <!-- Tailwind CSS (CDN para arquivo estático sem build) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FF5A00', // Laranja vibrante mantém nos destaques/botões
+                        secondary: '#D91A1A', // Vermelho intenso para gradientes com laranja
+                        dark: '#0A0F1A', // Fundo principal super escuro (azul marinho quase preto)
+                        card: '#101726', // Fundo dos cards secundários (azul marinho da referência)
+                        accent: '#004A7C', // Azul médio da referência para fundos suaves
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@500;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Alpine.js -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #0A0F1A; color: #F3F4F6; }
+        h1, h2, h3, h4, h5, h6, .font-heading { font-family: 'Montserrat', sans-serif; }
+        
+        .text-gradient {
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-image: linear-gradient(to right, border-left, #FF5A00, #D91A1A);
+            background-image: linear-gradient(135deg, #FF5A00 0%, #D91A1A 100%);
+        }
+        
+        .btn-gradient {
+            background: linear-gradient(135deg, #FF5A00 0%, #D91A1A 100%);
+            transition: all 0.3s ease;
+        }
+        .btn-gradient:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px -5px rgba(255, 90, 0, 0.4);
+        }
+
+        /* Efeito sutil no fundo do Hero adaptado para a nova cor base */
+        .hero-pattern {
+            background-image: radial-gradient(circle at 80% -20%, rgba(255, 90, 0, 0.1) 0%, transparent 40%),
+                              radial-gradient(circle at 0% 100%, rgba(0, 74, 124, 0.3) 0%, transparent 40%);
+        }
+
+        /* Garantindo proporção 1:1 exata para a vaga do placeholder conforme instruído */
+        .image-placeholder-container {
+            aspect-ratio: 1 / 1;
+            overflow: hidden;
+            border-radius: 1.5rem;
+            background-color: #101726;
+        }
+        .image-placeholder-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* PROIBIDO USO DE GRAYSCALE DE ACORDO COM AS REGRAS */
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-primary selection:text-white">
+
+    <!-- Navegação Mobile/Desktop (Alpine.js) -->
+    <nav x-data="{ isOpen: false, scrolled: false }" 
+         @scroll.window="scrolled = (window.pageYOffset > 20) ? true : false"
+         :class="{ 'bg-dark/95 backdrop-blur-md shadow-lg': scrolled, 'bg-transparent': !scrolled }"
+         class="fixed w-full z-50 transition-all duration-300 py-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="#" class="font-heading font-black text-2xl tracking-tighter text-white">
+                        WANDERSON<span class="text-primary">.GOMES</span>
+                    </a>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#metodo" class="text-gray-300 hover:text-white transition-colors text-sm font-medium">O Método</a>
+                    <a href="#sobre" class="text-gray-300 hover:text-white transition-colors text-sm font-medium">Sobre Mim</a>
+                    <a href="#resultados" class="text-gray-300 hover:text-white transition-colors text-sm font-medium">Resultados</a>
+                    <a href="https://wa.me/5527995831678?text=Ol%C3%A1%20Wanderson%2C%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o!" target="_blank" class="btn-gradient px-6 py-2.5 rounded-full text-white font-bold text-sm tracking-wide">
+                        Agendar Avaliação
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button @click="isOpen = !isOpen" class="text-gray-300 hover:text-white focus:outline-none">
+                        <svg class="h-6 w-6" x-show="!isOpen" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                        <svg class="h-6 w-6" x-show="isOpen" style="display: none;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div x-show="isOpen" 
+             x-transition:enter="transition ease-out duration-200"
+             x-transition:enter-start="opacity-0 -translate-y-4"
+             x-transition:enter-end="opacity-100 translate-y-0"
+             x-transition:leave="transition ease-in duration-150"
+             x-transition:leave-start="opacity-100 translate-y-0"
+             x-transition:leave-end="opacity-0 -translate-y-4"
+             class="md:hidden absolute top-full left-0 w-full bg-dark/95 backdrop-blur-xl border-t border-gray-800 shadow-xl"
+             style="display: none;">
+            <div class="px-4 pt-2 pb-6 space-y-1">
+                <a href="#metodo" @click="isOpen = false" class="block px-3 py-3 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg">O Método</a>
+                <a href="#sobre" @click="isOpen = false" class="block px-3 py-3 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg">Sobre Mim</a>
+                <a href="#resultados" @click="isOpen = false" class="block px-3 py-3 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg">Resultados</a>
+                <div class="pt-4">
+                    <a href="https://wa.me/5527995831678?text=Ol%C3%A1%20Wanderson%2C%20quero%20perder%20barriga%20com%20o%20seu%20m%C3%A9todo!" target="_blank" class="block w-full text-center btn-gradient px-6 py-3 rounded-xl text-white font-bold tracking-wide">
+                        Quero Perder Barriga
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden bg-accent/20 hero-pattern border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                
+                <div class="max-w-2xl" data-aos="fade-right" data-aos-duration="1000">
+                    <div class="inline-flex items-center space-x-2 bg-gray-800/50 border border-gray-700/50 rounded-full px-4 py-1.5 mb-6 backdrop-blur-sm">
+                        <span class="text-primary">🔥</span>
+                        <span class="text-sm font-semibold text-gray-200 tracking-wide">Especialista em Emagrecimento Feminino</span>
+                    </div>
+                    
+                    <h1 class="font-heading text-4xl sm:text-5xl lg:text-6xl font-black leading-tight text-white mb-6">
+                        Perca até <span class="text-gradient">10 cm de barriga</span> em apenas 12 semanas.
+                    </h1>
+                    
+                    <p class="text-lg sm:text-xl text-gray-400 mb-8 leading-relaxed font-light">
+                        O método focado de treino online para mulheres que desejam acelerar o metabolismo, eliminar gordura localizada e resgatar a autoestima de forma definitiva.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="https://wa.me/5527995831678?text=Ol%C3%A1%20Wanderson%2C%20quero%20come%C3%A7ar%20o%20m%C3%A9todo%20Queima%20Intensa!" target="_blank" class="btn-gradient inline-flex justify-center items-center px-8 py-4 rounded-xl text-white font-bold text-lg tracking-wide w-full sm:w-auto">
+                            Começar o Queima Intensa
+                            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        </a>
+                    </div>
+                    
+                    <div class="mt-10 flex items-center gap-4 border-t border-gray-800 pt-6">
+                        <div class="flex -space-x-3">
+                            <div class="w-10 h-10 rounded-full bg-gray-700 border-2 border-dark flex items-center justify-center text-xs font-bold">👩</div>
+                            <div class="w-10 h-10 rounded-full bg-gray-600 border-2 border-dark flex items-center justify-center text-xs font-bold">👩🏻</div>
+                            <div class="w-10 h-10 rounded-full bg-gray-500 border-2 border-dark flex items-center justify-center text-xs font-bold">👩🏾</div>
+                        </div>
+                        <p class="text-sm text-gray-400">Junte-se a <strong class="text-white">centenas de mulheres</strong> com resultados comprovados.</p>
+                    </div>
+                </div>
+
+                <div class="relative lg:ml-auto w-full max-w-lg mx-auto" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+                    <!-- Placeholder visual frame -->
+                    <div class="relative">
+                        <!-- Ornamento decorativo atrás da imagem -->
+                        <div class="absolute -inset-4 bg-gradient-to-tr from-primary/30 to-secondary/30 rounded-2xl blur-2xl z-0"></div>
+                        
+                        <!-- IMAGEM PRINCIPAL HERO (EXATOS 1200x1200 RECOMENDADOS) -->
+                        <div class="image-placeholder-container relative z-10 border-4 border-gray-800 shadow-2xl">
+                            <img src="wanderson-gomes.webp" alt="Wanderson Gomes - Personal Trainer" loading="eager">
+                        </div>
+                        
+                        <!-- Badge flutuante -->
+                        <div class="absolute -bottom-6 -left-6 bg-card border border-gray-700 rounded-xl p-4 shadow-xl z-20 flex items-center gap-3 animate-bounce" style="animation-duration: 3s;">
+                            <div class="bg-primary/20 p-2 rounded-lg text-primary">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-400 font-medium">Método Exclusivo</p>
+                                <p class="text-sm font-bold text-white">Queima Intensa 🔥</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Conscientização (Estrutura PAS invisível) -->
+    <section class="py-20 bg-dark border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+                <h2 class="font-heading text-3xl md:text-4xl font-bold text-white mb-4">Por que os treinos comuns pararam de funcionar para você?</h2>
+                <p class="text-gray-400 text-lg">Especialmente após os 40 anos, a biologia da mulher sofre alterações profundas. Ignorar isso é o maior erro no emagrecimento.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Problema (Frustração) -->
+                <div class="bg-dark border border-gray-800 rounded-2xl p-8 hover:border-gray-700 transition-colors" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-14 h-14 bg-red-500/10 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-7 h-7 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Esforço Sem Recompensa</h3>
+                    <p class="text-gray-400 leading-relaxed">Você tenta dietas malucas, passa horas na esteira, mas quando veste aquela roupa que adora, a barriga indesejada ainda está marcando. A frustração só aumenta.</p>
+                </div>
+
+                <!-- Agitação (A dor crônica, metabolismo etc) -->
+                <div class="bg-dark border border-gray-800 rounded-2xl p-8 hover:border-gray-700 transition-colors" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-14 h-14 bg-orange-500/10 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-7 h-7 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Metabolismo Travado</h3>
+                    <p class="text-gray-400 leading-relaxed">O que funcionava aos 20 ou 30 anos não funciona mais. As oscilações hormonais transformam seu corpo em um verdadeiro "acumulador" de gordura, principalmente no abdômen.</p>
+                </div>
+
+                <!-- Solução Inicial (Ponte) -->
+                <div class="bg-gradient-to-br from-card to-dark border border-primary/30 rounded-2xl p-8 shadow-[0_0_30px_rgba(249,115,22,0.1)] relative overflow-hidden" data-aos="fade-up" data-aos-delay="300">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full blur-2xl"></div>
+                    <div class="w-14 h-14 bg-primary/20 rounded-xl flex items-center justify-center mb-6 relative z-10">
+                        <svg class="w-7 h-7 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3 relative z-10">O Fim do Efeito Sanfona</h3>
+                    <p class="text-gray-400 leading-relaxed relative z-10">A solução não é fazer MAIS exercício, mas sim o exercício CERTO. Treinos metabólicos direcionados criam um ambiente de queima de gordura que dura até 48 horas após o treino.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- O Método (Solução Aprofundada) -->
+    <section id="metodo" class="py-20 lg:py-28 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mx-auto text-center mb-16" data-aos="fade-up">
+                <h2 class="font-heading text-3xl md:text-4xl font-bold text-white mb-6">
+                    Conheça o <span class="text-primary border-b-2 border-primary">Queima Intensa</span> 🔥
+                </h2>
+                <p class="text-gray-400 text-lg leading-relaxed">
+                    Um método desenvolvido cirurgicamente para as necessidades da mulher. Você não vai precisar passar horas em máquinas de aeróbico que prejudicam suas articulações.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8" data-aos="fade-up" data-aos-delay="100">
+                <!-- Tópico 1 -->
+                <div class="bg-card border border-gray-800 rounded-2xl p-8 hover:border-primary/50 transition-colors text-center">
+                    <div class="w-12 h-12 mx-auto rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold mb-4 text-xl">1</div>
+                    <h4 class="text-white font-bold text-lg mb-3">Foco na Flacidez Abdominal</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">Exercícios estrategicamente selecionados que promovem a redução de medidas da barriga de forma acelerada, combatendo a flacidez simultaneamente.</p>
+                </div>
+                
+                <!-- Tópico 2 -->
+                <div class="bg-card border border-gray-800 rounded-2xl p-8 hover:border-primary/50 transition-colors text-center">
+                    <div class="w-12 h-12 mx-auto rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold mb-4 text-xl">2</div>
+                    <h4 class="text-white font-bold text-lg mb-3">Rotina de Casa ou Academia</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">Flexibilidade total. Protocolos eficientes e curtos que você pode realizar no conforto do seu lar ou levar para a sua academia de preferência.</p>
+                </div>
+
+                <!-- Tópico 3 -->
+                <div class="bg-card border border-gray-800 rounded-2xl p-8 hover:border-primary/50 transition-colors text-center">
+                    <div class="w-12 h-12 mx-auto rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold mb-4 text-xl">3</div>
+                    <h4 class="text-white font-bold text-lg mb-3">Acompanhamento e Correção</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">Não é só uma planilha genérica. Você terá o direcionamento de um profissional orientando cada passo da sua jornada de 12 semanas.</p>
+                </div>
+            </div>
+
+            <div class="mt-12 text-center" data-aos="fade-up" data-aos-delay="200">
+                <a href="https://wa.me/5527995831678?text=Ol%C3%A1%20Wanderson%2C%20quero%20conhecer%20os%20planos%20do%20seu%20trabalho!" target="_blank" class="inline-flex justify-center text-white font-bold items-center gap-2 hover:text-primary transition-colors group">
+                    Quero conhecer os planos 
+                    <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre o Profissional -->
+    <section id="sobre" class="py-20 bg-dark lg:py-28 relative border-t border-gray-800">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-card rounded-3xl border border-gray-800 shadow-2xl p-8 md:p-12 lg:p-16 text-center" data-aos="fade-up">
+                <div class="w-32 h-32 mx-auto rounded-full overflow-hidden border-4 border-primary/20 mb-8 shadow-[0_0_20px_rgba(255,90,0,0.2)]">
+                    <img src="wanderson-gomes.webp" alt="Wanderson Gomes" class="w-full h-full object-cover">
+                </div>
+                <h2 class="font-heading text-3xl font-bold text-white mb-2">Quem será o seu guia?</h2>
+                <h3 class="text-primary font-bold text-xl mb-8">Wanderson Gomes</h3>
+                
+                <p class="text-gray-300 mb-6 leading-relaxed text-lg">
+                    Sou Personal Trainer Especialista em Emagrecimento Feminino e atuo online transformando o corpo e a realidade de mulheres por todo o país. O meu propósito não é apenas entregar exercícios, mas oferecer um direcionamento com início, meio e fim.
+                </p>
+                <p class="text-gray-400 mb-10 leading-relaxed text-lg">
+                    Com o desenvolvimento do método <strong>Queima Intensa</strong>, identifiquei os principais erros que travam o emagrecimento, principalmente em mulheres após os 40 anos. Criei um protocolo direto ao ponto para secar abdômen de até 10 cm em 12 semanas. Sem dietas impossíveis, sem treinos de 2 horas. Apenas a ciência aplicada à sua rotina real.
+                </p>
+                
+                <div>
+                    <a href="https://wa.me/5527995831678?text=Ol%C3%A1%20Wanderson%2C%20gostaria%20de%20falar%20com%20voc%C3%AA%20sobre%20os%20treinos." target="_blank" class="btn-gradient inline-flex px-8 py-4 rounded-full text-white font-bold tracking-wide">
+                        Falar com o Wanderson 💬
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resultados (Sutileza sem precisar de fotos genéricas obrigatórias de terceiros, foco na promessa do botão e copy) -->
+    <section id="resultados" class="py-20 lg:py-28 relative bg-dark">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center" data-aos="zoom-in">
+            <span class="text-secondary font-bold tracking-wider text-sm uppercase mb-3 block">Pronta Para a Grande Virada?</span>
+            <h2 class="font-heading text-3xl md:text-5xl font-black text-white mb-8 border-b border-gray-800 pb-8 inline-block">
+                O Seu "Antes e Depois" começa pela ousadia de dar o <span class="text-primary">Primeiro Passo</span>.
+            </h2>
+            
+            <p class="text-xl text-gray-400 mb-10 font-light">
+                As vagas para o meu acompanhamento e para o programa <strong>Queima Intensa</strong> são geridas cuidadosamente para garantir que toda aluna tenha extrema atenção aos detalhes no processo.
+            </p>
+
+            <a href="https://wa.me/5527995831678?text=Ol%C3%A1%20Wanderson%2C%20estou%20pronta%20para%20dar%20o%20primeiro%20passo%20e%20agendar%20minha%20avalia%C3%A7%C3%A3o!" target="_blank" class="btn-gradient inline-flex justify-center items-center px-10 py-5 rounded-xl text-white font-black text-xl tracking-wide w-full sm:w-auto shadow-2xl ring-4 ring-primary/20 hover:ring-primary/40 transition-all">
+                AGENDAR AVALIAÇÃO PELO WHATSAPP
+            </a>
+            <p class="text-sm text-gray-500 mt-6 flex justify-center items-center gap-2">
+                <svg class="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                Conversa direta, segura e confidencial.
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark/80 py-10 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="font-heading font-black text-xl tracking-tighter text-gray-400">
+                WANDERSON<span class="text-gray-600">.GOMES</span>
+            </div>
+            <p class="text-sm text-gray-600 text-center md:text-left">
+                &copy; <span x-data x-text="new Date().getFullYear()"></span> Wanderson Gomes - Personal Trainer. Todos os direitos reservados.
+            </p>
+            <div class="flex gap-4">
+                <a href="#" class="text-gray-500 hover:text-white transition-colors">
+                    <span class="sr-only">Instagram</span>
+                    <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm3.98-10.822a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts Initialize -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Inicializa a animação de scroll
+            AOS.init({
+                once: true,
+                offset: 50,
+                duration: 800,
+                easing: 'ease-out-cubic',
+            });
+        });
+    </script>
+</body>
+</html>
