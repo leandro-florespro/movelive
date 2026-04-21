@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vinicius Barbosa | Personal Trainer & Fighter</title>
+    <meta name="description" content="Transforme seu corpo e mente com o método Personal Fighter. Vinicius Barbosa: Educação Física, Capoeira, Jiu-Jitsu e Defesa Pessoal.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS (via CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Alpine.js (via CDN) -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            red: '#E61A1A',
+                            darkred: '#990000',
+                            black: '#0A0A0A',
+                            dark: '#141414',
+                            gray: '#242424',
+                            light: '#F5F5F5'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0A0A0A; }
+        ::-webkit-scrollbar-thumb { background: #E61A1A; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #990000; }
+        
+        /* Gradient Text Helper */
+        .text-gradient {
+            background: linear-gradient(to right, #E61A1A, #ff6b6b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-brand-black text-brand-light font-sans antialiased selection:bg-brand-red selection:text-white">
+
+    <!-- Navbar -->
+    <nav x-data="{ mobileMenuOpen: false, scrolled: false }" 
+         @scroll.window="scrolled = (window.pageYOffset > 20)"
+         :class="{'bg-brand-black/95 backdrop-blur-md border-b border-white/10': scrolled, 'bg-transparent': !scrolled}"
+         class="fixed w-full top-0 z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#" class="font-heading font-bold text-2xl tracking-tighter text-white">
+                        vinicius<span class="text-brand-red">.</span>barbosa
+                    </a>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#metodo" class="text-sm font-medium text-gray-300 hover:text-brand-red transition-colors">O Método</a>
+                    <a href="#sobre" class="text-sm font-medium text-gray-300 hover:text-brand-red transition-colors">Sobre Mim</a>
+                    <a href="#resultados" class="text-sm font-medium text-gray-300 hover:text-brand-red transition-colors">Resultados</a>
+                    <a href="https://wa.me/5511960157493?text=Olá%20Vinicius,%20vim%20pelo%20seu%20site%20e%20gostaria%20de%20agendar%20uma%20avaliação." target="_blank" class="bg-brand-red hover:bg-brand-darkred text-white px-6 py-2.5 rounded-full font-semibold transition-all shadow-[0_0_15px_rgba(230,26,26,0.5)] transform hover:scale-105">
+                        Agendar Treino
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button @click="mobileMenuOpen = !mobileMenuOpen" class="text-white hover:text-brand-red focus:outline-none">
+                        <svg class="h-8 w-8" x-show="!mobileMenuOpen" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                        <svg class="h-8 w-8" x-show="mobileMenuOpen" style="display: none;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Panel -->
+        <div x-show="mobileMenuOpen" 
+             x-transition:enter="transition ease-out duration-200"
+             x-transition:enter-start="opacity-0 -translate-y-2"
+             x-transition:enter-end="opacity-100 translate-y-0"
+             x-transition:leave="transition ease-in duration-150"
+             x-transition:leave-start="opacity-100 translate-y-0"
+             x-transition:leave-end="opacity-0 -translate-y-2"
+             class="md:hidden bg-brand-dark/95 backdrop-blur-xl border-b border-white/5 absolute w-full"
+             style="display: none;">
+            <div class="px-4 pt-2 pb-6 space-y-2 flex flex-col">
+                <a href="#metodo" @click="mobileMenuOpen = false" class="block px-3 py-3 text-base font-medium text-gray-300 hover:text-brand-red border-b border-white/5">O Método</a>
+                <a href="#sobre" @click="mobileMenuOpen = false" class="block px-3 py-3 text-base font-medium text-gray-300 hover:text-brand-red border-b border-white/5">Sobre Mim</a>
+                <a href="#resultados" @click="mobileMenuOpen = false" class="block px-3 py-3 text-base font-medium text-gray-300 hover:text-brand-red border-b border-white/5">Resultados</a>
+                <a href="https://wa.me/5511960157493?text=Olá%20Vinicius,%20vim%20pelo%20seu%20site%20e%20gostaria%20de%20agendar%20uma%20avaliação." target="_blank" class="block mt-4 text-center bg-brand-red text-white px-6 py-3 rounded-md font-bold">Falar no WhatsApp</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+        <!-- Background Accents -->
+        <div class="absolute top-0 right-0 -mr-[-20%] -mt-[10%] w-[800px] h-[800px] bg-brand-red/10 rounded-full blur-[120px] pointer-events-none"></div>
+        <div class="absolute bottom-0 left-0 -ml-[-10%] -mb-[10%] w-[600px] h-[600px] bg-brand-red/5 rounded-full blur-[100px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+                <!-- Copy Hero -->
+                <div data-aos="fade-right" data-aos-duration="1000">
+                    <div class="inline-block px-4 py-1.5 rounded-full bg-brand-gray border border-white/10 mb-6 text-sm font-semibold text-brand-red tracking-wide uppercase">
+                        Treinamento Especializado
+                    </div>
+                    <h1 class="font-heading text-5xl sm:text-6xl lg:text-7xl font-black leading-[1.1] mb-6">
+                        Construa força real. <br>
+                        Desperte o seu <span class="text-gradient">instinto lutador.</span>
+                    </h1>
+                    <p class="text-lg text-gray-400 mb-8 max-w-xl leading-relaxed">
+                        Muito além de levantar peso. Sou seu Personal Fighter. Aliamos a ciência da Educação Física com a precisão das Artes Marciais para moldar um corpo condicionado, ágil e imparável.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="https://wa.me/5511960157493?text=Olá%20Vinicius,%20vim%20pelo%20seu%20site%20e%20quero%20começar%20a%20treinar!" target="_blank" class="flex items-center justify-center gap-2 bg-brand-red hover:bg-brand-darkred text-white px-8 py-4 rounded-lg font-bold text-lg transition-all shadow-[0_0_20px_rgba(230,26,26,0.4)] transform hover:-translate-y-1">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+                            Começar minha evolução
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Image Hero (The ONLY Image) -->
+                <div class="relative" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+                    <div class="aspect-square rounded-2xl overflow-hidden relative shadow-2xl ring-1 ring-white/10 z-10 bg-brand-gray">
+                        <img src="vinicius-barbosa.webp" alt="Vinicius Barbosa Personal Trainer" class="w-full h-full object-cover">
+                        
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-black/80 via-transparent to-transparent"></div>
+                        <div class="absolute bottom-6 left-6 right-6">
+                            <div class="bg-brand-black/60 backdrop-blur-md p-4 rounded-xl border border-white/10 inline-block">
+                                <p class="font-heading font-bold text-xl text-white">Vinicius Barbosa</p>
+                                <p class="text-sm text-brand-red font-medium">CREF / Educação Física</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Decor element -->
+                    <div class="absolute -top-4 -right-4 w-24 h-24 border-t-2 border-r-2 border-brand-red z-0"></div>
+                    <div class="absolute -bottom-4 -left-4 w-24 h-24 border-b-2 border-l-2 border-brand-red z-0"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- A Incomodação -->
+    <section class="py-24 bg-brand-dark relative border-y border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+                <h2 class="font-heading text-3xl md:text-5xl font-bold mb-6">A rotina tradicional parou de dar resultados?</h2>
+                <p class="text-gray-400 text-lg">Muitas pessoas abandonam os treinos porque se sentem presas a fichas robóticas, sem desafios reais, e acabam perdendo a motivação para treinar o corpo e a mente.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Problema 1 -->
+                <div class="bg-brand-gray rounded-xl p-8 border border-white/5 shadow-lg" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="text-xl font-bold mb-3">Estagnação Física</h3>
+                    <p class="text-gray-400 text-sm">O corpo se acostuma rapidamente a estímulos repetitivos. Se você faz sempre as mesmas máquinas, o seu resultado paralisa e a frustração aumenta.</p>
+                </div>
+                <!-- Problema 2 -->
+                <div class="bg-brand-gray rounded-xl p-8 border border-white/5 shadow-lg" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="text-xl font-bold mb-3">Tédio e Desmotivação</h3>
+                    <p class="text-gray-400 text-sm">O maior inimigo do shape não é a dieta, é a falta de consistência causada por treinos entediantes que não engajam o seu instinto natural de movimento.</p>
+                </div>
+                <!-- Problema 3 -->
+                <div class="bg-brand-gray rounded-xl p-8 border border-white/5 shadow-lg" data-aos="fade-up" data-aos-delay="300">
+                    <h3 class="text-xl font-bold mb-3">Falta de Funcionalidade</h3>
+                    <p class="text-gray-400 text-sm">Ficar forte nas máquinas não te prepara para o mundo real. Faltam mobilidade, agilidade, defesa pessoal e a verdadeira resistência condicional.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- O Método (Solução) -->
+    <section id="metodo" class="py-24 relative bg-brand-black overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row gap-16 items-center">
+                
+                <div class="w-full md:w-1/2" data-aos="fade-right">
+                    <h2 class="font-heading text-4xl md:text-5xl font-black mb-6">A metodologia de um <span class="text-brand-red">Fighter.</span></h2>
+                    <p class="text-gray-400 mb-8 text-lg">Aqui o treino é levado a sério. Desenvolvi um ecossistema de treinamento embasado na ciência da Educação Física e na disciplina milenar das Artes Marciais.</p>
+                    
+                    <div class="space-y-6">
+                        <!-- Box Serviço 1 -->
+                        <div class="flex gap-4 group">
+                            <div>
+                                <h4 class="text-xl font-bold mb-2 text-brand-red">Personal Training Estratégico</h4>
+                                <p class="text-gray-400 text-sm">Musculação focada em hipertrofia, emagrecimento e ganho de força real. Periodização ajustada exclusivamente para o seu biotipo e objetivo.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Box Serviço 2 -->
+                        <div class="flex gap-4 group">
+                            <div>
+                                <h4 class="text-xl font-bold mb-2 text-brand-red">Capoeira & Jiu-Jitsu (B9)</h4>
+                                <p class="text-gray-400 text-sm">Mobilidade, explosão muscular e coordenação motora profunda. A arte marcial como ferramenta de condicionamento extremo e mentalidade forte.</p>
+                            </div>
+                        </div>
+
+                        <!-- Box Serviço 3 -->
+                        <div class="flex gap-4 group">
+                            <div>
+                                <h4 class="text-xl font-bold mb-2 text-brand-red">Defesa Pessoal</h4>
+                                <p class="text-gray-400 text-sm">Módulos específicos para quem busca autonomia, segurança e autoconfiança no dia a dia, aplicando conceitos reais de combate para proteção.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w-full md:w-1/2 flex justify-center lg:justify-end" data-aos="fade-left">
+                    <div class="bg-brand-gray p-12 rounded-3xl border border-white/5 relative overflow-hidden w-full max-w-md shadow-2xl">
+                        <div class="absolute -right-10 -top-10 text-[120px] font-black text-white/[0.03] rotate-12 pointer-events-none font-heading leading-none">LUTAS</div>
+                        <div class="absolute -left-10 -bottom-10 text-[120px] font-black text-brand-red/[0.05] -rotate-12 pointer-events-none font-heading leading-none">FOCO</div>
+                        
+                        <div class="relative z-10 text-center">
+                            <span class="block text-6xl font-black text-brand-red mb-4">100%</span>
+                            <h3 class="text-2xl font-bold mb-2">Comprometimento</h3>
+                            <p class="text-gray-400 text-sm mb-8">Treinamento individualizado. Sem atalhos, sem desistências. O processo é letal contra a estagnação.</p>
+                            <a href="https://wa.me/5511960157493" target="_blank" class="block w-full py-3 bg-white text-brand-black font-bold uppercase tracking-wider rounded-lg hover:bg-gray-200 transition-colors">
+                                Garantir Vaga
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre Mim (Autoridade) -->
+    <section id="sobre" class="py-24 bg-brand-dark">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center" data-aos="zoom-in">
+            <span class="text-brand-red font-bold tracking-widest uppercase text-sm mb-4 block">Quem sou eu</span>
+            <h2 class="font-heading text-4xl md:text-6xl font-black mb-8 leading-tight">Muito Prazer,<br>Vinicius Barbosa.</h2>
+            
+            <div class="space-y-6 text-lg text-gray-300 leading-relaxed text-left opacity-90 mx-auto max-w-3xl border-l-4 border-brand-red pl-6 py-2">
+                <p>Tenho 31 anos de idade e uma vida inteira dedicada ao esporte, ao estudo do corpo humano e à cultura física.</p>
+                <p>Sou <strong>Profissional de Educação Física</strong> registrado e atuo diretamente unindo o mundo científico do fitness com a alma e resiliência das Artes Marciais.</p>
+                <p>Como "Personal Fighter", minha trajetória inclui o aprimoramento constante na Capoeira e no Jiu-Jitsu (Berserker BJJ School). Faço parte de projetos culturais coletivos, coordenando ritmos, movimentos e integração social.</p>
+                <p>Meu objetivo não é apenas te entregar um treino padrão, é formar uma mentalidade inabalável através de um corpo que funciona em sua potência máxima.</p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16 pt-16 border-t border-white/5">
+                <div class="text-center">
+                    <p class="text-4xl font-black text-white font-heading">31</p>
+                    <p class="text-brand-red text-sm font-bold uppercase mt-1">Anos de Vida</p>
+                </div>
+                <div class="text-center">
+                    <p class="text-4xl font-black text-white font-heading">Ed. Física</p>
+                    <p class="text-brand-red text-sm font-bold uppercase mt-1">Formação</p>
+                </div>
+                <div class="text-center">
+                    <p class="text-4xl font-black text-white font-heading">BJJ</p>
+                    <p class="text-brand-red text-sm font-bold uppercase mt-1">Berserker</p>
+                </div>
+                <div class="text-center">
+                    <p class="text-4xl font-black text-white font-heading">100%</p>
+                    <p class="text-brand-red text-sm font-bold uppercase mt-1">Foco no Aluno</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof (Resultados) -->
+    <section id="resultados" class="py-24 bg-brand-black border-y border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="font-heading text-3xl md:text-5xl font-black mb-4">A voz de quem treina.</h2>
+                <p class="text-gray-400">Feedbacks reais do Team Leitão.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Depoimento 1 -->
+                <div class="bg-brand-dark p-8 rounded-2xl border border-white/10" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-brand-red mb-4 text-2xl tracking-widest">★★★★★</div>
+                    <p class="text-gray-300 italic mb-6">"O processo é lento, mas com a direção certa a gente não desiste. A inserção de movimentos de lutas fez eu finalmente ter vontade de ir pro treino."</p>
+                    <p class="text-white font-bold text-sm uppercase">Aluno Consultoria</p>
+                </div>
+                
+                <!-- Depoimento 2 -->
+                <div class="bg-brand-dark p-8 rounded-2xl border border-white/10" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-brand-red mb-4 text-2xl tracking-widest">★★★★★</div>
+                    <p class="text-gray-300 italic mb-6">"Nunca pensei que misturar musculação com os fundamentos da capoeira fosse dar tanto resultado térmico e de agilidade. O mestre é bravo!"</p>
+                    <p class="text-white font-bold text-sm uppercase">Aluna Presencial</p>
+                </div>
+
+                <!-- Depoimento 3 -->
+                <div class="bg-brand-dark p-8 rounded-2xl border border-white/10" data-aos="fade-up" data-aos-delay="300">
+                     <div class="text-brand-red mb-4 text-2xl tracking-widest">★★★★★</div>
+                    <p class="text-gray-300 italic mb-6">"A defesa pessoal me trouxe uma segurança que eu não tinha antes. É um treino completo, que desgasta a energia ruim e constrói foco."</p>
+                    <p class="text-white font-bold text-sm uppercase">Aluno Lutas</p>
+                </div>
+            </div>
+            
+            <div class="mt-16 text-center" data-aos="zoom-in" data-aos-delay="400">
+                <p class="text-xl font-medium mb-6">Pronto para ser o próximo caso de sucesso?</p>
+                <a href="https://wa.me/5511960157493" target="_blank" class="inline-flex items-center justify-center gap-2 bg-white text-brand-black px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-200 transition-all transform hover:-translate-y-1">
+                    Quero Treinar com o Vinicius
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer CTA -->
+    <footer class="bg-brand-black border-t border-white/10 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-12">
+                <div class="mb-6 md:mb-0">
+                    <a href="#" class="font-heading font-bold text-2xl tracking-tighter text-white">
+                        vinicius<span class="text-brand-red">.</span>barbosa
+                    </a>
+                    <p class="text-gray-500 text-sm mt-2">Personal Fighter. Educação Física & Artes Marciais.</p>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
+                <p>&copy; 2024 Vinicius Barbosa. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts de Interatividade -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Inicializa as animações de scroll
+        AOS.init({
+            once: true,
+            offset: 50,
+            duration: 800,
+            easing: 'ease-in-out-cubic',
+        });
+    </script>
+</body>
+</html>
