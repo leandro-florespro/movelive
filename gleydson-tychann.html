@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gleydson Tychann | Personal Trainer</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: { 400: '#ea580c', 500: '#ea580c', 600: '#c2410c' } /* Orange-600 based on theme */
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-zinc-50 text-zinc-900 antialiased selection:bg-brand-500 selection:text-white flex flex-col min-h-screen">
+
+    <header class="fixed w-full top-0 z-50 bg-white/90 backdrop-blur-md border-b border-zinc-200" x-data="{ mobileMenuOpen: false }">
+        <div class="container mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#" class="text-xl font-bold tracking-tighter text-zinc-900 flex items-center gap-2 group">
+                <span>gleydson<span class="text-brand-500">.</span>tychann</span>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-zinc-500 uppercase tracking-widest">
+                <a href="#metodo" class="hover:text-zinc-900 transition-colors">O Método</a>
+                <a href="#sobre" class="hover:text-zinc-900 transition-colors">Sobre mim</a>
+                <a href="#contato" class="px-5 py-2.5 text-white bg-zinc-900 hover:bg-brand-500 rounded-lg transition-all shadow-md shadow-zinc-200">Falar no WhatsApp</a>
+            </nav>
+
+            <button @click="mobileMenuOpen = !mobileMenuOpen" class="md:hidden text-zinc-500 hover:text-zinc-900">
+                <svg x-show="!mobileMenuOpen" class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                <svg x-show="mobileMenuOpen" x-cloak class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+        </div>
+
+        <div x-show="mobileMenuOpen" x-cloak x-transition.opacity class="md:hidden absolute top-20 left-0 w-full bg-white border-b border-zinc-200 py-4 px-6 flex flex-col gap-4 shadow-xl">
+            <a href="#metodo" @click="mobileMenuOpen = false" class="text-zinc-600 hover:text-zinc-900 py-2 font-medium uppercase tracking-widest text-sm">O Método</a>
+            <a href="#sobre" @click="mobileMenuOpen = false" class="text-zinc-600 hover:text-zinc-900 py-2 font-medium uppercase tracking-widest text-sm">Sobre mim</a>
+            <a href="#contato" @click="mobileMenuOpen = false" class="px-5 py-3 text-center font-bold text-white bg-zinc-900 hover:bg-brand-500 rounded-lg mt-2">Agendar Avaliação</a>
+        </div>
+    </header>
+
+    <main class="flex-grow pt-20">
+        <section class="relative pt-16 pb-20 lg:pt-32 lg:pb-32 overflow-hidden bg-zinc-50">
+            <div class="container mx-auto px-6 lg:px-8 relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                    
+                    <div data-aos="fade-up">
+                        <div class="inline-block px-4 py-1.5 bg-orange-100 text-brand-500 text-xs font-bold uppercase tracking-widest rounded-full mb-8">
+                            Consultoria Fitness & Performance
+                        </div>
+                        
+                        <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold text-zinc-900 mb-6 leading-tight tracking-tight">
+                            Ações reais, <br>
+                            <span class="text-brand-500">resultados</span> verdadeiros.
+                        </h1>
+                        
+                        <p class="text-lg md:text-xl text-zinc-600 mb-10 max-w-lg leading-relaxed">
+                            Construa força, resistência e disciplina com uma metodologia focada na rotina. Mais evolução para quem decidiu parar de usar apenas palavras e começar a agir pelo próprio corpo.
+                        </p>
+                        
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <a href="#contato" class="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white bg-zinc-900 rounded-lg hover:bg-brand-500 shadow-lg shadow-zinc-200 transition-colors">
+                                Agendar minha avaliação
+                            </a>
+                            <a href="#metodo" class="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-zinc-600 bg-transparent border border-zinc-300 rounded-lg hover:bg-zinc-100 transition-colors">
+                                Entender o método
+                            </a>
+                        </div>
+                        
+                        <div class="mt-10 flex items-center gap-4 text-sm font-medium text-zinc-500">
+                            <div class="flex -space-x-3">
+                                <div class="w-10 h-10 rounded-full bg-zinc-200 border-2 border-white flex items-center justify-center text-xs text-zinc-700">+10</div>
+                                <div class="w-10 h-10 rounded-full bg-zinc-300 border-2 border-white"></div>
+                                <div class="w-10 h-10 rounded-full bg-zinc-400 border-2 border-white"></div>
+                            </div>
+                            <p>Junte-se dezenas de vidas transformadas pela ação.</p>
+                        </div>
+                    </div>
+
+                    <div class="relative w-full max-w-lg mx-auto lg:max-w-none lg:mx-0 flex items-center justify-center" data-aos="fade-left" data-aos-delay="200">
+                        <div class="aspect-square w-full rounded-2xl overflow-hidden bg-zinc-200 relative group">
+                            <img src="gleydson-tychann.webp" alt="Gleydson Tychann" class="w-full h-full object-cover relative z-10 transition-transform duration-700 group-hover:scale-105">
+                            <div class="absolute inset-0 flex flex-col items-center justify-center text-zinc-500 font-mono text-sm text-center p-6 z-0 border border-dashed border-zinc-300 rounded-2xl">
+                                <svg class="w-12 h-12 mb-4 text-zinc-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                                <span>1200x1200px<br>Adicione a imagem <strong>gleydson-tychann.webp</strong> na mesma pasta.</span>
+                            </div>
+                            
+                            <div class="absolute bottom-6 right-6 bg-white/95 backdrop-blur-sm p-4 rounded-xl shadow-xl border border-white/50 z-20">
+                                <div class="flex items-center gap-2 mb-1">
+                                    <div class="w-2.5 h-2.5 bg-green-500 rounded-full"></div>
+                                    <span class="text-xs font-bold uppercase tracking-wider text-zinc-900">Treinos Disponíveis</span>
+                                </div>
+                                <p class="text-[10px] text-zinc-500">Acompanhamento individualizado.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="metodo" class="py-24 bg-white border-y border-zinc-200">
+            <div class="container mx-auto px-6 lg:px-8">
+                <div class="max-w-3xl mx-auto text-center" data-aos="fade-up">
+                    <h2 class="text-3xl lg:text-5xl font-extrabold text-zinc-900 mb-6 leading-tight tracking-tight">Seu corpo é o reflexo das suas desculpas?</h2>
+                    
+                    <div class="space-y-6 text-lg text-zinc-600">
+                        <p>
+                            Você promete toda semana que vai treinar a sério. Conta pra todo mundo seus planos fit, mas quando a motivação inicial baixa, a rotina de trabalho te engole. O cansaço vence e o espelho se torna um ambiente frustrante.
+                        </p>
+                        <p>
+                            A cada projeto abandonado, o peso aumenta, o fôlego diminui e a sensação de estar perdendo o controle da própria saúde cresce. Tentar fazer sozinho, testando treinos soltos na internet, só gera tempo gasto à toa e alto risco de lesão.
+                        </p>
+                        <div class="py-4 my-8 border-l-4 border-brand-500 pl-6 text-left bg-zinc-50 rounded-r-lg">
+                            <p class="text-xl text-zinc-800 font-medium italic">
+                                "Prometer não muda sua composição corporal. Ter apenas vontade não constrói fibra muscular e nem fôlego para a vida real."
+                            </p>
+                        </div>
+                        <p class="font-bold text-zinc-900">
+                            Minha metodologia corta as desculpas. Sem invenção, sem enrolação. Apenas planejamento direcionado, prescrição correta de volume e você aplicando ação contínua para um resultado sólido.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-20" data-aos="fade-up" data-aos-delay="100">
+                    <div class="bg-zinc-50 p-8 rounded-2xl border border-zinc-200 hover:shadow-md transition-shadow">
+                        <svg class="w-8 h-8 text-brand-500 mb-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                        <h3 class="text-xl font-bold text-zinc-900 mb-3 tracking-tight">Ação e Execução</h3>
+                        <p class="text-zinc-600 leading-relaxed text-sm">Foco brutal na constância. Treinos organizados diretamente para a sua disponibilidade, moldados para você conseguir realizar e evoluir semana a semana.</p>
+                    </div>
+
+                    <div class="bg-zinc-50 p-8 rounded-2xl border border-zinc-200 hover:shadow-md transition-shadow">
+                        <svg class="w-8 h-8 text-brand-500 mb-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                        <h3 class="text-xl font-bold text-zinc-900 mb-3 tracking-tight">Performance 360º</h3>
+                        <p class="text-zinc-600 leading-relaxed text-sm">Ganho de massa, definição ou resistência cardiovascular. Uma estrutura de alto nível, independentemente se seu ambiente é a sala de musculação ou o asfalto.</p>
+                    </div>
+
+                    <div class="bg-zinc-50 p-8 rounded-2xl border border-zinc-200 hover:shadow-md transition-shadow">
+                        <svg class="w-8 h-8 text-brand-500 mb-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <h3 class="text-xl font-bold text-zinc-900 mb-3 tracking-tight">Acompanhamento</h3>
+                        <p class="text-zinc-600 leading-relaxed text-sm">Suporte prático. Ajuste de rota rápido para você nunca travar, garantindo a dose certa de desafio para o seu nível atual. Você nunca treina no escuro.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="sobre" class="py-24 relative overflow-hidden bg-zinc-50">
+            <div class="container mx-auto px-6 lg:px-8 relative z-10">
+                <div class="max-w-4xl mx-auto flex flex-col md:flex-row gap-12 items-center">
+                    
+                    <div class="w-full md:w-1/3 flex justify-center" data-aos="fade-right">
+                        <div class="w-48 h-48 md:w-64 md:h-64 rounded-full border border-zinc-200 bg-white shadow-lg flex items-center justify-center p-8 text-brand-500">
+                             <svg class="w-full h-full opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                        </div>
+                    </div>
+
+                    <div class="w-full md:w-2/3" data-aos="fade-left">
+                        <h2 class="text-brand-500 font-bold tracking-widest uppercase text-xs mb-3">Quem sou eu</h2>
+                        <h3 class="text-3xl lg:text-4xl font-extrabold text-zinc-900 mb-6 tracking-tight">Gleydson Tychann</h3>
+                        
+                        <p class="text-zinc-600 text-lg mb-6 leading-relaxed">
+                            Profissional de Educação Física, amante do treinamento resistido e <strong>Meio Maratonista</strong>. Vivo intensamente a rotina de quem busca superar limites pelo esforço com planejamento.
+                        </p>
+                        
+                        <blockquote class="border-l-4 border-brand-500 pl-6 mb-6">
+                            <p class="text-xl font-serif text-zinc-800 italic">
+                                "Não amemos de palavras nem de língua, mas por ações e em verdade."
+                            </p>
+                        </blockquote>
+                        
+                        <p class="text-zinc-600 text-lg leading-relaxed">
+                            É sob esse pilar de pensamento prático que eu guio minha consultoria. Chega de falsas expectativas na internet. Para ver mudança real de shape, disposição e performance, o suor precisa estar fundamentado em técnica, biomecânica e consistência.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="contato" class="py-24 bg-white border-t border-zinc-200">
+            <div class="container mx-auto px-6 lg:px-8">
+                <div class="max-w-3xl mx-auto text-center" data-aos="zoom-in">
+                    <h2 class="text-4xl lg:text-6xl font-extrabold text-zinc-900 mb-6 tracking-tight leading-tight">Menos teoria.<br><span class="text-brand-500">Mais atitude.</span></h2>
+                    <p class="text-lg text-zinc-600 mb-10">Dê o primeiro passo prático em direção ao seu objetivo definitivo agora.</p>
+                    
+                    <a href="https://wa.me/5500000000000?text=Ol%C3%A1%20Gleydson%2C%20gostaria%20de%20iniciar%20minha%20mudan%C3%A7a%20e%20agendar%20uma%20avalia%C3%A7%C3%A3o!" 
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="inline-flex items-center justify-center gap-3 px-10 py-5 text-lg font-bold text-white bg-zinc-900 hover:bg-brand-500 rounded-lg shadow-xl shadow-zinc-200 transition-all duration-300 transform hover:-translate-y-1">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51h-.57c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                        </svg>
+                        Falar com o Treinador
+                    </a>
+                    
+                    <p class="text-xs text-zinc-500 font-medium tracking-wide uppercase mt-8">Vagas limitadas para consultoria online</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="py-10 bg-zinc-50 border-t border-zinc-200">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row items-center justify-between text-zinc-500 text-sm gap-4">
+            <div class="flex items-center gap-2 font-bold text-zinc-900 tracking-tighter">
+                gleydson<span class="text-brand-500">.</span>tychann
+            </div>
+            <p>&copy; 2024 Gleydson Tychann. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({ duration: 800, once: true, offset: 100, easing: 'ease-out-cubic' });
+        });
+    </script>
+</body>
+</html>
