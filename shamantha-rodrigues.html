@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shamantha Rodrigues | Personal Trainer - Treinos de 40 Minutos</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
+    
+    <!-- Alpine.js -->
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    
+    <!-- AOS (Animate on Scroll) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        h1, h2, h3, .font-heading {
+            font-family: 'Outfit', sans-serif;
+        }
+        .bg-gradient-dark {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+        }
+        .text-accent {
+            color: #fbbf24; /* Amber 400 */
+        }
+        .bg-accent {
+            background-color: #fbbf24;
+        }
+        .btn-hover:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(251, 191, 36, 0.4);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900 overflow-x-hidden" x-data="{ mobileMenu: false }">
+
+    <!-- Header -->
+    <header class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex-shrink-0">
+                    <span class="text-2xl font-black text-gray-900 tracking-tighter">shamantha.rodrigues</span>
+                </div>
+                
+                <!-- Desktop Nav -->
+                <nav class="hidden md:flex space-x-8 items-center">
+                    <a href="#metodo" class="text-gray-600 hover:text-gray-900 font-medium transition">Método</a>
+                    <a href="#sobre" class="text-gray-600 hover:text-gray-900 font-medium transition">Sobre</a>
+                    <a href="#planos" class="text-gray-600 hover:text-gray-900 font-medium transition">Planos</a>
+                    <a href="https://api.whatsapp.com/send?phone=5531994466666" target="_blank" class="bg-gray-900 text-white px-6 py-2.5 rounded-full font-bold text-sm btn-hover transition-all">
+                        AVALIAÇÃO GRÁTIS
+                    </a>
+                </nav>
+
+                <!-- Mobile Toggle -->
+                <div class="md:hidden">
+                    <button @click="mobileMenu = !mobileMenu" class="text-gray-900 p-2">
+                        <svg x-show="!mobileMenu" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                        <svg x-show="mobileMenu" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div x-show="mobileMenu" x-transition class="md:hidden bg-white border-b border-gray-100 px-4 py-6 space-y-4 shadow-xl">
+            <a href="#metodo" @click="mobileMenu = false" class="block text-lg font-semibold text-gray-900">Método</a>
+            <a href="#sobre" @click="mobileMenu = false" class="block text-lg font-semibold text-gray-900">Sobre</a>
+            <a href="#planos" @click="mobileMenu = false" class="block text-lg font-semibold text-gray-900">Planos</a>
+            <a href="https://api.whatsapp.com/send?phone=5531994466666" target="_blank" class="block w-full text-center bg-gray-900 text-white py-4 rounded-xl font-bold">COMEÇAR AGORA</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div data-aos="fade-right">
+                    <div class="inline-flex items-center px-3 py-1 rounded-full bg-amber-100 text-amber-800 text-xs font-bold uppercase tracking-widest mb-6">
+                        Personal Trainer | CREF 028308-G/MG
+                    </div>
+                    <h1 class="text-5xl lg:text-7xl font-extrabold text-gray-900 leading-[1.1] mb-6">
+                        Treinos de <span class="bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">40 minutos</span> que se moldam à sua rotina.
+                    </h1>
+                    <p class="text-xl text-gray-600 mb-8 leading-relaxed max-w-xl">
+                        Ajudo iniciantes e pessoas com dores crônicas a recuperarem a mobilidade e o condicionamento físico com um método eficiente e seguro.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="https://api.whatsapp.com/send?phone=5531994466666" target="_blank" class="bg-gray-900 text-white px-8 py-4 rounded-2xl font-bold text-lg text-center btn-hover transition-all flex items-center justify-center">
+                            Agendar Avaliação
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                            </svg>
+                        </a>
+                        <div class="flex items-center space-x-3 px-2">
+                            <div class="flex -space-x-2">
+                                <div class="w-8 h-8 rounded-full bg-gray-200 border-2 border-white"></div>
+                                <div class="w-8 h-8 rounded-full bg-gray-300 border-2 border-white"></div>
+                                <div class="w-8 h-8 rounded-full bg-gray-400 border-2 border-white"></div>
+                            </div>
+                            <span class="text-sm text-gray-500 font-medium">+400 alunos transformados</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative" data-aos="fade-left">
+                    <div class="absolute -top-12 -right-12 w-64 h-64 bg-amber-200 rounded-full blur-3xl opacity-50"></div>
+                    <div class="relative rounded-[2rem] overflow-hidden shadow-2xl skew-y-1">
+                        <!-- Restricted Image Rule: Only one placeholder allowed -->
+                        <img src="shamantha-rodrigues.webp" alt="Shamantha Rodrigues Personal Trainer" class="w-full h-auto object-cover" width="1200" height="1200">
+                    </div>
+                    <div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-2xl shadow-xl border border-gray-100 hidden md:block" data-aos="zoom-in" data-aos-delay="400">
+                        <div class="flex items-center space-x-4">
+                            <div class="bg-amber-100 p-3 rounded-full">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-400 font-bold uppercase tracking-tighter">Resultados</p>
+                                <p class="text-lg font-bold text-gray-900">Treinos Curtos & Reais</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problems / Agitation Section (Invisibly PAS) -->
+    <section id="metodo" class="py-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-20" data-aos="fade-up">
+                <h2 class="text-4xl font-extrabold text-gray-900 mb-6">Cansado de treinos genéricos que ignoram suas dores e sua falta de tempo?</h2>
+                <p class="text-lg text-gray-600 leading-relaxed">
+                    Você acorda sem energia, sente dores insistentes nas costas ou joelhos e acredita que para ter resultados precisaria passar horas na academia. O tempo passa, sua saúde deteriora e você continua no mesmo ciclo.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Point 1 -->
+                <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm transition hover:shadow-md" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-14 h-14 bg-gray-900 rounded-2xl flex items-center justify-center text-white mb-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">40 Minutos é Tudo</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Chega de desculpas. Meu método foca em intensidade e eficiência biomecânica. Resultados reais sem precisar morar na academia.
+                    </p>
+                </div>
+
+                <!-- Point 2 -->
+                <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm transition hover:shadow-md" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-14 h-14 bg-gray-900 rounded-2xl flex items-center justify-center text-white mb-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Adeus às Dores</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Tratamos a causa da sua dor através do movimento. Fortalecimento inteligente focado em prevenir lesões e devolver sua liberdade.
+                    </p>
+                </div>
+
+                <!-- Point 3 -->
+                <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm transition hover:shadow-md" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-14 h-14 bg-gray-900 rounded-2xl flex items-center justify-center text-white mb-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Iniciante Amparado</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Nunca treinou? Perfeito. Começamos do zero, respeitando seu ritmo e ensinando cada movimento com paciência e técnica.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: Sobre Mim -->
+    <section id="sobre" class="py-24 bg-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row gap-16 items-center">
+                <div class="w-full lg:w-1/2" data-aos="zoom-in-right">
+                    <!-- Purely Typography/Blocks as requested -->
+                    <div class="aspect-square bg-gray-900 rounded-3xl p-12 flex flex-col justify-end relative overflow-hidden">
+                        <div class="absolute top-0 right-0 p-8">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-24 h-24 text-white opacity-10" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M14.017 21L14.017 18C14.017 16.8954 14.9124 16 16.017 16H19.017V13H15.017C13.9124 13 13.017 12.1046 13.017 11V8C13.017 6.89543 13.9124 6 15.017 6H19.017C20.1216 6 21.017 6.89543 21.017 8V18C21.017 19.6569 19.6739 21 18.017 21H14.017ZM3.017 21L3.017 18C3.017 16.8954 3.91243 16 5.017 16H8.017V13H4.017C2.91243 13 2.017 12.1046 2.017 11V8C2.017 6.89543 2.91243 6 4.017 6H8.017C9.12157 6 10.017 6.89543 10.017 8V18C10.017 19.6569 8.67386 21 7.017 21H3.017Z" />
+                            </svg>
+                        </div>
+                        <h4 class="text-white text-5xl font-extrabold mb-4 uppercase tracking-tighter">Experiência & <br> Segurança.</h4>
+                        <p class="text-amber-400 font-bold mb-8 italic">CREF 028308-G/MG</p>
+                        <div class="h-1.5 w-24 bg-amber-400 rounded-full"></div>
+                    </div>
+                </div>
+                <div class="w-full lg:w-1/2" data-aos="fade-left">
+                    <h2 class="text-4xl font-extrabold text-gray-900 mb-8 lowercase tracking-tight">shamantha.rodrigues</h2>
+                    <div class="space-y-6 text-lg text-gray-600 leading-relaxed">
+                        <p>Minha missão é mostrar que o exercício físico é libertador, não punitivo. Como Coach e Personal Trainer, escolhi focar em pessoas que o mercado muitas vezes ignora: quem está começando agora, quem sofre com dores e quem tem uma vida produtiva intensa.</p>
+                        <p>Acredito que 40 minutos de movimento consciente e bem orientado valem mais do que 2 horas de esforço aleatório. Meu trabalho é te guiar para que cada minuto treinado reflita em semanas de bem-estar, produtividade e saúde.</p>
+                    </div>
+                    <div class="mt-10 grid grid-cols-2 gap-6">
+                        <div class="bg-gray-50 p-6 rounded-2xl border border-gray-100">
+                            <p class="text-3xl font-black text-gray-900 mb-1">08+</p>
+                            <p class="text-sm font-semibold text-gray-500 uppercase tracking-wider">Anos de Prática</p>
+                        </div>
+                        <div class="bg-gray-50 p-6 rounded-2xl border border-gray-100">
+                            <p class="text-3xl font-black text-gray-900 mb-1">40'</p>
+                            <p class="text-sm font-semibold text-gray-500 uppercase tracking-wider">Metodologia Focada</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: Planos (Interactivity with Alpine) -->
+    <section id="planos" class="py-24 bg-gray-900 text-white overflow-hidden" x-data="{ plan: 'personal' }">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-down">
+                <h2 class="text-4xl lg:text-5xl font-extrabold mb-6">Comece sua transformação hoje.</h2>
+                <p class="text-gray-400 text-lg max-w-2xl mx-auto">Escolha o formato que melhor se adapta à sua realidade e deixe o resto comigo.</p>
+                
+                <div class="mt-10 inline-flex p-1 bg-gray-800 rounded-xl">
+                    <button @click="plan = 'personal'" :class="plan === 'personal' ? 'bg-amber-400 text-gray-900' : 'text-gray-400'" class="px-8 py-2 rounded-lg font-bold transition-all">Presencial</button>
+                    <button @click="plan = 'consultoria'" :class="plan === 'consultoria' ? 'bg-amber-400 text-gray-900' : 'text-gray-400'" class="px-8 py-2 rounded-lg font-bold transition-all">Consultoria Online</button>
+                </div>
+            </div>
+
+            <div class="flex justify-center">
+                <div class="w-full max-w-lg bg-gray-800 rounded-[2.5rem] p-10 border border-gray-700 relative" data-aos="zoom-in">
+                    <div class="absolute -top-6 -right-6 bg-amber-400 text-gray-900 font-black px-6 py-2 rounded-full rotate-6 shadow-xl">MAIS POPULAR</div>
+                    
+                    <div x-show="plan === 'personal'" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 scale-90">
+                        <h3 class="text-3xl font-black mb-2">Personal Trainer</h3>
+                        <p class="text-gray-400 mb-8 leading-relaxed">Acompanhamento VIP 100% focado na sua execução e resultados em tempo real.</p>
+                        <ul class="space-y-4 mb-10 text-gray-300">
+                            <li class="flex items-center space-x-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-amber-400" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                </svg>
+                                <span>Aulas presenciais (40 min)</span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-amber-400" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                </svg>
+                                <span>Correção postural imediata</span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-amber-400" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                </svg>
+                                <span>Avaliação física constante</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div x-show="plan === 'consultoria'" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 scale-90">
+                        <h3 class="text-3xl font-black mb-2">Check-in Online</h3>
+                        <p class="text-gray-400 mb-8 leading-relaxed">Liberdade geográfica e treinos personalizados no seu celular para fazer onde quiser.</p>
+                        <ul class="space-y-4 mb-10 text-gray-300">
+                            <li class="flex items-center space-x-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-amber-400" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                </svg>
+                                <span>Cronograma via Aplicativo</span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-amber-400" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                </svg>
+                                <span>Suporte direto via WhatsApp</span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-amber-400" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                </svg>
+                                <span>Vídeos demonstrativos</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <a href="https://api.whatsapp.com/send?phone=5531994466666" target="_blank" class="block w-full bg-amber-400 text-gray-900 text-center py-5 rounded-2xl font-black text-xl hover:scale-[1.02] transition-all">
+                        CONSULTAR VALOR
+                    </a>
+                    <p class="text-center text-gray-500 text-xs mt-6 font-medium uppercase tracking-[0.2em]">Pagamento Seguro & Facilitado</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white py-12 border-t border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0 text-center md:text-left">
+                <div>
+                    <span class="text-xl font-black text-gray-900">shamantha.rodrigues</span>
+                    <p class="text-gray-500 text-sm mt-2">© 2024 Todos os direitos reservados. CREF 028308-G/MG</p>
+                </div>
+                <div class="flex items-center space-x-6">
+                    <a href="https://api.whatsapp.com/send?phone=5531994466666" target="_blank" class="text-gray-400 hover:text-green-500 transition">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                    </a>
+                </div>
+            </div>
+            <p class="text-center text-[10px] text-gray-300 mt-12 uppercase tracking-widest leading-loose">
+                As informações deste site foram extraídas do perfil oficial da profissional. <br>
+                Todas as fotos e dados de registro são de responsabilidade da Shamantha Rodrigues.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Init AOS -->
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+    </script>
+
+</body>
+</html>
