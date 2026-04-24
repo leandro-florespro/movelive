@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cleidiane.freitas | Consultoria de Elite</title>
+    
+    <!-- Tailwind CSS 4+ -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+    
+    <!-- AOS - Animate on Scroll -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Alpine.js -->
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+            background-color: #0a0a0a;
+        }
+        .font-black { font-weight: 900; }
+        .gradient-brand {
+            background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+        }
+        .text-stroke-white {
+            -webkit-text-stroke: 1px white;
+        }
+    </style>
+</head>
+<body class="bg-[#0a0a0a] text-white overflow-x-hidden" x-data="{ mobileMenu: false }">
+
+    <!-- Header -->
+    <nav class="fixed w-full z-50 bg-[#0a0a0a]/90 backdrop-blur-xl border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-24 items-center">
+                <div class="flex-shrink-0">
+                    <span class="text-xl font-black tracking-tighter text-orange-500 uppercase">
+                        cleidiane<span class="text-white">.</span>freitas
+                    </span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex gap-10 items-center">
+                    <a href="#metodo" class="text-xs font-bold hover:text-orange-500 transition-colors uppercase tracking-[0.2em] opacity-70 hover:opacity-100">O Método</a>
+                    <a href="#planos" class="text-xs font-bold hover:text-orange-500 transition-colors uppercase tracking-[0.2em] opacity-70 hover:opacity-100">Planos</a>
+                    <a href="#sobre" class="text-xs font-bold hover:text-orange-500 transition-colors uppercase tracking-[0.2em] opacity-70 hover:opacity-100">Sobre</a>
+                    <a href="https://wa.me/5500000000000" target="_blank" class="bg-orange-500 hover:bg-orange-600 text-black px-8 py-4 rounded-sm font-black text-xs uppercase tracking-widest transition-all shadow-[0_0_20px_rgba(249,115,22,0.3)]">
+                        AGENDAR AVALIAÇÃO
+                    </a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button @click="mobileMenu = !mobileMenu" class="text-white focus:outline-none">
+                        <svg class="h-6 w-6" x-show="!mobileMenu" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                        <svg class="h-6 w-6" x-show="mobileMenu" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="display: none;">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div x-show="mobileMenu" @click.away="mobileMenu = false" x-transition class="md:hidden bg-[#0c0c0c] border-b border-white/5 px-4 py-8 space-y-6 shadow-2xl" style="display: none;">
+            <a href="#metodo" @click="mobileMenu = false" class="block text-sm font-bold uppercase tracking-widest opacity-70">O Método</a>
+            <a href="#planos" @click="mobileMenu = false" class="block text-sm font-bold uppercase tracking-widest opacity-70">Planos</a>
+            <a href="#sobre" @click="mobileMenu = false" class="block text-sm font-bold uppercase tracking-widest opacity-70">Sobre</a>
+            <a href="https://wa.me/5500000000000" target="_blank" class="block bg-orange-500 text-black text-center py-5 rounded-sm font-black uppercase tracking-widest text-xs">Falar no WhatsApp</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative min-h-[90vh] flex items-center bg-[#0a0a0a] overflow-hidden pt-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div data-aos="fade-right" class="z-20">
+                    <div class="bg-orange-500/10 border-l-2 border-orange-500 px-4 py-2 mb-8 w-fit">
+                        <span class="text-orange-500 text-xs font-bold uppercase tracking-[0.2em]">Consultoria de Elite</span>
+                    </div>
+                    <h1 class="text-6xl md:text-8xl font-black leading-[0.95] tracking-tighter mb-8 text-white">
+                        RESULTADOS REAIS<br/>
+                        <span class="text-transparent text-stroke-white" style="-webkit-text-stroke: 1px white;">SEM ATALHOS.</span>
+                    </h1>
+                    <p class="text-lg text-gray-400 mb-10 max-w-md leading-relaxed">
+                        Esqueça treinos genéricos. Transforme seu corpo com um planejamento sob medida, focado em performance e estética feminina superior.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-6">
+                        <a href="https://wa.me/5500000000000" target="_blank" class="bg-orange-500 hover:bg-orange-600 text-black px-10 py-6 rounded-sm font-black text-sm uppercase tracking-widest transition-all shadow-[0_0_30px_rgba(249,115,22,0.4)] text-center">
+                            GARANTIR MINHA VAGA
+                        </a>
+                    </div>
+                    <div class="mt-12 flex items-center gap-4 opacity-50">
+                        <div class="flex -space-x-3">
+                            <div class="w-10 h-10 rounded-full border-2 border-[#0a0a0a] bg-gray-800 flex items-center justify-center text-[10px] font-bold">90D</div>
+                        </div>
+                        <p class="text-[10px] font-bold uppercase tracking-widest">Protocolo de Transformação</p>
+                    </div>
+                </div>
+                <div class="relative h-full flex items-end justify-center md:justify-end" data-aos="fade-left">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent z-10"></div>
+                    <div class="absolute inset-0 bg-gradient-to-r from-[#0a0a0a] via-transparent to-transparent z-10 hidden md:block"></div>
+                    <img src="cleidiane-freitas.webp" alt="Cleidiane Freitas" class="relative z-0 w-full md:w-[120%] max-w-2xl h-auto object-cover grayscale-0 rounded-sm">
+                </div>
+            </div>
+        </div>
+
+        <!-- Decor Text -->
+        <div class="absolute bottom-0 left-0 text-[180px] font-black opacity-[0.03] pointer-events-none select-none z-0 leading-none translate-y-1/2">
+            CONSULTORIA
+        </div>
+    </header>
+
+    <!-- PAS Section - A Agitação do Problema -->
+    <section class="py-32 bg-[#0c0c0c] text-white overflow-hidden border-t border-white/5" id="metodo">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-20" data-aos="fade-up">
+                <div class="bg-orange-500/10 border-l-2 border-orange-500 px-4 py-2 mb-6 w-fit">
+                    <span class="text-orange-500 text-xs font-bold uppercase tracking-[0.2em]">O Desafio</span>
+                </div>
+                <h2 class="text-4xl md:text-6xl font-black mb-6 tracking-tighter uppercase leading-none">Cansada de treinar sem<br/>ver resultados reais?</h2>
+                <p class="text-gray-500 text-lg max-w-2xl leading-relaxed">
+                    Muitas mulheres passam meses na academia cometendo os mesmos erros, sentindo-se estagnadas e frustradas por não alcançarem o corpo que merecem.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-px bg-white/5 border border-white/5">
+                <!-- Problema 1 -->
+                <div class="bg-[#0a0a0a] p-12 hover:bg-orange-500/5 transition-colors group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-12 h-12 bg-orange-500/10 rounded-sm flex items-center justify-center mb-8 group-hover:bg-orange-500 transition-colors">
+                        <svg class="w-6 h-6 text-orange-500 group-hover:text-black transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-black mb-4 uppercase tracking-tight">Falta de Direcionamento</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">Treinar sem um método validado é o caminho mais curto para a desistência e lesões.</p>
+                </div>
+                <!-- Problema 2 -->
+                <div class="bg-[#0a0a0a] p-12 hover:bg-orange-500/5 transition-colors group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-12 h-12 bg-orange-500/10 rounded-sm flex items-center justify-center mb-8 group-hover:bg-orange-500 transition-colors">
+                        <svg class="w-6 h-6 text-orange-500 group-hover:text-black transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-black mb-4 uppercase tracking-tight">Efeito Platô</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">Sem a variação correta de carga e estímulo metabólico, seus resultados param de aparecer.</p>
+                </div>
+                <!-- Problema 3 -->
+                <div class="bg-[#0a0a0a] p-12 hover:bg-orange-500/5 transition-colors group" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-12 h-12 bg-orange-500/10 rounded-sm flex items-center justify-center mb-8 group-hover:bg-orange-500 transition-colors">
+                        <svg class="w-6 h-6 text-orange-500 group-hover:text-black transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-black mb-4 uppercase tracking-tight">Treinos Ineficientes</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">Fazer horas de máquinas genéricas não esculpe o corpo feminino com a definição que você busca.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- A Solução: O Método 90 Dias -->
+    <section class="py-32 bg-[#0a0a0a] overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row gap-20 items-center">
+                <div class="md:w-1/2" data-aos="fade-right">
+                    <div class="bg-orange-500/10 border-l-2 border-orange-500 px-4 py-2 mb-6 w-fit">
+                        <span class="text-orange-500 text-xs font-bold uppercase tracking-[0.2em]">A Solução</span>
+                    </div>
+                    <h2 class="text-4xl md:text-6xl font-black mb-8 tracking-tighter uppercase leading-none">O DNA dos<br/>resultados <span class="text-orange-500">superiores</span>.</h2>
+                    <p class="text-gray-500 text-lg mb-10 leading-relaxed max-w-lg">
+                        Esqueça treinos genéricos. Meu método otimiza a fisiologia feminina para que você alcance o máximo de definição no menor tempo possível.
+                    </p>
+                    <ul class="space-y-8">
+                        <li class="flex items-start gap-6">
+                            <div class="mt-1 flex-shrink-0 w-6 h-6 border border-orange-500 flex items-center justify-center">
+                                <svg class="w-3 h-3 text-orange-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <div>
+                                <h4 class="font-black text-xs uppercase tracking-widest text-white mb-2">Metabolismo Otimizado</h4>
+                                <p class="text-gray-500 text-sm">Foco em queima calórica inteligente mantendo a massa magra.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-6">
+                            <div class="mt-1 flex-shrink-0 w-6 h-6 border border-orange-500 flex items-center justify-center">
+                                <svg class="w-3 h-3 text-orange-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <div>
+                                <h4 class="font-black text-xs uppercase tracking-widest text-white mb-2">Escultura Feminina</h4>
+                                <p class="text-gray-500 text-sm">Técnicas de força focadas estritamente em harmonia e tônus.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="md:w-1/2 grid grid-cols-2 gap-4" data-aos="fade-left">
+                    <div class="bg-[#111] p-12 border border-white/5 flex flex-col justify-center items-center text-center">
+                        <span class="text-6xl font-black text-orange-500 mb-2 leading-none">90</span>
+                        <span class="text-[10px] font-bold text-gray-500 uppercase tracking-[0.2em]">Dias de Protocolo</span>
+                    </div>
+                    <div class="bg-orange-500 p-12 flex flex-col justify-center items-center text-center text-black">
+                        <span class="text-4xl font-black mb-2 leading-none">ELITE</span>
+                        <p class="text-[10px] font-bold uppercase tracking-[0.2em]">Padrão Ouro</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Planos / Interatividade Alpine.js -->
+    <section class="py-32 bg-[#111] overflow-hidden" id="planos" x-data="{ periodicity: 'mensal' }">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-20" data-aos="fade-up">
+                <div class="bg-orange-500/10 border-l-2 border-orange-500 px-4 py-2 mb-6 mx-auto w-fit">
+                    <span class="text-orange-500 text-xs font-bold uppercase tracking-[0.2em]">O Agendamento</span>
+                </div>
+                <h2 class="text-4xl md:text-6xl font-black mb-8 tracking-tighter uppercase">Escolha seu nível de<br/><span class="text-orange-500">comprometimento</span></h2>
+                
+                <!-- Toggle -->
+                <div class="flex items-center justify-center space-x-6">
+                    <span :class="periodicity === 'mensal' ? 'text-white' : 'text-gray-500'" class="transition-colors uppercase text-[10px] font-black tracking-widest">Plano Mensal</span>
+                    <button @click="periodicity = periodicity === 'mensal' ? 'trimestral' : 'mensal'" class="w-14 h-8 flex items-center bg-white/10 rounded-sm p-1 transition-colors focus:outline-none" :class="periodicity === 'trimestral' ? 'bg-orange-500' : 'bg-white/10'">
+                        <div class="bg-white w-6 h-6 rounded-sm shadow-md transform transition-transform" :class="periodicity === 'trimestral' ? 'translate-x-6 bg-black' : 'translate-x-0 bg-white'"></div>
+                    </button>
+                    <span :class="periodicity === 'trimestral' ? 'text-white' : 'text-gray-500'" class="transition-colors uppercase text-[10px] font-black tracking-widest">Plano Trimestral</span>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-px bg-white/5 border border-white/5">
+                <!-- Plano Essential -->
+                <div class="bg-[#0a0a0a] p-12 hover:bg-white/[0.02] transition-colors" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="text-xs font-black uppercase tracking-widest text-gray-500 mb-8">Essential</h3>
+                    <div class="flex items-baseline mb-12">
+                        <span class="text-4xl font-black" x-text="periodicity === 'mensal' ? 'R$ ---' : 'R$ ---'"></span>
+                        <span class="text-[10px] uppercase font-bold text-gray-600 ml-2">/mês</span>
+                    </div>
+                    <ul class="space-y-6 mb-12">
+                        <li class="flex items-center gap-3 text-gray-400 text-sm">
+                            <div class="w-1.5 h-1.5 bg-orange-500"></div>
+                            Planejamento Personalizado
+                        </li>
+                        <li class="flex items-center gap-3 text-gray-400 text-sm">
+                            <div class="w-1.5 h-1.5 bg-orange-500"></div>
+                            Suporte via Dashboard
+                        </li>
+                    </ul>
+                    <a href="https://wa.me/5500000000000" target="_blank" class="block text-center w-full py-4 border border-white/10 text-white font-black text-xs uppercase tracking-widest hover:bg-white hover:text-black transition-all">
+                        Selecionar Plano
+                    </a>
+                </div>
+
+                <!-- Plano VIP - O mais vendido -->
+                <div class="bg-orange-500 p-12 text-black relative" data-aos="fade-up" data-aos-delay="200">
+                    <div class="absolute top-0 right-0 bg-black text-white text-[8px] font-black px-4 py-2 uppercase tracking-widest">Mais Procurado</div>
+                    <h3 class="text-xs font-black uppercase tracking-widest text-black/60 mb-8">VIP Experience</h3>
+                    <div class="flex items-baseline mb-12">
+                        <span class="text-6xl font-black" x-text="periodicity === 'mensal' ? 'R$ ---' : 'R$ ---'"></span>
+                        <span class="text-[10px] uppercase font-bold text-black/60 ml-2">/mês</span>
+                    </div>
+                    <ul class="space-y-6 mb-12">
+                        <li class="flex items-center gap-3 text-black font-bold text-sm">
+                            <div class="w-2 h-2 bg-black"></div>
+                            Todo o Essential +
+                        </li>
+                        <li class="flex items-center gap-3 text-black font-bold text-sm">
+                            <div class="w-2 h-2 bg-black"></div>
+                            Mentoria VIP 1:1 Semanal
+                        </li>
+                        <li class="flex items-center gap-3 text-black font-bold text-sm">
+                            <div class="w-2 h-2 bg-black"></div>
+                            Acesso Vitalício ao Grupo
+                        </li>
+                    </ul>
+                    <a href="https://wa.me/5500000000000" target="_blank" class="block text-center w-full py-5 bg-black text-white font-black text-xs uppercase tracking-widest shadow-2xl hover:scale-105 transition-transform">
+                        GARANTIR VAGA VIP
+                    </a>
+                </div>
+
+                <!-- Plano Híbrido -->
+                <div class="bg-[#0a0a0a] p-12 hover:bg-white/[0.02] transition-colors" data-aos="fade-up" data-aos-delay="300">
+                    <h3 class="text-xs font-black uppercase tracking-widest text-gray-500 mb-8">Performance Híbrida</h3>
+                    <div class="flex items-baseline mb-12">
+                        <span class="text-4xl font-black" x-text="periodicity === 'mensal' ? 'R$ ---' : 'R$ ---'"></span>
+                    </div>
+                    <ul class="space-y-6 mb-12 text-sm text-gray-400">
+                        <li class="flex items-center gap-3">
+                            <div class="w-1.5 h-1.5 bg-orange-500"></div>
+                            Presencial + Consultoria
+                        </li>
+                    </ul>
+                    <a href="https://wa.me/5500000000000" target="_blank" class="block text-center w-full py-4 border border-white/10 text-white font-black text-xs uppercase tracking-widest hover:bg-white hover:text-black transition-all">
+                        Consultar Vagas
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre Mim -->
+    <section class="py-32 bg-[#0a0a0a]" id="sobre">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-[#111] p-12 md:p-24 border border-white/5 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-1/2 h-full bg-orange-500/5 -skew-x-12 translate-x-1/2"></div>
+                
+                <div class="relative z-10 grid md:grid-cols-2 gap-20 items-center">
+                    <div data-aos="fade-up">
+                        <div class="bg-orange-500/10 border-l-2 border-orange-500 px-4 py-2 mb-8 w-fit">
+                            <span class="text-orange-500 text-xs font-bold uppercase tracking-[0.2em]">O Especialista</span>
+                        </div>
+                        <h2 class="text-5xl md:text-7xl font-black text-white mb-10 tracking-tighter uppercase leading-[0.9]">Cleidiane<br/>Freitas</h2>
+                        <p class="text-gray-500 text-lg mb-10 leading-relaxed">
+                            Profissional de Educação Física com foco em treinamento feminino de alta performance. Minha missão é esculpir sua melhor versão através de um método que une ciência, intensidade e estética superior.
+                        </p>
+                        <div class="flex items-center gap-6 py-8 border-y border-white/5 mb-10">
+                            <div class="w-12 h-12 bg-orange-500/10 flex items-center justify-center text-orange-500">
+                                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+                            </div>
+                            <div>
+                                <span class="block text-white font-black text-xs uppercase tracking-widest">CREF Credenciado</span>
+                                <span class="text-gray-600 text-[10px] font-bold">019064-G/CE</span>
+                            </div>
+                        </div>
+                        <a href="https://wa.me/5500000000000" target="_blank" class="text-orange-500 font-black text-xs uppercase tracking-[0.3em] hover:text-white transition-colors flex items-center gap-4">
+                            Siga a jornada no Instagram
+                            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                        </a>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 gap-4" data-aos="fade-left">
+                        <div class="bg-white/5 p-10 border border-white/5">
+                            <h4 class="text-orange-500 font-bold mb-2 uppercase text-[10px] tracking-widest leading-none">Foco</h4>
+                            <p class="text-white font-black uppercase text-xl">Estética Superior</p>
+                        </div>
+                        <div class="bg-white/5 p-10 border border-white/5">
+                            <h4 class="text-orange-500 font-bold mb-2 uppercase text-[10px] tracking-widest leading-none">Mecanismo</h4>
+                            <p class="text-white font-black uppercase text-xl">Fisiologia Aplicada</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-32 bg-[#0c0c0c]">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-20 text-center" data-aos="fade-up">
+                <div class="bg-orange-500/10 border-l-2 border-orange-500 px-4 py-2 mb-6 mx-auto w-fit">
+                    <span class="text-orange-500 text-xs font-bold uppercase tracking-[0.2em]">Dúvidas</span>
+                </div>
+                <h2 class="text-4xl md:text-6xl font-black text-white mb-4 uppercase tracking-tighter">Perguntas Frequentes</h2>
+            </div>
+
+            <div class="space-y-2" data-aos="fade-up">
+                <div class="bg-[#111] p-10 border border-white/5 group cursor-pointer hover:border-orange-500/30 transition-all">
+                    <h4 class="font-black text-white uppercase text-sm tracking-widest group-hover:text-orange-500 transition-colors">Preciso de experiência prévia?</h4>
+                    <p class="mt-6 text-gray-500 text-sm leading-relaxed opacity-0 group-hover:opacity-100 h-0 group-hover:h-auto overflow-hidden transition-all duration-500">O planejamento é adaptado ao seu nível atual, do absoluto zero à atletas avançadas.</p>
+                </div>
+                <div class="bg-[#111] p-10 border border-white/5 group cursor-pointer hover:border-orange-500/30 transition-all">
+                    <h4 class="font-black text-white uppercase text-sm tracking-widest group-hover:text-orange-500 transition-colors">Como funciona o suporte?</h4>
+                    <p class="mt-6 text-gray-500 text-sm leading-relaxed opacity-0 group-hover:opacity-100 h-0 group-hover:h-auto overflow-hidden transition-all duration-500">No plano VIP, você tem contato direto via WhatsApp para ajustes em tempo real.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#0a0a0a] py-32 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-16">
+                <div>
+                    <span class="text-2xl font-black tracking-tighter text-orange-500 uppercase">
+                        cleidiane<span class="text-white">.</span>freitas
+                    </span>
+                    <p class="mt-6 text-gray-600 font-bold uppercase text-[10px] tracking-[0.3em]">Dominando a performance feminina.</p>
+                </div>
+                
+                <div class="flex gap-8">
+                    <a href="https://wa.me/5500000000000" class="text-gray-500 hover:text-white transition-colors uppercase text-[10px] font-black tracking-widest">WhatsApp</a>
+                    <a href="#" class="text-gray-500 hover:text-white transition-colors uppercase text-[10px] font-black tracking-widest">Instagram</a>
+                </div>
+            </div>
+            <div class="mt-24 pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8 text-[10px] font-bold text-gray-700 uppercase tracking-widest">
+                <span>© 2026 Cleidiane Freitas. No Shortcuts.</span>
+                <span>CREF: 019064-G/CE</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Fixed WhatsApp Button -->
+    <a href="https://wa.me/5500000000000" target="_blank" class="fixed bottom-8 right-8 z-[100] bg-green-500 text-white w-16 h-16 rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-transform md:hidden">
+        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.246 2.248 3.484 5.232 3.484 8.412 0 6.556-5.338 11.892-11.893 11.892-1.997-.001-3.951-.5-5.688-1.448l-6.309 1.656zm6.29-4.171c1.589.945 3.13 1.517 5.04 1.517 5.481 0 9.938-4.458 9.941-9.94.001-2.657-1.034-5.155-2.913-7.034-1.879-1.878-4.375-2.911-7.03-2.911-5.485 0-9.944 4.459-9.948 9.941 0 1.958.523 3.402 1.401 4.924l-.99 3.614 3.731-.778zM17.5 14.5c-.3-.15-1.15-.55-1.3-.6s-.2-.05-.3.15-.35.45-.45.55-.2.15-.5 0c-.3-.15-1.25-.45-2.35-1.45-.85-.75-1.45-1.7-1.6-1.95s-.05-.2.1-.35c.15-.15.3-.35.45-.55s.15-.3.25-.5-.05-.4-.15-.6-.35-.85-.5-1c-.15-.4-.3-.35-.45-.35s-.3-.05-.5-.05-.5.2-.75.45c-.25.25-.95.95-.95 2.3s1 2.65 1.15 2.85c.15.2 1.95 3 4.7 4.2.65.3 1.2.45 1.6.6.65.2 1.25.15 1.7.1.5-.05 1.5-.6 1.7-1.15s.2-1.1.15-1.2-.2-.15-.5-.3z"/></svg>
+    </a>
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // AOS initialization
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+
+        // Add smooth interaction for FAQ blocks if needed
+        document.querySelectorAll('.group').forEach(item => {
+            item.addEventListener('click', () => {
+                // Here we could add an expansion logic, but for static HTML 
+                // and hierarchy of types, the visual alone serves high conversion.
+            });
+        });
+    </script>
+</body>
+</html>
