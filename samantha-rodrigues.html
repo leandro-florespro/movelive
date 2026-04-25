@@ -117,22 +117,31 @@
                         </div>
                     </div>
                 </div>
-                <div class="relative" data-aos="fade-left">
-                    <div class="absolute -top-12 -right-12 w-64 h-64 bg-amber-200 rounded-full blur-3xl opacity-50"></div>
-                    <div class="relative rounded-[2rem] overflow-hidden shadow-2xl skew-y-1">
-                        <!-- Restricted Image Rule: Only one placeholder allowed -->
-                        <img src="samantha-rodrigues.webp" alt="Samantha Rodrigues Personal Trainer" class="w-full h-auto object-cover" width="1200" height="1200">
-                    </div>
-                    <div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-2xl shadow-xl border border-gray-100 hidden md:block" data-aos="zoom-in" data-aos-delay="400">
-                        <div class="flex items-center space-x-4">
-                            <div class="bg-amber-100 p-3 rounded-full">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                                </svg>
-                            </div>
-                            <div>
-                                <p class="text-xs text-gray-400 font-bold uppercase tracking-tighter">Resultados</p>
-                                <p class="text-lg font-bold text-gray-900">Treinos Curtos & Reais</p>
+                <div class="w-full flex justify-center lg:justify-end" data-aos="fade-left">
+                    <div class="relative w-full max-w-sm">
+                        <!-- Decorative blurry blob -->
+                        <div class="absolute -inset-4 bg-amber-400 bg-opacity-20 rounded-[3rem] blur-xl"></div>
+                        <!-- Video element -->
+                        <video 
+                            id="hero-video"
+                            src="samantha-video.mp4" 
+                            class="relative z-10 w-full h-auto aspect-[9/16] object-cover rounded-[2rem] shadow-2xl border-4 border-white"
+                            controls 
+                            playsinline
+                            preload="metadata"
+                            poster="samantha-rodrigues.webp">
+                        </video>
+                        <div class="absolute -bottom-6 -left-6 z-20 bg-white p-6 rounded-2xl shadow-xl border border-gray-100 hidden md:block" data-aos="zoom-in" data-aos-delay="400">
+                            <div class="flex items-center space-x-4">
+                                <div class="bg-amber-100 p-3 rounded-full">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-gray-400 font-bold uppercase tracking-tighter">Resultados</p>
+                                    <p class="text-lg font-bold text-gray-900">Treinos Curtos & Reais</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -227,6 +236,42 @@
                             <p class="text-sm font-semibold text-gray-500 uppercase tracking-wider">Metodologia Focada</p>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: Vídeo Pitch -->
+    <section class="py-24 bg-gray-50 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <!-- Image Container -->
+                <div class="w-full lg:w-1/2 flex justify-center" data-aos="fade-right">
+                    <div class="relative w-full max-w-md">
+                        <div class="absolute -top-12 -left-12 w-64 h-64 bg-amber-200 rounded-full blur-3xl opacity-50"></div>
+                        <div class="relative rounded-[2rem] overflow-hidden shadow-2xl skew-y-1">
+                            <!-- Restricted Image Rule: Only one placeholder allowed -->
+                            <img src="samantha-rodrigues.webp" alt="Samantha Rodrigues Personal Trainer" class="w-full h-auto object-cover" width="1200" height="1200">
+                        </div>
+                    </div>
+                </div>
+                <!-- Text Content -->
+                <div class="w-full lg:w-1/2 text-center lg:text-left" data-aos="fade-left">
+                    <div class="inline-flex items-center px-3 py-1 rounded-full bg-amber-100 text-amber-800 text-xs font-bold uppercase tracking-widest mb-6">
+                        Para Quem Viaja
+                    </div>
+                    <h2 class="text-4xl lg:text-5xl font-extrabold text-gray-900 mb-6 leading-tight">
+                        Sua rotina muda, <span class="bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">seu treino não.</span>
+                    </h2>
+                    <p class="text-xl text-gray-600 leading-relaxed mb-8">
+                        Se você trabalha viajando e não consegue fidelizar-se a uma única academia, a <strong class="text-gray-900">Consultoria Online</strong> é para você. Com o método TP40, garanto treinos de 40 minutos altamente eficientes, rápidos e dinâmicos para você fazer da academia do hotel ou de onde estiver.
+                    </p>
+                    <a href="https://api.whatsapp.com/send?phone=5531994466666" target="_blank" class="inline-flex items-center bg-gray-900 text-white px-8 py-4 rounded-2xl font-bold text-lg btn-hover transition-all">
+                        Treinar de Qualquer Lugar
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2 text-amber-400" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
                 </div>
             </div>
         </div>
