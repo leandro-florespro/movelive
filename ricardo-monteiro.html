@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ricardo Monteiro | Treinador e Consultoria</title>
+    
+    <!-- Configuração do Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            400: '#D4D4D8',
+                            500: '#FFFFFF',
+                            600: '#F4F4F5',
+                            700: '#E4E4E7',
+                        },
+                        dark: {
+                            DEFAULT: '#000000',
+                            100: '#0A0A0A',
+                            200: '#121212',
+                            300: '#1E1E1E',
+                        },
+                        light: '#FFFFFF'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Alpine.js -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <style>
+        .text-gradient {
+            background: linear-gradient(135deg, #FFFFFF 0%, #71717A 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        /* Garantindo que as cores fiquem vivas */
+        img {
+            filter: none !important;
+            -webkit-filter: none !important;
+        }
+    </style>
+</head>
+<body class="bg-dark text-slate-300 font-sans antialiased overflow-x-hidden selection:bg-primary-500 selection:text-white" x-data="{ mobileMenuOpen: false }">
+
+    <!-- Navigation -->
+    <header class="fixed w-full top-0 z-50 bg-dark/90 backdrop-blur-md border-b border-white/10">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="#" class="font-bold text-2xl tracking-tighter text-white lowercase">
+                        <span class="text-white">ricardo.</span><span class="text-slate-500">monteiro</span>
+                    </a>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-center space-x-8">
+                        <div class="flex space-x-8 text-sm font-medium uppercase tracking-widest text-slate-400">
+                            <a href="#metodo" class="hover:text-white transition-colors">O Método</a>
+                            <a href="#sobre" class="hover:text-white transition-colors">Sobre Mim</a>
+                            <a href="#planos" class="hover:text-white transition-colors">Planos</a>
+                        </div>
+                        <a href="https://wa.me/5511999999999?text=Ol%C3%A1%20Ricardo%2C%20gostaria%20de%20come%C3%A7ar%20a%20treinar%20com%20voc%C3%AA!" target="_blank" class="bg-white hover:bg-slate-200 text-black px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest transition-all">Começar Agora</a>
+                    </div>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="-mr-2 flex md:hidden">
+                    <button @click="mobileMenuOpen = !mobileMenuOpen" type="button" class="inline-flex items-center justify-center p-2 rounded-md text-slate-400 hover:text-white hover:bg-dark-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-dark focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
+                        <span class="sr-only">Abrir menu principal</span>
+                        <svg x-show="!mobileMenuOpen" class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                        <svg x-show="mobileMenuOpen" style="display: none;" class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div x-show="mobileMenuOpen" style="display: none;" x-transition:enter="transition ease-out duration-100 transform" x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-75 transform" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-95" class="md:hidden bg-dark-100 border-b border-white/5" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 text-center">
+                <a @click="mobileMenuOpen = false" href="#metodo" class="hover:bg-dark-200 block px-3 py-3 rounded-2xl text-base font-medium text-slate-300">O Método</a>
+                <a @click="mobileMenuOpen = false" href="#sobre" class="hover:bg-dark-200 block px-3 py-3 rounded-2xl text-base font-medium text-slate-300">Sobre Mim</a>
+                <a @click="mobileMenuOpen = false" href="#planos" class="hover:bg-dark-200 block px-3 py-3 rounded-2xl text-base font-medium text-slate-300">Planos</a>
+                <a @click="mobileMenuOpen = false" href="https://wa.me/5511999999999?text=Ol%C3%A1%20Ricardo%2C%20gostaria%20de%20come%C3%A7ar%20a%20treinar%20com%20voc%C3%AA!" target="_blank" class="bg-white text-black block px-3 py-3 rounded-full text-base font-bold mt-4 uppercase tracking-widest text-sm">Começar Agora</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+        <!-- Background Accent -->
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-7xl">
+            <div class="absolute top-1/4 right-0 w-[500px] h-[500px] bg-primary-600/20 rounded-full blur-[120px] pointer-events-none"></div>
+            <div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-blue-600/10 rounded-full blur-[100px] pointer-events-none"></div>
+        </div>
+
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+                
+                <!-- Hero Content -->
+                <div data-aos="fade-right" data-aos-duration="1000">
+                    <div class="inline-flex items-center space-x-2 bg-dark-200 border border-white/10 rounded-full px-4 py-1.5 mb-6">
+                        <span class="flex w-2 h-2 rounded-full bg-primary-500 animate-pulse"></span>
+                        <span class="text-xs font-semibold uppercase tracking-widest text-primary-400">Consultoria On-line e Presencial</span>
+                    </div>
+                    
+                    <h1 class="text-5xl lg:text-6xl font-black text-white leading-tight tracking-tight mb-6">
+                        PARE DE TREINAR <br/><span class="text-gradient">SEM RESULTADO.</span>
+                    </h1>
+                    
+                    <p class="text-lg lg:text-xl text-slate-400 mb-8 max-w-xl leading-relaxed">
+                        Metodologia comprovada para <strong>Hipertrofia, Emagrecimento e Saúde</strong>. Chega de treinos genéricos, alcance resultados sólidos com acompanhamento profissional.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                        <a href="https://wa.me/5511999999999?text=Ol%C3%A1%20Ricardo%2C%20gostaria%20de%20come%C3%A7ar%20a%20treinar%20com%20voc%C3%AA!" target="_blank" class="inline-flex items-center group w-full sm:w-auto">
+                            <span class="bg-white group-hover:bg-slate-200 text-black font-black text-lg sm:text-xl px-10 py-5 rounded-l-2xl transition-all">
+                                COMECE A TREINAR AGORA
+                            </span>
+                            <span class="bg-slate-200 group-hover:bg-slate-300 text-black p-5 rounded-r-2xl transition-all">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 md:w-7 md:h-7" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12.031 6.172l4.828 4.828-4.828 4.828V12.828H4v-4h8.031V6.172zM12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2z"/>
+                                </svg>
+                            </span>
+                        </a>
+                    </div>
+                    
+                    <div class="mt-8 flex items-center gap-6 text-xs text-slate-500 uppercase tracking-widest font-medium">
+                        <div class="flex items-center gap-2">
+                            <svg class="h-5 w-5 text-primary-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            CREF: 018035-G/PE
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <svg class="h-5 w-5 text-primary-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            Formação UFPE-CAV
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Image (Placeholder Obrigatório de 1200x1200) -->
+                <div class="relative lg:ml-auto" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-primary-600/30 to-transparent rounded-2xl transform translate-x-4 translate-y-4 -z-10"></div>
+                    <img src="ricardo-monteiro.webp" alt="Ricardo Monteiro - Treinador" width="1200" height="1200" class="w-full max-w-md mx-auto lg:max-w-none rounded-2xl border border-dark-200 shadow-2xl object-cover aspect-square">
+                    
+                    <!-- Badge fluante -->
+                    <div class="absolute bottom-6 -left-6 lg:-left-12 bg-dark-100 border border-white/10 p-4 rounded-2xl shadow-xl flex items-center gap-4 animate-bounce" style="animation-duration: 3s;">
+                        <div class="bg-primary-500/20 p-3 rounded-full text-primary-500">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="text-white font-bold text-lg leading-none">+3.9k</p>
+                            <p class="text-xs text-slate-400 font-medium uppercase mt-1">Alunos e Seguidores</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- PAS Structure (Problema, Agitação, Solução - Títulos sutis) -->
+    <section class="py-24 bg-dark-100 border-y border-white/5 relative" id="metodo">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-5xl font-black tracking-tight text-white mb-6">
+                    Você treina, se esforça, mas o espelho <span class="text-gradient">não muda?</span>
+                </h2>
+                <p class="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
+                    É frustrante pagar academia todos os meses, reservar tempo do seu dia, suar a camisa e, no final, os resultados simplesmente não aparecerem na velocidade que você deseja.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+                <!-- Problema -->
+                <div class="bg-dark p-8 border border-white/5 hover:border-primary-500/30 transition-colors group rounded-2xl" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-14 h-14 bg-dark-200 flex items-center justify-center rounded-xl mb-6 group-hover:bg-primary-500/20 transition-colors">
+                        <svg class="w-7 h-7 text-slate-400 group-hover:text-primary-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Falta de Direcionamento</h3>
+                    <p class="text-slate-400">Você chega na academia e faz os mesmos exercícios, sem saber se a carga, as séries ou a execução estão realmente otimizadas para o seu objetivo.</p>
+                </div>
+
+                <!-- Agitação -->
+                <div class="bg-dark p-8 border border-white/5 hover:border-primary-500/30 transition-colors group rounded-2xl" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-14 h-14 bg-dark-200 flex items-center justify-center rounded-xl mb-6 group-hover:bg-primary-500/20 transition-colors">
+                        <svg class="w-7 h-7 text-slate-400 group-hover:text-primary-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Estagnação</h3>
+                    <p class="text-slate-400">Pior do que não treinar é treinar errado. O corpo se acostuma, a evolução trava, a motivação despenca e o risco de lesões aumenta a cada treino improvisado.</p>
+                </div>
+
+                <!-- Solução -->
+                <div class="bg-dark p-8 border border-white/5 border-t-4 border-t-primary-500 shadow-xl shadow-primary-500/5 relative -translate-y-2 group rounded-2xl" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-14 h-14 bg-white/5 flex items-center justify-center rounded-xl mb-6">
+                        <svg class="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">O Método Exato</h3>
+                    <p class="text-slate-300">Planejamento focado em Hipertrofia e Emagrecimento. A periodização correta para extrair o seu máximo com segurança e consistência comprovada cientificamente.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre Mim (Sem imagem adicional) -->
+    <section class="py-24 bg-dark relative overflow-hidden" id="sobre">
+        <!-- Detalhe tipográfico de fundo -->
+        <div class="absolute top-1/2 left-0 -translate-y-1/2 -ml-20 opacity-5 pointer-events-none hidden lg:block">
+            <h2 class="text-[12rem] font-black tracking-tight whitespace-nowrap text-white">TREINADOR</h2>
+        </div>
+
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12 text-center md:text-left">
+                
+                <div class="md:col-span-12 lg:col-span-7" data-aos="fade-right">
+                    <h2 class="text-white font-bold tracking-widest uppercase text-sm mb-2">Quem sou eu</h2>
+                    <h3 class="text-4xl lg:text-5xl font-black tracking-tight text-white mb-6">Ricardo Monteiro</h3>
+                    
+                    <div class="space-y-4 text-lg text-slate-400 font-light">
+                        <p>
+                            Sou profissional de Educação Física formado pela <strong>UFPE-CAV</strong>, com registro no <strong>CREF: 018035-G/PE</strong>. Minha atuação foca em entregar resultados reais e sustentáveis, fundamentados na ciência do treinamento esportivo e adaptação fisiológica.
+                        </p>
+                        <p>
+                            Especialista em planejamento para <strong>Hipertrofia, Emagrecimento e promoção da Saúde</strong>, meu trabalho como Coach vai muito além de montar planilhas. Eu construo a rota exata que o seu corpo precisa para evoluir, seja através da consultoria on-line para alunos de qualquer lugar do mundo, ou no acompanhamento presencial de alta performance.
+                        </p>
+                    </div>
+
+                    <div class="mt-10 grid grid-cols-2 gap-4 border-t border-white/10 pt-8">
+                        <div>
+                            <p class="text-3xl font-black tracking-tight text-white">Personalizada</p>
+                            <p class="text-xs text-slate-400 uppercase font-semibold tracking-widest mt-1">Metodologia</p>
+                        </div>
+                        <div>
+                            <p class="text-3xl font-black tracking-tight text-white">Resultados</p>
+                            <p class="text-xs text-slate-400 uppercase font-semibold tracking-widest mt-1">Comprovados</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="md:col-span-12 lg:col-span-5 flex flex-col justify-center" data-aos="fade-left" data-aos-delay="200">
+                    <div class="bg-dark-100 p-8 border border-white/5 rounded-2xl">
+                        <h4 class="text-xl font-bold text-white mb-6 border-b border-white/10 pb-4">Especialidades</h4>
+                        
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <svg class="h-6 w-6 text-primary-500 mr-3 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                <div>
+                                    <strong class="text-white block">Hipertrofia Muscular</strong>
+                                    <span class="text-sm text-slate-500">Aumento de massa magra de forma estruturada.</span>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="h-6 w-6 text-primary-500 mr-3 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                <div>
+                                    <strong class="text-white block">Emagrecimento Acelerado</strong>
+                                    <span class="text-sm text-slate-500">Perda de gordura otimizada e definitiva.</span>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="h-6 w-6 text-primary-500 mr-3 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                <div>
+                                    <strong class="text-white block">Saúde e Condicionamento</strong>
+                                    <span class="text-sm text-slate-500">Melhora no sistema cardiovascular e postural.</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Planos (Tabs usando Alpine JS) -->
+    <section class="py-24 bg-dark-100 border-t border-white/5" id="planos" x-data="{ planoAtual: 'online' }">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            
+            <h2 class="text-3xl md:text-5xl font-black tracking-tight text-white mb-4" data-aos="fade-up">Escolha o Seu Acompanhamento</h2>
+            <p class="text-slate-400 max-w-2xl mx-auto mb-12" data-aos="fade-up" data-aos-delay="100">Atendimento desenhado para a sua realidade. Como você prefere evoluir a partir de hoje?</p>
+
+            <!-- Custom Tabs -->
+            <div class="inline-flex bg-dark p-1 rounded-2xl border border-white/10 mb-12" data-aos="fade-up" data-aos-delay="200">
+                <button 
+                    @click="planoAtual = 'online'" 
+                    :class="planoAtual === 'online' ? 'bg-white text-black' : 'text-slate-400 hover:text-white'" 
+                    class="px-8 py-3 text-sm font-bold uppercase tracking-widest rounded-2xl transition-all">
+                    Consultoria On-line
+                </button>
+                <button 
+                    @click="planoAtual = 'presencial'" 
+                    :class="planoAtual === 'presencial' ? 'bg-white text-black' : 'text-slate-400 hover:text-white'" 
+                    class="px-8 py-3 text-sm font-bold uppercase tracking-widest rounded-2xl transition-all">
+                    Treino Presencial
+                </button>
+            </div>
+
+            <!-- Online Content -->
+            <div x-show="planoAtual === 'online'" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 translate-y-4" x-transition:enter-end="opacity-100 translate-y-0" class="max-w-3xl mx-auto bg-dark border border-white/10 p-8 md:p-12 text-left relative overflow-hidden rounded-2xl">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-primary-500/10 rounded-full blur-[50px]"></div>
+                
+                <h3 class="text-3xl font-black tracking-tight text-white mb-6">Treine em qualquer lugar com direcionamento total.</h3>
+                
+                <ul class="space-y-4 mb-10">
+                    <li class="flex items-start text-slate-300">
+                        <svg class="h-6 w-6 text-primary-500 mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        <span>Avaliação inicial detalhada para entender seu biotipo e histórico.</span>
+                    </li>
+                    <li class="flex items-start text-slate-300">
+                        <svg class="h-6 w-6 text-primary-500 mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        <span>Programa de treino 100% individualizado trocado periodicamente.</span>
+                    </li>
+                    <li class="flex items-start text-slate-300">
+                        <svg class="h-6 w-6 text-primary-500 mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        <span>Suporte para dúvidas e correção de execução de vídeos via WhatsApp.</span>
+                    </li>
+                </ul>
+                
+                <a href="https://wa.me/5511999999999?text=Ol%C3%A1%20Ricardo%2C%20quero%20fazer%20a%20Consultoria%20On-line!" target="_blank" class="block w-full text-center bg-white text-dark hover:bg-slate-200 font-bold uppercase tracking-widest py-4 rounded-full transition-colors text-xs">
+                    QUERO A CONSULTORIA ON-LINE
+                </a>
+            </div>
+
+            <!-- Presencial Content -->
+            <div x-show="planoAtual === 'presencial'" style="display: none;" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 translate-y-4" x-transition:enter-end="opacity-100 translate-y-0" class="max-w-3xl mx-auto bg-dark border border-white/10 p-8 md:p-12 text-left relative overflow-hidden rounded-2xl">
+                <div class="absolute top-0 left-0 w-32 h-32 bg-primary-500/10 rounded-full blur-[50px]"></div>
+                
+                <h3 class="text-3xl font-black tracking-tight text-white mb-6">Atingindo a falha ao meu lado. Exclusividade.</h3>
+                
+                <ul class="space-y-4 mb-10">
+                    <li class="flex items-start text-slate-300">
+                        <svg class="h-6 w-6 text-primary-500 mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        <span>Acompanhamento físico lado a lado repetição por repetição.</span>
+                    </li>
+                    <li class="flex items-start text-slate-300">
+                        <svg class="h-6 w-6 text-primary-500 mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        <span>Correção postural instantânea e extração da intensidade máxima.</span>
+                    </li>
+                    <li class="flex items-start text-slate-300">
+                        <svg class="h-6 w-6 text-primary-500 mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        <span>Adequado para quem tem vagas e horários compatíveis na região.</span>
+                    </li>
+                </ul>
+                
+                <a href="https://wa.me/5511999999999?text=Ol%C3%A1%20Ricardo%2C%20tenho%20interesse%20no%20Treino%20Presencial%2C%20tem%20hor%C3%A1rio%20livre%3F" target="_blank" class="block w-full text-center bg-white hover:bg-slate-200 text-black font-bold uppercase tracking-widest py-4 rounded-full transition-colors shadow-[0_4px_14px_rgba(255,255,255,0.1)] text-xs">
+                    VERIFICAR VAGAS PRESENCIAIS
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Depoimentos (Só tipografia) -->
+    <section class="py-24 bg-dark relative border-y border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-center text-3xl font-black tracking-tight text-white mb-16" data-aos="fade-up">O que dizem os alunos e alunas</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <div class="bg-dark-100 p-8 border border-white/5 rounded-2xl" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-primary-500 mb-4">
+                        <svg class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+                    </div>
+                    <p class="text-slate-400 italic mb-6">"Comecei a treinar com o Ricardo há 4 meses e já perdi medidas que há anos não conseguia sozinha. O treino online é tão bem explicado que sinto que ele está na academia comigo."</p>
+                    <p class="text-white font-bold">— Aluna Online • Emagrecimento</p>
+                </div>
+
+                <div class="bg-dark-100 p-8 border border-white/5 border-b-2 border-b-primary-500 rounded-2xl transform scale-105 shadow-xl shadow-dark-100/50 hidden md:block" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-primary-500 mb-4">
+                        <svg class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+                    </div>
+                    <p class="text-slate-300 italic mb-6">"Tive uma evolução muscular absurda. Periodização impecável. Nada daqueles treinos malucos inventados na hora, é pura ciência aplicada ao meu biotipo."</p>
+                    <p class="text-white font-bold text-lg">— Aluno • Hipertrofia</p>
+                </div>
+
+                <div class="bg-dark-100 p-8 border border-white/5 rounded-2xl" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-primary-500 mb-4">
+                        <svg class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+                    </div>
+                    <p class="text-slate-400 italic mb-6">"Sofria muito com dores no joelho ao executar vários exercícios. O ajuste biomecânico que ele colocou no plano salvou minha rotina. Voltei a treinar perna pesado, e com segurança!"</p>
+                    <p class="text-white font-bold">— Aluna • Saúde e Reabilitação</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="py-24 bg-dark-200 relative overflow-hidden flex flex-col justify-center items-center">
+        <div class="absolute inset-0 bg-primary-600/5"></div>
+        <div class="max-w-4xl mx-auto px-4 text-center relative z-10" data-aos="zoom-in">
+            <h2 class="text-4xl md:text-6xl font-black tracking-tight text-white mb-6 uppercase">Qual a sua desculpa hoje?</h2>
+            <p class="text-xl text-slate-400 mb-10">O tempo vai passar de qualquer forma. Daqui a 3 meses você vai desejar ter começado hoje.</p>
+            <a href="https://wa.me/5511999999999?text=Ol%C3%A1%20Ricardo%2C%20cansei%20de%20dar%20desculpas.%20Quero%20come%C3%A7ar!" target="_blank" class="inline-flex justify-center items-center bg-white text-dark hover:bg-slate-200 font-bold py-5 px-10 rounded-full text-sm uppercase tracking-widest transition-transform transform hover:scale-105 shadow-2xl">
+                CHAMAR NO WHATSAPP
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="px-10 py-6 bg-dark-100 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-[10px] sm:text-xs text-slate-500 uppercase tracking-widest gap-4">
+        <div>© 2024 ricardo.monteiro — Todos os direitos reservados</div>
+        <div class="flex flex-wrap justify-center space-x-6">
+            <span>Personal Trainer</span>
+            <span>Alta Performance</span>
+            <span>Emagrecimento</span>
+        </div>
+    </footer>
+
+    <!-- init AOS Animation -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            once: true,
+            offset: 100,
+        });
+    </script>
+</body>
+</html>
