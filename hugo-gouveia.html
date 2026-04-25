@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hugo Gouveia | Treinador - Hipertrofia & Emagrecimento</title>
+    
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Alpine.js via CDN -->
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    
+    <!-- AOS (Animate On Scroll) via CDN -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .gradient-text {
+            background: linear-gradient(90deg, #a855f7, #d946ef);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .bg-dark-accent {
+            background-color: #0D0D0D;
+        }
+        .bg-main {
+            background-color: #0A0A0A;
+        }
+        /* Garantindo cores vivas conforme regra rígida */
+        .color-viva {
+            filter: none !important;
+        }
+        .btn-glow {
+            shadow: 0 0 40px rgba(168, 85, 247, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-[#0A0A0A] text-[#F5F5F5] selection:bg-purple-500 selection:text-white" x-data="{ mobileMenu: false }">
+
+    <!-- Header -->
+    <header class="fixed w-full z-50 bg-black/80 backdrop-blur-md border-b border-white/10">
+        <div class="container mx-auto px-12 py-6 flex justify-between items-center">
+            <div class="text-2xl font-bold tracking-tighter uppercase whitespace-nowrap">
+                hugo<span class="text-purple-500">.</span>gouveia
+            </div>
+            
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex gap-8 text-sm font-medium uppercase tracking-widest">
+                <a href="#metodo" class="hover:text-purple-500 transition-colors">Metodologia</a>
+                <a href="#sobre" class="hover:text-purple-500 transition-colors">Sobre</a>
+                <a href="#planos" class="hover:text-purple-500 transition-colors">Planos</a>
+            </nav>
+
+            <a href="http://shre.ink/HugoGouveia" target="_blank" class="hidden md:block bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest transition-all">
+                Falar com Hugo
+            </a>
+
+            <!-- Mobile Toggle -->
+            <button @click="mobileMenu = !mobileMenu" class="md:hidden text-white focus:outline-none">
+                <svg x-show="!mobileMenu" xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+                <svg x-show="mobileMenu" xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div x-show="mobileMenu" x-transition.opacity class="md:hidden absolute w-full bg-black border-b border-white/10 py-6 px-6 flex flex-col space-y-4 font-semibold text-center uppercase tracking-widest">
+            <a @click="mobileMenu = false" href="#metodo" class="py-2">Metodologia</a>
+            <a @click="mobileMenu = false" href="#sobre" class="py-2">Sobre</a>
+            <a @click="mobileMenu = false" href="#planos" class="py-2">Planos</a>
+            <a href="http://shre.ink/HugoGouveia" target="_blank" class="bg-purple-600 py-3 rounded-xl">Agendar Avaliação</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center pt-32 pb-20 lg:pt-0 lg:pb-0 overflow-hidden bg-main">
+        <!-- Background Decor -->
+        <div class="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-purple-600/5 to-transparent pointer-events-none"></div>
+
+        <div class="container mx-auto px-6 lg:px-12 relative z-10 flex flex-col lg:flex-row items-center gap-12">
+            <div class="lg:w-1/2 text-center lg:text-left" data-aos="fade-right">
+                <span class="text-purple-400 text-sm font-bold uppercase tracking-[0.3em] mb-4 block italic">Transforme-se com o HGTEAM</span>
+                <h1 class="text-5xl lg:text-7xl font-black leading-[0.95] tracking-tighter mb-8">
+                    TRANSFORME<br/>SEU CORPO EM UMA<br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-fuchsia-600 uppercase">MÁQUINA.</span>
+                </h1>
+                <p class="text-lg lg:text-xl text-white/60 leading-relaxed max-w-md mx-auto lg:mx-0 mb-10">
+                    Pare de perder tempo com treinos genéricos. Alcance o seu melhor com o planejamento estratégico do <span class="text-white font-bold tracking-widest">HGTEAM</span>.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center">
+                    <a href="http://shre.ink/HugoGouveia" target="_blank" class="w-full sm:w-fit bg-purple-600 hover:bg-purple-700 text-white px-10 py-5 rounded-lg text-lg font-black uppercase tracking-wider flex items-center justify-center gap-4 transition-all shadow-[0_0_40px_rgba(168,85,247,0.3)]">
+                        Quero Minha Avaliação
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </a>
+                </div>
+                <p class="text-xs text-white/30 italic mt-4">*Especialista em Hipertrofia & Emagrecimento</p>
+            </div>
+            <div class="lg:w-1/2 flex justify-center relative" data-aos="fade-left">
+                <div class="relative group">
+                    <div class="absolute -inset-4 bg-purple-600/10 blur-3xl opacity-50 rounded-full animate-pulse transition-opacity group-hover:opacity-80"></div>
+                    <img src="hugo-gouveia.webp" alt="Hugo Gouveia Treinador" class="relative rounded-3xl w-full max-w-[500px] aspect-square object-cover shadow-2xl border border-white/10 grayscale-0" style="width: 1200px; height: 1200px; max-width: 500px; max-height: 500px;">
+                    
+                    <!-- Online Badge -->
+                    <div class="absolute -bottom-6 -left-6 z-20">
+                        <div class="flex items-center gap-3 bg-white/5 backdrop-blur-md p-4 rounded-xl border border-white/10">
+                            <div class="w-3 h-3 bg-purple-500 rounded-full animate-pulse"></div>
+                            <p class="text-[10px] font-bold uppercase tracking-widest">HG TEAM Consultoria Online</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PAS Section Concept (Visually: The Method) -->
+    <section id="metodo" class="py-24 bg-dark-accent border-y border-white/10">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span class="text-purple-500 text-xs font-bold uppercase tracking-[0.3em] mb-2 block">Metodologia HG TEAM</span>
+                <h2 class="text-4xl md:text-5xl font-black tracking-tighter mb-4">MÉTODO DE ALTA PERFORMANCE</h2>
+                <p class="text-white/50 max-w-2xl mx-auto text-lg">
+                    Protocolos exclusivos HG TEAM para queima de gordura e ganho de massa magra real.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Problem Pillar -->
+                <div class="p-10 bg-black/40 border border-white/10 rounded-2xl hover:border-purple-500/50 transition duration-500 group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-14 h-14 bg-purple-600/10 rounded-xl flex items-center justify-center mb-8 text-purple-500 group-hover:bg-purple-600 group-hover:text-white transition-all">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-black uppercase tracking-tighter mb-4 italic">Fim da Estagnação</h3>
+                    <p class="text-white/40 leading-relaxed text-sm">Identificamos os erros que te travam e aplicamos a estratégia HG TEAM para destravar seus ganhos.</p>
+                </div>
+
+                <!-- Agitation Pillar -->
+                <div class="p-10 bg-black/40 border border-white/10 rounded-2xl hover:border-purple-500/50 transition duration-500 group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-14 h-14 bg-purple-600/10 rounded-xl flex items-center justify-center mb-8 text-purple-500 group-hover:bg-purple-600 group-hover:text-white transition-all">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-black uppercase tracking-tighter mb-4 italic">Intensidade HG</h3>
+                    <p class="text-white/40 leading-relaxed text-sm">Treinos curtos e intensos focados em biomecânica para máxima eficiência em cada repetição.</p>
+                </div>
+
+                <!-- Solution Pillar -->
+                <div class="p-10 bg-black/40 border border-white/10 rounded-2xl hover:border-purple-500/50 transition duration-500 group" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-14 h-14 bg-purple-600/10 rounded-xl flex items-center justify-center mb-8 text-purple-500 group-hover:bg-purple-600 group-hover:text-white transition-all">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-black uppercase tracking-tighter mb-4 italic">Alcance seu Melhor</h3>
+                    <p class="text-white/40 leading-relaxed text-sm">O resultado final de um acompanhamento focado na constância e no suporte total do time.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="sobre" class="py-24 bg-main">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center gap-16">
+                <div class="md:w-1/2" data-aos="fade-right">
+                    <span class="text-purple-500 text-xs font-bold uppercase tracking-[0.3em] mb-4 block underline decoration-2 underline-offset-8 italic">Fundador do HG TEAM</span>
+                    <h2 class="text-5xl lg:text-6xl font-black tracking-tighter mb-8 italic uppercase">HUGO GOUVEIA</h2>
+                    <div class="space-y-6 text-white/60 text-lg leading-relaxed">
+                        <p>Bacharel em Educação Física (<span class="text-white font-bold">CREF12/PE: 022320-G/PE</span>), especialista em biomecânica aplicada.</p>
+                        <p>Com vivência internacional, fundei o <span class="text-white font-bold italic underline decoration-purple-500">HG TEAM</span> para ajudar pessoas em qualquer lugar do mundo a atingirem o auge da sua forma física.</p>
+                        <p>Cada detalhe do seu acompanhamento é pensado para maximizar sua performance, unindo ciência e prática de força.</p>
+                    </div>
+                </div>
+                <div class="md:w-1/2 grid grid-cols-2 gap-px bg-white/5 border border-white/5 rounded-3xl overflow-hidden shadow-2xl" data-aos="fade-left">
+                    <div class="aspect-square bg-dark-accent p-10 flex flex-col justify-center group hover:bg-purple-600/5 transition-colors">
+                        <div class="w-12 h-12 bg-purple-600/10 rounded-xl flex items-center justify-center mb-6 text-purple-400 border border-purple-500/20 group-hover:bg-purple-600 group-hover:text-white transition-all transform group-hover:scale-110">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.4 14.4 9.6 9.6"/><path d="M18.657 21.485a2 2 0 1 1-2.829-2.828l-1.767 1.768a2 2 0 1 1-2.829-2.829l1.768-1.767a2 2 0 1 1-2.828-2.829l-1.768 1.767a2 2 0 1 1-2.828-2.828l1.767-1.768a2 2 0 1 1-2.829-2.829l2.122-2.121a2 2 0 1 1 2.828 2.828l1.767-1.767a2 2 0 1 1 2.829 2.828l-1.768 1.768a2 2 0 1 1 2.829 2.828l1.767-1.767a2 2 0 1 1 2.829 2.829l-1.768 1.767a2 2 0 1 1 2.828 2.829l-2.121 2.122a2 2 0 1 1-2.828-2.828l-1.767 1.767a2 2 0 1 1-2.829-2.828l1.768-1.768a2 2 0 1 1-2.829-2.828l-1.767 1.767a2 2 0 1 1-2.829-2.829l1.768-1.767a2 2 0 1 1-2.829-2.829l1.767-1.768a2 2 0 1 1-2.828-2.828l2.121-2.122"/></svg>
+                        </div>
+                        <h4 class="font-black uppercase tracking-tighter text-lg mb-1">Massa Magra</h4>
+                        <p class="text-white/30 text-xs italic">Hipertrofia técnica.</p>
+                    </div>
+                    <div class="aspect-square bg-[#111] p-10 flex flex-col justify-center group hover:bg-purple-600/5 transition-colors">
+                        <div class="w-12 h-12 bg-purple-600/10 rounded-xl flex items-center justify-center mb-6 text-purple-400 border border-purple-500/20 group-hover:bg-purple-600 group-hover:text-white transition-all transform group-hover:scale-110">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                        </div>
+                        <h4 class="font-black uppercase tracking-tighter text-lg mb-1">Fat Burn</h4>
+                        <p class="text-white/30 text-xs italic">Foco metabólico.</p>
+                    </div>
+                    <div class="aspect-square bg-[#111] p-10 flex flex-col justify-center group hover:bg-purple-600/5 transition-colors">
+                        <div class="w-12 h-12 bg-purple-600/10 rounded-xl flex items-center justify-center mb-6 text-purple-400 border border-purple-500/20 group-hover:bg-purple-600 group-hover:text-white transition-all transform group-hover:scale-110">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                        </div>
+                        <h4 class="font-black uppercase tracking-tighter text-lg mb-1">Global</h4>
+                        <p class="text-white/30 text-xs italic">Consultoria síncrona.</p>
+                    </div>
+                    <div class="aspect-square bg-dark-accent p-10 flex flex-col justify-center group hover:bg-purple-600/5 transition-colors">
+                        <div class="w-12 h-12 bg-purple-600/10 rounded-xl flex items-center justify-center mb-6 text-purple-400 border border-purple-500/20 group-hover:bg-purple-600 group-hover:text-white transition-all transform group-hover:scale-110">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+                        </div>
+                        <h4 class="font-black uppercase tracking-tighter text-lg mb-1">Presencial</h4>
+                        <p class="text-white/30 text-xs italic">Alta precisão.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Plans Section -->
+    <section id="planos" class="py-24 bg-dark-accent" x-data="{ plan: 'online' }">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-black tracking-tighter mb-4">ESTRATÉGIAS DE ACESSO</h2>
+                <p class="text-white/40 mb-8 uppercase text-xs tracking-widest font-bold">Formatos ajustados à sua realidade física e geográfica</p>
+                
+                <!-- Toggle Plan -->
+                <div class="inline-flex p-1 bg-black border border-white/10 rounded-xl mb-12">
+                    <button @click="plan = 'online'" :class="plan === 'online' ? 'bg-purple-600 text-white' : 'text-white/40'" class="px-8 py-3 rounded-lg font-black uppercase tracking-wider transition-all text-sm">
+                        Consultoria Online
+                    </button>
+                    <button @click="plan = 'presencial'" :class="plan === 'presencial' ? 'bg-purple-600 text-white' : 'text-white/40'" class="px-8 py-3 rounded-lg font-black uppercase tracking-wider transition-all text-sm">
+                        Presencial
+                    </button>
+                </div>
+            </div>
+
+            <div class="max-w-5xl mx-auto bg-[#0A0A0A] border border-white/10 rounded-[2rem] p-8 md:p-16 shadow-2xl relative overflow-hidden" data-aos="zoom-in">
+                <!-- Online Plan Content -->
+                <div x-show="plan === 'online'" x-transition.fade class="grid md:grid-cols-2 gap-16 items-center">
+                    <div>
+                        <h3 class="text-4xl font-black italic uppercase tracking-tighter mb-8">Consultoria Digital</h3>
+                        <ul class="space-y-6 mb-10">
+                            <li class="flex items-center gap-4 text-white/70">
+                                <span class="w-2 h-2 bg-purple-500 rounded-full"></span>
+                                <span class="font-medium">App HG TEAM Exclusivo</span>
+                            </li>
+                            <li class="flex items-center gap-4 text-white/70">
+                                <span class="w-2 h-2 bg-purple-500 rounded-full"></span>
+                                <span class="font-medium">Análise de Técnica Profissional</span>
+                            </li>
+                            <li class="flex items-center gap-4 text-white/70">
+                                <span class="w-2 h-2 bg-purple-500 rounded-full"></span>
+                                <span class="font-medium">Suporte Direto com Hugo</span>
+                            </li>
+                        </ul>
+                        <a href="http://shre.ink/HugoGouveia" target="_blank" class="block text-center bg-purple-600 hover:bg-purple-700 text-white font-black py-5 rounded-lg transition uppercase tracking-widest text-sm shadow-[0_0_30px_rgba(168,85,247,0.2)]">Ver Detalhes HGTEAM</a>
+                    </div>
+                    <div class="relative bg-white/5 p-10 rounded-2xl border border-white/10">
+                        <div class="absolute -top-4 -right-4 bg-purple-500 text-black font-black text-[10px] px-3 py-1 rounded tracking-tighter uppercase">Team Online</div>
+                        <p class="text-white/50 italic leading-relaxed">"O HG TEAM entrega a proximidade de um personal presencial com a liberdade que seus treinos exigem."</p>
+                    </div>
+                </div>
+
+                <!-- Presencial Plan Content -->
+                <div x-show="plan === 'presencial'" x-transition.fade class="grid md:grid-cols-2 gap-16 items-center">
+                    <div>
+                        <h3 class="text-4xl font-black italic uppercase tracking-tighter mb-8">Acompanhamento HG</h3>
+                        <ul class="space-y-6 mb-10">
+                            <li class="flex items-center gap-4 text-white/70">
+                                <span class="w-2 h-2 bg-purple-500 rounded-full"></span>
+                                <span class="font-medium">Frequência e Intensidade HG</span>
+                            </li>
+                            <li class="flex items-center gap-4 text-white/70">
+                                <span class="w-2 h-2 bg-purple-500 rounded-full"></span>
+                                <span class="font-medium">Biomecânica em Tempo Real</span>
+                            </li>
+                            <li class="flex items-center gap-4 text-white/70">
+                                <span class="w-2 h-2 bg-purple-500 rounded-full"></span>
+                                <span class="font-medium">Ambiente de Alta Performance</span>
+                            </li>
+                        </ul>
+                        <a href="http://shre.ink/HugoGouveia" target="_blank" class="block text-center bg-purple-600 hover:bg-purple-700 text-white font-black py-5 rounded-lg transition uppercase tracking-widest text-sm shadow-[0_0_30px_rgba(168,85,247,0.2)]">Agendar com Hugo</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final Call to Action -->
+    <section class="py-32 relative bg-main overflow-hidden border-t border-white/5">
+        <div class="container mx-auto px-6 text-center relative z-10" data-aos="zoom-in">
+            <span class="text-purple-500 text-xs font-bold uppercase tracking-[0.5em] mb-4 block italic">HG TEAM Vagas Limitadas</span>
+            <h2 class="text-5xl md:text-8xl font-black mb-8 tracking-tighter leading-none italic uppercase">TRANSFORME-SE COM<br/>O <span class="gradient-text">HGTEAM</span></h2>
+            <p class="text-xl text-white/40 mb-12 max-w-2xl mx-auto font-medium italic">"Alcance o seu melhor através da constância e método de verdade."</p>
+            <a href="http://shre.ink/HugoGouveia" target="_blank" class="bg-purple-600 hover:bg-purple-700 text-white font-black px-16 py-7 rounded-lg text-xl inline-flex items-center transition shadow-[0_0_60px_rgba(168,85,247,0.4)] transform hover:scale-105 group">
+                ENTRAR PARA O HG TEAM
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 ml-4 group-hover:translate-x-2 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- Sophisticated Bottom Feature Bar (Footer) -->
+    <footer class="border-t border-white/10 bg-[#0D0D0D]">
+        <div class="grid grid-cols-1 md:grid-cols-3">
+            <div class="flex flex-col justify-center p-12 md:p-16 border-b md:border-b-0 md:border-r border-white/10 group hover:bg-white/[0.02] transition-colors">
+                <div class="flex items-center gap-4 mb-4">
+                    <svg class="text-purple-500" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2v20m10-10H2"/></svg>
+                    <span class="text-xs font-bold uppercase tracking-widest">HG TEAM Metodologia</span>
+                </div>
+                <p class="text-sm text-white/40 leading-relaxed">Protocolos específicos aplicados ao Hipertrofia e Emagrecimento real.</p>
+            </div>
+            <div class="flex flex-col justify-center p-12 md:p-16 border-b md:border-b-0 md:border-r border-white/10 group hover:bg-white/[0.02] transition-colors">
+                <div class="flex items-center gap-4 mb-4">
+                    <svg class="text-purple-500" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                    <span class="text-xs font-bold uppercase tracking-widest">Alta Intensidade</span>
+                </div>
+                <p class="text-sm text-white/40 leading-relaxed">Acompanhamento síncrono HG TEAM para ajuste de técnica e motivação.</p>
+            </div>
+            <div class="flex flex-col justify-center p-12 md:p-16 group hover:bg-white/[0.02] transition-colors">
+                <div class="flex items-center gap-4 mb-4">
+                    <svg class="text-purple-500" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                    <span class="text-xs font-bold uppercase tracking-widest">HG TEAM Global</span>
+                </div>
+                <p class="text-sm text-white/40 leading-relaxed">Experiência internacional servindo o time em diversos países.</p>
+            </div>
+        </div>
+        <!-- Sub Footer -->
+        <div class="py-8 px-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] uppercase font-bold tracking-[0.2em] text-white/20">
+            <div class="flex items-center gap-3">
+                <span class="text-purple-500">hugo.gouveia</span>
+                <span>© 2024 Todos os Direitos Reservados</span>
+            </div>
+            <div class="flex gap-8">
+                <a href="#metodo" class="hover:text-purple-500 transition-colors">Metodologia</a>
+                <a href="#sobre" class="hover:text-purple-500 transition-colors">Sobre</a>
+                <a href="#planos" class="hover:text-purple-500 transition-colors">Planos</a>
+            </div>
+            <div>CREF12/PE: 022320-G/PE</div>
+        </div>
+    </footer>
+
+
+    <!-- Scripts -->
+    <script>
+        // Inicializa AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+
+        // Script para suavizar o scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

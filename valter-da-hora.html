@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valter da Hora | Personal Trainer & Pilates</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#E2FF24', // Vibrant Lime
+                        secondary: '#111111', // Deep Black
+                        accent: '#1E1E1E', // Dark Gray
+                        muted: '#A1A1A1',
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        display: ['Outfit', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <!-- AOS (Animate on Scroll) -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    
+    <!-- Alpine.js -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <style>
+        [x-cloak] { display: none !important; }
+        .text-gradient {
+            background: linear-gradient(to right, #E2FF24, #FFFFFF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .btn-hover-effect:hover {
+            box-shadow: 0 0 25px rgba(226, 255, 36, 0.4);
+        }
+    </style>
+</head>
+<body class="bg-secondary text-white font-sans selection:bg-primary selection:text-secondary overflow-x-hidden" x-data="{ mobileMenuOpen: false }">
+
+    <!-- Header / Navbar -->
+    <header class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-secondary/80 backdrop-blur-md border-b border-white/5">
+        <nav class="container mx-auto px-6 py-4 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#" class="text-xl font-extrabold tracking-tighter hover:opacity-80 transition-opacity">
+                valter<span class="text-primary">.</span>dahora
+            </a>
+
+            <!-- Desktop Nav -->
+            <div class="hidden md:flex items-center space-x-10 text-sm font-medium uppercase tracking-widest">
+                <a href="#metodo" class="hover:text-primary transition-colors">O Método</a>
+                <a href="#servicos" class="hover:text-primary transition-colors">Serviços</a>
+                <a href="#sobre" class="hover:text-primary transition-colors">Sobre</a>
+                <a href="https://api.whatsapp.com/send?phone=5519999689464" target="_blank" class="bg-primary text-secondary px-6 py-2.5 rounded-full font-bold hover:scale-105 transition-all btn-hover-effect">
+                    Agendar Agora
+                </a>
+            </div>
+
+            <!-- Mobile Toggle -->
+            <button @click="mobileMenuOpen = !mobileMenuOpen" class="md:hidden text-white focus:outline-none">
+                <svg x-show="!mobileMenuOpen" xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+                <svg x-show="mobileMenuOpen" xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </nav>
+
+        <!-- Mobile Menu -->
+        <div x-show="mobileMenuOpen" 
+             x-transition:enter="transition ease-out duration-300"
+             x-transition:enter-start="opacity-0 -translate-y-full"
+             x-transition:enter-end="opacity-100 translate-y-0"
+             x-transition:leave="transition ease-in duration-200"
+             x-transition:leave-start="opacity-100 translate-y-0"
+             x-transition:leave-end="opacity-0 -translate-y-full"
+             class="md:hidden bg-accent fixed inset-0 top-[73px] z-[40]" x-cloak>
+            <div class="flex flex-col items-center justify-center h-full space-y-8 text-2xl font-bold uppercase tracking-widest">
+                <a @click="mobileMenuOpen = false" href="#metodo" class="hover:text-primary transition-colors">O Método</a>
+                <a @click="mobileMenuOpen = false" href="#servicos" class="hover:text-primary transition-colors">Serviços</a>
+                <a @click="mobileMenuOpen = false" href="#sobre" class="hover:text-primary transition-colors">Sobre</a>
+                <a href="https://api.whatsapp.com/send?phone=5519999689464" target="_blank" class="bg-primary text-secondary px-10 py-4 rounded-full">
+                    Agendar Agora
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 flex items-center overflow-hidden">
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div data-aos="fade-right">
+                    <span class="inline-block px-4 py-1.5 rounded-full border border-primary/30 bg-primary/5 text-primary text-sm font-bold tracking-widest uppercase mb-6">
+                        Personal Trainer & Personal Pilates
+                    </span>
+                    <h1 class="text-5xl lg:text-7xl font-extrabold font-display leading-[1.1] mb-8">
+                        Treine para ter o 
+                        <span class="text-gradient">Corpo que Deseja</span> 
+                        com a Mobilidade que Precisa.
+                    </h1>
+                    <p class="text-muted text-lg lg:text-xl max-w-xl mb-10 leading-relaxed">
+                        Pare de sofrer com treinos genéricos e dores articulares. A metodologia que une a força da musculação com a precisão do Pilates para transformar seu físico em Americana/SP.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="https://api.whatsapp.com/send?phone=5519999689464" target="_blank" class="bg-primary text-secondary px-8 py-4 rounded-full font-bold text-center hover:scale-105 transition-all text-lg btn-hover-effect">
+                            Quero minha avaliação grátis
+                        </a>
+                        <a href="#metodo" class="border border-white/20 hover:bg-white/5 text-white px-8 py-4 rounded-full font-bold text-center transition-all text-lg backdrop-blur-sm">
+                            Conhecer Método
+                        </a>
+                    </div>
+                </div>
+
+                <div class="relative group" data-aos="fade-left">
+                    <div class="absolute -inset-1 bg-gradient-to-tr from-primary/30 to-transparent blur-2xl opacity-50 group-hover:opacity-75 transition duration-1000"></div>
+                    <div class="relative bg-accent rounded-[2rem] overflow-hidden aspect-square border border-white/10">
+                        <img src="valter-da-hora.webp" alt="Valter da Hora - Personal Trainer" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Invisible PAS: Problem & Agitation -->
+    <section id="metodo" class="py-24 bg-accent/30">
+        <!-- Shortened Problem section -->
+        <div class="container mx-auto px-6 text-center mb-16" data-aos="fade-up">
+            <h2 class="text-3xl lg:text-5xl font-bold font-display mb-6">Por que você ainda <span class="text-primary italic">não chegou lá?</span></h2>
+            <p class="text-muted max-w-2xl mx-auto text-lg leading-relaxed">
+                Seguir planos de internet e ignorar a biomecânica correta é o caminho mais curto para o platô ou uma lesão grave.
+            </p>
+        </div>
+
+        <div class="container mx-auto px-6 grid md:grid-cols-3 gap-8">
+            <div class="bg-accent p-10 rounded-[2rem] border border-white/5 hover:border-primary/20 transition-all group">
+                <h3 class="text-xl font-bold mb-4 italic">Esforço Inútil</h3>
+                <p class="text-muted leading-relaxed">Passe horas na academia e não veja mudança no espelho sem individualidade.</p>
+            </div>
+            <div class="bg-primary p-10 rounded-[2rem] border border-primary text-secondary transition-all">
+                <h3 class="text-xl font-bold mb-4 italic">Dores Crônicas</h3>
+                <p class="text-secondary/70 leading-relaxed">Dores nas costas não são normais, são sinais de treino errado.</p>
+            </div>
+            <div class="bg-accent p-10 rounded-[2rem] border border-white/5 hover:border-primary/20 transition-all group">
+                <h3 class="text-xl font-bold mb-4 italic">Falta de Método</h3>
+                <p class="text-muted leading-relaxed">O sucesso exige uma estratégia que una força e movimento.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="py-24 relative overflow-hidden">
+        <div class="container mx-auto px-6 text-center">
+            <div class="bg-primary rounded-[3rem] py-16 px-6 lg:px-20 text-secondary" data-aos="zoom-in">
+                <h2 class="text-4xl lg:text-7xl font-extrabold font-display leading-tight mb-8">
+                    Pronto para sua <br class="hidden md:block"> <span class="italic underline">melhor versão?</span>
+                </h2>
+                <a href="https://api.whatsapp.com/send?phone=5519999689464" target="_blank" class="bg-secondary text-primary px-12 py-5 rounded-full font-bold text-xl transition-all shadow-2xl inline-block">
+                    Começar Jornada
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 bg-secondary border-t border-white/5">
+        <div class="container mx-auto px-6 text-center text-muted text-xs">
+            <p>&copy; 2026 valter.dahora - Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, offset: 100, once: true });
+    </script>
+</body>
+</html>

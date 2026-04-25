@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sabrina Fernandes | Personal Trainer</title>
+    
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#fff1f2',
+                            100: '#ffe4e6',
+                            200: '#fecdd3',
+                            300: '#fda4af',
+                            400: '#fb7185',
+                            500: '#f43f5e',
+                            600: '#e11d48',
+                            700: '#be123c',
+                            800: '#9f1239',
+                            900: '#881337',
+                            950: '#4c0519',
+                        },
+                        dark: {
+                            900: '#0a0a0a',
+                            800: '#171717',
+                            700: '#262626',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Outfit', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
+
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Alpine.js -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <style>
+        body {
+            background-color: #0a0a0a;
+            color: #f5f5f5;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0a0a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #e11d48;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased overflow-x-hidden selection:bg-brand-500 selection:text-white">
+
+    <!-- Navbar -->
+    <nav x-data="{ mobileMenuOpen: false, scrolled: false }" 
+         @scroll.window="scrolled = (window.pageYOffset > 20)"
+         :class="{ 'bg-dark-900/90 backdrop-blur-md shadow-lg border-b border-dark-800': scrolled, 'bg-transparent': !scrolled }"
+         class="fixed w-full z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#" class="font-display font-bold text-2xl tracking-tighter text-white">
+                        sabrina.fernandes
+                    </a>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#metodo" class="text-sm font-medium text-gray-300 hover:text-brand-400 transition-colors">O Método</a>
+                    <a href="#planos" class="text-sm font-medium text-gray-300 hover:text-brand-400 transition-colors">Planos</a>
+                    <a href="#sobre" class="text-sm font-medium text-gray-300 hover:text-brand-400 transition-colors">Sobre</a>
+                    <a href="#depoimentos" class="text-sm font-medium text-gray-300 hover:text-brand-400 transition-colors">Resultados</a>
+                    <a href="https://wa.me/5511999999999?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20a%20consultoria!" target="_blank" 
+                       class="px-6 py-2.5 bg-brand-600 hover:bg-brand-500 text-white text-sm font-semibold rounded-full transition-all transform hover:scale-105 shadow-[0_0_15px_rgba(225,29,72,0.3)]">
+                        Começar Agora
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button @click="mobileMenuOpen = !mobileMenuOpen" class="text-gray-300 hover:text-white focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path x-show="!mobileMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                            <path x-show="mobileMenuOpen" style="display: none;" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div x-show="mobileMenuOpen" 
+             x-transition:enter="transition ease-out duration-200"
+             x-transition:enter-start="opacity-0 -translate-y-2"
+             x-transition:enter-end="opacity-100 translate-y-0"
+             x-transition:leave="transition ease-in duration-150"
+             x-transition:leave-start="opacity-100 translate-y-0"
+             x-transition:leave-end="opacity-0 -translate-y-2"
+             class="md:hidden bg-dark-800 border-b border-dark-700 absolute w-full" style="display: none;">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a @click="mobileMenuOpen = false" href="#metodo" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-brand-400 hover:bg-dark-700 rounded-md">O Método</a>
+                <a @click="mobileMenuOpen = false" href="#planos" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-brand-400 hover:bg-dark-700 rounded-md">Planos</a>
+                <a @click="mobileMenuOpen = false" href="#sobre" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-brand-400 hover:bg-dark-700 rounded-md">Sobre</a>
+                <a @click="mobileMenuOpen = false" href="#depoimentos" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-brand-400 hover:bg-dark-700 rounded-md">Resultados</a>
+                <a href="https://wa.me/5511999999999?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20a%20consultoria!" target="_blank" 
+                   class="block mt-4 w-full text-center px-6 py-3 bg-brand-600 text-white font-semibold rounded-md">
+                    Agendar Avaliação
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+        <!-- Background Gradients -->
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[500px] bg-brand-600/10 blur-[120px] rounded-full pointer-events-none"></div>
+        <div class="absolute top-40 -left-64 w-[500px] h-[500px] bg-brand-900/40 blur-[100px] rounded-full pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="lg:grid lg:grid-cols-12 lg:gap-16 items-center">
+                
+                <!-- Hero Content -->
+                <div class="lg:col-span-6 text-center lg:text-left" data-aos="fade-right" data-aos-duration="1000">
+                    <div class="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full bg-dark-800 border border-dark-700 mb-6">
+                        <span class="flex h-2 w-2 relative">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-500"></span>
+                        </span>
+                        <span class="text-xs font-semibold text-gray-300 uppercase tracking-widest">Vagas Abertas</span>
+                    </div>
+
+                    <h1 class="text-5xl sm:text-6xl lg:text-7xl font-display font-extrabold text-white leading-tight mb-6">
+                        Desperte a sua <br/>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 to-brand-600">melhor versão.</span>
+                    </h1>
+                    
+                    <p class="text-lg sm:text-xl text-gray-400 mb-8 max-w-2xl mx-auto lg:mx-0 font-light leading-relaxed">
+                        Consultoria online e presencial especializada em hipertrofia, emagrecimento e saúde. O acompanhamento que você precisa para alcançar o corpo que você merece.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-4">
+                        <a href="https://wa.me/5511999999999?text=Olá,%20Sabrina!%20Quero%20alcançar%20minha%20melhor%20versão." target="_blank" 
+                           class="w-full sm:w-auto px-8 py-4 bg-brand-600 hover:bg-brand-500 text-white font-bold rounded-full transition-all transform hover:-translate-y-1 shadow-[0_10px_40px_rgba(225,29,72,0.4)] flex items-center justify-center gap-2">
+                            <span>Quero Transformar Meu Corpo</span>
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        </a>
+                    </div>
+
+                    <!-- Trust Indicators -->
+                    <div class="mt-10 pt-10 border-t border-dark-800 flex flex-wrap justify-center lg:justify-start gap-8 opacity-80">
+                        <div class="flex flex-col items-center lg:items-start">
+                            <span class="text-2xl font-bold text-white">Hipertrofia</span>
+                            <span class="text-sm text-brand-400">Foco em volume</span>
+                        </div>
+                        <div class="flex flex-col items-center lg:items-start">
+                            <span class="text-2xl font-bold text-white">Emagrecimento</span>
+                            <span class="text-sm text-brand-400">Perda de gordura</span>
+                        </div>
+                        <div class="flex flex-col items-center lg:items-start">
+                            <span class="text-2xl font-bold text-white">Saúde</span>
+                            <span class="text-sm text-brand-400">Qualidade de vida</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Image -->
+                <div class="lg:col-span-6 mt-16 lg:mt-0 relative" data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">
+                    <div class="relative w-full aspect-square max-w-md mx-auto lg:max-w-none">
+                        <!-- Decorative border/glow -->
+                        <div class="absolute -inset-1 bg-gradient-to-tr from-brand-600 to-dark-900 rounded-[2.5rem] blur-xl opacity-50"></div>
+                        <!-- PlaceHolder ONLY allowed image -->
+                        <img src="sabrina-fernandes.webp" alt="Sabrina Fernandes Personal Trainer" 
+                             class="relative w-full h-full object-cover rounded-[2rem] shadow-2xl z-10 border border-dark-700/50">
+                        
+                        <!-- Floating Badge -->
+                        <div class="absolute -bottom-6 -left-6 bg-dark-800 border border-dark-700 p-4 rounded-xl shadow-xl z-20 flex items-center gap-4 bounce-sm">
+                            <div class="w-12 h-12 bg-brand-500/20 rounded-full flex items-center justify-center text-brand-500">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-400">Acompanhamento</p>
+                                <p class="font-bold text-white">100% Personalizado</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- PAS Framework: Problem & Agitation (Hidden Structure) -->
+    <section id="problema" class="py-24 bg-dark-900 border-t border-dark-800">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center" data-aos="fade-up">
+            <h2 class="text-3xl md:text-5xl font-display font-bold mb-8 text-white">
+                Cansada de suar a camisa e <span class="text-dark-400 underline decoration-brand-600/50 underline-offset-8">não ver resultados</span> no espelho?
+            </h2>
+            <p class="text-lg md:text-xl text-gray-400 leading-relaxed mb-12">
+                A maioria das pessoas passa horas na academia executando treinos genéricos que foram copiados e colados para todos os alunos. O resultado? Frustração, estagnação, perda de motivação e, muitas vezes, lesões. Você não precisa viver em uma dieta restritiva impossível de manter ou morar na academia para ter o corpo dos seus sonhos. O que falta é direção estratégica.
+            </p>
+            
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Pain point 1 -->
+                <div class="p-6 bg-dark-800 rounded-2xl border border-dark-700 text-left">
+                    <div class="w-12 h-12 bg-brand-900/30 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-brand-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Estagnação</h3>
+                    <p class="text-gray-400">Seu corpo acostumou com o treino e as mudanças pararam de acontecer meses atrás.</p>
+                </div>
+                <!-- Pain point 2 -->
+                <div class="p-6 bg-dark-800 rounded-2xl border border-dark-700 text-left">
+                    <div class="w-12 h-12 bg-brand-900/30 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-brand-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Treino Genérico</h3>
+                    <p class="text-gray-400">A mesma ficha de academia que foi entregue para dezenas de outras pessoas diferentes de você.</p>
+                </div>
+                <!-- Pain point 3 -->
+                <div class="p-6 bg-dark-800 rounded-2xl border border-dark-700 text-left">
+                    <div class="w-12 h-12 bg-brand-900/30 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-brand-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Falta de Ânimo</h3>
+                    <p class="text-gray-400">A falta de resultados rápidos e visíveis destrói sua disciplina e consistência nos treinos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PAS Framework: Solution & Methodology -->
+    <section id="metodo" class="py-24 bg-dark-800 w-full relative">
+        <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+CjxyZWN0IHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgZmlsbD0idHJhbnNwYXJlbnQiPjwvcmVjdD4KPGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjA1KSI+PC9jaXJjbGU+Cjwvc3ZnPg==')] opacity-50"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+                <h2 class="text-brand-500 font-semibold tracking-wide uppercase text-sm mb-3">A Solução Definitiva</h2>
+                <h3 class="text-3xl md:text-5xl font-display font-bold text-white mb-6">O método exato para você conquistar a sua melhor versão.</h3>
+                <p class="text-gray-400 text-lg">Meu método é baseado na ciência e no mapa individual do seu corpo. Trabalhamos em três pilares fundamentais para transformar sua rotina em resultados visíveis.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Pillar 1 -->
+                <div class="bg-dark-900 border border-dark-700/50 p-8 rounded-3xl hover:border-brand-500/30 transition-colors" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-16 h-16 bg-gradient-to-br from-brand-500 to-brand-700 rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-brand-500/20">
+                        <svg class="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                    </div>
+                    <h4 class="text-2xl font-bold text-white mb-4">Hipertrofia</h4>
+                    <p class="text-gray-400">Treinos com base em progressão de carga e estímulos musculares corretos. Vamos construir massa magra de forma eficiente, modelando de verdade a sua estrutura corporal.</p>
+                </div>
+
+                <!-- Pillar 2 -->
+                <div class="bg-dark-900 border border-dark-700/50 p-8 rounded-3xl hover:border-brand-500/30 transition-colors" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-16 h-16 bg-gradient-to-br from-brand-500 to-brand-700 rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-brand-500/20">
+                        <svg class="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                    </div>
+                    <h4 class="text-2xl font-bold text-white mb-4">Emagrecimento</h4>
+                    <p class="text-gray-400">Estratégias que aceleram seu metabolismo e promovem a oxidação de gordura sem sacrificar sua massa muscular. Reduza medidas melhorando sua composição física geral.</p>
+                </div>
+
+                <!-- Pillar 3 -->
+                <div class="bg-dark-900 border border-dark-700/50 p-8 rounded-3xl hover:border-brand-500/30 transition-colors" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-16 h-16 bg-gradient-to-br from-brand-500 to-brand-700 rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-brand-500/20">
+                        <svg class="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                    </div>
+                    <h4 class="text-2xl font-bold text-white mb-4">Saúde</h4>
+                    <p class="text-gray-400">A estética é apenas o resultado de um corpo que funciona bem. Foco na biomecânica, fortalecimento e na construção de um estilo de vida sustentável e duradouro.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Plans/Services Section -->
+    <section id="planos" class="py-24 bg-dark-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-5xl font-display font-bold text-white mb-4">Como vamos trabalhar juntos?</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">Escolha o formato que melhor se adapta à sua rotina e aos seus objetivos atuais. Atendimento exclusivo com suporte real.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <!-- Online Consulting -->
+                <div class="bg-dark-800 rounded-3xl border border-dark-700 overflow-hidden relative group" data-aos="fade-right">
+                    <div class="absolute inset-0 bg-gradient-to-b from-brand-900/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="p-8 pb-0">
+                        <div class="w-max px-4 py-1.5 rounded-full bg-brand-500/10 text-brand-400 text-sm font-bold border border-brand-500/20 mb-6">Flexibilidade Total</div>
+                        <h3 class="text-3xl font-bold text-white mb-2">Consultoria On-line</h3>
+                        <p class="text-gray-400 mb-8 h-12">Para você que já treina (ou quer começar) e precisa do roteiro exato para evoluir, onde quer que você esteja.</p>
+                    </div>
+                    <div class="px-8 pb-8">
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-start">
+                                <svg class="w-6 h-6 text-brand-500 mr-3 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                <span class="text-gray-300">Treino 100% individualizado pelo app.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-6 h-6 text-brand-500 mr-3 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                <span class="text-gray-300">Análise de vídeos da execução dos exercícios.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-6 h-6 text-brand-500 mr-3 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                <span class="text-gray-300">Suporte direto no WhatsApp para dúvidas.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-6 h-6 text-brand-500 mr-3 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                <span class="text-gray-300">Ajustes periódicos conforme sua evolução.</span>
+                            </li>
+                        </ul>
+                        <a href="https://wa.me/5511999999999?text=Olá,%20tenho%20interesse%20na%20Consultoria%20On-line!" target="_blank" 
+                           class="block w-full py-4 text-center rounded-xl bg-dark-700 hover:bg-dark-600 border border-dark-600 text-white font-bold transition-all">
+                            Quero a Consultoria On-line
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Personal Presencial -->
+                <div class="bg-gradient-to-b from-dark-800 to-dark-900 rounded-3xl border border-brand-500/30 overflow-hidden relative shadow-[0_0_40px_rgba(225,29,72,0.15)]" data-aos="fade-left">
+                    <div class="absolute top-0 right-0 p-4">
+                        <span class="flex h-3 w-3 relative">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-3 w-3 bg-brand-500"></span>
+                        </span>
+                    </div>
+                    <div class="p-8 pb-0">
+                        <div class="w-max px-4 py-1.5 rounded-full bg-brand-500 text-white text-sm font-bold border border-brand-400 mb-6">Acompanhamento Premium</div>
+                        <h3 class="text-3xl font-bold text-white mb-2">Personal Presencial</h3>
+                        <p class="text-gray-400 mb-8 h-12">Acompanhamento lado a lado. Para quem busca extrair 100% de performance em cada repetição.</p>
+                    </div>
+                    <div class="px-8 pb-8">
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-start">
+                                <svg class="w-6 h-6 text-brand-500 mr-3 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                <span class="text-gray-300">Treinos com hora marcada e correção ao vivo.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-6 h-6 text-brand-500 mr-3 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                <span class="text-gray-300">Motivação extra para romper seus limites.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-6 h-6 text-brand-500 mr-3 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                <span class="text-gray-300">Prevenção ativa de lesões.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-6 h-6 text-brand-500 mr-3 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                <span class="text-gray-300">Aceleração drástica dos resultados estéticos.</span>
+                            </li>
+                        </ul>
+                        <a href="https://wa.me/5511999999999?text=Olá,%20gostaria%20de%20verificar%20a%20disponibilidade%20de%20horários%20para%20o%20Personal%20Presencial!" target="_blank" 
+                           class="block w-full py-4 text-center rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-bold transition-all shadow-lg hover:shadow-brand-500/25">
+                            Verificar Vagas Presenciais
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section Typography Only -->
+    <section id="sobre" class="py-24 bg-dark-800 border-y border-dark-700/50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8" data-aos="fade-up">
+            <h2 class="text-4xl md:text-6xl font-display font-extrabold text-white mb-8">
+                Muito prazer,<br>eu sou a <span class="text-brand-500">Sabrina Fernandes.</span>
+            </h2>
+            <div class="prose prose-lg prose-invert max-w-none text-gray-400 space-y-6">
+                <p>Sou Personal Trainer e vivo diariamente o que prego. Acredito que o treinamento não é apenas sobre puxar e empurrar pesos, mas sobre <strong>construir confiança, disciplina e uma base de saúde</strong> que acompanha você para a vida toda.</p>
+                <p>Meu foco é guiar pessoas a conquistarem o físico que desejam, seja ele através da hipertrofia ou do emagrecimento, usando ciência, biomecânica e muito suor.</p>
+                <p>Não aceito desculpas mentirosas, não aplico treinos de modinha de internet. Ao entrar pro meu time, o compromisso é com o <strong>resultado no espelho e com a sua evolução pessoal.</strong> Estamos juntos nessa jornada para descobrir a sua melhor versão.</p>
+            </div>
+            
+            <div class="mt-12 flex items-center mb-8">
+                <div class="h-px bg-dark-700 flex-grow"></div>
+                <div class="mx-6 font-display font-bold text-3xl tracking-widest text-dark-500 opacity-30 uppercase">S.F</div>
+                <div class="h-px bg-dark-700 flex-grow"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Text-Only Testimonials -->
+    <section id="depoimentos" class="py-24 bg-dark-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-5xl font-display font-bold text-white mb-4">A realidade de quem já começou.</h2>
+                <p class="text-gray-400">Pessoas comuns alcançando resultados extraordinários com direcionamento correto.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Review 1 -->
+                <div class="bg-dark-800 p-8 rounded-2xl border border-dark-700" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex text-brand-500 mb-4">
+                        ★★★★★
+                    </div>
+                    <p class="text-gray-300 italic mb-6">"Treinava há mais de 1 ano e meu corpo não mudava. A Sabrina mudou completamente a variável de estímulos do meu treino. Em 3 meses com ela tive mais resultado de hipertrofia do que no ano inteiro sozinha."</p>
+                    <p class="text-white font-bold">- Aluna Consultoria On-line</p>
+                </div>
+                
+                <!-- Review 2 -->
+                <div class="bg-dark-800 p-8 rounded-2xl border border-dark-700" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex text-brand-500 mb-4">
+                        ★★★★★
+                    </div>
+                    <p class="text-gray-300 italic mb-6">"Profissionalismo impecável. Nunca vi um cuidado técnico tão grande na execução dos movimentos. Emagreci muito reduzindo minhas dores articulares nas costas que eu tinha no começo!"</p>
+                    <p class="text-white font-bold">- Aluno Presencial</p>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="bg-dark-800 p-8 rounded-2xl border border-dark-700" data-aos="fade-up" data-aos-delay="300">
+                    <div class="flex text-brand-500 mb-4">
+                        ★★★★★
+                    </div>
+                    <p class="text-gray-300 italic mb-6">"O suporte faz total diferença. Estava prestes a desistir da academia de novo, e o plano moldado exatamente pra minha dor me manteve focado. Recomendo 100%!"</p>
+                    <p class="text-white font-bold">- Aluno Consultoria On-line</p>
+                </div>
+            </div>
+
+            <div class="mt-16 text-center" data-aos="zoom-in">
+                <a href="https://wa.me/5511999999999?text=Olá!%20Também%20quero%20ter%20resultados%20assim!" target="_blank" 
+                   class="inline-flex items-center justify-center px-8 py-4 bg-white text-dark-900 font-bold rounded-full transition-all hover:bg-gray-200">
+                    Ser a Próxima História de Sucesso
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Alpine Accordion -->
+    <section class="py-24 bg-dark-800 border-t border-dark-700">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center" data-aos="fade-up">
+            <h2 class="text-3xl font-display font-bold text-white mb-12">Dúvidas Frequentes</h2>
+            
+            <div class="text-left space-y-4">
+                <!-- FAQ Item 1 -->
+                <div x-data="{ expanded: false }" class="bg-dark-900 border border-dark-700 rounded-xl overflow-hidden">
+                    <button @click="expanded = !expanded" class="w-full px-6 py-4 flex justify-between items-center focus:outline-none">
+                        <span class="font-semibold text-white">Como funciona o suporte da consultoria on-line?</span>
+                        <svg class="w-5 h-5 text-brand-500 transform transition-transform duration-200" :class="{'rotate-180': expanded}" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div x-show="expanded" x-collapse>
+                        <div class="px-6 pb-4 text-gray-400">O suporte é feito diretamente comigo via WhatsApp. Você me envia vídeos executando os exercícios, eu gravo as correções se necessário e ajusto seu treino. Você nunca está sozinho na academia.</div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div x-data="{ expanded: false }" class="bg-dark-900 border border-dark-700 rounded-xl overflow-hidden">
+                    <button @click="expanded = !expanded" class="w-full px-6 py-4 flex justify-between items-center focus:outline-none">
+                        <span class="font-semibold text-white">Preciso ter experiência antes de contratar?</span>
+                        <svg class="w-5 h-5 text-brand-500 transform transition-transform duration-200" :class="{'rotate-180': expanded}" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div x-show="expanded" x-collapse style="display: none;">
+                        <div class="px-6 pb-4 text-gray-400">Não. O treino é montado e customizado de acordo com o seu nível atual, seja você um iniciante que nunca pisou na academia, ou um aluno avançado buscando estourar o platô.</div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div x-data="{ expanded: false }" class="bg-dark-900 border border-dark-700 rounded-xl overflow-hidden">
+                    <button @click="expanded = !expanded" class="w-full px-6 py-4 flex justify-between items-center focus:outline-none">
+                        <span class="font-semibold text-white">Vocês montam dieta?</span>
+                        <svg class="w-5 h-5 text-brand-500 transform transition-transform duration-200" :class="{'rotate-180': expanded}" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div x-show="expanded" x-collapse style="display: none;">
+                        <div class="px-6 pb-4 text-gray-400">O serviço prestado é exclusivamente focado no treinamento físico (Prescrição de Exercícios). Posso dar direcionamentos básicos de hábitos, mas planos nutricionais detalhados devem ser feitos por um Nutricionista.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark-950 py-12 border-t border-dark-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-6 md:mb-0">
+                <a href="#" class="font-display font-bold text-2xl tracking-tighter text-white">
+                    sabrina.fernandes
+                </a>
+                <p class="text-sm text-gray-500 mt-2">© 2024 Todos os Direitos Reservados.</p>
+            </div>
+            
+            <div class="flex flex-col items-center md:items-end">
+                <a href="https://wa.me/5511999999999" target="_blank" class="flex items-center text-gray-400 hover:text-brand-500 transition-colors mb-4">
+                    <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.89-4.443 9.893-9.892.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.738-.971zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.347-.272.297-1.04 1.016-1.04 2.479 0 1.463 1.065 2.876 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" clip-rule="evenodd"></path></svg>
+                    WhatsApp
+                </a>
+                <a href="#metodo" class="text-sm text-gray-500 hover:text-white transition-colors">Voltar ao topo ↑</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AOS Init -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            once: true,
+            offset: 50,
+            duration: 800,
+            easing: 'ease-out-cubic',
+        });
+    </script>
+</body>
+</html>
