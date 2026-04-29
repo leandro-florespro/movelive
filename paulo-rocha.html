@@ -5,18 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Paulo Rocha | Personal Trainer & Coach</title>
 
-    <!-- Tailwind fetch setter fix for Chrome 130+ -->
-    <script>
-      (function () {
-        var originalFetch = window.fetch;
-        Object.defineProperty(window, "fetch", {
-          value: originalFetch,
-          writable: true,
-          configurable: true,
-        });
-      })();
-    </script>
-
     <!-- Tailwind CSS (CDN) -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -441,21 +429,35 @@
     >
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-center mb-16" data-aos="fade-up">
-          <div class="flex flex-col sm:flex-row gap-4 sm:gap-6">
-            <button
+          <div class="flex items-center gap-6">
+            <span
               @click="tab = 'online'"
-              :class="tab === 'online' ? 'bg-brand-600 border-brand-600 text-white' : 'bg-transparent border-brand-600 text-white'"
-              class="px-8 py-4 border rounded-full text-sm font-bold uppercase tracking-wider transition-all duration-300"
+              class="cursor-pointer text-sm font-bold uppercase tracking-wider transition-colors duration-300"
+              :class="tab === 'online' ? 'text-white' : 'text-slate-500 hover:text-slate-300'"
             >
               Consultoria Online
-            </button>
+            </span>
+            
+            <!-- Toggle Switch -->
             <button
+              @click="tab = tab === 'online' ? 'presencial' : 'online'"
+              class="relative inline-flex h-8 w-16 items-center rounded-full border-2 border-slate-700 bg-neutral-800 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-brand-600 focus:ring-offset-2 focus:ring-offset-black"
+              :class="tab === 'presencial' ? 'border-brand-600' : ''"
+            >
+              <span class="sr-only">Alternar modalidade</span>
+              <span
+                class="inline-block h-6 w-6 transform rounded-full bg-brand-600 transition duration-300 ease-in-out"
+                :class="tab === 'presencial' ? 'translate-x-8' : 'translate-x-1'"
+              ></span>
+            </button>
+
+            <span
               @click="tab = 'presencial'"
-              :class="tab === 'presencial' ? 'bg-brand-600 border-brand-600 text-white' : 'bg-transparent border-brand-600 text-white'"
-              class="px-8 py-4 border rounded-full text-sm font-bold uppercase tracking-wider transition-all duration-300"
+              class="cursor-pointer text-sm font-bold uppercase tracking-wider transition-colors duration-300"
+              :class="tab === 'presencial' ? 'text-white' : 'text-slate-500 hover:text-slate-300'"
             >
               Acompanhamento Presencial
-            </button>
+            </span>
           </div>
         </div>
 
@@ -786,8 +788,11 @@
           >
             PRESENÇA QUE FAZ A DIFERENÇA
           </h3>
-          <p class="text-slate-400 text-sm md:text-base max-w-2xl mx-auto mb-10">
+          <p class="text-slate-400 text-sm max-w-2xl mx-auto mb-6">
             Para quem quer mais do que um treino — quer um acompanhamento de verdade, do aquecimento à última repetição.
+          </p>
+          <p class="text-slate-300 text-base md:text-lg max-w-3xl mx-auto mb-10 leading-relaxed">
+            No treino presencial, cada detalhe é observado em tempo real. A postura, o ritmo, a respiração, a carga — tudo é ajustado no momento certo para maximizar o seu resultado e eliminar o risco de lesão. É o formato mais completo de acompanhamento, porque eu estou lá contigo.
           </p>
           <ul class="space-y-5 text-left max-w-lg mx-auto mb-10">
             <li class="flex items-center gap-4 text-slate-300 text-lg">
@@ -808,7 +813,7 @@
                   ></path>
                 </svg>
               </div>
-              Supervisão presencial direta pelo Paulo
+              Supervisão direta em cada exercício
             </li>
             <li class="flex items-center gap-4 text-slate-300 text-lg">
               <div
@@ -828,7 +833,7 @@
                   ></path>
                 </svg>
               </div>
-              Correção de postura e execução em tempo real
+              Correção imediata de postura e técnica
             </li>
             <li class="flex items-center gap-4 text-slate-300 text-lg">
               <div
@@ -848,7 +853,7 @@
                   ></path>
                 </svg>
               </div>
-              Treinos adaptados ao seu corpo no momento
+              Treino 100% adaptado ao seu dia e ao seu corpo
             </li>
             <li class="flex items-center gap-4 text-slate-300 text-lg">
               <div
@@ -868,7 +873,7 @@
                   ></path>
                 </svg>
               </div>
-              Relacionamento próximo e motivação constante
+              Proximidade e motivação que fazem a diferença a longo prazo
             </li>
           </ul>
           <a
