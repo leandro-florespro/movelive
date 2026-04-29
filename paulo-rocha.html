@@ -441,20 +441,18 @@
     >
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-center mb-16" data-aos="fade-up">
-          <div
-            class="inline-flex bg-black p-1 rounded-full border border-slate-800"
-          >
+          <div class="flex flex-col sm:flex-row gap-4 sm:gap-6">
             <button
               @click="tab = 'online'"
-              :class="tab === 'online' ? 'bg-brand-600 text-white shadow-md' : 'text-slate-400 hover:text-white'"
-              class="px-6 py-3 rounded-full text-sm font-bold uppercase tracking-wider transition-all duration-300"
+              :class="tab === 'online' ? 'bg-brand-600 border-brand-600 text-white' : 'bg-transparent border-brand-600 text-white'"
+              class="px-8 py-4 border rounded-full text-sm font-bold uppercase tracking-wider transition-all duration-300"
             >
               Consultoria Online
             </button>
             <button
               @click="tab = 'presencial'"
-              :class="tab === 'presencial' ? 'bg-brand-600 text-white shadow-md' : 'text-slate-400 hover:text-white'"
-              class="px-6 py-3 rounded-full text-sm font-bold uppercase tracking-wider transition-all duration-300"
+              :class="tab === 'presencial' ? 'bg-brand-600 border-brand-600 text-white' : 'bg-transparent border-brand-600 text-white'"
+              class="px-8 py-4 border rounded-full text-sm font-bold uppercase tracking-wider transition-all duration-300"
             >
               Acompanhamento Presencial
             </button>
@@ -784,10 +782,13 @@
           style="display: none"
         >
           <h3
-            class="text-3xl font-black uppercase text-white mb-8 tracking-tight"
+            class="text-3xl font-black uppercase text-white mb-2 tracking-tight"
           >
-            Treino Lado a Lado
+            PRESENÇA QUE FAZ A DIFERENÇA
           </h3>
+          <p class="text-slate-400 text-sm md:text-base max-w-2xl mx-auto mb-10">
+            Para quem quer mais do que um treino — quer um acompanhamento de verdade, do aquecimento à última repetição.
+          </p>
           <ul class="space-y-5 text-left max-w-lg mx-auto mb-10">
             <li class="flex items-center gap-4 text-slate-300 text-lg">
               <div
