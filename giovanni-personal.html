@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giovanni Personal | Método Slim Fit</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:ital,wght@0,300;0,400;0,600;0,700;0,800;1,700;1,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            500: '#CCFF00',
+                            600: '#b8e600',
+                            900: '#334000',
+                        },
+                        dark: {
+                            900: '#0A0A0A',
+                            800: '#111111',
+                            700: '#1a1a1a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0A0A0A; }
+        ::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #CCFF00; }
+        .text-stroke { -webkit-text-stroke: 1px white; }
+        .text-stroke-brand { -webkit-text-stroke: 1px #CCFF00; }
+    </style>
+</head>
+<body class="bg-dark-900 text-gray-100 font-sans antialiased selection:bg-brand-500 selection:text-black overflow-x-hidden">
+
+    <!-- Header -->
+    <header x-data="{ mobileMenuOpen: false, scrolled: false }" 
+            @scroll.window="scrolled = (window.pageYOffset > 50)"
+            :class="{'bg-dark-900/95 backdrop-blur-md border-b border-white/5 shadow-lg': scrolled, 'bg-transparent': !scrolled}"
+            class="fixed w-full top-0 z-50 transition-all duration-300 py-4">
+        <div class="container mx-auto px-6 lg:px-12 flex justify-between items-center">
+            <a href="#" class="font-heading font-bold text-xl tracking-tighter text-white flex items-center">
+                giovanni<span class="text-brand-500">.</span>personal
+            </a>
+            <nav class="hidden md:flex items-center gap-8 text-xs uppercase tracking-widest font-semibold text-gray-300">
+                <a href="#metodo" class="hover:text-brand-500 transition-colors">O Método</a>
+                <a href="#sobre" class="hover:text-brand-500 transition-colors">Sobre Mim</a>
+                <a href="#depoimentos" class="hover:text-brand-500 transition-colors">Depoimentos</a>
+            </nav>
+            <div class="hidden md:block">
+                <a href="https://wa.me/5511950717871" target="_blank" class="bg-brand-500 hover:bg-white text-black px-6 py-2.5 rounded-sm font-black uppercase text-xs tracking-widest transition-all transform hover:scale-105">
+                    Avaliação
+                </a>
+            </div>
+            <button @click="mobileMenuOpen = !mobileMenuOpen" class="md:hidden text-gray-300 hover:text-white">
+                <svg x-show="!mobileMenuOpen" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                <svg x-cloak x-show="mobileMenuOpen" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+        </div>
+        <div x-cloak x-show="mobileMenuOpen" class="md:hidden absolute top-full left-0 w-full bg-dark-800 border-b border-white/5 py-4 shadow-xl">
+            <div class="flex flex-col px-6 gap-4 font-semibold text-xs uppercase tracking-widest">
+                <a @click="mobileMenuOpen = false" href="#metodo" class="block py-2 text-gray-300 hover:text-brand-500">O Método</a>
+                <a @click="mobileMenuOpen = false" href="#sobre" class="block py-2 text-gray-300 hover:text-brand-500">Sobre Mim</a>
+                <a @click="mobileMenuOpen = false" href="#depoimentos" class="block py-2 text-gray-300 hover:text-brand-500">Depoimentos</a>
+                <a href="https://wa.me/5511950717871" target="_blank" class="block text-center bg-brand-500 text-black px-6 py-3 rounded-sm font-black mt-2">
+                    Avaliação
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 lg:pt-40 lg:pb-32 overflow-hidden h-auto md:min-h-[80vh] flex items-center">
+        <!-- Lines decor -->
+        <div class="hidden lg:flex absolute top-1/2 left-4 transform -translate-y-1/2 flex-col gap-4 z-20">
+            <div class="w-1 h-12 bg-brand-500"></div>
+            <div class="w-1 h-12 bg-white/10"></div>
+            <div class="w-1 h-12 bg-white/10"></div>
+        </div>
+        
+        <div class="container mx-auto px-6 lg:px-16 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+                <div data-aos="fade-right" class="max-w-xl xl:max-w-2xl">
+                    <div class="inline-flex items-center gap-2 py-1.5 px-4 border border-brand-500/30 bg-brand-500/10 rounded-full mb-8">
+                        <span class="w-2 h-2 rounded-full bg-brand-500 animate-pulse"></span>
+                        <span class="text-[10px] sm:text-xs uppercase font-bold tracking-widest text-brand-500">O Especialista das Mulheres</span>
+                    </div>
+                    
+                    <h1 class="font-heading text-5xl sm:text-6xl md:text-7xl font-extrabold leading-[0.9] tracking-tighter uppercase italic mb-8 text-white">
+                        Sem Barriga, <br/>
+                        Com <span class="text-transparent text-stroke-brand border-b-4 border-brand-500">Coxas</span> & <br/>
+                        Bumbum <span class="text-brand-500">Duros.</span>
+                    </h1>
+                    
+                    <p class="text-lg text-gray-400 mb-10 leading-relaxed max-w-md">
+                        Pare de perder tempo com treinos genéricos. O <strong>Método Slim Fit</strong> foi desenvolvido para a fisiologia feminina, garantindo resultados rápidos.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-6">
+                        <a href="https://wa.me/5511950717871" target="_blank" class="inline-flex items-center justify-center gap-3 bg-brand-500 text-black font-black text-lg py-5 px-10 rounded-sm hover:bg-white transition-all transform hover:scale-105 uppercase tracking-tight group w-fit">
+                            Quero transformar meu corpo
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 group-hover:translate-x-2 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div data-aos="fade-left" data-aos-delay="200" class="relative max-w-md mx-auto lg:max-w-none w-full lg:h-[600px]">
+                    <div class="absolute inset-0 bg-gradient-to-l from-transparent via-dark-900/40 to-dark-900 z-10"></div>
+                    <img src="giovanni-personal.webp" alt="Giovanni Personal" class="w-full h-full object-cover grayscale-0 brightness-90 shadow-2xl block" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100%\' height=\'100%\' viewBox=\'0 0 800 1000\'><rect fill=\'%23111111\' width=\'100%\' height=\'100%\'/><text fill=\'%23333333\' font-family=\'sans-serif\' font-size=\'30\' font-weight=\'bold\' x=\'50%\' y=\'50%\' text-anchor=\'middle\'>PLACEHOLDER (1200x1200)</text></svg>'">
+                    <div class="absolute bottom-6 right-6 sm:bottom-12 sm:right-12 z-20 bg-black/80 backdrop-blur-md p-6 border-l-4 border-brand-500 w-64 sm:w-72 shadow-xl">
+                        <p class="text-sm italic text-gray-300 leading-snug">
+                            "A barriga secou e a coxa definiu em apenas 8 semanas."
+                        </p>
+                        <p class="text-[10px] uppercase font-bold mt-3 text-brand-500 tracking-widest">— Aluna Slim Fit</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="py-24 bg-dark-800 border-y border-white/5">
+        <div class="container mx-auto px-6 lg:px-16 max-w-5xl">
+            <div data-aos="fade-up" class="mb-16">
+                <h2 class="font-heading text-4xl sm:text-5xl font-extrabold text-white leading-[1.1] tracking-tighter uppercase italic">
+                    Treina, treina e o corpo <br/><span class="text-transparent text-stroke border-b-2 border-white/20">não muda?</span>
+                </h2>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8 text-lg text-gray-400">
+                <div data-aos="fade-up" data-aos-delay="100" class="p-8 bg-dark-900 rounded-sm border border-white/5 border-l-4 border-l-white/20 hover:border-l-brand-500 transition-colors">
+                    <p>Você sente dor, cansaço e gasta horas na academia, mas ao olhar no espelho, a barriga continua ali e o bumbum não empina.</p>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="200" class="p-8 bg-dark-900 rounded-sm border border-white/5 border-l-4 border-l-white/20 hover:border-l-brand-500 transition-colors">
+                    <p>O problema não é sua genética. O verdadeiro problema é treinar de forma aleatória, sem um estímulo direcionado para a hormonalidade feminina.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution/Method Section -->
+    <section id="metodo" class="py-24 bg-dark-900 relative">
+        <div class="container mx-auto px-6 lg:px-16">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16" data-aos="fade-up">
+                <div>
+                    <span class="text-[10px] uppercase font-bold tracking-widest text-brand-500 mb-4 block">A Solução</span>
+                    <h2 class="font-heading text-5xl md:text-6xl font-extrabold text-white tracking-tighter uppercase italic">
+                        O Método <br/><span class="text-transparent text-stroke-brand border-b-4 border-brand-500">Slim Fit</span>
+                    </h2>
+                </div>
+                <div class="mt-8 md:mt-0">
+                    <p class="text-gray-400 max-w-sm text-sm border-l-2 border-brand-500/50 pl-4">
+                        Processo validado focado em hipertrofia feminina e queima de gordura localizada.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Card 1 -->
+                <div data-aos="fade-up" class="bg-dark-800 p-10 rounded-sm border border-white/5 relative group overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-brand-500/5 rounded-full blur-2xl -mr-10 -mt-10 group-hover:bg-brand-500/10 transition-colors"></div>
+                    <div class="text-4xl font-extrabold text-white/10 mb-6 italic tracking-tighter">01</div>
+                    <h3 class="font-heading text-xl font-bold text-white mb-4 uppercase tracking-tight">Hipertrofia Estratégica</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Seleção rigorosa dos melhores exercícios para isolar as fibras das pernas e glúteos, construindo volume onde importa.</p>
+                </div>
+                <!-- Card 2 -->
+                <div data-aos="fade-up" data-aos-delay="100" class="bg-brand-500 p-10 rounded-sm relative group overflow-hidden transform md:-translate-y-4 shadow-[0_20px_40px_rgba(204,255,0,0.15)]">
+                    <div class="text-4xl font-extrabold text-black/20 mb-6 italic tracking-tighter">02</div>
+                    <h3 class="font-heading text-xl font-bold text-black mb-4 uppercase tracking-tight">Queima Controlada</h3>
+                    <p class="text-dark-900/80 text-sm leading-relaxed font-medium">Cardios específicos e direcionados para detonar a gordura abdominal sem sacrificar a massa muscular que você construiu.</p>
+                </div>
+                <!-- Card 3 -->
+                <div data-aos="fade-up" data-aos-delay="200" class="bg-dark-800 p-10 rounded-sm border border-white/5 relative group overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-brand-500/5 rounded-full blur-2xl -mr-10 -mt-10 group-hover:bg-brand-500/10 transition-colors"></div>
+                    <div class="text-4xl font-extrabold text-white/10 mb-6 italic tracking-tighter">03</div>
+                    <h3 class="font-heading text-xl font-bold text-white mb-4 uppercase tracking-tight">Ciclo 12 Semanas</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Processo com fases de adaptação, choque e lapidação. Você saberá exatamente o que fazer a cada semana.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="sobre" class="py-24 bg-dark-800 border-y border-white/5 overflow-hidden">
+        <div class="container mx-auto px-6 lg:px-16 grid lg:grid-cols-2 gap-16 items-center">
+            <div data-aos="fade-right" class="relative">
+                <span class="text-[10px] uppercase font-bold tracking-widest text-brand-500 mb-4 block">Quem sou eu</span>
+                <h2 class="font-heading text-5xl md:text-6xl font-extrabold text-white mb-8 tracking-tighter uppercase italic leading-[0.9]">
+                    O Personal das <br/>
+                    <span class="text-brand-500">Mulheres.</span>
+                </h2>
+                <div class="space-y-6 text-gray-400 text-base leading-relaxed">
+                    <p>Dediquei minha carreira a aperfeiçoar o treinamento voltado <strong>exclusivamente para a mulher</strong>.</p>
+                    <p>Meu orgulho é ver minhas alunas relatando que as roupas estão largas na cintura e justas nas coxas. Se esse é seu objetivo, você encontrou o cara certo.</p>
+                </div>
+                
+                <div class="flex gap-8 mt-12 border-t border-white/10 pt-8">
+                    <div class="flex flex-col">
+                        <span class="text-3xl font-extrabold text-white">100%</span>
+                        <span class="text-[10px] uppercase text-gray-500 tracking-widest mt-1">Focado em Mulheres</span>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-3xl font-extrabold text-white">12</span>
+                        <span class="text-[10px] uppercase text-gray-500 tracking-widest mt-1">Semanas de Foco</span>
+                    </div>
+                </div>
+            </div>
+            <div data-aos="fade-left" class="relative h-[500px] w-full hidden lg:block border border-white/5 rounded-sm overflow-hidden bg-dark-900">
+                <div class="absolute inset-0 bg-gradient-to-t from-dark-900 via-transparent to-transparent z-10"></div>
+                <img src="giovanni-personal.webp" alt="Giovanni Personal" class="w-full h-full object-cover grayscale-0 brightness-75" onerror="this.onerror=null; this.style.display='none'">
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="depoimentos" class="py-32 bg-dark-900 relative">
+        <div class="container mx-auto px-6 lg:px-16">
+            <div class="flex flex-col items-center justify-center text-center mb-20" data-aos="fade-up">
+                <span class="text-[10px] uppercase font-bold tracking-widest text-brand-500 mb-4 block">Resultados Reais</span>
+                <h2 class="font-heading text-5xl md:text-6xl font-extrabold text-white tracking-tighter uppercase italic">
+                    O que dizem as <span class="text-transparent text-stroke border-b-4 border-white/20">alunas</span>
+                </h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                <div data-aos="fade-up" class="bg-dark-800 p-8 rounded-sm border-t-2 border-transparent hover:border-brand-500 transition-colors">
+                    <p class="text-gray-400 italic mb-8 leading-relaxed text-sm">"Com os treinos do Giovanni, na 8ª semana as calças já ficaram diferentes. A barriga secou e a coxa definiu."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-dark-700 flex items-center justify-center text-brand-500 font-bold text-sm">A</div>
+                        <div class="font-bold text-xs uppercase tracking-widest text-white">Aluna Slim Fit</div>
+                    </div>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="100" class="bg-dark-800 p-8 rounded-sm border-t-2 border-transparent hover:border-brand-500 transition-colors">
+                    <p class="text-gray-400 italic mb-8 leading-relaxed text-sm">"Achava que o método era balela, mas resolvi testar. É insano o quão diferente é treinar focada na fisiologia correta."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-dark-700 flex items-center justify-center text-brand-500 font-bold text-sm">MS</div>
+                        <div class="font-bold text-xs uppercase tracking-widest text-white">M.S.</div>
+                    </div>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="200" class="bg-dark-800 p-8 rounded-sm border-t-2 border-transparent hover:border-brand-500 transition-colors">
+                    <p class="text-gray-400 italic mb-8 leading-relaxed text-sm">"O diferencial não é só o treino, é o direcionamento! Treino curto e muito mais punk. Resultado entregue!"</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-dark-700 flex items-center justify-center text-brand-500 font-bold text-sm">LR</div>
+                        <div class="font-bold text-xs uppercase tracking-widest text-white">L.R.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Target CTA -->
+    <section class="py-32 relative bg-brand-500">
+        <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9InJnYmEoMCwgMCwgMCwgMC4xKSIvPjwvc3ZnPg==')] opacity-30"></div>
+        <div class="container mx-auto px-6 lg:px-16 text-center max-w-4xl relative z-10">
+            <h2 class="font-heading text-5xl md:text-7xl font-black text-black mb-10 uppercase tracking-tighter italic leading-[0.9]">
+                Não deixe para <br/>
+                <span class="text-transparent text-stroke-brand" style="-webkit-text-stroke: 2px black;">amanhã.</span>
+            </h2>
+            <a href="https://wa.me/5511950717871" target="_blank" class="inline-flex items-center justify-center gap-4 bg-black text-white px-10 py-6 rounded-sm font-black text-xl uppercase tracking-tight hover:bg-dark-800 transition-all transform hover:scale-105 group">
+                Agendar Avaliação
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 group-hover:translate-x-2 transition-transform text-brand-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark-900 border-t border-white/5 py-8 md:py-12">
+        <div class="container mx-auto px-6 lg:px-12 flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] uppercase tracking-[0.2em] text-gray-500 font-semibold">
+            <div>© 2024 giovanni.personal. Todos os direitos reservados.</div>
+            <div class="flex gap-6">
+                <a href="#" class="hover:text-brand-500 transition-colors">Instagram</a>
+                <a href="#" class="hover:text-brand-500 transition-colors">Contato</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({ once: true, offset: 50, duration: 800 });
+        });
+    </script>
+</body>
+</html>
