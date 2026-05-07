@@ -5,8 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Paulo Rocha | Personal Trainer & Coach</title>
 
-    <!-- Vite CSS -->
-    <link rel="stylesheet" href="/src/index.css" />
+    <!-- Tailwind CSS v3 CDN -->
+    <script>
+      // Fix for Chrome 130+ window.fetch read-only restriction
+      (function() {
+        var originalFetch = window.fetch;
+        Object.defineProperty(window, "fetch", {
+          value: originalFetch,
+          writable: true,
+          configurable: true,
+        });
+      })();
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                50: '#fdf2f2',
+                100: '#fde8e8',
+                400: '#f05252',
+                500: '#e02424',
+                600: '#DA1414',
+                700: '#A00D0D',
+                900: '#6b0606',
+                green: '#DA1414',
+              }
+            },
+            fontFamily: {
+              sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+            }
+          }
+        }
+      }
+    </script>
 
     <!-- Alpine.js (CDN) -->
     <script
