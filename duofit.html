@@ -84,45 +84,6 @@
       #mobile-menu.open {
         transform: translateY(0);
       }
-
-      /* Quiz Styles */
-      .df-step-bar { display:flex; gap:5px; margin-bottom:28px; }
-      .df-seg { height:2px; flex:1; background:rgba(192,156,131,0.1); border-radius:2px; transition:background .4s; }
-      .df-seg.done { background:#c09c83; }
-      .df-seg.active { background:#c09c83; opacity:.45; }
-      .df-q-label { font-family:'Inter',sans-serif; font-size:10px; font-weight:600; letter-spacing:.18em; text-transform:uppercase; color:#c09c83; margin-bottom:8px; }
-      .df-q-text { font-family:'Instrument Serif',serif; font-size:32px; font-weight:400; font-style:italic; line-height:1.1; color:#fdf8f4; margin-bottom:24px; }
-      .df-opts { display:grid; grid-template-columns:1fr 1fr; gap:9px; }
-      @media(max-width:480px){ .df-opts { grid-template-columns:1fr; } }
-      .df-opt { background:#0a0604; border:1px solid rgba(192,156,131,0.1); border-radius:8px; padding:13px 15px; cursor:pointer; transition:border-color .2s, background .2s, transform .1s; display:flex; align-items:flex-start; gap:9px; text-align:left; }
-      .df-opt:hover { border-color:rgba(192,156,131,0.3); background:#150a06; }
-      .df-opt.df-sel { border-color:#c09c83; background:#150a06; }
-      .df-opt:active { transform:scale(.98); }
-      .df-opt-icon { width:18px; height:18px; margin-top:0px; flex-shrink:0; color:rgba(192,156,131,0.5); }
-      .df-opt.df-sel .df-opt-icon { color:#c09c83; }
-      .df-opt-text { font-family:'Inter',sans-serif; font-size:13px; font-weight:300; line-height:1.4; color:rgba(253,248,244,0.7); }
-      .df-opt.df-sel .df-opt-text { color:#fdf8f4; font-weight:400; }
-      .df-btn-prox { margin-top:24px; width:100%; background:#c09c83; color:#150a06; border:none; border-radius:8px; padding:15px; font-family:'Inter',sans-serif; font-size:12px; font-weight:600; letter-spacing:.06em; text-transform:uppercase; cursor:pointer; transition:opacity .2s, transform .1s; opacity:.25; pointer-events:none; }
-      .df-btn-prox.df-ok { opacity:1; pointer-events:all; }
-      .df-btn-prox:active { transform:scale(.98); }
-      .df-res-badge { display:inline-block; background:#c09c83; color:#150a06; font-family:'Inter',sans-serif; font-size:10px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; padding:4px 10px; border-radius:4px; margin-bottom:14px; }
-      .df-res-title { font-family:'Instrument Serif',serif; font-size:42px; font-weight:400; font-style:italic; color:#fdf8f4; line-height:1.1; margin-bottom:10px; }
-      .df-res-desc { font-family:'Inter',sans-serif; font-weight:300; font-size:14px; color:rgba(192,156,131,0.8); line-height:1.65; margin-bottom:24px; }
-      .df-res-grid { display:grid; grid-template-columns:1fr 1fr; gap:9px; margin-bottom:20px; }
-      @media(max-width:480px){ .df-res-grid { grid-template-columns:1fr; } }
-      .df-res-item { background:rgba(0,0,0,0.3); border:1px solid rgba(192,156,131,0.1); border-radius:8px; padding:12px 14px; text-align:left; }
-      .df-ri-lbl { font-family:'Inter',sans-serif; font-size:9px; color:rgba(192,156,131,0.6); text-transform:uppercase; font-weight:600; letter-spacing:.12em; margin-bottom:6px; }
-      .df-ri-val { font-family:'Inter',sans-serif; font-size:13px; font-weight:500; color:#fdf8f4; }
-      .df-plano-box { border:1px solid #c09c83; border-radius:8px; padding:16px; display:flex; align-items:center; justify-content:space-between; margin-bottom:12px; }
-      .df-plano-lbl { font-family:'Inter',sans-serif; font-size:11px; font-weight:300; color:rgba(192,156,131,0.8); text-align:left; }
-      .df-plano-nome { font-family:'Instrument Serif',serif; font-size:26px; color:#c09c83; margin-top:2px; font-style:italic; }
-      .df-motivo { font-family:'Inter',sans-serif; font-weight:300; font-size:12px; color:rgba(192,156,131,0.6); font-style:italic; margin-bottom:24px; text-align:left; }
-      .df-cta-main { width:100%; background:#c09c83; color:#150a06; border:none; border-radius:8px; padding:16px; font-family:'Inter',sans-serif; font-size:12px; font-weight:600; letter-spacing:.06em; text-transform:uppercase; cursor:pointer; transition:background .2s; }
-      .df-cta-main:hover { background:#d0b099; }
-      .df-cta-sec { width:100%; background:transparent; color:rgba(192,156,131,0.6); border:1px solid rgba(192,156,131,0.2); border-radius:8px; padding:14px; font-family:'Inter',sans-serif; font-size:12px; font-weight:500; cursor:pointer; margin-top:9px; transition:color .2s, border-color .2s; }
-      .df-cta-sec:hover { color:#c09c83; border-color:rgba(192,156,131,0.5); }
-      .df-footer-tag { font-family:'Inter',sans-serif; font-size:10px; font-weight:600; color:rgba(192,156,131,0.3); text-align:center; margin-top:24px; letter-spacing:.08em; text-transform:uppercase; }
-      .df-footer-tag span { color:rgba(192,156,131,0.6); }
     </style>
 </head>
 <body class="selection:bg-tan/30 overflow-x-hidden">
@@ -136,8 +97,9 @@
             <div class="hidden md:flex space-x-8 text-[10px] font-bold uppercase tracking-widest opacity-70">
                 <a href="#metodo" class="hover:text-cream hover:opacity-100 transition-colors">Método</a>
                 <a href="#sobre" class="hover:text-cream hover:opacity-100 transition-colors">Sobre Nós</a>
-                <a href="#depoimentos" class="hover:text-cream hover:opacity-100 transition-colors">Alunas</a>
                 <a href="#planos" class="hover:text-cream hover:opacity-100 transition-colors">Planos</a>
+                <a href="#depoimentos" class="hover:text-cream hover:opacity-100 transition-colors">Alunas</a>
+                <a href="#quiz" class="hover:text-cream hover:opacity-100 transition-colors">Diagnóstico</a>
             </div>
         </div>
         <div class="flex items-center gap-4 pointer-events-auto">
@@ -156,8 +118,9 @@
     <div id="mobile-menu" class="fixed inset-0 z-40 bg-deep/95 backdrop-blur-xl flex flex-col items-center justify-center gap-8 md:hidden">
         <a href="#metodo" class="mobile-link text-2xl font-serif">Método</a>
         <a href="#sobre" class="mobile-link text-2xl font-serif">Sobre Nós</a>
-        <a href="#depoimentos" class="mobile-link text-2xl font-serif">Alunas</a>
         <a href="#planos" class="mobile-link text-2xl font-serif">Planos</a>
+        <a href="#depoimentos" class="mobile-link text-2xl font-serif">Alunas</a>
+        <a href="#quiz" class="mobile-link text-2xl font-serif">Diagnóstico</a>
         <a href="https://wa.me/5553999999999" target="_blank" class="liquid-glass rounded-full px-8 py-4 text-[10px] font-bold uppercase tracking-widest text-cream mt-4 flex items-center gap-2">
             Falar no WhatsApp
             <i data-lucide="message-circle" class="w-4 h-4"></i>
@@ -297,69 +260,6 @@
         </div>
     </section>
 
-    <!-- Depoimentos Section -->
-    <section id="depoimentos" class="py-24 md:py-32 px-6 lg:px-12 flex justify-center bg-[#140c08]">
-        <div class="max-w-6xl w-full">
-            <div class="reveal text-center mb-16 md:mb-24 space-y-4">
-                <span class="text-[10px] uppercase font-bold tracking-[0.2em] text-tan/60 block">O que dizem</span>
-                <h2 class="text-5xl md:text-7xl font-serif leading-[0.85] tracking-tight italic">Vidas <span class="not-italic">Transformadas</span></h2>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-6">
-                <!-- Testimonial 1 -->
-                <div class="reveal liquid-glass rounded-3xl p-8 flex flex-col hover:-translate-y-2 transition-transform duration-300">
-                    <div class="flex gap-1 mb-6">
-                        <i data-lucide="star" class="w-4 h-4 fill-tan text-tan"></i><i data-lucide="star" class="w-4 h-4 fill-tan text-tan"></i><i data-lucide="star" class="w-4 h-4 fill-tan text-tan"></i><i data-lucide="star" class="w-4 h-4 fill-tan text-tan"></i><i data-lucide="star" class="w-4 h-4 fill-tan text-tan"></i>
-                    </div>
-                    <p class="text-cream/90 flex-grow mb-8 text-sm leading-relaxed italic">"Pela primeira vez consegui ver definição de verdade nas pernas e abdômen. O treino é puxado mas o acompanhamento faz toda diferença. Elas não deixam a gente desistir."</p>
-                    <div class="flex items-center gap-4">
-                        <div class="w-10 h-10 rounded-full bg-tan/20 flex items-center justify-center text-tan font-serif">M</div>
-                        <div class="text-sm font-medium">Mariana S.</div>
-                    </div>
-                </div>
-
-                <!-- Testimonial 2 -->
-                <div class="reveal liquid-glass rounded-3xl p-8 flex flex-col hover:-translate-y-2 transition-transform duration-300" style="transition-delay: 150ms;">
-                    <div class="flex gap-1 mb-6">
-                        <i data-lucide="star" class="w-4 h-4 fill-tan text-tan"></i><i data-lucide="star" class="w-4 h-4 fill-tan text-tan"></i><i data-lucide="star" class="w-4 h-4 fill-tan text-tan"></i><i data-lucide="star" class="w-4 h-4 fill-tan text-tan"></i><i data-lucide="star" class="w-4 h-4 fill-tan text-tan"></i>
-                    </div>
-                    <p class="text-cream/90 flex-grow mb-8 text-sm leading-relaxed italic">"Já tinha passado por vários treinos genéricos. O método da Júlia e Alexandra finalmente respeitou meu biotipo. A mudança no espelho foi visível já no segundo mês."</p>
-                    <div class="flex items-center gap-4">
-                        <div class="w-10 h-10 rounded-full bg-tan/20 flex items-center justify-center text-tan font-serif">C</div>
-                        <div class="text-sm font-medium">Camila R.</div>
-                    </div>
-                </div>
-
-                <!-- Testimonial 3 -->
-                <div class="reveal liquid-glass rounded-3xl p-8 flex flex-col hover:-translate-y-2 transition-transform duration-300" style="transition-delay: 300ms;">
-                    <div class="flex gap-1 mb-6">
-                        <i data-lucide="star" class="w-4 h-4 fill-tan text-tan"></i><i data-lucide="star" class="w-4 h-4 fill-tan text-tan"></i><i data-lucide="star" class="w-4 h-4 fill-tan text-tan"></i><i data-lucide="star" class="w-4 h-4 fill-tan text-tan"></i><i data-lucide="star" class="w-4 h-4 fill-tan text-tan"></i>
-                    </div>
-                    <p class="text-cream/90 flex-grow mb-8 text-sm leading-relaxed italic">"A segurança de ter duas profissionais avaliando seus vídeos de execução e corrigindo postura é surreal. Parece que tenho personal trainer todo dia comigo."</p>
-                    <div class="flex items-center gap-4">
-                        <div class="w-10 h-10 rounded-full bg-tan/20 flex items-center justify-center text-tan font-serif">A</div>
-                        <div class="text-sm font-medium">Amanda T.</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Quiz Section -->
-    <section id="quiz-duofit" style="background:#0e0b09; padding: 80px 20px;">
-      <div class="reveal" style="max-width: 680px; margin: 0 auto;">
-        <div style="text-align:center; margin-bottom: 48px;">
-          <p style="font-family: 'Inter', sans-serif; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: #c09c83; margin: 0 0 14px; font-weight:600;">Diagnóstico Gratuito</p>
-          <h2 style="font-family: 'Instrument Serif', serif; font-size: clamp(32px, 5vw, 52px); font-weight: 400; color: #fdf8f4; line-height: 1.15; margin: 0 0 16px; font-style:italic;">Descubra o plano<br><span style="font-style:normal;">ideal para você</span></h2>
-          <p style="font-family: 'Inter', sans-serif; font-size: 15px; color: rgba(192,156,131,0.8); margin: 0; line-height: 1.6;">Responda 5 perguntas e receba um diagnóstico personalizado<br>com a recomendação certa para o seu momento.</p>
-        </div>
-        <div id="duofit-quiz-card" style="background: #150a06; border: 1px solid rgba(192,156,131,0.1); border-radius: 16px; overflow: hidden; position: relative;">
-          <div style="height:2px; background: linear-gradient(90deg, transparent, #c09c83, transparent);"></div>
-          <div id="df-quiz-body" style="padding: 36px 40px 40px;"></div>
-        </div>
-      </div>
-    </section>
-
     <!-- Planos Section -->
     <section id="planos" class="py-24 md:py-32 px-6 lg:px-12 flex justify-center relative">
         <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(192,156,131,0.08)_0%,rgba(0,0,0,1)_70%)] pointer-events-none"></div>
@@ -449,6 +349,418 @@
 
         </div>
     </section>
+
+    <!-- Depoimentos Section -->
+    <section id="depoimentos" class="py-24 md:py-32 px-6 lg:px-12 flex justify-center bg-[#140c08]">
+        <div class="max-w-6xl w-full">
+            <div class="reveal text-center mb-16 md:mb-24 space-y-4">
+                <span class="text-[10px] uppercase font-bold tracking-[0.2em] text-tan/60 block">O que dizem</span>
+                <h2 class="text-5xl md:text-7xl font-serif leading-[0.85] tracking-tight italic">Vidas <span class="not-italic">Transformadas</span></h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Testimonial 1 -->
+                <div class="reveal liquid-glass rounded-3xl p-8 flex flex-col hover:-translate-y-2 transition-transform duration-300">
+                    <div class="flex gap-1 mb-6">
+                        <i data-lucide="star" class="w-4 h-4 fill-tan text-tan"></i><i data-lucide="star" class="w-4 h-4 fill-tan text-tan"></i><i data-lucide="star" class="w-4 h-4 fill-tan text-tan"></i><i data-lucide="star" class="w-4 h-4 fill-tan text-tan"></i><i data-lucide="star" class="w-4 h-4 fill-tan text-tan"></i>
+                    </div>
+                    <p class="text-cream/90 flex-grow mb-8 text-sm leading-relaxed italic">"Pela primeira vez consegui ver definição de verdade nas pernas e abdômen. O treino é puxado mas o acompanhamento faz toda diferença. Elas não deixam a gente desistir."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 rounded-full bg-tan/20 flex items-center justify-center text-tan font-serif">M</div>
+                        <div class="text-sm font-medium">Mariana S.</div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="reveal liquid-glass rounded-3xl p-8 flex flex-col hover:-translate-y-2 transition-transform duration-300" style="transition-delay: 150ms;">
+                    <div class="flex gap-1 mb-6">
+                        <i data-lucide="star" class="w-4 h-4 fill-tan text-tan"></i><i data-lucide="star" class="w-4 h-4 fill-tan text-tan"></i><i data-lucide="star" class="w-4 h-4 fill-tan text-tan"></i><i data-lucide="star" class="w-4 h-4 fill-tan text-tan"></i><i data-lucide="star" class="w-4 h-4 fill-tan text-tan"></i>
+                    </div>
+                    <p class="text-cream/90 flex-grow mb-8 text-sm leading-relaxed italic">"Já tinha passado por vários treinos genéricos. O método da Júlia e Alexandra finalmente respeitou meu biotipo. A mudança no espelho foi visível já no segundo mês."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 rounded-full bg-tan/20 flex items-center justify-center text-tan font-serif">C</div>
+                        <div class="text-sm font-medium">Camila R.</div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="reveal liquid-glass rounded-3xl p-8 flex flex-col hover:-translate-y-2 transition-transform duration-300" style="transition-delay: 300ms;">
+                    <div class="flex gap-1 mb-6">
+                        <i data-lucide="star" class="w-4 h-4 fill-tan text-tan"></i><i data-lucide="star" class="w-4 h-4 fill-tan text-tan"></i><i data-lucide="star" class="w-4 h-4 fill-tan text-tan"></i><i data-lucide="star" class="w-4 h-4 fill-tan text-tan"></i><i data-lucide="star" class="w-4 h-4 fill-tan text-tan"></i>
+                    </div>
+                    <p class="text-cream/90 flex-grow mb-8 text-sm leading-relaxed italic">"A segurança de ter duas profissionais avaliando seus vídeos de execução e corrigindo postura é surreal. Parece que tenho personal trainer todo dia comigo."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 rounded-full bg-tan/20 flex items-center justify-center text-tan font-serif">A</div>
+                        <div class="text-sm font-medium">Amanda T.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quiz Diagnóstico Section -->
+    <section id="quiz" class="py-24 md:py-32 px-6 lg:px-12 flex justify-center relative bg-black">
+        <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-tan/20 to-transparent"></div>
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(192,156,131,0.05)_0%,rgba(0,0,0,1)_70%)] pointer-events-none"></div>
+
+        <div class="max-w-2xl w-full relative z-10">
+            <!-- Cabeçalho -->
+            <div class="reveal text-center mb-12 space-y-4">
+                <span class="text-[10px] uppercase font-bold tracking-[0.2em] text-tan/60 block">Diagnóstico Gratuito</span>
+                <h2 class="text-5xl md:text-7xl font-serif leading-[0.85] tracking-tight italic">Descubra seu <span class="not-italic text-cream">plano ideal</span></h2>
+                <p class="text-tan/70 text-base leading-relaxed max-w-md mx-auto pt-2">Responda 5 perguntas e receba uma recomendação personalizada para o seu momento.</p>
+            </div>
+
+            <!-- Card do Quiz -->
+            <div class="reveal liquid-glass rounded-3xl overflow-hidden" style="transition-delay: 150ms;">
+                <div class="h-px bg-gradient-to-r from-transparent via-tan/40 to-transparent"></div>
+                <div id="df-quiz-body" class="p-8 md:p-10"></div>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        .df-step-bar { display:flex; gap:5px; margin-bottom:28px; }
+        .df-seg { height:1px; flex:1; background:rgba(192,156,131,0.12); border-radius:2px; transition:background .4s; }
+        .df-seg.done { background:#c09c83; }
+        .df-seg.active { background:#c09c83; opacity:.5; }
+
+        .df-q-label {
+            font-family:'Inter',sans-serif;
+            font-size:10px; letter-spacing:.18em;
+            text-transform:uppercase; color:rgba(192,156,131,0.6);
+            margin-bottom:8px;
+        }
+        .df-q-text {
+            font-family:'Instrument Serif',serif;
+            font-size:clamp(22px,3.5vw,30px);
+            font-weight:400; font-style:italic;
+            line-height:1.2; color:#fdf8f4;
+            margin-bottom:24px;
+        }
+
+        .df-opts {
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            gap:8px;
+        }
+        @media(max-width:500px){ .df-opts { grid-template-columns:1fr; } }
+
+        .df-opt {
+            background:rgba(192,156,131,0.03);
+            border:1px solid rgba(192,156,131,0.1);
+            border-radius:16px;
+            padding:12px 14px;
+            cursor:pointer;
+            transition:border-color .2s, background .2s, transform .1s;
+            display:flex; align-items:flex-start; gap:9px;
+            text-align:left; width:100%;
+        }
+        .df-opt:hover { border-color:rgba(192,156,131,0.3); background:rgba(192,156,131,0.06); }
+        .df-opt.df-sel { border-color:#c09c83; background:rgba(192,156,131,0.1); }
+        .df-opt:active { transform:scale(.98); }
+
+        .df-opt-icon { font-size:15px; margin-top:1px; flex-shrink:0; color:rgba(192,156,131,0.3); }
+        .df-opt.df-sel .df-opt-icon { color:#c09c83; }
+
+        .df-opt-text { font-family:'Inter',sans-serif; font-size:13px; line-height:1.4; color:rgba(253,248,244,0.5); }
+        .df-opt.df-sel .df-opt-text { color:#fdf8f4; }
+
+        .df-btn-prox {
+            margin-top:24px; width:100%;
+            background:#c09c83; color:#150a06;
+            border:none; border-radius:9999px;
+            padding:16px;
+            font-family:'Inter',sans-serif;
+            font-size:11px; font-weight:700;
+            letter-spacing:.1em; text-transform:uppercase;
+            cursor:pointer;
+            transition:opacity .2s, background .2s, transform .1s;
+            opacity:.2; pointer-events:none;
+        }
+        .df-btn-prox.df-ok { opacity:1; pointer-events:all; }
+        .df-btn-prox:hover { background:#d0b099; }
+        .df-btn-prox:active { transform:scale(.98); }
+
+        .df-res-badge {
+            display:inline-block;
+            background:rgba(192,156,131,0.12);
+            color:#c09c83;
+            font-family:'Inter',sans-serif;
+            font-size:10px; font-weight:700;
+            letter-spacing:.15em; text-transform:uppercase;
+            padding:5px 12px; border-radius:9999px;
+            border:1px solid rgba(192,156,131,0.2);
+            margin-bottom:16px;
+        }
+        .df-res-title {
+            font-family:'Instrument Serif',serif;
+            font-size:clamp(28px,4vw,40px); font-weight:400; font-style:italic;
+            color:#fdf8f4; line-height:1.1; margin-bottom:10px;
+        }
+        .df-res-desc {
+            font-family:'Inter',sans-serif;
+            font-size:14px; color:rgba(192,156,131,0.75);
+            line-height:1.7; margin-bottom:20px;
+        }
+        .df-res-grid {
+            display:grid; grid-template-columns:1fr 1fr;
+            gap:8px; margin-bottom:16px;
+        }
+        @media(max-width:500px){ .df-res-grid { grid-template-columns:1fr; } }
+
+        .df-res-item {
+            background:rgba(192,156,131,0.04);
+            border:1px solid rgba(192,156,131,0.08);
+            border-radius:14px; padding:12px 14px;
+        }
+        .df-ri-lbl {
+            font-family:'Inter',sans-serif;
+            font-size:9px; color:rgba(192,156,131,0.4);
+            text-transform:uppercase; letter-spacing:.12em; margin-bottom:4px;
+        }
+        .df-ri-val {
+            font-family:'Inter',sans-serif;
+            font-size:13px; font-weight:500; color:#fdf8f4;
+        }
+
+        .df-plano-box {
+            border:1px solid rgba(192,156,131,0.3);
+            border-radius:16px; padding:14px 18px;
+            display:flex; align-items:center; justify-content:space-between;
+            margin-bottom:8px; background:rgba(192,156,131,0.04);
+        }
+        .df-plano-lbl { font-family:'Inter',sans-serif; font-size:10px; color:rgba(192,156,131,0.5); text-transform:uppercase; letter-spacing:.1em; }
+        .df-plano-nome { font-family:'Instrument Serif',serif; font-size:22px; font-style:italic; color:#c09c83; margin-top:2px; }
+
+        .df-motivo {
+            font-family:'Inter',sans-serif;
+            font-size:12px; color:rgba(192,156,131,0.4);
+            font-style:italic; margin-bottom:18px; text-align:center;
+        }
+
+        .df-cta-main {
+            width:100%; display:block;
+            background:#c09c83; color:#150a06;
+            border:none; border-radius:9999px;
+            padding:18px; text-align:center;
+            font-family:'Inter',sans-serif;
+            font-size:11px; font-weight:700;
+            letter-spacing:.1em; text-transform:uppercase;
+            cursor:pointer; text-decoration:none;
+            transition:background .2s, transform .1s;
+        }
+        .df-cta-main:hover { background:#d0b099; }
+        .df-cta-main:active { transform:scale(.98); }
+
+        .df-cta-sec {
+            width:100%; display:block;
+            background:transparent; color:rgba(192,156,131,0.35);
+            border:1px solid rgba(192,156,131,0.1);
+            border-radius:9999px; padding:14px; text-align:center;
+            font-family:'Inter',sans-serif; font-size:11px;
+            cursor:pointer; margin-top:10px; text-decoration:none;
+            transition:color .2s, border-color .2s;
+        }
+        .df-cta-sec:hover { color:rgba(192,156,131,0.7); border-color:rgba(192,156,131,0.25); }
+
+        .df-footer-tag {
+            font-family:'Inter',sans-serif;
+            font-size:10px; color:rgba(192,156,131,0.2);
+            text-align:center; margin-top:20px;
+            letter-spacing:.08em; text-transform:uppercase;
+        }
+        .df-footer-tag span { color:rgba(192,156,131,0.35); }
+    </style>
+
+    <script>
+    (function() {
+        var CTA_MENSAL     = 'https://wa.me/5553999999999?text=Oi!+Vi+o+diagn%C3%B3stico+e+quero+saber+mais+sobre+o+plano+mensal';
+        var CTA_TRIMESTRAL = 'https://wa.me/5553999999999?text=Oi!+Vi+o+diagn%C3%B3stico+e+quero+saber+mais+sobre+o+plano+trimestral';
+
+        var questions = [
+            {
+                label: 'Seu objetivo',
+                text: 'O que você mais quer conquistar com o seu treino?',
+                opts: [
+                    { icon:'ti-flame',           text:'Perder gordura e ganhar definição muscular', tag:'def' },
+                    { icon:'ti-dumbbell',         text:'Ganhar volume e hipertrofia feminina',       tag:'hiper' },
+                    { icon:'ti-heart',            text:'Ter mais disposição, saúde e energia',       tag:'saude' },
+                    { icon:'ti-recharging',       text:'Reconquistar minha forma após uma pausa',    tag:'retorno' }
+                ]
+            },
+            {
+                label: 'Sua história',
+                text: 'O que mais te frustrou em outras tentativas de treino?',
+                opts: [
+                    { icon:'ti-clipboard-x',     text:'Planilhas genéricas que não respeitavam minha rotina', tag:'generica' },
+                    { icon:'ti-mood-empty',       text:'Perdi a motivação treinando sozinha, sem suporte',     tag:'solo' },
+                    { icon:'ti-clock-off',        text:'Não consegui manter consistência com a vida corrida',  tag:'tempo' },
+                    { icon:'ti-circle-dashed-x',  text:'Nunca tive resultados visíveis de verdade',            tag:'resultado' }
+                ]
+            },
+            {
+                label: 'Sua rotina',
+                text: 'Quantos dias por semana você consegue treinar hoje?',
+                opts: [
+                    { icon:'ti-calendar-minus',  text:'2 a 3 dias — tenho uma rotina bem cheia',          tag:'pouco' },
+                    { icon:'ti-calendar',         text:'3 a 4 dias — consigo ser regular com um plano',    tag:'medio' },
+                    { icon:'ti-calendar-plus',    text:'4 a 5 dias — o treino é prioridade na minha vida', tag:'muito' },
+                    { icon:'ti-trending-up',      text:'Quero começar devagar e ir evoluindo',              tag:'progressivo' }
+                ]
+            },
+            {
+                label: 'Seu estilo',
+                text: 'Como você prefere o acompanhamento das suas consultoras?',
+                opts: [
+                    { icon:'ti-messages',         text:'Contato frequente — quero me sentir apoiada todo dia', tag:'proximo' },
+                    { icon:'ti-video',             text:'Análise dos meus vídeos para corrigir a técnica',       tag:'video' },
+                    { icon:'ti-chart-line',        text:'Foco em evolução com ajustes e feedbacks periódicos',   tag:'evolucao' },
+                    { icon:'ti-users',             text:'Um pouco de tudo — quero o pacote completo',            tag:'completo' }
+                ]
+            },
+            {
+                label: 'Seu momento',
+                text: 'Como você se descreveria hoje em relação ao treino?',
+                opts: [
+                    { icon:'ti-baby-carriage',    text:'Iniciante ou voltando do zero após longa pausa',   tag:'inicio' },
+                    { icon:'ti-refresh',           text:'Treino há algum tempo mas sem progressão real',    tag:'estagnada' },
+                    { icon:'ti-arrow-up-circle',   text:'Já tive bons resultados e quero retomar o nível', tag:'retomada' },
+                    { icon:'ti-rocket',            text:'Treino consistente e quero ir para outro patamar', tag:'avancada' }
+                ]
+            }
+        ];
+
+        var profiles = {
+            def: {
+                badge: 'Perfil: Transformação com Método',
+                title: 'Definição com Estratégia Real',
+                desc: 'Você quer resultado visual e já tentou antes — mas planos genéricos não entregam o que prometem. Com o Método DuoFit, seu treino é construído em cima da sua rotina, do seu corpo e do seu objetivo. Sem atalhos. Com resultado.',
+                foco: 'Composição corporal', metodo: 'Treino individualizado',
+                suporte: 'Acompanhamento contínuo', plano: 'Trimestral',
+                motivo: 'Para manter consistência e ver resultados reais, o trimestral é o seu passo mais inteligente.',
+                cta: 'trimestral'
+            },
+            hiper: {
+                badge: 'Perfil: Crescimento Guiado',
+                title: 'Hipertrofia Feminina de Verdade',
+                desc: 'Ganhar músculo com qualidade exige método, sobrecarga progressiva e acompanhamento. Você não precisa mais fazer isso sozinha. Júlia e Alexandra vão te guiar em cada fase da sua evolução.',
+                foco: 'Hipertrofia feminina', metodo: 'Volume progressivo',
+                suporte: 'Suporte no WhatsApp', plano: 'Trimestral',
+                motivo: 'Hipertrofia real leva tempo e exige consistência — o trimestral foi feito para isso.',
+                cta: 'trimestral'
+            },
+            saude: {
+                badge: 'Perfil: Saúde que Encaixa na Vida',
+                title: 'Equilíbrio entre Rotina e Resultado',
+                desc: 'Você tem uma vida cheia — e isso não pode ser obstáculo. Com o DuoFit, você treina no tempo que tem, sem culpa e com progresso real. O método se adapta a você, não o contrário.',
+                foco: 'Saúde e disposição', metodo: 'Funcional adaptado',
+                suporte: 'Plano flexível', plano: 'Mensal',
+                motivo: 'Comece com o mensal, sinta o método e evolua no seu ritmo.',
+                cta: 'mensal'
+            },
+            retorno: {
+                badge: 'Perfil: Retomada Inteligente',
+                title: 'De Volta Mais Forte',
+                desc: 'Parar não é fracasso — retomar com método é o que separa quem evolui de quem fica no mesmo lugar. Você está no lugar certo para reconquistar sua forma com suporte profissional.',
+                foco: 'Retomada progressiva', metodo: 'Protocolo de retorno',
+                suporte: 'Duas profissionais ao seu lado', plano: 'Mensal',
+                motivo: 'Comece com o mensal para se reconectar com o treino sem pressão.',
+                cta: 'mensal'
+            },
+            dflt: {
+                badge: 'Perfil: Plano Sob Medida',
+                title: 'Seu Próximo Passo Começa Aqui',
+                desc: 'Com base nas suas respostas, o que você precisa é de um plano construído para você — não para uma média. O Método DuoFit une personalização, ciência e acompanhamento humano para entregar resultado real.',
+                foco: 'Objetivo personalizado', metodo: 'Protocolo individualizado',
+                suporte: 'Duas profissionais ao seu lado', plano: 'Trimestral',
+                motivo: 'Para quem quer resultado de verdade, o trimestral é onde a transformação acontece.',
+                cta: 'trimestral'
+            }
+        };
+
+        function getProfile(ans) {
+            var tag = questions[0].opts[ans[0]] ? questions[0].opts[ans[0]].tag : '';
+            if (tag === 'def')     return profiles.def;
+            if (tag === 'hiper')   return profiles.hiper;
+            if (tag === 'saude')   return profiles.saude;
+            if (tag === 'retorno') return profiles.retorno;
+            return profiles.dflt;
+        }
+
+        var cur = 0, ans = [];
+
+        function bars() {
+            var h = '<div class="df-step-bar">';
+            for (var i = 0; i < questions.length; i++) {
+                var c = i < cur ? 'done' : i === cur ? 'active' : '';
+                h += '<div class="df-seg ' + c + '"></div>';
+            }
+            return h + '</div>';
+        }
+
+        function renderQ() {
+            var q = questions[cur];
+            var sel = ans[cur] !== undefined ? ans[cur] : -1;
+            var optsHtml = '';
+            for (var i = 0; i < q.opts.length; i++) {
+                var o = q.opts[i];
+                var sc = sel === i ? ' df-sel' : '';
+                optsHtml += '<button class="df-opt' + sc + '" onclick="dfPick(' + i + ')" aria-pressed="' + (sel===i) + '">'
+                    + '<i class="ti ' + o.icon + ' df-opt-icon" aria-hidden="true"></i>'
+                    + '<span class="df-opt-text">' + o.text + '</span>'
+                    + '</button>';
+            }
+            var isLast = cur === questions.length - 1;
+            document.getElementById('df-quiz-body').innerHTML =
+                bars()
+                + '<p class="df-q-label">' + q.label + ' &middot; ' + (cur+1) + ' de ' + questions.length + '</p>'
+                + '<p class="df-q-text">' + q.text + '</p>'
+                + '<div class="df-opts">' + optsHtml + '</div>'
+                + '<button class="df-btn-prox' + (sel >= 0 ? ' df-ok' : '') + '" onclick="dfAdvance()">'
+                + (isLast ? 'Ver meu diagnóstico →' : 'Próxima →')
+                + '</button>'
+                + '<p class="df-footer-tag">Diagnóstico <span>Método DuoFit</span></p>';
+        }
+
+        function renderResult() {
+            var p = getProfile(ans);
+            var ctaUrl = p.cta === 'mensal' ? CTA_MENSAL : CTA_TRIMESTRAL;
+            document.getElementById('df-quiz-body').innerHTML =
+                '<div class="df-res-badge">' + p.badge + '</div>'
+                + '<p class="df-res-title">' + p.title + '</p>'
+                + '<p class="df-res-desc">' + p.desc + '</p>'
+                + '<div class="df-res-grid">'
+                +   '<div class="df-res-item"><p class="df-ri-lbl">Foco</p><p class="df-ri-val">' + p.foco + '</p></div>'
+                +   '<div class="df-res-item"><p class="df-ri-lbl">Método</p><p class="df-ri-val">' + p.metodo + '</p></div>'
+                +   '<div class="df-res-item"><p class="df-ri-lbl">Suporte</p><p class="df-ri-val">' + p.suporte + '</p></div>'
+                +   '<div class="df-res-item"><p class="df-ri-lbl">Recomendado</p><p class="df-ri-val">Plano ' + p.plano + '</p></div>'
+                + '</div>'
+                + '<div class="df-plano-box">'
+                +   '<div><p class="df-plano-lbl">Plano recomendado para você</p><p class="df-plano-nome">' + p.plano + '</p></div>'
+                +   '<i class="ti ti-arrow-right" style="font-size:20px;color:#c09c83;" aria-hidden="true"></i>'
+                + '</div>'
+                + '<p class="df-motivo">' + p.motivo + '</p>'
+                + '<a href="' + ctaUrl + '" target="_blank" class="df-cta-main">Quero começar minha transformação →</a>'
+                + '<button class="df-cta-sec" onclick="dfRestart()">Refazer diagnóstico</button>'
+                + '<p class="df-footer-tag" style="margin-top:20px;">Método DuoFit &middot; <span>Júlia & Alexandra Gnutzmann</span></p>';
+        }
+
+        window.dfPick = function(i) { ans[cur] = i; renderQ(); };
+        window.dfAdvance = function() {
+            if (ans[cur] === undefined) return;
+            cur++;
+            if (cur >= questions.length) renderResult(); else renderQ();
+        };
+        window.dfRestart = function() { cur = 0; ans = []; renderQ(); };
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', renderQ);
+        } else { renderQ(); }
+    })();
+    </script>
+    <!-- Tabler Icons para o quiz -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
 
     <!-- Final CTA Section -->
     <section class="py-32 px-6 lg:px-12 flex justify-center relative overflow-hidden bg-black">
@@ -597,228 +909,6 @@
                 planosPresencial.classList.add('active');
             }, 400);
         });
-    </script>
-    <!-- Quiz Script -->
-    <script>
-    (function() {
-      var CFG = {
-        wa_mensal: 'https://wa.me/5553999999999?text=Oi!+Vi+o+diagn%C3%B3stico+e+quero+saber+mais+sobre+o+plano+mensal',
-        wa_trimestral: 'https://wa.me/5553999999999?text=Oi!+Vi+o+diagn%C3%B3stico+e+quero+saber+mais+sobre+o+plano+trimestral',
-        nome_a: 'Júlia',
-        nome_b: 'Alexandra',
-        instagram: '@metododuofit_'
-      };
-
-      var questions = [
-        {
-          label: 'Seu objetivo',
-          text: 'O que você mais quer conquistar com o seu treino?',
-          opts: [
-            { icon: 'flame',              text: 'Perder gordura e ganhar definição muscular', tag: 'def' },
-            { icon: 'dumbbell',           text: 'Ganhar volume e hipertrofia feminina',       tag: 'hiper' },
-            { icon: 'heart',              text: 'Ter mais disposição, saúde e energia',       tag: 'saude' },
-            { icon: 'battery-charging',   text: 'Reconquistar minha forma após uma pausa',    tag: 'retorno' }
-          ]
-        },
-        {
-          label: 'Sua história',
-          text: 'O que mais te frustrou em outras tentativas de treino?',
-          opts: [
-            { icon: 'clipboard-x',        text: 'Planilhas genéricas que não respeitavam minha rotina', tag: 'generica' },
-            { icon: 'frown',              text: 'Perdi a motivação treinando sozinha, sem suporte',     tag: 'solo' },
-            { icon: 'clock',              text: 'Não consegui manter consistência com a vida corrida',  tag: 'tempo' },
-            { icon: 'x-circle',           text: 'Nunca tive resultados visíveis de verdade',            tag: 'resultado' }
-          ]
-        },
-        {
-          label: 'Sua rotina',
-          text: 'Quantos dias por semana você consegue treinar hoje?',
-          opts: [
-            { icon: 'calendar-minus',     text: '2 a 3 dias — tenho uma rotina bem cheia',          tag: 'pouco' },
-            { icon: 'calendar',           text: '3 a 4 dias — consigo ser regular com um plano',    tag: 'medio' },
-            { icon: 'calendar-plus',      text: '4 a 5 dias — o treino é prioridade na minha vida', tag: 'muito' },
-            { icon: 'trending-up',        text: 'Quero começar devagar e ir evoluindo',              tag: 'progressivo' }
-          ]
-        },
-        {
-          label: 'Seu estilo',
-          text: 'Como você prefere o acompanhamento das suas consultoras?',
-          opts: [
-            { icon: 'message-circle',     text: 'Contato frequente — quero me sentir apoiada todo dia', tag: 'proximo' },
-            { icon: 'video',              text: 'Análise dos meus vídeos para corrigir a técnica',       tag: 'video' },
-            { icon: 'line-chart',         text: 'Foco em evolução com ajustes e feedbacks periódicos',  tag: 'evolucao' },
-            { icon: 'users',              text: 'Um pouco de tudo — quero o pacote completo',           tag: 'completo' }
-          ]
-        },
-        {
-          label: 'Seu momento',
-          text: 'Como você se descreveria hoje em relação ao treino?',
-          opts: [
-            { icon: 'footprints',         text: 'Iniciante ou voltando do zero após longa pausa',      tag: 'inicio' },
-            { icon: 'refresh-cw',         text: 'Treino há algum tempo mas sem progressão real',        tag: 'estagnada' },
-            { icon: 'arrow-up-circle',    text: 'Já tive bons resultados e quero retomar o nível',     tag: 'retomada' },
-            { icon: 'rocket',             text: 'Treino consistente e quero ir para outro patamar',    tag: 'avancada' }
-          ]
-        }
-      ];
-
-      var profiles = {
-        def: {
-          badge:    'Perfil: Transformação com Método',
-          title:    'Definição com Estratégia Real',
-          desc:     'Você quer resultado visual e já tentou antes — mas planos genéricos não entregam o que prometem. Com o Método DuoFit, seu treino é construído em cima da sua rotina, do seu corpo e do seu objetivo. Sem atalhos. Com resultado.',
-          foco:     'Composição corporal',
-          metodo:   'Treino individualizado',
-          suporte:  'Acompanhamento contínuo',
-          plano:    'Trimestral',
-          motivo:   'Para manter consistência e ver resultados reais, o trimestral é o seu passo mais inteligente.',
-          cta:      'trimestral'
-        },
-        hiper: {
-          badge:    'Perfil: Crescimento Guiado',
-          title:    'Hipertrofia Feminina de Verdade',
-          desc:     'Ganhar músculo com qualidade exige método, sobrecarga progressiva e acompanhamento. Você não precisa mais fazer isso sozinha. Júlia e Alexandra vão te guiar em cada fase da sua evolução.',
-          foco:     'Hipertrofia feminina',
-          metodo:   'Volume progressivo',
-          suporte:  'Suporte no WhatsApp',
-          plano:    'Trimestral',
-          motivo:   'Hipertrofia real leva tempo e exige consistência — o trimestral foi feito para isso.',
-          cta:      'trimestral'
-        },
-        saude: {
-          badge:    'Perfil: Saúde que Encaixa na Vida',
-          title:    'Equilíbrio entre Rotina e Resultado',
-          desc:     'Você tem uma vida cheia — e isso não pode ser obstáculo. Com o DuoFit, você treina no tempo que tem, sem culpa e com progresso real. O método se adapta a você, não o contrário.',
-          foco:     'Saúde e disposição',
-          metodo:   'Funcional adaptado',
-          suporte:  'Plano flexível',
-          plano:    'Mensal',
-          motivo:   'Comece com o mensal, sinta o método e evolua no seu ritmo.',
-          cta:      'mensal'
-        },
-        retorno: {
-          badge:    'Perfil: Retomada Inteligente',
-          title:    'De Volta Mais Forte',
-          desc:     'Parar não é fracasso — retomar com método é o que separa quem evolui de quem fica no mesmo lugar. Você está no lugar certo para reconquistar sua forma com suporte profissional de verdade.',
-          foco:     'Retomada progressiva',
-          metodo:   'Protocolo de retorno',
-          suporte:  'Duas profissionais ao seu lado',
-          plano:    'Mensal',
-          motivo:   'Comece com o mensal para se reconectar com o treino sem pressão.',
-          cta:      'mensal'
-        },
-        default: {
-          badge:    'Perfil: Plano Sob Medida',
-          title:    'Seu Próximo Passo Começa Aqui',
-          desc:     'Com base nas suas respostas, o que você precisa é de um plano construído para você — não para uma média. O Método DuoFit une personalização, ciência e acompanhamento humano para entregar resultado real.',
-          foco:     'Objetivo personalizado',
-          metodo:   'Protocolo individualizado',
-          suporte:  'Duas profissionais ao seu lado',
-          plano:    'Trimestral',
-          motivo:   'Para quem quer resultado de verdade, o trimestral é onde a transformação acontece.',
-          cta:      'trimestral'
-        }
-      };
-
-      function getProfile(ans) {
-        var obj = questions[0].opts[ans[0]] ? questions[0].opts[ans[0]].tag : '';
-        if (obj === 'def')     return profiles.def;
-        if (obj === 'hiper')   return profiles.hiper;
-        if (obj === 'saude')   return profiles.saude;
-        if (obj === 'retorno') return profiles.retorno;
-        return profiles.default;
-      }
-
-      var cur = 0, ans = [];
-
-      function bars() {
-        var h = '<div class="df-step-bar">';
-        for (var i = 0; i < questions.length; i++) {
-          var c = i < cur ? 'done' : i === cur ? 'active' : '';
-          h += '<div class="df-seg ' + c + '"></div>';
-        }
-        return h + '</div>';
-      }
-
-      function renderQ() {
-        var q = questions[cur];
-        var sel = (ans[cur] !== undefined) ? ans[cur] : -1;
-        var optsHtml = '';
-        for (var i = 0; i < q.opts.length; i++) {
-          var o = q.opts[i];
-          var sc = sel === i ? ' df-sel' : '';
-          optsHtml += '<button class="df-opt' + sc + '" onclick="dfPick(' + i + ')" aria-pressed="' + (sel===i) + '">'
-            + '<i data-lucide="' + o.icon + '" class="df-opt-icon"></i>'
-            + '<span class="df-opt-text">' + o.text + '</span>'
-            + '</button>';
-        }
-        var btnLabel = cur < questions.length - 1 ? 'Próxima →' : 'Ver meu diagnóstico →';
-        var btnClass = 'df-btn-prox' + (sel >= 0 ? ' df-ok' : '');
-
-        var body = document.getElementById('df-quiz-body');
-        if(!body) return;
-        body.innerHTML =
-          bars()
-          + '<p class="df-q-label">' + q.label + ' · ' + (cur+1) + ' de ' + questions.length + '</p>'
-          + '<p class="df-q-text">' + q.text + '</p>'
-          + '<div class="df-opts">' + optsHtml + '</div>'
-          + '<button class="' + btnClass + '" onclick="dfAdvance()">' + btnLabel + '</button>'
-          + '<p class="df-footer-tag">Diagnóstico <span>' + CFG.instagram + '</span></p>';
-          
-        lucide.createIcons();
-      }
-
-      function renderResult() {
-        var p = getProfile(ans);
-        var ctaUrl = p.cta === 'mensal' ? CFG.wa_mensal : CFG.wa_trimestral;
-
-        var body = document.getElementById('df-quiz-body');
-        if(!body) return;
-        body.innerHTML =
-          '<div class="df-res-badge">' + p.badge + '</div>'
-          + '<p class="df-res-title">' + p.title + '</p>'
-          + '<p class="df-res-desc">' + p.desc + '</p>'
-          + '<div class="df-res-grid">'
-          +   '<div class="df-res-item"><p class="df-ri-lbl">Foco</p><p class="df-ri-val">' + p.foco + '</p></div>'
-          +   '<div class="df-res-item"><p class="df-ri-lbl">Método</p><p class="df-ri-val">' + p.metodo + '</p></div>'
-          +   '<div class="df-res-item"><p class="df-ri-lbl">Suporte</p><p class="df-ri-val">' + p.suporte + '</p></div>'
-          +   '<div class="df-res-item"><p class="df-ri-lbl">Recomendado</p><p class="df-ri-val">Plano ' + p.plano + '</p></div>'
-          + '</div>'
-          + '<div class="df-plano-box">'
-          +   '<div style="text-align:left"><p class="df-plano-lbl">Plano recomendado para você</p><p class="df-plano-nome">' + p.plano + '</p></div>'
-          +   '<i data-lucide="arrow-right" class="df-opt-icon" style="color:#c09c83; width:24px; height:24px;"></i>'
-          + '</div>'
-          + '<p class="df-motivo">' + p.motivo + '</p>'
-          + '<button class="df-cta-main" onclick="window.open(\\'' + ctaUrl + '\\',\\'_blank\\')">Quero começar minha transformação →</button>'
-          + '<button class="df-cta-sec" onclick="dfRestart()">Refazer diagnóstico</button>'
-          + '<p class="df-footer-tag" style="margin-top:20px;">Método DuoFit · <span>' + CFG.nome_a + ' & ' + CFG.nome_b + ' Gnutzmann</span></p>';
-          
-        lucide.createIcons();
-      }
-
-      window.dfPick = function(i) {
-        ans[cur] = i;
-        renderQ();
-      };
-
-      window.dfAdvance = function() {
-        if (ans[cur] === undefined) return;
-        cur++;
-        if (cur >= questions.length) renderResult();
-        else renderQ();
-      };
-
-      window.dfRestart = function() {
-        cur = 0; ans = [];
-        renderQ();
-      };
-
-      document.addEventListener('DOMContentLoaded', () => {
-        if(document.getElementById('df-quiz-body')){
-            renderQ();
-        }
-      });
-    })();
     </script>
 </body>
 </html>
