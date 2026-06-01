@@ -260,144 +260,6 @@
         </div>
     </section>
 
-    <!-- Planos Section -->
-    <section id="planos" class="py-24 md:py-32 px-6 lg:px-12 flex justify-center relative">
-        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(192,156,131,0.08)_0%,rgba(0,0,0,1)_70%)] pointer-events-none"></div>
-        
-        <div class="max-w-5xl w-full relative z-10">
-            <div class="reveal text-center mb-16 space-y-4">
-                <span class="text-[10px] uppercase font-bold tracking-[0.2em] text-tan/60 block">Consultoria</span>
-                <h2 class="text-5xl md:text-7xl font-serif mb-10 leading-[0.85] tracking-tight italic text-cream">Escolha seu <span class="not-italic">Plano</span></h2>
-                
-                <!-- Toggle Switch -->
-                <div class="inline-flex liquid-glass rounded-full p-1 relative w-64">
-                    <div id="toggle-bg" class="absolute top-1 bottom-1 w-1/2 bg-tan rounded-full transition-transform duration-300 ease-in-out left-0"></div>
-                    <button id="btn-online" class="relative z-10 w-1/2 py-2.5 rounded-full text-sm font-bold transition-colors text-deep">Online</button>
-                    <button id="btn-presencial" class="relative z-10 w-1/2 py-2.5 rounded-full text-sm font-medium transition-colors text-tan/60 hover:text-cream">Presencial</button>
-                </div>
-            </div>
-
-            <!-- Online Plans -->
-            <div id="planos-online" class="plan-card active grid md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto">
-                <!-- Mensal -->
-                <div class="reveal liquid-glass rounded-3xl p-8 md:p-10 flex flex-col w-full">
-                    <h3 class="text-2xl font-serif mb-2">Mensal <span class="text-tan/60 italic">Online</span></h3>
-                    <p class="text-sm text-tan/80 mb-8 border-b border-tan/10 pb-8">Ideal para testar a metodologia e iniciar sua jornada de hipertrofia.</p>
-                    
-                    <ul class="space-y-4 mb-10 flex-grow">
-                        <li class="flex gap-3 text-sm text-tan/90 items-start">
-                            <i data-lucide="check-circle-2" class="w-5 h-5 text-tan/50 shrink-0"></i>
-                            <span>Treino individualizado</span>
-                        </li>
-                        <li class="flex gap-3 text-sm text-tan/90 items-start">
-                            <i data-lucide="check-circle-2" class="w-5 h-5 text-tan/50 shrink-0"></i>
-                            <span>Avaliação física inicial (fotos e medidas)</span>
-                        </li>
-                        <li class="flex gap-3 text-sm text-tan/90 items-start">
-                            <i data-lucide="check-circle-2" class="w-5 h-5 text-tan/50 shrink-0"></i>
-                            <span>Suporte via WhatsApp (Horário comercial)</span>
-                        </li>
-                        <li class="flex gap-3 text-sm text-tan/90 items-start">
-                            <i data-lucide="check-circle-2" class="w-5 h-5 text-tan/50 shrink-0"></i>
-                            <span>Vídeos explicativos de execução</span>
-                        </li>
-                    </ul>
-                    <a href="https://wa.me/5553999999999" target="_blank" class="w-full liquid-glass bg-tan/10 hover:bg-tan/20 text-cream py-4 rounded-full text-center text-xs font-bold uppercase tracking-widest transition-colors border border-tan/10">Assinar Mensal</a>
-                </div>
-
-                <!-- Trimestral -->
-                <div class="reveal liquid-glass rounded-3xl p-8 md:p-10 flex flex-col relative border border-tan/30 shadow-[0_0_40px_rgba(192,156,131,0.05)] bg-[#0a0604]/50 w-full" style="transition-delay: 150ms;">
-                    <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-tan text-deep text-xs font-bold uppercase tracking-wider px-4 py-1 rounded-full whitespace-nowrap">
-                        Mais Escolhido
-                    </div>
-                    <h3 class="text-2xl font-serif mb-2">Trimestral <span class="text-tan/60 italic">Online</span></h3>
-                    <p class="text-sm text-tan/80 mb-8 border-b border-tan/10 pb-8">A consistência que gera mudanças visíveis. Comprometimento real.</p>
-                    
-                    <ul class="space-y-4 mb-10 flex-grow">
-                        <li class="flex gap-3 text-sm text-cream items-start">
-                            <i data-lucide="check-circle-2" class="w-5 h-5 text-tan shrink-0"></i>
-                            <span>Tudo do plano mensal</span>
-                        </li>
-                        <li class="flex gap-3 text-sm text-cream items-start">
-                            <i data-lucide="check-circle-2" class="w-5 h-5 text-tan shrink-0"></i>
-                            <span>Prioridade no suporte e reavaliações</span>
-                        </li>
-                        <li class="flex gap-3 text-sm text-cream items-start">
-                            <i data-lucide="check-circle-2" class="w-5 h-5 text-tan shrink-0"></i>
-                            <span>Análise de vídeos da sua execução</span>
-                        </li>
-                        <li class="flex gap-3 text-sm text-cream items-start">
-                            <i data-lucide="check-circle-2" class="w-5 h-5 text-tan shrink-0"></i>
-                            <span>Contato direto com as treinadoras</span>
-                        </li>
-                    </ul>
-                    <a href="https://wa.me/5553999999999" target="_blank" class="w-full bg-tan hover:bg-[#d0b099] text-deep py-4 rounded-full text-center text-xs font-bold uppercase tracking-widest transition-colors">Assinar Trimestral</a>
-                </div>
-            </div>
-
-            <!-- Presencial Plan -->
-            <div id="planos-presencial" class="plan-card max-w-4xl mx-auto">
-                <div class="liquid-glass rounded-3xl p-8 md:p-10 flex flex-col md:col-span-2 w-full text-center">
-                    <div class="w-16 h-16 rounded-full bg-tan/10 flex items-center justify-center mb-6 mx-auto">
-                        <i data-lucide="heart-handshake" class="w-8 h-8 text-tan"></i>
-                    </div>
-                    <h3 class="text-3xl font-serif mb-4 text-cream">Personal Presencial <span class="text-tan/60 italic">(Pelotas - RS)</span></h3>
-                    <p class="text-tan/80 mb-8 max-w-md mx-auto">Treino lado a lado conosco. Correção postural ao vivo, motivação extrema e ajustes imediatos na carga e execução. Vagas altamente limitadas de acordo com a agenda.</p>
-                    <a href="https://wa.me/5553999999999" target="_blank" class="inline-flex max-w-xs mx-auto justify-center bg-tan text-deep py-4 px-8 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-[#d0b099] transition-colors">Consultar Disponibilidade</a>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- Depoimentos Section -->
-    <section id="depoimentos" class="py-24 md:py-32 px-6 lg:px-12 flex justify-center bg-[#140c08]">
-        <div class="max-w-6xl w-full">
-            <div class="reveal text-center mb-16 md:mb-24 space-y-4">
-                <span class="text-[10px] uppercase font-bold tracking-[0.2em] text-tan/60 block">O que dizem</span>
-                <h2 class="text-5xl md:text-7xl font-serif leading-[0.85] tracking-tight italic">Vidas <span class="not-italic">Transformadas</span></h2>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-6">
-                <!-- Testimonial 1 -->
-                <div class="reveal liquid-glass rounded-3xl p-8 flex flex-col hover:-translate-y-2 transition-transform duration-300">
-                    <div class="flex gap-1 mb-6">
-                        <i data-lucide="star" class="w-4 h-4 fill-tan text-tan"></i><i data-lucide="star" class="w-4 h-4 fill-tan text-tan"></i><i data-lucide="star" class="w-4 h-4 fill-tan text-tan"></i><i data-lucide="star" class="w-4 h-4 fill-tan text-tan"></i><i data-lucide="star" class="w-4 h-4 fill-tan text-tan"></i>
-                    </div>
-                    <p class="text-cream/90 flex-grow mb-8 text-sm leading-relaxed italic">"Pela primeira vez consegui ver definição de verdade nas pernas e abdômen. O treino é puxado mas o acompanhamento faz toda diferença. Elas não deixam a gente desistir."</p>
-                    <div class="flex items-center gap-4">
-                        <div class="w-10 h-10 rounded-full bg-tan/20 flex items-center justify-center text-tan font-serif">M</div>
-                        <div class="text-sm font-medium">Mariana S.</div>
-                    </div>
-                </div>
-
-                <!-- Testimonial 2 -->
-                <div class="reveal liquid-glass rounded-3xl p-8 flex flex-col hover:-translate-y-2 transition-transform duration-300" style="transition-delay: 150ms;">
-                    <div class="flex gap-1 mb-6">
-                        <i data-lucide="star" class="w-4 h-4 fill-tan text-tan"></i><i data-lucide="star" class="w-4 h-4 fill-tan text-tan"></i><i data-lucide="star" class="w-4 h-4 fill-tan text-tan"></i><i data-lucide="star" class="w-4 h-4 fill-tan text-tan"></i><i data-lucide="star" class="w-4 h-4 fill-tan text-tan"></i>
-                    </div>
-                    <p class="text-cream/90 flex-grow mb-8 text-sm leading-relaxed italic">"Já tinha passado por vários treinos genéricos. O método da Júlia e Alexandra finalmente respeitou meu biotipo. A mudança no espelho foi visível já no segundo mês."</p>
-                    <div class="flex items-center gap-4">
-                        <div class="w-10 h-10 rounded-full bg-tan/20 flex items-center justify-center text-tan font-serif">C</div>
-                        <div class="text-sm font-medium">Camila R.</div>
-                    </div>
-                </div>
-
-                <!-- Testimonial 3 -->
-                <div class="reveal liquid-glass rounded-3xl p-8 flex flex-col hover:-translate-y-2 transition-transform duration-300" style="transition-delay: 300ms;">
-                    <div class="flex gap-1 mb-6">
-                        <i data-lucide="star" class="w-4 h-4 fill-tan text-tan"></i><i data-lucide="star" class="w-4 h-4 fill-tan text-tan"></i><i data-lucide="star" class="w-4 h-4 fill-tan text-tan"></i><i data-lucide="star" class="w-4 h-4 fill-tan text-tan"></i><i data-lucide="star" class="w-4 h-4 fill-tan text-tan"></i>
-                    </div>
-                    <p class="text-cream/90 flex-grow mb-8 text-sm leading-relaxed italic">"A segurança de ter duas profissionais avaliando seus vídeos de execução e corrigindo postura é surreal. Parece que tenho personal trainer todo dia comigo."</p>
-                    <div class="flex items-center gap-4">
-                        <div class="w-10 h-10 rounded-full bg-tan/20 flex items-center justify-center text-tan font-serif">A</div>
-                        <div class="text-sm font-medium">Amanda T.</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Quiz Diagnóstico Section -->
     <section id="quiz" class="py-24 md:py-32 px-6 lg:px-12 flex justify-center relative bg-black">
         <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-tan/20 to-transparent"></div>
@@ -761,6 +623,145 @@
     </script>
     <!-- Tabler Icons para o quiz -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+
+    <!-- Planos Section -->
+    <section id="planos" class="py-24 md:py-32 px-6 lg:px-12 flex justify-center relative">
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(192,156,131,0.08)_0%,rgba(0,0,0,1)_70%)] pointer-events-none"></div>
+        
+        <div class="max-w-5xl w-full relative z-10">
+            <div class="reveal text-center mb-16 space-y-4">
+                <span class="text-[10px] uppercase font-bold tracking-[0.2em] text-tan/60 block">Consultoria</span>
+                <h2 class="text-5xl md:text-7xl font-serif mb-10 leading-[0.85] tracking-tight italic text-cream">Escolha seu <span class="not-italic">Plano</span></h2>
+                
+                <!-- Toggle Switch -->
+                <div class="inline-flex liquid-glass rounded-full p-1 relative w-64">
+                    <div id="toggle-bg" class="absolute top-1 bottom-1 w-1/2 bg-tan rounded-full transition-transform duration-300 ease-in-out left-0"></div>
+                    <button id="btn-online" class="relative z-10 w-1/2 py-2.5 rounded-full text-sm font-bold transition-colors text-deep">Online</button>
+                    <button id="btn-presencial" class="relative z-10 w-1/2 py-2.5 rounded-full text-sm font-medium transition-colors text-tan/60 hover:text-cream">Presencial</button>
+                </div>
+            </div>
+
+            <!-- Online Plans -->
+            <div id="planos-online" class="plan-card active grid md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto">
+                <!-- Mensal -->
+                <div class="reveal liquid-glass rounded-3xl p-8 md:p-10 flex flex-col w-full">
+                    <h3 class="text-2xl font-serif mb-2">Mensal <span class="text-tan/60 italic">Online</span></h3>
+                    <p class="text-sm text-tan/80 mb-8 border-b border-tan/10 pb-8">Ideal para testar a metodologia e iniciar sua jornada de hipertrofia.</p>
+                    
+                    <ul class="space-y-4 mb-10 flex-grow">
+                        <li class="flex gap-3 text-sm text-tan/90 items-start">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-tan/50 shrink-0"></i>
+                            <span>Treino individualizado</span>
+                        </li>
+                        <li class="flex gap-3 text-sm text-tan/90 items-start">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-tan/50 shrink-0"></i>
+                            <span>Avaliação física inicial (fotos e medidas)</span>
+                        </li>
+                        <li class="flex gap-3 text-sm text-tan/90 items-start">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-tan/50 shrink-0"></i>
+                            <span>Suporte via WhatsApp (Horário comercial)</span>
+                        </li>
+                        <li class="flex gap-3 text-sm text-tan/90 items-start">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-tan/50 shrink-0"></i>
+                            <span>Vídeos explicativos de execução</span>
+                        </li>
+                    </ul>
+                    <a href="https://wa.me/5553999999999" target="_blank" class="w-full liquid-glass bg-tan/10 hover:bg-tan/20 text-cream py-4 rounded-full text-center text-xs font-bold uppercase tracking-widest transition-colors border border-tan/10">Assinar Mensal</a>
+                </div>
+
+                <!-- Trimestral -->
+                <div class="reveal liquid-glass rounded-3xl p-8 md:p-10 flex flex-col relative border border-tan/30 shadow-[0_0_40px_rgba(192,156,131,0.05)] bg-[#0a0604]/50 w-full" style="transition-delay: 150ms;">
+                    <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-tan text-deep text-xs font-bold uppercase tracking-wider px-4 py-1 rounded-full whitespace-nowrap">
+                        Mais Escolhido
+                    </div>
+                    <h3 class="text-2xl font-serif mb-2">Trimestral <span class="text-tan/60 italic">Online</span></h3>
+                    <p class="text-sm text-tan/80 mb-8 border-b border-tan/10 pb-8">A consistência que gera mudanças visíveis. Comprometimento real.</p>
+                    
+                    <ul class="space-y-4 mb-10 flex-grow">
+                        <li class="flex gap-3 text-sm text-cream items-start">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-tan shrink-0"></i>
+                            <span>Tudo do plano mensal</span>
+                        </li>
+                        <li class="flex gap-3 text-sm text-cream items-start">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-tan shrink-0"></i>
+                            <span>Prioridade no suporte e reavaliações</span>
+                        </li>
+                        <li class="flex gap-3 text-sm text-cream items-start">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-tan shrink-0"></i>
+                            <span>Análise de vídeos da sua execução</span>
+                        </li>
+                        <li class="flex gap-3 text-sm text-cream items-start">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-tan shrink-0"></i>
+                            <span>Contato direto com as treinadoras</span>
+                        </li>
+                    </ul>
+                    <a href="https://wa.me/5553999999999" target="_blank" class="w-full bg-tan hover:bg-[#d0b099] text-deep py-4 rounded-full text-center text-xs font-bold uppercase tracking-widest transition-colors">Assinar Trimestral</a>
+                </div>
+            </div>
+
+            <!-- Presencial Plan -->
+            <div id="planos-presencial" class="plan-card max-w-4xl mx-auto">
+                <div class="liquid-glass rounded-3xl p-8 md:p-10 flex flex-col md:col-span-2 w-full text-center">
+                    <div class="w-16 h-16 rounded-full bg-tan/10 flex items-center justify-center mb-6 mx-auto">
+                        <i data-lucide="heart-handshake" class="w-8 h-8 text-tan"></i>
+                    </div>
+                    <h3 class="text-3xl font-serif mb-4 text-cream">Personal Presencial <span class="text-tan/60 italic">(Pelotas - RS)</span></h3>
+                    <p class="text-tan/80 mb-8 max-w-md mx-auto">Treino lado a lado conosco. Correção postural ao vivo, motivação extrema e ajustes imediatos na carga e execução. Vagas altamente limitadas de acordo com a agenda.</p>
+                    <a href="https://wa.me/5553999999999" target="_blank" class="inline-flex max-w-xs mx-auto justify-center bg-tan text-deep py-4 px-8 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-[#d0b099] transition-colors">Consultar Disponibilidade</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Depoimentos Section -->
+    <section id="depoimentos" class="py-24 md:py-32 px-6 lg:px-12 flex justify-center bg-[#140c08]">
+        <div class="max-w-6xl w-full">
+            <div class="reveal text-center mb-16 md:mb-24 space-y-4">
+                <span class="text-[10px] uppercase font-bold tracking-[0.2em] text-tan/60 block">O que dizem</span>
+                <h2 class="text-5xl md:text-7xl font-serif leading-[0.85] tracking-tight italic">Vidas <span class="not-italic">Transformadas</span></h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Testimonial 1 -->
+                <div class="reveal liquid-glass rounded-3xl p-8 flex flex-col hover:-translate-y-2 transition-transform duration-300">
+                    <div class="flex gap-1 mb-6">
+                        <i data-lucide="star" class="w-4 h-4 fill-tan text-tan"></i><i data-lucide="star" class="w-4 h-4 fill-tan text-tan"></i><i data-lucide="star" class="w-4 h-4 fill-tan text-tan"></i><i data-lucide="star" class="w-4 h-4 fill-tan text-tan"></i><i data-lucide="star" class="w-4 h-4 fill-tan text-tan"></i>
+                    </div>
+                    <p class="text-cream/90 flex-grow mb-8 text-sm leading-relaxed italic">"Pela primeira vez consegui ver definição de verdade nas pernas e abdômen. O treino é puxado mas o acompanhamento faz toda diferença. Elas não deixam a gente desistir."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 rounded-full bg-tan/20 flex items-center justify-center text-tan font-serif">M</div>
+                        <div class="text-sm font-medium">Mariana S.</div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="reveal liquid-glass rounded-3xl p-8 flex flex-col hover:-translate-y-2 transition-transform duration-300" style="transition-delay: 150ms;">
+                    <div class="flex gap-1 mb-6">
+                        <i data-lucide="star" class="w-4 h-4 fill-tan text-tan"></i><i data-lucide="star" class="w-4 h-4 fill-tan text-tan"></i><i data-lucide="star" class="w-4 h-4 fill-tan text-tan"></i><i data-lucide="star" class="w-4 h-4 fill-tan text-tan"></i><i data-lucide="star" class="w-4 h-4 fill-tan text-tan"></i>
+                    </div>
+                    <p class="text-cream/90 flex-grow mb-8 text-sm leading-relaxed italic">"Já tinha passado por vários treinos genéricos. O método da Júlia e Alexandra finalmente respeitou meu biotipo. A mudança no espelho foi visível já no segundo mês."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 rounded-full bg-tan/20 flex items-center justify-center text-tan font-serif">C</div>
+                        <div class="text-sm font-medium">Camila R.</div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="reveal liquid-glass rounded-3xl p-8 flex flex-col hover:-translate-y-2 transition-transform duration-300" style="transition-delay: 300ms;">
+                    <div class="flex gap-1 mb-6">
+                        <i data-lucide="star" class="w-4 h-4 fill-tan text-tan"></i><i data-lucide="star" class="w-4 h-4 fill-tan text-tan"></i><i data-lucide="star" class="w-4 h-4 fill-tan text-tan"></i><i data-lucide="star" class="w-4 h-4 fill-tan text-tan"></i><i data-lucide="star" class="w-4 h-4 fill-tan text-tan"></i>
+                    </div>
+                    <p class="text-cream/90 flex-grow mb-8 text-sm leading-relaxed italic">"A segurança de ter duas profissionais avaliando seus vídeos de execução e corrigindo postura é surreal. Parece que tenho personal trainer todo dia comigo."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 rounded-full bg-tan/20 flex items-center justify-center text-tan font-serif">A</div>
+                        <div class="text-sm font-medium">Amanda T.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
 
     <!-- Final CTA Section -->
     <section class="py-32 px-6 lg:px-12 flex justify-center relative overflow-hidden bg-black">
