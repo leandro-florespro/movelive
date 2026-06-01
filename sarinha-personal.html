@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sarinha | Emagrecer em Casa</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- AOS (animações de scroll) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Google Fonts via <link> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        serif: ['Instrument Serif', 'serif'],
+                        sans: ['DM Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        cream: '#fdf8f4',
+                        tan: '#c09c83',
+                        brown: '#5e4033',
+                        deep: '#150a06',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom Styles -->
+    <style>
+        .liquid-glass {
+            background: rgba(192, 156, 131, 0.04);
+            background-blend-mode: luminosity;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(192, 156, 131, 0.1);
+            box-shadow: inset 0 1px 1px rgba(192, 156, 131, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        #mobile-menu {
+            transition: transform 0.4s ease-in-out;
+        }
+        
+        .translate-x-full {
+            transform: translateX(100%);
+        }
+    </style>
+</head>
+<body class="bg-black text-cream font-sans antialiased overflow-x-hidden">
+
+    <!-- Navigation -->
+    <nav class="fixed top-6 left-0 right-0 z-50 px-4 md:px-0">
+        <div class="liquid-glass w-full max-w-4xl mx-auto rounded-full px-8 py-3 flex items-center justify-between shadow-2xl shadow-black/50">
+            <a href="#inicio" class="font-serif italic text-2xl text-tan">sarinha.personal</a>
+            
+            <div class="hidden md:flex items-center space-x-8 text-sm uppercase tracking-widest font-medium opacity-70">
+                <a href="#metodo" class="hover:text-tan transition-colors">O Método</a>
+                <a href="#sobre" class="hover:text-tan transition-colors">Sobre</a>
+                <a href="#planos" class="hover:text-tan transition-colors">Planos</a>
+            </div>
+
+            <a href="https://wa.me/5512997369887" target="_blank" class="hidden md:flex items-center space-x-2 bg-tan text-black px-6 py-2.5 rounded-full font-bold text-sm uppercase tracking-widest transition-transform hover:scale-105">
+                <i data-lucide="message-circle" class="w-4 h-4"></i>
+                <span>Falar no WhatsApp</span>
+            </a>
+
+            <button id="menu-toggle" class="md:hidden text-cream">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 bg-black/95 backdrop-blur-lg z-40 translate-x-full flex flex-col justify-center items-center space-y-8">
+        <a href="#metodo" class="mobile-link text-2xl font-serif italic text-cream">O Método</a>
+        <a href="#sobre" class="mobile-link text-2xl font-serif italic text-cream">Sobre</a>
+        <a href="#planos" class="mobile-link text-2xl font-serif italic text-cream">Planos</a>
+        <a href="https://wa.me/5512997369887" target="_blank" class="liquid-glass text-tan px-8 py-3 rounded-full flex items-center space-x-2">
+            <i data-lucide="message-circle" class="w-5 h-5"></i>
+            <span>WhatsApp</span>
+        </a>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="relative min-h-screen flex items-center justify-center bg-black overflow-hidden pt-20">
+        <div class="absolute inset-0 bg-cover bg-center opacity-70 mix-blend-luminosity" style="background-image: url('./sarinha-personal.webp');"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent"></div>
+        
+        <div class="relative z-10 max-w-4xl mx-auto px-6 text-center flex flex-col items-center">
+            <div class="reveal liquid-glass inline-flex items-center space-x-2 px-4 py-1.5 rounded-full mb-8">
+                <span class="w-2 h-2 rounded-full bg-tan animate-pulse"></span>
+                <span class="text-xs tracking-[0.2em] text-tan uppercase font-bold">Alta Performance & Saúde</span>
+            </div>
+            
+            <h1 class="reveal font-serif italic text-6xl md:text-8xl lg:text-9xl leading-[0.85] text-white mb-6">
+                Emagreça sem <br>
+                <span class="text-tan">academia.</span>
+            </h1>
+            
+            <p class="reveal text-lg text-cream/60 max-w-2xl mb-12 leading-relaxed">
+                O método validado pela minha própria jornada: eliminei 28kg na rotina de mãe. Treinos curtos, sem equipamentos e com resultados reais.
+            </p>
+            
+            <div class="reveal flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-6">
+                <a href="https://wa.me/5512997369887" target="_blank" class="w-full sm:w-auto bg-tan text-black px-8 py-4 rounded-full font-bold uppercase text-sm tracking-widest transition-transform hover:scale-105 flex items-center justify-center space-x-2">
+                    <span>Quero Começar Agora</span>
+                </a>
+                <a href="#metodo" class="w-full sm:w-auto liquid-glass border-white/10 px-8 py-4 rounded-full text-white font-bold uppercase text-sm tracking-widest hover:bg-white/5 transition-colors text-center">
+                    Conhecer o Método
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problema / Agitação -->
+    <section id="problema" class="py-24 md:py-32 bg-neutral-950 border-t border-white/5">
+        <div class="max-w-3xl mx-auto px-6 text-center">
+            <h2 class="font-serif italic text-5xl md:text-6xl leading-[0.85] text-white mb-10" data-aos="fade-up">
+                Sente que a rotina tirou todo o <span class="text-tan">seu tempo?</span>
+            </h2>
+            <div class="space-y-6 text-cream/60 text-lg leading-relaxed text-left md:text-center" data-aos="fade-up" data-aos-delay="100">
+                <p>
+                    Eu sei como é. A rotina consome suas horas. A ideia de passar mais de uma hora em uma academia lotada parece um luxo distante, quase impossível diante do seu cansaço.
+                </p>
+                <p>
+                    O reflexo no espelho começa a incomodar. Você tenta dietas extremas, desiste na primeira dificuldade e o peso sempre volta. A frustração aumenta a cada tentativa falha, fazendo você acreditar que ter o corpo dos sonhos na vida adulta não é mais para você.
+                </p>
+                <p class="text-cream font-medium">
+                    Mas e se o problema não for a sua disciplina, e sim o método que estão tentando forçar na sua rotina?
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solução / Método -->
+    <section id="metodo" class="py-24 md:py-32 bg-black border-t border-white/5">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-sm uppercase tracking-widest text-tan font-bold block mb-4">O Método</span>
+                <h2 class="font-serif italic text-5xl md:text-6xl text-white leading-[0.85] mb-4">Adaptação à sua <span class="text-tan">rotina</span></h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Card 1 -->
+                <div class="liquid-glass rounded-3xl p-8 border border-white/5" data-aos="fade-up" data-aos-delay="100">
+                    <div class="bg-tan/20 p-3 rounded-2xl text-tan w-12 h-12 flex items-center justify-center mb-6">
+                        <i data-lucide="clock" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="font-bold text-white mb-2">Treinos Curtos</h3>
+                    <p class="text-sm opacity-50 leading-relaxed">
+                        Esqueça treinos de 2 horas. Com sessões intensas e estratégicas de 20 a 30 minutos, você encaixa a sua saúde em qualquer brecha do seu dia.
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="liquid-glass rounded-3xl p-8 border border-white/5" data-aos="fade-up" data-aos-delay="200">
+                    <div class="bg-tan/20 p-3 rounded-2xl text-tan w-12 h-12 flex items-center justify-center mb-6">
+                        <i data-lucide="home" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="font-bold text-white mb-2">Zero Equipamentos</h3>
+                    <p class="text-sm opacity-50 leading-relaxed">
+                        A sala da sua casa é a melhor academia que você poderia ter. Treinamento desenhado utilizando apenas o peso do seu próprio corpo com máxima eficiência.
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="liquid-glass rounded-3xl p-8 border border-white/5" data-aos="fade-up" data-aos-delay="300">
+                    <div class="bg-tan/20 p-3 rounded-2xl text-tan w-12 h-12 flex items-center justify-center mb-6">
+                        <i data-lucide="clipboard-list" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="font-bold text-white mb-2">Acompanhamento</h3>
+                    <p class="text-sm opacity-50 leading-relaxed">
+                        Não é um PDF solto ou um aplicativo vazio. É o acompanhamento próximo de quem entende a sua jornada e os seus desafios diários.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre -->
+    <section id="sobre" class="py-24 md:py-32 bg-neutral-950 border-t border-white/5">
+        <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+            <div class="order-2 md:order-1 relative" data-aos="fade-right">
+                <div class="liquid-glass rounded-3xl p-3 relative z-10 border border-white/5">
+                    <img src="./sarinha-personal.webp" alt="Sarinha Personal" class="w-full h-auto aspect-[4/5] object-cover rounded-2xl mix-blend-luminosity opacity-80">
+                </div>
+                <div class="absolute -top-6 -left-6 w-32 h-32 bg-tan/20 blur-3xl rounded-full pointer-events-none"></div>
+            </div>
+            
+            <div class="order-1 md:order-2" data-aos="fade-left">
+                <span class="text-sm uppercase tracking-widest text-tan font-bold block mb-4">Sobre mim</span>
+                <h2 class="font-serif italic text-6xl leading-[0.85] text-white mb-6">Sarinha.<br><span class="text-tan">Personal</span></h2>
+                <div class="space-y-6 text-cream/60 leading-relaxed mb-10">
+                    <p>
+                        Eu sei que a maternidade muda o nosso corpo e as nossas prioridades. Após ganhar peso, eu precisava de uma solução que coubesse na minha rotina puxada de mãe.
+                    </p>
+                    <p>
+                        Foi estudando e aplicando exercícios inteligentes em casa que <strong>eliminei 28kg.</strong> Desenvolvi um método onde a sala de casa se torna o seu local de transformação.
+                    </p>
+                    <p>
+                        Hoje, já ajudei mulheres a resgatarem seu amor próprio através de treinos acessíveis e sem frescuras. Meu objetivo é provar que você não precisa parar a sua vida para alcançar resultados estéticos de excelência.
+                    </p>
+                </div>
+                
+                <div class="flex items-center space-x-12 border-t border-white/5 pt-8">
+                    <div>
+                        <span class="block font-serif italic text-4xl text-white mb-1">-28kg</span>
+                        <span class="text-xs text-tan uppercase tracking-widest font-bold">Eliminados</span>
+                    </div>
+                    <div>
+                        <span class="block font-serif italic text-4xl text-white mb-1">+4.7K</span>
+                        <span class="text-xs text-tan uppercase tracking-widest font-bold">Seguidoras IG</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Planos -->
+    <section id="planos" class="py-24 md:py-32 bg-black border-t border-white/5">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-sm uppercase tracking-widest text-tan font-bold block mb-4">Planos</span>
+                <h2 class="font-serif italic text-5xl md:text-6xl text-white leading-[0.85] mb-8">Sua <span class="text-tan">transformação</span></h2>
+                
+                <!-- Toggle UI -->
+                <div class="liquid-glass inline-flex rounded-full p-1 border border-white/5">
+                    <button id="btn-online" class="px-8 py-2.5 rounded-full text-sm font-bold uppercase tracking-widest transition-all bg-tan text-black">
+                        On-line
+                    </button>
+                    <button id="btn-presencial" class="px-8 py-2.5 rounded-full text-sm font-bold uppercase tracking-widest transition-all text-cream/40 hover:text-white">
+                        Presencial
+                    </button>
+                </div>
+            </div>
+
+            <!-- Online Plans -->
+            <div id="plans-online" class="flex flex-col md:flex-row gap-6 justify-center">
+                <!-- Card Mensal -->
+                <div class="liquid-glass border border-white/5 rounded-3xl p-8 flex-1 flex flex-col pt-12 md:mt-4" data-aos="fade-up">
+                    <h3 class="font-serif italic text-4xl text-white mb-2">Mensal</h3>
+                    <p class="text-xs uppercase tracking-widest text-tan font-bold mb-8">Início seguro e consistente</p>
+                    
+                    <ul class="space-y-4 mb-8 flex-1">
+                        <li class="flex items-start space-x-3">
+                            <i data-lucide="check" class="w-5 h-5 text-tan shrink-0 mt-0.5"></i>
+                            <span class="text-cream/80 text-sm font-light">Treino personalizado para sua rotina</span>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <i data-lucide="check" class="w-5 h-5 text-tan shrink-0 mt-0.5"></i>
+                            <span class="text-cream/80 text-sm font-light">Videoaulas demonstrativas</span>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <i data-lucide="check" class="w-5 h-5 text-tan shrink-0 mt-0.5"></i>
+                            <span class="text-cream/80 text-sm font-light">Suporte via WhatsApp para dúvidas</span>
+                        </li>
+                    </ul>
+                    <a href="https://wa.me/5512997369887?text=Olá,%20Sarinha!%20Gostaria%20de%20saber%20mais%20sobre%20o%20plano%20online%20mensal." target="_blank" class="w-full liquid-glass border border-white/10 py-4 rounded-full text-center text-white font-bold uppercase text-sm tracking-widest hover:bg-white/5 transition-transform hover:scale-105">
+                        Saber mais
+                    </a>
+                </div>
+
+                <!-- Card Trimestral (Highlight) -->
+                <div class="liquid-glass rounded-3xl p-8 flex-1 flex flex-col border border-tan relative" data-aos="fade-up" data-aos-delay="100">
+                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-tan text-black px-4 py-1 rounded-full text-[10px] font-bold uppercase tracking-[0.2em] shadow-lg">
+                        Mais Escolhido
+                    </div>
+                    <h3 class="font-serif italic text-4xl text-white mb-2">Trimestral</h3>
+                    <p class="text-xs uppercase tracking-widest text-tan font-bold mb-8">A verdadeira transformação</p>
+                    
+                    <ul class="space-y-4 mb-8 flex-1">
+                        <li class="flex items-start space-x-3">
+                            <i data-lucide="check" class="w-5 h-5 text-tan shrink-0 mt-0.5"></i>
+                            <span class="text-cream/80 text-sm font-light">Todos os benefícios do plano Mensal</span>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <i data-lucide="check" class="w-5 h-5 text-tan shrink-0 mt-0.5"></i>
+                            <span class="text-cream/80 text-sm font-light">Renovação de treino a cada ciclo</span>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <i data-lucide="check" class="w-5 h-5 text-tan shrink-0 mt-0.5"></i>
+                            <span class="text-cream/80 text-sm font-light">Avaliação e acompanhamento progressivo</span>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <i data-lucide="check" class="w-5 h-5 text-tan shrink-0 mt-0.5"></i>
+                            <span class="text-cream/80 text-sm font-light text-tan font-medium">Bônus: Contato diário e maior proximidade</span>
+                        </li>
+                    </ul>
+                    <a href="https://wa.me/5512997369887?text=Olá,%20Sarinha!%20Gostaria%20de%20saber%20mais%20sobre%20o%20plano%20online%20trimestral." target="_blank" class="w-full bg-tan text-black py-4 rounded-full text-center font-bold uppercase text-sm tracking-widest transition-transform hover:scale-105">
+                        Agendar Avaliação
+                    </a>
+                </div>
+            </div>
+
+            <!-- Presencial Plans (Hidden by default via JS) -->
+            <div id="plans-presencial" class="justify-center hidden">
+                <div class="liquid-glass border border-white/5 rounded-3xl p-8 max-w-md w-full flex flex-col text-center" data-aos="fade-in">
+                    <h3 class="font-serif italic text-4xl text-white mb-2">Presencial</h3>
+                    <p class="text-xs uppercase tracking-widest text-tan font-bold mb-6">Supervisão lado a lado</p>
+                    
+                    <p class="text-cream/60 text-sm leading-relaxed mb-8">
+                        Para quem procura por um acompanhamento exclusivo e mora na minha região. Corrijo posturas na hora, motivo você nas séries e garanto excelência absoluta em cada repetição da sua rotina.
+                    </p>
+                    
+                    <a href="https://wa.me/5512997369887?text=Olá,%20Sarinha!%20Gostaria%20de%20saber%20mais%20sobre%20o%20plano%20presencial%20e%20verificar%20disponibilidade%20na%20agenda." target="_blank" class="w-full bg-tan text-black py-4 rounded-full text-center font-bold uppercase text-sm tracking-widest transition-transform hover:scale-105">
+                        Consultar Vagas
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Depoimentos -->
+    <section id="depoimentos" class="py-24 md:py-32 bg-neutral-950 border-t border-white/5">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-sm uppercase tracking-widest text-tan font-bold block mb-4">Resultados</span>
+                <h2 class="font-serif italic text-5xl md:text-6xl leading-[0.85] text-white">Histórias de <span class="text-tan">Recomeço</span></h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Depoimento 1 -->
+                <div class="liquid-glass border border-white/5 rounded-3xl p-8 flex flex-col" data-aos="fade-up" data-aos-delay="0">
+                    <div class="flex items-center space-x-1 text-tan mb-6">
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                    </div>
+                    <p class="text-cream/80 italic font-light leading-relaxed mb-8 flex-1">
+                        "Achei que nunca mais voltaria ao meu peso antes da gravidez. A Sarinha adaptou os treinos para os horários que meu bebê dormia. Não precisei nem sair de casa."
+                    </p>
+                    <div class="flex items-center space-x-4">
+                        <div class="w-10 h-10 rounded-full bg-tan/20 flex items-center justify-center font-serif text-tan text-lg">M</div>
+                        <div>
+                            <p class="font-serif text-lg">Mariana Silva</p>
+                            <p class="text-xs text-cream/40 uppercase tracking-widest mt-0.5">Aluna Online</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Depoimento 2 -->
+                <div class="liquid-glass border border-white/5 rounded-3xl p-8 flex flex-col" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-center space-x-1 text-tan mb-6">
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                    </div>
+                    <p class="text-cream/80 italic font-light leading-relaxed mb-8 flex-1">
+                        "Os treinos de 20 minutos me salvaram. Eu transpiro mais na sala de casa, no meu ritmo, do que nas horas que eu perdia só enrolando na academia."
+                    </p>
+                    <div class="flex items-center space-x-4">
+                        <div class="w-10 h-10 rounded-full bg-tan/20 flex items-center justify-center font-serif text-tan text-lg">J</div>
+                        <div>
+                            <p class="font-serif text-lg">Juliana Alves</p>
+                            <p class="text-xs text-cream/40 uppercase tracking-widest mt-0.5">Aluna Trimestral</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Depoimento 3 -->
+                <div class="liquid-glass border border-white/5 rounded-3xl p-8 flex flex-col" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex items-center space-x-1 text-tan mb-6">
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                    </div>
+                    <p class="text-cream/80 italic font-light leading-relaxed mb-8 flex-1">
+                        "A Sarinha entende a nossa rotina exaustiva. Se não consegui treinar um dia, o foco é ajustar o planejamento, não me frustrar. Mudou minha vida."
+                    </p>
+                    <div class="flex items-center space-x-4">
+                        <div class="w-10 h-10 rounded-full bg-tan/20 flex items-center justify-center font-serif text-tan text-lg">A</div>
+                        <div>
+                            <p class="font-serif text-lg">Aline Costa</p>
+                            <p class="text-xs text-cream/40 uppercase tracking-widest mt-0.5">Aluna Online</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section id="cta" class="py-32 bg-black relative overflow-hidden border-t border-white/5">
+        <div class="absolute inset-0 bg-tan/5" style="backdrop-filter: blur(60px);"></div>
+        <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
+            <span class="text-sm uppercase tracking-widest text-tan font-bold block mb-4" data-aos="fade-up">Transformação</span>
+            <h2 class="font-serif italic text-6xl md:text-8xl leading-[0.85] text-white mb-6" data-aos="fade-up">
+                O seu projeto <br>
+                <span class="text-tan">recomeça hoje.</span>
+            </h2>
+            <p class="text-lg text-cream/60 mb-12 max-w-xl mx-auto leading-relaxed" data-aos="fade-up" data-aos-delay="100">
+                Pare de adiar a sua saúde esperando o 'momento ideal'. Me mande uma mensagem no WhatsApp e vamos desenhar um treino que funcione na sua realidade atual.
+            </p>
+            <a href="https://wa.me/5512997369887" target="_blank" data-aos="zoom-in" data-aos-delay="200" class="inline-flex items-center space-x-3 bg-tan text-black px-10 py-5 rounded-full font-bold uppercase text-sm tracking-widest transition-transform hover:scale-105 active:scale-95 shadow-2xl shadow-tan/20">
+                <i data-lucide="message-circle" class="w-5 h-5"></i>
+                <span>Falar no WhatsApp</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black py-12 border-t border-white/5">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+            <a href="#inicio" class="font-serif italic text-2xl text-tan">sarinha.personal</a>
+            
+            <div class="flex items-center space-x-6 text-[10px] uppercase tracking-widest opacity-40">
+                <a href="#metodo" class="hover:text-tan transition-colors">Método</a>
+                <a href="#sobre" class="hover:text-tan transition-colors">Sobre</a>
+                <a href="#planos" class="hover:text-tan transition-colors">Planos</a>
+            </div>
+
+            <p class="text-[10px] uppercase tracking-widest opacity-40">
+                &copy; <span id="current-year"></span> Sarinha Personal. Todos os direitos reservados.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // 1. Lucide icons
+        lucide.createIcons();
+
+        // 2. AOS
+        AOS.init({ once: true, duration: 800, easing: 'ease-out' });
+
+        // 3. Ano do footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // 4. IntersectionObserver para .reveal (hero e seções sem AOS)
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => { 
+                if (e.isIntersecting) { 
+                    e.target.classList.add('active'); 
+                    observer.unobserve(e.target); 
+                } 
+            });
+        }, { threshold: 0.1 });
+        
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // 5. Reveal imediato no hero
+        setTimeout(() => {
+            document.getElementById('inicio').querySelectorAll('.reveal').forEach((el, i) => {
+                setTimeout(() => el.classList.add('active'), i * 150);
+            });
+        }, 100);
+
+        // 6. Menu mobile
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+        let menuOpen = false;
+
+        function toggleMenu() {
+            menuOpen = !menuOpen;
+            if (menuOpen) {
+                mobileMenu.classList.remove('translate-x-full');
+            } else {
+                mobileMenu.classList.add('translate-x-full');
+            }
+        }
+
+        menuToggle.addEventListener('click', toggleMenu);
+        mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
+
+        // 7. Toggle de planos (Online / Presencial)
+        const btnOnline = document.getElementById('btn-online');
+        const btnPresencial = document.getElementById('btn-presencial');
+        const plansOnline = document.getElementById('plans-online');
+        const plansPresencial = document.getElementById('plans-presencial');
+
+        function switchPlan(type) {
+            if (type === 'online') {
+                btnOnline.classList.add('bg-tan', 'text-black');
+                btnOnline.classList.remove('text-cream/60', 'hover:text-cream');
+                
+                btnPresencial.classList.add('text-cream/60', 'hover:text-cream');
+                btnPresencial.classList.remove('bg-tan', 'text-black');
+                
+                plansOnline.style.display = 'flex';
+                plansPresencial.style.display = 'none';
+            } else {
+                btnPresencial.classList.add('bg-tan', 'text-black');
+                btnPresencial.classList.remove('text-cream/60', 'hover:text-cream');
+                
+                btnOnline.classList.add('text-cream/60', 'hover:text-cream');
+                btnOnline.classList.remove('bg-tan', 'text-black');
+                
+                plansOnline.style.display = 'none';
+                plansPresencial.style.display = 'flex';
+            }
+        }
+
+        btnOnline.addEventListener('click', () => switchPlan('online'));
+        btnPresencial.addEventListener('click', () => switchPlan('presencial'));
+    </script>
+</body>
+</html>
