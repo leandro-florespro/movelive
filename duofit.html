@@ -43,9 +43,8 @@
       }
 
       /* Liquid Glass Style */
-      .liquid-glass {
+      .soft-card {
         background: rgba(192, 156, 131, 0.04);
-        background-blend-mode: luminosity;
         backdrop-filter: blur(8px);
         -webkit-backdrop-filter: blur(8px);
         border: 1px solid rgba(192, 156, 131, 0.1);
@@ -125,27 +124,27 @@
       .df-footer-tag span { color:rgba(192,156,131,0.6); }
     </style>
 </head>
-<body class="selection:bg-tan/30 overflow-x-hidden">
+<body class="selection:bg-brand/30 overflow-x-hidden">
 
     <!-- Navbar -->
     <nav class="fixed top-0 left-0 w-full z-50 px-6 lg:px-12 py-6 flex justify-between items-center pointer-events-none">
-        <div class="liquid-glass rounded-full pr-8 pl-2 py-2 flex items-center space-x-8 md:space-x-12 pointer-events-auto">
+        <div class="soft-card rounded-full pr-8 pl-2 py-2 flex items-center space-x-8 md:space-x-12 pointer-events-auto">
             <a href="#inicio" class="flex-shrink-0 hover:scale-105 transition-transform">
                 <img src="./duofit_logo_upscaled.png" alt="Método DuoFit" class="w-12 h-12 rounded-full object-cover">
             </a>
             <div class="hidden md:flex space-x-8 text-[10px] font-bold uppercase tracking-widest opacity-70">
-                <a href="#metodo" class="hover:text-cream hover:opacity-100 transition-colors">Método</a>
-                <a href="#sobre" class="hover:text-cream hover:opacity-100 transition-colors">Sobre Nós</a>
-                <a href="#depoimentos" class="hover:text-cream hover:opacity-100 transition-colors">Alunas</a>
-                <a href="#planos" class="hover:text-cream hover:opacity-100 transition-colors">Planos</a>
+                <a href="#metodo" class="hover:text-text-main hover:opacity-100 transition-colors">Método</a>
+                <a href="#sobre" class="hover:text-text-main hover:opacity-100 transition-colors">Sobre Nós</a>
+                <a href="#depoimentos" class="hover:text-text-main hover:opacity-100 transition-colors">Alunas</a>
+                <a href="#planos" class="hover:text-text-main hover:opacity-100 transition-colors">Planos</a>
             </div>
         </div>
         <div class="flex items-center gap-4 pointer-events-auto">
-            <a href="https://wa.me/5553999999999" target="_blank" class="hidden md:flex liquid-glass rounded-full px-8 py-3 text-[10px] font-bold uppercase tracking-widest text-cream hover:bg-tan/10 transition-colors items-center gap-2">
+            <a href="https://wa.me/5553999999999" target="_blank" class="hidden md:flex soft-card rounded-full px-8 py-3 text-[10px] font-bold uppercase tracking-widest text-text-main hover:bg-brand/10 transition-colors items-center gap-2">
                 Falar no WhatsApp
                 <i data-lucide="message-circle" class="w-4 h-4"></i>
             </a>
-            <button id="mobile-menu-btn" class="md:hidden liquid-glass rounded-full p-3 text-cream transition-colors hover:bg-tan/10 relative z-50">
+            <button id="mobile-menu-btn" class="md:hidden soft-card rounded-full p-3 text-text-main transition-colors hover:bg-brand/10 relative z-50">
                 <i id="menu-icon" data-lucide="menu" class="w-5 h-5"></i>
                 <i id="close-icon" data-lucide="x" class="w-5 h-5 hidden"></i>
             </button>
@@ -153,70 +152,95 @@
     </nav>
 
     <!-- Mobile Menu Overlay -->
-    <div id="mobile-menu" class="fixed inset-0 z-40 bg-deep/95 backdrop-blur-xl flex flex-col items-center justify-center gap-8 md:hidden">
+    <div id="mobile-menu" class="fixed inset-0 z-40 bg-lightbg/95 backdrop-blur-xl flex flex-col items-center justify-center gap-8 md:hidden">
         <a href="#metodo" class="mobile-link text-2xl font-serif">Método</a>
         <a href="#sobre" class="mobile-link text-2xl font-serif">Sobre Nós</a>
         <a href="#depoimentos" class="mobile-link text-2xl font-serif">Alunas</a>
         <a href="#planos" class="mobile-link text-2xl font-serif">Planos</a>
-        <a href="https://wa.me/5553999999999" target="_blank" class="liquid-glass rounded-full px-8 py-4 text-[10px] font-bold uppercase tracking-widest text-cream mt-4 flex items-center gap-2">
+        <a href="https://wa.me/5553999999999" target="_blank" class="soft-card rounded-full px-8 py-4 text-[10px] font-bold uppercase tracking-widest text-text-main mt-4 flex items-center gap-2">
             Falar no WhatsApp
             <i data-lucide="message-circle" class="w-4 h-4"></i>
         </a>
     </div>
 
     <!-- Hero Section -->
-    <section id="inicio" class="relative min-h-[100svh] flex flex-col items-center justify-center bg-black overflow-hidden px-6">
-        <div class="absolute inset-0 bg-cover bg-center opacity-40" style="background-image: url('metodo-duofit.webp');"></div>
-        <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-black pointer-events-none"></div>
+    <section id="inicio" class="relative min-h-[100svh] flex flex-col items-center justify-center bg-lightbg overflow-hidden px-6">
+        <div class="absolute inset-0 bg-cover bg-center opacity-5" style="background-image: url('metodo-duofit.webp');"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-transparent pointer-events-none"></div>
 
         <div class="relative z-10 w-full px-6 md:px-12 max-w-7xl mx-auto pt-20 flex flex-col space-y-6">
-            <div class="reveal liquid-glass w-fit px-4 py-1.5 rounded-full text-[10px] uppercase font-bold tracking-[0.2em] border-tan/20 text-tan flex items-center gap-2">
-                <span class="w-1.5 h-1.5 rounded-full bg-tan animate-pulse"></span>
+            <div class="reveal soft-card w-fit px-4 py-1.5 rounded-full text-[10px] uppercase font-bold tracking-[0.2em] border-brand/30 text-brand flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand animate-pulse"></span>
                 Treino Feminino Especializado
             </div>
 
-            <h1 class="reveal text-6xl md:text-8xl lg:text-[7rem] font-serif leading-[0.85] tracking-tight italic text-cream" style="transition-delay: 100ms;">
-                Sua força,<br/><span class="not-italic text-tan">nossa estratégia.</span>
+            <h1 class="reveal text-6xl md:text-8xl lg:text-[7rem] font-serif leading-[0.85] tracking-tight italic text-text-main" style="transition-delay: 100ms;">
+                Sua força,<br/><span class="not-italic text-brand">nossa estratégia.</span>
             </h1>
 
-            <p class="reveal text-lg text-tan/80 max-w-lg leading-relaxed pt-2 items-start text-left" style="transition-delay: 200ms;">
+            <p class="reveal text-lg text-text-muted max-w-lg leading-relaxed pt-2 items-start text-left" style="transition-delay: 200ms;">
                 A consultoria de treino definitiva para mulheres que buscam hipertrofia, definição e acompanhamento de excelência, online ou presencial.
             </p>
 
             <div class="reveal flex items-center gap-6 mt-4 opacity-80" style="transition-delay: 300ms;">
-                <div class="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-tan">
+                <div class="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-brand">
                     <i data-lucide="zap" class="w-3 h-3"></i> Energia
                 </div>
-                <div class="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-tan">
+                <div class="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-brand">
                     <i data-lucide="target" class="w-3 h-3"></i> Disciplina
                 </div>
-                <div class="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-tan">
+                <div class="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-brand">
                     <i data-lucide="trending-up" class="w-3 h-3"></i> Evolução
                 </div>
             </div>
 
             <div class="reveal flex flex-col sm:flex-row items-center gap-4 pt-4" style="transition-delay: 400ms;">
-                <a href="https://wa.me/5553999999999" target="_blank" class="w-full sm:w-auto bg-tan text-deep px-10 py-5 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-[#d0b099] transition-colors flex items-center justify-center gap-2">
+                <a href="https://wa.me/5553999999999" target="_blank" class="w-full sm:w-auto bg-brand text-white px-10 py-5 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-brand-hover transition-colors flex items-center justify-center gap-2">
                     Agendar Avaliação
                     <i data-lucide="arrow-right" class="w-4 h-4"></i>
                 </a>
-                <a href="#metodo" class="w-full sm:w-auto liquid-glass border border-tan/30 text-cream px-10 py-5 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-tan/10 transition-colors flex items-center justify-center">
+                <a href="#metodo" class="w-full sm:w-auto soft-card border border-brand/40 text-text-main px-10 py-5 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-brand/10 transition-colors flex items-center justify-center">
                     Conhecer o Método
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Agitation Section -->
-    <section class="py-24 md:py-32 px-6 lg:px-12 bg-[#0a0604] flex justify-center relative">
-        <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-tan/10 to-transparent"></div>
-        <div class="reveal max-w-3xl text-center z-10">
-            <h2 class="text-5xl md:text-6xl font-serif leading-[0.85] tracking-tight italic mb-8">
-                Você já tentou de tudo, mas os <span class="not-italic">resultados nunca se mantêm?</span>
-            </h2>
-            <div class="space-y-6 text-lg text-tan/80 leading-relaxed max-w-2xl mx-auto">
-                <p>Horas exaustivas na esteira, dietas altamente restritivas e planilhas genéricas que não respeitam a sua rotina. O resultado? Frustração e a sensação de que seu corpo simplesmente não responde ao esforço.</p>
-                <p>Nós sabemos como é. E foi por isso que criamos algo diferente.</p>
+    <!-- Sobre Section -->
+    <section id="sobre" class="py-24 md:py-32 px-6 lg:px-12 bg-lightbg flex justify-center relative">
+        <div class="absolute inset-0 bg-gradient-to-b from-lightbg via-lightbg to-transparent pointer-events-none"></div>
+        <div class="max-w-6xl w-full grid md:grid-cols-2 gap-12 lg:gap-24 items-center relative z-10">
+            <div class="reveal rounded-3xl overflow-hidden aspect-[4/5] relative bg-neutral-900">
+                <img src="metodo-duofit.webp" alt="Júlia e Alexandra Gnutzmann" class="w-full h-full object-cover transition-all duration-700 relative z-10" onerror="this.style.display='none'; document.getElementById('placeholder-img').style.display='flex';">
+                <div id="placeholder-img" class="absolute inset-0 hidden flex-col items-center justify-center text-neutral-500 z-0">
+                    <svg class="w-12 h-12 mb-4 opacity-50" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.08-3.08a2 2 0 0 0-2.829 0L7 21"/></svg>
+                    <span class="font-serif text-xl tracking-wider opacity-80 text-text-main">metodo-duofit.webp</span>
+                    <span class="text-[10px] uppercase tracking-widest pt-2 opacity-50 text-text-main">800x1000px</span>
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-transparent via-transparent to-transparent z-20 pointer-events-none"></div>
+            </div>
+            <div class="reveal" style="transition-delay: 200ms;">
+                <span class="text-[10px] uppercase font-bold tracking-[0.2em] text-brand/80 mb-4 block">Quem Somos</span>
+                <h2 class="text-5xl md:text-6xl font-serif mb-8 leading-[0.85] tracking-tight italic">Júlia e Alexandra <br /><span class="not-italic">Gnutzmann</span></h2>
+                
+                <div class="space-y-6 text-text-muted font-light leading-relaxed">
+                    <p class="text-2xl font-serif text-text-main italic mb-6">
+                        "Duas irmãs. Uma equipe. Um propósito. Nossa consultoria em dupla une estratégia, acompanhamento e motivação para te levar à sua melhor versão! ❤️"
+                    </p>
+                    <p>Somos treinadoras especializadas em saúde e estética feminina. Nossa missão conjunta é acabar com o mito de que mulheres precisam fazer treinos fofos ou passar horas no aeróbico para ter um corpo definido.</p>
+                    <p>Unimos nosso conhecimento técnico diário, combinando a prática intensa no salão de musculação com o embasamento científico do treinamento feminino, para criar protocolos que geram <strong class="text-text-main font-medium">resultados acelerados e duradouros</strong>.</p>
+                    
+                    <div class="pt-8 grid grid-cols-2 gap-6 border-t border-brand/20 mt-8">
+                        <div>
+                            <div class="text-3xl font-serif text-text-main mb-1">+500</div>
+                            <div class="text-xs text-brand/80 uppercase tracking-wider">Alunas transformadas</div>
+                        </div>
+                        <div>
+                            <div class="text-3xl font-serif text-text-main mb-1">100%</div>
+                            <div class="text-xs text-brand/80 uppercase tracking-wider">Foco feminino</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -225,97 +249,97 @@
     <section id="metodo" class="py-24 md:py-32 px-6 lg:px-12 flex justify-center">
         <div class="max-w-6xl w-full">
             <div class="reveal text-center mb-16 md:mb-24 space-y-4">
-                <span class="text-[10px] uppercase font-bold tracking-[0.2em] text-tan/60 block">Nossa Solução</span>
+                <span class="text-[10px] uppercase font-bold tracking-[0.2em] text-brand/80 block">Nossa Solução</span>
                 <h2 class="text-5xl md:text-7xl font-serif leading-[0.85] tracking-tight italic">O Método <span class="not-italic">DuoFit</span></h2>
             </div>
             
             <div class="grid md:grid-cols-3 gap-6 md:gap-8">
                 <!-- Pillar 1 -->
-                <div class="reveal liquid-glass rounded-3xl p-8 md:p-10">
-                    <div class="w-12 h-12 rounded-full bg-tan/10 flex items-center justify-center mb-6">
-                        <i data-lucide="dumbbell" class="w-5 h-5 text-tan"></i>
+                <div class="reveal soft-card rounded-3xl p-8 md:p-10">
+                    <div class="w-12 h-12 rounded-full bg-brand/10 flex items-center justify-center mb-6">
+                        <i data-lucide="dumbbell" class="w-5 h-5 text-brand"></i>
                     </div>
                     <h3 class="text-xl font-serif mb-4">Duas Profissionais</h3>
-                    <p class="text-tan/80 leading-relaxed text-sm">Duas profissionais, um olhar completo sobre você e sua evolução. Estratégia pensada em dupla.</p>
+                    <p class="text-text-muted leading-relaxed text-sm">Duas profissionais, um olhar completo sobre você e sua evolução. Estratégia pensada em dupla.</p>
                 </div>
                 <!-- Pillar 2 -->
-                <div class="reveal liquid-glass rounded-3xl p-8 md:p-10" style="transition-delay: 150ms;">
-                    <div class="w-12 h-12 rounded-full bg-tan/10 flex items-center justify-center mb-6">
-                        <i data-lucide="smartphone" class="w-5 h-5 text-tan"></i>
+                <div class="reveal soft-card rounded-3xl p-8 md:p-10" style="transition-delay: 150ms;">
+                    <div class="w-12 h-12 rounded-full bg-brand/10 flex items-center justify-center mb-6">
+                        <i data-lucide="smartphone" class="w-5 h-5 text-brand"></i>
                     </div>
                     <h3 class="text-xl font-serif mb-4">Acesso Prático</h3>
-                    <p class="text-tan/80 leading-relaxed text-sm">Acesso simples, fácil e intuitivo para você treinar com praticidade de onde estiver.</p>
+                    <p class="text-text-muted leading-relaxed text-sm">Acesso simples, fácil e intuitivo para você treinar com praticidade de onde estiver.</p>
                 </div>
                 <!-- Pillar 3 -->
-                <div class="reveal liquid-glass rounded-3xl p-8 md:p-10" style="transition-delay: 300ms;">
-                    <div class="w-12 h-12 rounded-full bg-tan/10 flex items-center justify-center mb-6">
-                        <i data-lucide="heart-handshake" class="w-5 h-5 text-tan"></i>
+                <div class="reveal soft-card rounded-3xl p-8 md:p-10" style="transition-delay: 300ms;">
+                    <div class="w-12 h-12 rounded-full bg-brand/10 flex items-center justify-center mb-6">
+                        <i data-lucide="heart-handshake" class="w-5 h-5 text-brand"></i>
                     </div>
                     <h3 class="text-xl font-serif mb-4">Suporte Humanizado</h3>
-                    <p class="text-tan/80 leading-relaxed text-sm">Dúvidas? Você pode tirar suas dúvidas pelo WhatsApp, mantendo um contato próximo e humanizado.</p>
+                    <p class="text-text-muted leading-relaxed text-sm">Dúvidas? Você pode tirar suas dúvidas pelo WhatsApp, mantendo um contato próximo e humanizado.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- How it Works -->
-    <section class="py-24 md:py-32 px-6 lg:px-12 bg-black flex justify-center relative border-t border-tan/10">
+    <section class="py-24 md:py-32 px-6 lg:px-12 bg-lightbg flex justify-center relative border-t border-brand/20">
         <div class="max-w-5xl w-full">
             <div class="reveal text-center mb-16 space-y-4">
-                <span class="text-[10px] uppercase font-bold tracking-[0.2em] text-tan/60 block">O Processo</span>
-                <h2 class="text-5xl md:text-6xl font-serif leading-[0.85] tracking-tight text-cream">Como <span class="italic text-tan">Funciona</span></h2>
+                <span class="text-[10px] uppercase font-bold tracking-[0.2em] text-brand/80 block">O Processo</span>
+                <h2 class="text-5xl md:text-6xl font-serif leading-[0.85] tracking-tight text-text-main">Como <span class="italic text-brand">Funciona</span></h2>
             </div>
             
             <div class="grid md:grid-cols-4 gap-8">
                 <!-- Step 1 -->
                 <div class="reveal flex flex-col items-center text-center space-y-4">
-                    <div class="w-16 h-16 rounded-full liquid-glass border border-tan/30 flex items-center justify-center text-2xl font-serif text-tan relative">
+                    <div class="w-16 h-16 rounded-full soft-card border border-brand/40 flex items-center justify-center text-2xl font-serif text-brand relative">
                         1
-                        <div class="absolute -bottom-2 bg-tan text-deep text-[8px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-full">
+                        <div class="absolute -bottom-2 bg-brand text-white text-[8px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-full">
                             Em Dupla
                         </div>
                     </div>
-                    <h3 class="text-lg font-serif text-cream pt-2">Avaliação Inicial</h3>
-                    <p class="text-xs text-tan/70 leading-relaxed max-w-[200px]">
+                    <h3 class="text-lg font-serif text-text-main pt-2">Avaliação Inicial</h3>
+                    <p class="text-xs text-text-muted leading-relaxed max-w-[200px]">
                         Entendemos seus objetivos, rotina e necessidades juntas.
                     </p>
                 </div>
                 <!-- Step 2 -->
                 <div class="reveal flex flex-col items-center text-center space-y-4" style="transition-delay: 100ms;">
-                    <div class="w-16 h-16 rounded-full liquid-glass border border-tan/30 flex items-center justify-center text-2xl font-serif text-tan relative">
+                    <div class="w-16 h-16 rounded-full soft-card border border-brand/40 flex items-center justify-center text-2xl font-serif text-brand relative">
                         2
-                        <div class="absolute -bottom-2 bg-tan text-deep text-[8px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-full">
+                        <div class="absolute -bottom-2 bg-brand text-white text-[8px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-full">
                             Em Dupla
                         </div>
                     </div>
-                    <h3 class="text-lg font-serif text-cream pt-2">Plano Personalizado</h3>
-                    <p class="text-xs text-tan/70 leading-relaxed max-w-[200px]">
+                    <h3 class="text-lg font-serif text-text-main pt-2">Plano Personalizado</h3>
+                    <p class="text-xs text-text-muted leading-relaxed max-w-[200px]">
                         Criamos um plano estratégico e personalizado para você, pensado de todos os ângulos.
                     </p>
                 </div>
                 <!-- Step 3 -->
                 <div class="reveal flex flex-col items-center text-center space-y-4" style="transition-delay: 200ms;">
-                    <div class="w-16 h-16 rounded-full liquid-glass border border-tan/30 flex items-center justify-center text-2xl font-serif text-tan relative">
+                    <div class="w-16 h-16 rounded-full soft-card border border-brand/40 flex items-center justify-center text-2xl font-serif text-brand relative">
                         3
-                        <div class="absolute -bottom-2 bg-tan text-deep text-[8px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-full">
+                        <div class="absolute -bottom-2 bg-brand text-white text-[8px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-full">
                             Em Dupla
                         </div>
                     </div>
-                    <h3 class="text-lg font-serif text-cream pt-2">Acompanhamento</h3>
-                    <p class="text-xs text-tan/70 leading-relaxed max-w-[200px]">
+                    <h3 class="text-lg font-serif text-text-main pt-2">Acompanhamento</h3>
+                    <p class="text-xs text-text-muted leading-relaxed max-w-[200px]">
                         Acompanhamento contínuo com ajustes conforme sua evolução, juntas com você.
                     </p>
                 </div>
                 <!-- Step 4 -->
                 <div class="reveal flex flex-col items-center text-center space-y-4" style="transition-delay: 300ms;">
-                    <div class="w-16 h-16 rounded-full liquid-glass border border-tan/30 flex items-center justify-center text-2xl font-serif text-tan relative">
+                    <div class="w-16 h-16 rounded-full soft-card border border-brand/40 flex items-center justify-center text-2xl font-serif text-brand relative">
                         4
-                        <div class="absolute -bottom-2 bg-tan text-deep text-[8px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-full">
+                        <div class="absolute -bottom-2 bg-brand text-white text-[8px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-full">
                             Em Dupla
                         </div>
                     </div>
-                    <h3 class="text-lg font-serif text-cream pt-2">Resultados Reais</h3>
-                    <p class="text-xs text-tan/70 leading-relaxed max-w-[200px]">
+                    <h3 class="text-lg font-serif text-text-main pt-2">Resultados Reais</h3>
+                    <p class="text-xs text-text-muted leading-relaxed max-w-[200px]">
                         Mais disciplina, constância e transformação real!
                     </p>
                 </div>
@@ -323,86 +347,49 @@
         </div>
     </section>
 
-    <!-- Sobre Section -->
-    <section id="sobre" class="py-24 md:py-32 px-6 lg:px-12 bg-black flex justify-center relative">
-        <div class="absolute inset-0 bg-gradient-to-b from-black via-[#140c08] to-black pointer-events-none"></div>
-        <div class="max-w-6xl w-full grid md:grid-cols-2 gap-12 lg:gap-24 items-center relative z-10">
-            <div class="reveal rounded-3xl overflow-hidden aspect-[4/5] relative bg-neutral-900">
-                <img src="metodo-duofit.webp" alt="Júlia e Alexandra Gnutzmann" class="w-full h-full object-cover transition-all duration-700 relative z-10" onerror="this.style.display='none'; document.getElementById('placeholder-img').style.display='flex';">
-                <div id="placeholder-img" class="absolute inset-0 hidden flex-col items-center justify-center text-neutral-500 z-0">
-                    <svg class="w-12 h-12 mb-4 opacity-50" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.08-3.08a2 2 0 0 0-2.829 0L7 21"/></svg>
-                    <span class="font-serif text-xl tracking-wider opacity-80 text-cream">metodo-duofit.webp</span>
-                    <span class="text-[10px] uppercase tracking-widest pt-2 opacity-50 text-cream">800x1000px</span>
-                </div>
-                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-20 pointer-events-none"></div>
-            </div>
-            <div class="reveal" style="transition-delay: 200ms;">
-                <span class="text-[10px] uppercase font-bold tracking-[0.2em] text-tan/60 mb-4 block">Quem Somos</span>
-                <h2 class="text-5xl md:text-6xl font-serif mb-8 leading-[0.85] tracking-tight italic">Júlia e Alexandra <br /><span class="not-italic">Gnutzmann</span></h2>
-                
-                <div class="space-y-6 text-tan/80 font-light leading-relaxed">
-                    <p class="text-2xl font-serif text-cream italic mb-6">
-                        "Duas irmãs. Uma equipe. Um propósito. Nossa consultoria em dupla une estratégia, acompanhamento e motivação para te levar à sua melhor versão! ❤️"
-                    </p>
-                    <p>Somos treinadoras especializadas em saúde e estética feminina. Nossa missão conjunta é acabar com o mito de que mulheres precisam fazer treinos fofos ou passar horas no aeróbico para ter um corpo definido.</p>
-                    <p>Unimos nosso conhecimento técnico diário, combinando a prática intensa no salão de musculação com o embasamento científico do treinamento feminino, para criar protocolos que geram <strong class="text-cream font-medium">resultados acelerados e duradouros</strong>.</p>
-                    
-                    <div class="pt-8 grid grid-cols-2 gap-6 border-t border-tan/10 mt-8">
-                        <div>
-                            <div class="text-3xl font-serif text-cream mb-1">+500</div>
-                            <div class="text-xs text-tan/60 uppercase tracking-wider">Alunas transformadas</div>
-                        </div>
-                        <div>
-                            <div class="text-3xl font-serif text-cream mb-1">100%</div>
-                            <div class="text-xs text-tan/60 uppercase tracking-wider">Foco feminino</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+
 
     <!-- Depoimentos Section -->
-    <section id="depoimentos" class="py-24 md:py-32 px-6 lg:px-12 flex justify-center bg-[#140c08]">
+    <section id="depoimentos" class="py-24 md:py-32 px-6 lg:px-12 flex justify-center bg-lightbg">
         <div class="max-w-6xl w-full">
             <div class="reveal text-center mb-16 md:mb-24 space-y-4">
-                <span class="text-[10px] uppercase font-bold tracking-[0.2em] text-tan/60 block">O que dizem</span>
+                <span class="text-[10px] uppercase font-bold tracking-[0.2em] text-brand/80 block">O que dizem</span>
                 <h2 class="text-5xl md:text-7xl font-serif leading-[0.85] tracking-tight italic">Vidas <span class="not-italic">Transformadas</span></h2>
             </div>
 
             <div class="grid md:grid-cols-3 gap-6">
                 <!-- Testimonial 1 -->
-                <div class="reveal liquid-glass rounded-3xl p-8 flex flex-col hover:-translate-y-2 transition-transform duration-300">
+                <div class="reveal soft-card rounded-3xl p-8 flex flex-col hover:-translate-y-2 transition-transform duration-300">
                     <div class="flex gap-1 mb-6">
-                        <i data-lucide="star" class="w-4 h-4 fill-tan text-tan"></i><i data-lucide="star" class="w-4 h-4 fill-tan text-tan"></i><i data-lucide="star" class="w-4 h-4 fill-tan text-tan"></i><i data-lucide="star" class="w-4 h-4 fill-tan text-tan"></i><i data-lucide="star" class="w-4 h-4 fill-tan text-tan"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-tan text-brand"></i><i data-lucide="star" class="w-4 h-4 fill-tan text-brand"></i><i data-lucide="star" class="w-4 h-4 fill-tan text-brand"></i><i data-lucide="star" class="w-4 h-4 fill-tan text-brand"></i><i data-lucide="star" class="w-4 h-4 fill-tan text-brand"></i>
                     </div>
-                    <p class="text-cream/90 flex-grow mb-8 text-sm leading-relaxed italic">"Pela primeira vez consegui ver definição de verdade nas pernas e abdômen. O treino é puxado mas o acompanhamento faz toda diferença. Elas não deixam a gente desistir."</p>
+                    <p class="text-text-main flex-grow mb-8 text-sm leading-relaxed italic">"Pela primeira vez consegui ver definição de verdade nas pernas e abdômen. O treino é puxado mas o acompanhamento faz toda diferença. Elas não deixam a gente desistir."</p>
                     <div class="flex items-center gap-4">
-                        <div class="w-10 h-10 rounded-full bg-tan/20 flex items-center justify-center text-tan font-serif">M</div>
+                        <div class="w-10 h-10 rounded-full bg-brand/20 flex items-center justify-center text-brand font-serif">M</div>
                         <div class="text-sm font-medium">Mariana S.</div>
                     </div>
                 </div>
 
                 <!-- Testimonial 2 -->
-                <div class="reveal liquid-glass rounded-3xl p-8 flex flex-col hover:-translate-y-2 transition-transform duration-300" style="transition-delay: 150ms;">
+                <div class="reveal soft-card rounded-3xl p-8 flex flex-col hover:-translate-y-2 transition-transform duration-300" style="transition-delay: 150ms;">
                     <div class="flex gap-1 mb-6">
-                        <i data-lucide="star" class="w-4 h-4 fill-tan text-tan"></i><i data-lucide="star" class="w-4 h-4 fill-tan text-tan"></i><i data-lucide="star" class="w-4 h-4 fill-tan text-tan"></i><i data-lucide="star" class="w-4 h-4 fill-tan text-tan"></i><i data-lucide="star" class="w-4 h-4 fill-tan text-tan"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-tan text-brand"></i><i data-lucide="star" class="w-4 h-4 fill-tan text-brand"></i><i data-lucide="star" class="w-4 h-4 fill-tan text-brand"></i><i data-lucide="star" class="w-4 h-4 fill-tan text-brand"></i><i data-lucide="star" class="w-4 h-4 fill-tan text-brand"></i>
                     </div>
-                    <p class="text-cream/90 flex-grow mb-8 text-sm leading-relaxed italic">"Já tinha passado por vários treinos genéricos. O método da Júlia e Alexandra finalmente respeitou meu biotipo. A mudança no espelho foi visível já no segundo mês."</p>
+                    <p class="text-text-main flex-grow mb-8 text-sm leading-relaxed italic">"Já tinha passado por vários treinos genéricos. O método da Júlia e Alexandra finalmente respeitou meu biotipo. A mudança no espelho foi visível já no segundo mês."</p>
                     <div class="flex items-center gap-4">
-                        <div class="w-10 h-10 rounded-full bg-tan/20 flex items-center justify-center text-tan font-serif">C</div>
+                        <div class="w-10 h-10 rounded-full bg-brand/20 flex items-center justify-center text-brand font-serif">C</div>
                         <div class="text-sm font-medium">Camila R.</div>
                     </div>
                 </div>
 
                 <!-- Testimonial 3 -->
-                <div class="reveal liquid-glass rounded-3xl p-8 flex flex-col hover:-translate-y-2 transition-transform duration-300" style="transition-delay: 300ms;">
+                <div class="reveal soft-card rounded-3xl p-8 flex flex-col hover:-translate-y-2 transition-transform duration-300" style="transition-delay: 300ms;">
                     <div class="flex gap-1 mb-6">
-                        <i data-lucide="star" class="w-4 h-4 fill-tan text-tan"></i><i data-lucide="star" class="w-4 h-4 fill-tan text-tan"></i><i data-lucide="star" class="w-4 h-4 fill-tan text-tan"></i><i data-lucide="star" class="w-4 h-4 fill-tan text-tan"></i><i data-lucide="star" class="w-4 h-4 fill-tan text-tan"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-tan text-brand"></i><i data-lucide="star" class="w-4 h-4 fill-tan text-brand"></i><i data-lucide="star" class="w-4 h-4 fill-tan text-brand"></i><i data-lucide="star" class="w-4 h-4 fill-tan text-brand"></i><i data-lucide="star" class="w-4 h-4 fill-tan text-brand"></i>
                     </div>
-                    <p class="text-cream/90 flex-grow mb-8 text-sm leading-relaxed italic">"A segurança de ter duas profissionais avaliando seus vídeos de execução e corrigindo postura é surreal. Parece que tenho personal trainer todo dia comigo."</p>
+                    <p class="text-text-main flex-grow mb-8 text-sm leading-relaxed italic">"A segurança de ter duas profissionais avaliando seus vídeos de execução e corrigindo postura é surreal. Parece que tenho personal trainer todo dia comigo."</p>
                     <div class="flex items-center gap-4">
-                        <div class="w-10 h-10 rounded-full bg-tan/20 flex items-center justify-center text-tan font-serif">A</div>
+                        <div class="w-10 h-10 rounded-full bg-brand/20 flex items-center justify-center text-brand font-serif">A</div>
                         <div class="text-sm font-medium">Amanda T.</div>
                     </div>
                 </div>
@@ -431,38 +418,38 @@
         
         <div class="max-w-5xl w-full relative z-10">
             <div class="reveal text-center mb-16 space-y-4">
-                <span class="text-[10px] uppercase font-bold tracking-[0.2em] text-tan/60 block">Consultoria</span>
-                <h2 class="text-5xl md:text-7xl font-serif mb-10 leading-[0.85] tracking-tight italic text-cream">Escolha seu <span class="not-italic">Plano</span></h2>
+                <span class="text-[10px] uppercase font-bold tracking-[0.2em] text-brand/80 block">Consultoria</span>
+                <h2 class="text-5xl md:text-7xl font-serif mb-10 leading-[0.85] tracking-tight italic text-text-main">Escolha seu <span class="not-italic">Plano</span></h2>
                 
                 <!-- Toggle Switch -->
-                <div class="inline-flex liquid-glass rounded-full p-1 relative w-64">
-                    <div id="toggle-bg" class="absolute top-1 bottom-1 w-1/2 bg-tan rounded-full transition-transform duration-300 ease-in-out left-0"></div>
-                    <button id="btn-online" class="relative z-10 w-1/2 py-2.5 rounded-full text-sm font-bold transition-colors text-deep">Online</button>
-                    <button id="btn-presencial" class="relative z-10 w-1/2 py-2.5 rounded-full text-sm font-medium transition-colors text-tan/60 hover:text-cream">Presencial</button>
+                <div class="inline-flex soft-card rounded-full p-1 relative w-64">
+                    <div id="toggle-bg" class="absolute top-1 bottom-1 w-1/2 bg-brand rounded-full transition-transform duration-300 ease-in-out left-0"></div>
+                    <button id="btn-online" class="relative z-10 w-1/2 py-2.5 rounded-full text-sm font-bold transition-colors text-white">Online</button>
+                    <button id="btn-presencial" class="relative z-10 w-1/2 py-2.5 rounded-full text-sm font-medium transition-colors text-brand/80 hover:text-text-main">Presencial</button>
                 </div>
             </div>
 
-            <div class="reveal mb-16 liquid-glass rounded-3xl p-8 max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8 border border-tan/20">
+            <div class="reveal mb-16 soft-card rounded-3xl p-8 max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8 border border-brand/30">
                 <div class="md:w-1/3 text-center md:text-left">
-                    <h3 class="text-2xl font-serif text-cream mb-2">Avaliações <span class="italic text-tan">Realizadas</span></h3>
-                    <p class="text-xs text-tan/70">Tudo o que analisamos para criar o seu treino perfeito.</p>
+                    <h3 class="text-2xl font-serif text-text-main mb-2">Avaliações <span class="italic text-brand">Realizadas</span></h3>
+                    <p class="text-xs text-text-muted">Tudo o que analisamos para criar o seu treino perfeito.</p>
                 </div>
                 <div class="md:w-2/3 grid grid-cols-2 sm:grid-cols-4 gap-6">
                     <div class="flex flex-col items-center gap-2 text-center">
-                        <i data-lucide="clipboard-list" class="w-6 h-6 text-tan"></i>
-                        <span class="text-xs text-cream/90 font-medium">Anamnese</span>
+                        <i data-lucide="clipboard-list" class="w-6 h-6 text-brand"></i>
+                        <span class="text-xs text-text-main font-medium">Anamnese</span>
                     </div>
                     <div class="flex flex-col items-center gap-2 text-center">
-                        <i data-lucide="dumbbell" class="w-6 h-6 text-tan"></i>
-                        <span class="text-xs text-cream/90 font-medium">Teste de<br/>Força</span>
+                        <i data-lucide="dumbbell" class="w-6 h-6 text-brand"></i>
+                        <span class="text-xs text-text-main font-medium">Teste de<br/>Força</span>
                     </div>
                     <div class="flex flex-col items-center gap-2 text-center">
-                        <i data-lucide="activity" class="w-6 h-6 text-tan"></i>
-                        <span class="text-xs text-cream/90 font-medium">Avaliação<br/>Postural</span>
+                        <i data-lucide="activity" class="w-6 h-6 text-brand"></i>
+                        <span class="text-xs text-text-main font-medium">Avaliação<br/>Postural</span>
                     </div>
                     <div class="flex flex-col items-center gap-2 text-center">
-                        <i data-lucide="smile" class="w-6 h-6 text-tan"></i>
-                        <span class="text-xs text-cream/90 font-medium">Teste de<br/>Flexibilidade</span>
+                        <i data-lucide="smile" class="w-6 h-6 text-brand"></i>
+                        <span class="text-xs text-text-main font-medium">Teste de<br/>Flexibilidade</span>
                     </div>
                 </div>
             </div>
@@ -470,85 +457,85 @@
             <!-- Online Plans -->
             <div id="planos-online" class="plan-card active grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
                 <!-- Mensal -->
-                <div class="reveal liquid-glass rounded-3xl p-6 md:p-8 flex flex-col w-full">
+                <div class="reveal soft-card rounded-3xl p-6 md:p-8 flex flex-col w-full">
                     <h3 class="text-2xl font-serif mb-2">Mensal</h3>
-                    <div class="text-3xl font-serif text-cream mb-6">R$ 200</div>
+                    <div class="text-3xl font-serif text-text-main mb-6">R$ 200</div>
                     
                     <ul class="space-y-4 mb-8 flex-grow">
-                        <li class="flex gap-3 text-xs text-tan/90 items-start">
-                            <i data-lucide="check-circle-2" class="w-4 h-4 text-tan/50 shrink-0"></i>
+                        <li class="flex gap-3 text-xs text-text-main items-start">
+                            <i data-lucide="check-circle-2" class="w-4 h-4 text-brand/60 shrink-0"></i>
                             <span>Treino em dupla personalizado</span>
                         </li>
-                        <li class="flex gap-3 text-xs text-tan/90 items-start">
-                            <i data-lucide="check-circle-2" class="w-4 h-4 text-tan/50 shrink-0"></i>
+                        <li class="flex gap-3 text-xs text-text-main items-start">
+                            <i data-lucide="check-circle-2" class="w-4 h-4 text-brand/60 shrink-0"></i>
                             <span>Suporte WhatsApp</span>
                         </li>
                     </ul>
-                    <a href="https://wa.me/5553999999999" target="_blank" class="w-full liquid-glass bg-tan/10 hover:bg-tan/20 text-cream py-3 rounded-full text-center text-xs font-bold uppercase tracking-widest transition-colors border border-tan/10">Assinar</a>
+                    <a href="https://wa.me/5553999999999" target="_blank" class="w-full soft-card bg-brand/10 hover:bg-brand/20 text-text-main py-3 rounded-full text-center text-xs font-bold uppercase tracking-widest transition-colors border border-brand/20">Assinar</a>
                 </div>
 
                 <!-- Bimestral -->
-                <div class="reveal liquid-glass rounded-3xl p-6 md:p-8 flex flex-col relative border border-tan/30 shadow-[0_0_30px_rgba(192,156,131,0.08)] bg-[#100805] w-full" style="transition-delay: 100ms;">
-                    <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-tan text-deep text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full whitespace-nowrap">
+                <div class="reveal soft-card rounded-3xl p-6 md:p-8 flex flex-col relative border border-brand/40 shadow-[0_0_30px_rgba(192,156,131,0.08)] bg-surface w-full" style="transition-delay: 100ms;">
+                    <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-brand text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full whitespace-nowrap">
                         Recomendado
                     </div>
                     <h3 class="text-2xl font-serif mb-2">Bimestral</h3>
-                    <div class="text-3xl font-serif text-cream mb-6">R$ 300</div>
+                    <div class="text-3xl font-serif text-text-main mb-6">R$ 300</div>
                     
                     <ul class="space-y-4 mb-8 flex-grow">
-                        <li class="flex gap-3 text-xs text-cream items-start">
-                            <i data-lucide="check-circle-2" class="w-4 h-4 text-tan shrink-0"></i>
+                        <li class="flex gap-3 text-xs text-text-main items-start">
+                            <i data-lucide="check-circle-2" class="w-4 h-4 text-brand shrink-0"></i>
                             <span>Tudo do Mensal</span>
                         </li>
-                        <li class="flex gap-3 text-xs text-cream items-start">
-                            <i data-lucide="check-circle-2" class="w-4 h-4 text-tan shrink-0"></i>
+                        <li class="flex gap-3 text-xs text-text-main items-start">
+                            <i data-lucide="check-circle-2" class="w-4 h-4 text-brand shrink-0"></i>
                             <span>Mais economia</span>
                         </li>
-                        <li class="flex gap-3 text-xs text-cream items-start">
-                            <i data-lucide="check-circle-2" class="w-4 h-4 text-tan shrink-0"></i>
+                        <li class="flex gap-3 text-xs text-text-main items-start">
+                            <i data-lucide="check-circle-2" class="w-4 h-4 text-brand shrink-0"></i>
                             <span>Acompanhamento contínuo</span>
                         </li>
                     </ul>
-                    <a href="https://wa.me/5553999999999" target="_blank" class="w-full bg-tan hover:bg-[#d0b099] text-deep py-3 rounded-full text-center text-xs font-bold uppercase tracking-widest transition-colors">Assinar</a>
+                    <a href="https://wa.me/5553999999999" target="_blank" class="w-full bg-brand hover:bg-brand-hover text-white py-3 rounded-full text-center text-xs font-bold uppercase tracking-widest transition-colors">Assinar</a>
                 </div>
 
                 <!-- Semestral -->
-                <div class="reveal liquid-glass rounded-3xl p-6 md:p-8 flex flex-col w-full" style="transition-delay: 200ms;">
+                <div class="reveal soft-card rounded-3xl p-6 md:p-8 flex flex-col w-full" style="transition-delay: 200ms;">
                     <h3 class="text-2xl font-serif mb-2">Semestral</h3>
-                    <div class="text-3xl font-serif text-cream mb-6">R$ 600</div>
+                    <div class="text-3xl font-serif text-text-main mb-6">R$ 600</div>
                     
                     <ul class="space-y-4 mb-8 flex-grow">
-                        <li class="flex gap-3 text-xs text-tan/90 items-start">
-                            <i data-lucide="check-circle-2" class="w-4 h-4 text-tan/50 shrink-0"></i>
+                        <li class="flex gap-3 text-xs text-text-main items-start">
+                            <i data-lucide="check-circle-2" class="w-4 h-4 text-brand/60 shrink-0"></i>
                             <span>Transformação completa</span>
                         </li>
-                        <li class="flex gap-3 text-xs text-tan/90 items-start">
-                            <i data-lucide="check-circle-2" class="w-4 h-4 text-tan/50 shrink-0"></i>
+                        <li class="flex gap-3 text-xs text-text-main items-start">
+                            <i data-lucide="check-circle-2" class="w-4 h-4 text-brand/60 shrink-0"></i>
                             <span>Melhor custo-benefício</span>
                         </li>
-                        <li class="flex gap-3 text-xs text-tan/90 items-start">
-                            <i data-lucide="check-circle-2" class="w-4 h-4 text-tan/50 shrink-0"></i>
+                        <li class="flex gap-3 text-xs text-text-main items-start">
+                            <i data-lucide="check-circle-2" class="w-4 h-4 text-brand/60 shrink-0"></i>
                             <span>Foco em longo prazo</span>
                         </li>
                     </ul>
-                    <a href="https://wa.me/5553999999999" target="_blank" class="w-full liquid-glass bg-tan/10 hover:bg-tan/20 text-cream py-3 rounded-full text-center text-xs font-bold uppercase tracking-widest transition-colors border border-tan/10">Assinar</a>
+                    <a href="https://wa.me/5553999999999" target="_blank" class="w-full soft-card bg-brand/10 hover:bg-brand/20 text-text-main py-3 rounded-full text-center text-xs font-bold uppercase tracking-widest transition-colors border border-brand/20">Assinar</a>
                 </div>
             </div>
 
             <!-- Disclaimer -->
-            <div id="planos-disclaimer" class="mt-8 text-center text-[10px] uppercase font-bold tracking-widest text-tan/60 liquid-glass w-fit mx-auto px-6 py-3 rounded-full border border-tan/10">
+            <div id="planos-disclaimer" class="mt-8 text-center text-[10px] uppercase font-bold tracking-widest text-brand/80 soft-card w-fit mx-auto px-6 py-3 rounded-full border border-brand/20">
                 PAGAMENTO REALIZADO PELO PIX E PARCELADO POR LINK DE PAGAMENTO.
             </div>
 
             <!-- Presencial Plan -->
             <div id="planos-presencial" class="plan-card max-w-4xl mx-auto">
-                <div class="liquid-glass rounded-3xl p-8 md:p-10 flex flex-col md:col-span-2 w-full text-center">
-                    <div class="w-16 h-16 rounded-full bg-tan/10 flex items-center justify-center mb-6 mx-auto">
-                        <i data-lucide="heart-handshake" class="w-8 h-8 text-tan"></i>
+                <div class="soft-card rounded-3xl p-8 md:p-10 flex flex-col md:col-span-2 w-full text-center">
+                    <div class="w-16 h-16 rounded-full bg-brand/10 flex items-center justify-center mb-6 mx-auto">
+                        <i data-lucide="heart-handshake" class="w-8 h-8 text-brand"></i>
                     </div>
-                    <h3 class="text-3xl font-serif mb-4 text-cream">Personal Presencial <span class="text-tan/60 italic">(Pelotas - RS)</span></h3>
-                    <p class="text-tan/80 mb-8 max-w-md mx-auto">Treino lado a lado conosco. Correção postural ao vivo, motivação extrema e ajustes imediatos na carga e execução. Vagas altamente limitadas de acordo com a agenda.</p>
-                    <a href="https://wa.me/5553999999999" target="_blank" class="inline-flex max-w-xs mx-auto justify-center bg-tan text-deep py-4 px-8 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-[#d0b099] transition-colors">Consultar Disponibilidade</a>
+                    <h3 class="text-3xl font-serif mb-4 text-text-main">Personal Presencial <span class="text-brand/80 italic">(Pelotas - RS)</span></h3>
+                    <p class="text-text-muted mb-8 max-w-md mx-auto">Treino lado a lado conosco. Correção postural ao vivo, motivação extrema e ajustes imediatos na carga e execução. Vagas altamente limitadas de acordo com a agenda.</p>
+                    <a href="https://wa.me/5553999999999" target="_blank" class="inline-flex max-w-xs mx-auto justify-center bg-brand text-white py-4 px-8 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-brand-hover transition-colors">Consultar Disponibilidade</a>
                 </div>
             </div>
 
@@ -556,17 +543,17 @@
     </section>
 
     <!-- Final CTA Section -->
-    <section class="py-32 px-6 lg:px-12 flex justify-center relative overflow-hidden bg-black">
+    <section class="py-32 px-6 lg:px-12 flex justify-center relative overflow-hidden bg-lightbg">
         <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-tan/20 to-transparent"></div>
         
         <div class="reveal max-w-3xl w-full text-center relative z-10 flex flex-col items-center">
             <h2 class="text-6xl md:text-8xl font-serif leading-[0.85] tracking-tight italic mb-8">
-                Sua melhor<br/><span class="not-italic text-cream">versão.</span>
+                Sua melhor<br/><span class="not-italic text-text-main">versão.</span>
             </h2>
-            <p class="text-lg text-tan/80 max-w-lg leading-relaxed mb-12">
+            <p class="text-lg text-text-muted max-w-lg leading-relaxed mb-12">
                 Com o nosso melhor método. Vagas limitadas para garantir o acompanhamento de excelência. Dê o primeiro passo hoje.
             </p>
-            <a href="https://wa.me/5553999999999" target="_blank" class="w-full sm:w-auto bg-tan text-deep px-10 py-5 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-[#d0b099] transition-colors flex items-center justify-center gap-2">
+            <a href="https://wa.me/5553999999999" target="_blank" class="w-full sm:w-auto bg-brand text-white px-10 py-5 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-brand-hover transition-colors flex items-center justify-center gap-2">
                 Começar minha transformação
                 <i data-lucide="arrow-right" class="w-4 h-4"></i>
             </a>
@@ -574,12 +561,12 @@
     </section>
 
     <!-- Footer -->
-    <footer class="relative z-10 px-6 lg:px-12 py-8 border-t border-tan/10 bg-[#050302]/80 backdrop-blur-md flex justify-center">
+    <footer class="relative z-10 px-6 lg:px-12 py-8 border-t border-brand/20 bg-[#050302]/80 backdrop-blur-md flex justify-center">
         <div class="max-w-7xl w-full flex flex-col md:flex-row justify-between items-center gap-6">
             <a href="#inicio" class="inline-block hover:scale-105 transition-transform">
                 <img src="./duofit_logo_upscaled.png" alt="Método DuoFit" class="w-16 h-16 rounded-full object-cover opacity-90 hover:opacity-100 transition-opacity">
             </a>
-            <div class="text-[10px] text-tan/50 uppercase tracking-widest">
+            <div class="text-[10px] text-brand/60 uppercase tracking-widest">
                 © <span id="current-year"></span> Método DuoFit. All rights reserved.
             </div>
         </div>
@@ -659,12 +646,12 @@
 
         btnOnline.addEventListener('click', () => {
             // Update buttons
-            btnOnline.classList.replace('text-tan/60', 'text-deep');
+            btnOnline.classList.replace('text-brand/80', 'text-white');
             btnOnline.classList.add('font-bold');
-            btnOnline.classList.remove('font-medium', 'hover:text-cream');
+            btnOnline.classList.remove('font-medium', 'hover:text-text-main');
             
-            btnPresencial.classList.replace('text-deep', 'text-tan/60');
-            btnPresencial.classList.add('font-medium', 'hover:text-cream');
+            btnPresencial.classList.replace('text-white', 'text-brand/80');
+            btnPresencial.classList.add('font-medium', 'hover:text-text-main');
             btnPresencial.classList.remove('font-bold');
 
             // Slide Background Left
@@ -682,12 +669,12 @@
 
         btnPresencial.addEventListener('click', () => {
             // Update buttons
-            btnPresencial.classList.replace('text-tan/60', 'text-deep');
+            btnPresencial.classList.replace('text-brand/80', 'text-white');
             btnPresencial.classList.add('font-bold');
-            btnPresencial.classList.remove('font-medium', 'hover:text-cream');
+            btnPresencial.classList.remove('font-medium', 'hover:text-text-main');
             
-            btnOnline.classList.replace('text-deep', 'text-tan/60');
-            btnOnline.classList.add('font-medium', 'hover:text-cream');
+            btnOnline.classList.replace('text-white', 'text-brand/80');
+            btnOnline.classList.add('font-medium', 'hover:text-text-main');
             btnOnline.classList.remove('font-bold');
 
             // Slide Background Right (100% of its width)
@@ -918,11 +905,10 @@
         renderQ();
       };
 
-      document.addEventListener('DOMContentLoaded', () => {
-        if(document.getElementById('df-quiz-body')){
-            renderQ();
-        }
-      });
+      // Execute immediately since script is at the end of the body
+      if(document.getElementById('df-quiz-body')){
+          renderQ();
+      }
     })();
     </script>
 </body>
