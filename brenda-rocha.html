@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brenda Rocha | Personal Trainer</title>
+    <!-- Tailwind CSS -->
+    <link rel="stylesheet" href="/src/index.css">
+    <!-- Alpine.js -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body class="bg-dark text-white font-sans antialiased overflow-x-hidden selection:bg-primary selection:text-black" x-data="{ mobileMenuOpen: false }">
+
+    <!-- Header -->
+    <header class="fixed w-full top-0 z-50 bg-dark/95 backdrop-blur border-b border-white/5 h-[80px] flex items-center">
+        <div class="max-w-7xl mx-auto px-10 w-full flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#" class="font-bold text-[18px] tracking-[-0.5px] text-primary">
+                brenda.rocha
+            </a>
+
+            <!-- Desktop Menu -->
+            <nav class="hidden md:flex items-center gap-8">
+                <a href="#metodo" class="text-[13px] font-semibold uppercase tracking-[1px] text-textMuted hover:text-white transition-colors">Método</a>
+                <a href="#sobre" class="text-[13px] font-semibold uppercase tracking-[1px] text-textMuted hover:text-white transition-colors">Sobre</a>
+                <a href="#planos" class="text-[13px] font-semibold uppercase tracking-[1px] text-textMuted hover:text-white transition-colors">Planos</a>
+                <a href="https://wa.me/5585992895417" target="_blank" class="bg-primary text-black px-6 py-2.5 rounded-full text-sm font-bold uppercase tracking-wider hover:scale-105 transition-transform">
+                    Começar Agora
+                </a>
+            </nav>
+
+            <!-- Mobile Menu Toggle -->
+            <button @click="mobileMenuOpen = !mobileMenuOpen" class="md:hidden text-textMuted hover:text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7">
+                    <path x-show="!mobileMenuOpen" stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                    <path x-show="mobileMenuOpen" x-cloak stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Container -->
+        <div x-show="mobileMenuOpen" x-collapse x-cloak class="absolute top-[80px] left-0 w-full md:hidden bg-panel border-b border-white/5">
+            <div class="px-10 py-6 flex flex-col gap-6">
+                <a @click="mobileMenuOpen = false" href="#metodo" class="text-textMuted hover:text-primary font-bold uppercase tracking-wide text-sm">Método</a>
+                <a @click="mobileMenuOpen = false" href="#sobre" class="text-textMuted hover:text-primary font-bold uppercase tracking-wide text-sm">Sobre</a>
+                <a @click="mobileMenuOpen = false" href="#planos" class="text-textMuted hover:text-primary font-bold uppercase tracking-wide text-sm">Planos</a>
+                <a href="https://wa.me/5585992895417" target="_blank" class="bg-primary text-black text-center px-6 py-4 rounded-full font-bold uppercase tracking-widest mt-2">
+                    Fale comigo
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <main class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 bg-dark">
+        <div class="max-w-7xl mx-auto px-10 grid lg:grid-cols-2 gap-12 items-center">
+            <div class="flex flex-col gap-6" data-aos="fade-right" data-aos-duration="1000">
+                <span class="text-[12px] uppercase tracking-[3px] text-primary font-bold">A saúde é o seu melhor investimento</span>
+                <h1 class="text-5xl lg:text-7xl font-extrabold leading-[0.95] tracking-[-2px] text-white">
+                    DISCIPLINA<br>É O QUE<br>TRANSFORMA<br>SUOR EM RESULTADO.
+                </h1>
+                <p class="text-[18px] text-textMuted leading-[1.5] max-w-md">
+                    Treino é sobre constância, não sobre pressa. Tenha um acompanhamento profissional desenhado para superar seus limites e construir o corpo que você deseja, respeitando a sua rotina.
+                </p>
+                <a href="https://wa.me/5585992895417" target="_blank" class="inline-flex items-center justify-center bg-primary text-black px-10 py-5 rounded-full font-extrabold text-[16px] uppercase tracking-wider transition-transform hover:scale-105 w-fit mt-4">
+                    Começar Consultoria
+                </a>
+            </div>
+
+            <!-- Hero Image Placeholder -->
+            <div class="relative w-full h-[400px] lg:h-[520px] rounded-[24px] overflow-hidden bg-panel" data-aos="fade-left" data-aos-duration="1200">
+                <img src="brenda-rocha.webp" alt="Brenda Rocha - Personal Trainer" class="w-full h-full object-cover grayscale-0">
+                
+                <div class="absolute bottom-6 left-6 right-6 bg-black/80 backdrop-blur-md p-5 rounded-2xl border border-white/10">
+                    <div class="text-[11px] uppercase opacity-60 text-white font-bold tracking-widest mb-1.5">Status Atual</div>
+                    <div class="font-bold text-[16px] text-white">100% Foco no Resultado</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- PAS Framework: Problem & Agitation -->
+    <section id="metodo" class="py-24 bg-panel border-y border-white/5">
+        <div class="max-w-4xl mx-auto px-10 text-center flex flex-col items-center">
+            <h2 class="text-4xl md:text-5xl font-extrabold leading-[0.95] tracking-[-1.5px] uppercase mb-8" data-aos="fade-up">
+                Você se dedica, mas o espelho <span class="text-primary">não reflete</span> o seu esforço?
+            </h2>
+
+            <!-- Video Placeholder -->
+            <div class="w-full max-w-lg mx-auto aspect-video bg-dark rounded-xl border border-white/10 relative overflow-hidden flex items-center justify-center mb-10 shadow-lg" data-aos="fade-up" data-aos-delay="50">
+                <div class="absolute inset-0 bg-primary/5 mix-blend-overlay"></div>
+                <button class="w-16 h-16 bg-primary text-black rounded-full flex items-center justify-center transition-transform hover:scale-110 shadow-[0_0_20px_rgba(255,39,115,0.4)] relative z-10 group">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8 ml-1 group-hover:scale-90 transition-transform">
+                        <path fill-rule="evenodd" d="M4.5 5.653c0-1.427 1.529-2.33 2.779-1.643l11.54 6.347c1.295.712 1.295 2.573 0 3.286L7.28 19.99c-1.25.687-2.779-.217-2.779-1.643V5.653Z" clip-rule="evenodd" />
+                    </svg>
+                </button>
+                <div class="absolute bottom-4 left-4 text-xs font-bold uppercase tracking-widest text-white/50 z-10">Conheça o Método</div>
+            </div>
+            
+            <div class="space-y-6 text-[18px] text-textMuted leading-[1.5] max-w-2xl text-left" data-aos="fade-up" data-aos-delay="100">
+                <p>
+                    É frustrante seguir dietas, ir à academia com frequência e sentir que os resultados estagnaram. A sensação de que o seu corpo não responde aos treinos, a insegurança de não saber se está executando os exercícios corretamente e a falta de um plano direcionado fazem com que muitos desistam no meio do caminho.
+                </p>
+                <div class="h-[1px] w-full bg-white/5 my-8"></div>
+                <p>
+                    Sem uma estratégia ajustada à sua realidade, você apenas gasta energia. Treinar "no escuro" não retarda apenas os seus objetivos, mas também aumenta o risco de lesões. A ansiedade por mudanças rápidas, combinada com a falta de planejamento, é a maior inimiga da sua evolução. O verdadeiro erro não é treinar pouco, é treinar sem direção.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution / About Section -->
+    <section id="sobre" class="py-24 bg-dark relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-10">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <!-- Text Content -->
+                <div data-aos="fade-right">
+                    <div class="inline-block px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary font-bold tracking-[2px] text-[11px] mb-6 uppercase">
+                        A Solução
+                    </div>
+                    <h2 class="text-4xl md:text-5xl font-extrabold leading-[0.95] tracking-[-1.5px] uppercase mb-8">
+                        O segredo é a constância. <br><span class="text-textMuted">Eu mostro o caminho.</span>
+                    </h2>
+                    <p class="text-textMuted text-[18px] mb-10 leading-[1.5]">
+                        Sou <span class="text-white font-bold">Brenda Rocha</span>, bacharel em Educação Física, apaixonada por movimento. Minha missão é guiar você em uma jornada de superação de limites, garantindo que cada repetição conte para o seu objetivo principal.
+                    </p>
+                    
+                    <div class="space-y-8">
+                        <div class="flex gap-4 items-start">
+                            <div class="mt-1 flex-shrink-0 w-2 h-2 rounded-full bg-primary mt-2"></div>
+                            <div>
+                                <h3 class="text-white font-bold text-lg mb-2 uppercase tracking-wide">Amar o processo</h3>
+                                <p class="text-textMuted text-sm leading-[1.5]">A única forma de fazer um bom trabalho é amar aquilo que você faz. Eu levo essa paixão para o seu treino.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4 items-start">
+                            <div class="mt-1 flex-shrink-0 w-2 h-2 rounded-full bg-primary mt-2"></div>
+                            <div>
+                                <h3 class="text-white font-bold text-lg mb-2 uppercase tracking-wide">Método e Disciplina</h3>
+                                <p class="text-textMuted text-sm leading-[1.5]">Sem fórmulas mágicas. Aplicamos biomecânica, planejamento estruturado e execução perfeita.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Feature Grid -->
+                <div class="grid grid-cols-2 gap-4" data-aos="fade-left" data-aos-delay="200">
+                    <div class="bg-panel p-6 rounded-[16px] border border-white/5 flex flex-col gap-2 transition-colors hover:border-primary/50 text-center justify-center min-h-[160px]">
+                        <h4 class="text-[16px] text-primary uppercase font-extrabold tracking-wide mb-2">Saúde</h4>
+                        <p class="text-[14px] text-textMuted leading-[1.4]">O seu melhor investimento a longo prazo.</p>
+                    </div>
+                    <div class="bg-panel p-6 rounded-[16px] border border-white/5 flex flex-col gap-2 transition-colors hover:border-primary/50 text-center justify-center min-h-[160px] translate-y-6">
+                        <h4 class="text-[16px] text-primary uppercase font-extrabold tracking-wide mb-2">Constância</h4>
+                        <p class="text-[14px] text-textMuted leading-[1.4]">Superando limites com disciplina diária.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Plans & Services (Alpine.js Tabs) -->
+    <section id="planos" class="py-24 bg-panel border-t border-white/5" x-data="{ tab: 'online' }">
+        <div class="max-w-7xl mx-auto px-10">
+            <div class="text-center max-w-2xl mx-auto mb-12" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-extrabold leading-[0.95] tracking-[-1.5px] uppercase mb-6">Como vamos <br>trabalhar juntos</h2>
+                <p class="text-textMuted text-[16px] leading-[1.5]">Escolha o formato ideal para a sua rotina e comece a transformar o seu corpo hoje mesmo.</p>
+            </div>
+
+            <!-- Tabs Control -->
+            <div class="flex justify-center mb-12" data-aos="fade-up" data-aos-delay="100">
+                <div class="bg-dark p-2 rounded-full inline-flex gap-2 border border-white/5">
+                    <button @click="tab = 'online'" :class="tab === 'online' ? 'bg-panel text-white border border-white/10' : 'text-textMuted hover:text-white border border-transparent'" class="px-8 py-3 rounded-full font-bold uppercase text-[12px] tracking-[1px] transition-all duration-300">
+                        Consultoria Online
+                    </button>
+                    <button @click="tab = 'presencial'" :class="tab === 'presencial' ? 'bg-panel text-white border border-white/10' : 'text-textMuted hover:text-white border border-transparent'" class="px-8 py-3 rounded-full font-bold uppercase text-[12px] tracking-[1px] transition-all duration-300">
+                        Personal Presencial
+                    </button>
+                </div>
+            </div>
+
+            <!-- Tab Content: Online -->
+            <div x-show="tab === 'online'" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 translate-y-4" x-transition:enter-end="opacity-100 translate-y-0" class="max-w-4xl mx-auto" x-cloak>
+                <div class="bg-dark rounded-[24px] p-8 md:p-12 border border-white/5 hover:border-white/10 transition-colors">
+                    <div class="grid md:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <h3 class="text-2xl font-extrabold text-white mb-4 uppercase tracking-[-0.5px]">Treino no seu tempo e em qualquer lugar.</h3>
+                            <p class="text-textMuted mb-8 text-[15px] leading-[1.5]">Planejamento focado na sua estrutura, entregue na palma da mão. Avaliação detalhada, periodização exclusiva e suporte para dúvidas garantem que você nunca mais treine no escuro.</p>
+                            <ul class="space-y-4 mb-8">
+                                <li class="flex items-center gap-3 text-textMuted text-sm font-medium">
+                                    <div class="w-1.5 h-1.5 rounded-full bg-primary"></div>
+                                    Periodização 100% individualizada
+                                </li>
+                                <li class="flex items-center gap-3 text-textMuted text-sm font-medium">
+                                    <div class="w-1.5 h-1.5 rounded-full bg-primary"></div>
+                                    Vídeos explicativos de execução
+                                </li>
+                                <li class="flex items-center gap-3 text-textMuted text-sm font-medium">
+                                    <div class="w-1.5 h-1.5 rounded-full bg-primary"></div>
+                                    Avaliação postural e de objetivos
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="flex justify-center md:justify-end">
+                            <a href="https://wa.me/5585992895417?text=Olá%20Brenda!%20Tenho%20interesse%20na%20Consultoria%20Online." target="_blank" class="w-full md:w-auto text-center bg-primary text-black px-8 py-4 rounded-full font-extrabold uppercase tracking-widest text-[14px] transition-transform hover:scale-105">
+                                Quero a Consultoria
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab Content: Presencial -->
+            <div x-show="tab === 'presencial'" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 translate-y-4" x-transition:enter-end="opacity-100 translate-y-0" class="max-w-4xl mx-auto" x-cloak>
+                <div class="bg-dark rounded-[24px] p-8 md:p-12 border border-primary/20 transition-colors relative overflow-hidden">
+                    <div class="absolute top-6 right-6">
+                        <span class="bg-primary text-black text-[10px] font-extrabold px-3 py-1.5 rounded-full uppercase tracking-[2px]">Alta Performance</span>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <h3 class="text-2xl font-extrabold text-white mb-4 uppercase tracking-[-0.5px]">Acompanhamento lado a lado.</h3>
+                            <p class="text-textMuted mb-8 text-[15px] leading-[1.5]">Para quem busca intensidade máxima com supervisão ocular constante. Correção postural ao vivo, extração do seu limite real e aproveitamento de 100% de cada sessão.</p>
+                            <ul class="space-y-4 mb-8 mt-4">
+                                <li class="flex items-center gap-3 text-textMuted text-sm font-medium">
+                                    <div class="w-1.5 h-1.5 rounded-full bg-primary"></div>
+                                    Supervisão presencial completa
+                                </li>
+                                <li class="flex items-center gap-3 text-textMuted text-sm font-medium">
+                                    <div class="w-1.5 h-1.5 rounded-full bg-primary"></div>
+                                    Ajuste imediato de biomecânica
+                                </li>
+                                <li class="flex items-center gap-3 text-textMuted text-sm font-medium">
+                                    <div class="w-1.5 h-1.5 rounded-full bg-primary"></div>
+                                    Motivação e disciplina garantidas
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="flex justify-center md:justify-end">
+                            <a href="https://wa.me/5585992895417?text=Olá%20Brenda!%20Tenho%20interesse%20no%20acompanhamento%20Presencial." target="_blank" class="w-full md:w-auto text-center bg-white text-black px-8 py-4 rounded-full font-extrabold uppercase tracking-widest text-[14px] transition-transform hover:scale-105">
+                                Consultar Vagas
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial Section -->
+    <section class="py-24 bg-dark relative border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-10 grid md:grid-cols-2 gap-12 items-center">
+            <div data-aos="fade-right">
+                <svg class="w-12 h-12 text-primary mb-8" fill="currentColor" viewBox="0 0 32 32">
+                    <path d="M10.743 4.298c-5.748 0-10.743 4.908-10.743 10.793 0 5.485 3.96 9.871 9.387 10.793v3.818h3.714v-11.455h-4.321c-.779 0-1.428-.621-1.428-1.393 0-2.31 1.761-4.838 3.393-4.838h0v-7.718zm20.571 0c-5.747 0-10.742 4.908-10.742 10.793 0 5.485 3.961 9.871 9.388 10.793v3.818h3.714v-11.455h-4.321c-.78 0-1.429-.621-1.429-1.393 0-2.31 1.761-4.838 3.393-4.838h0v-7.718z" />
+                </svg>
+                <h3 class="text-3xl font-extrabold text-white mb-6 leading-[1.3] uppercase tracking-[-1px]">
+                    "O treino deixou de ser uma obrigação pesada e virou algo que eu preciso na minha rotina. O método traz resultado porque não tem promessa falsa, tem constância e muito suor."
+                </h3>
+                <p class="text-primary font-bold uppercase tracking-[2px] text-[12px] opacity-80">— Aluno de Consultoria</p>
+            </div>
+            
+            <div class="bg-panel border border-white/5 rounded-[24px] p-10 flex flex-col items-start min-h-[300px] justify-between" data-aos="fade-left">
+                <p class="text-textMuted text-[18px] mb-6 leading-[1.6]">
+                    "A diferença de ter a Brenda como personal é o foco absoluto na biomecânica. Nunca treinei tão forte e nunca me senti tão seguro."
+                </p>
+                <div class="mt-auto">
+                    <p class="font-bold text-white uppercase tracking-widest text-[13px]">— Aluno Presencial</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="py-24 bg-panel relative overflow-hidden text-center border-t border-white/5">
+        <div class="max-w-4xl mx-auto px-10 relative z-10" data-aos="zoom-in">
+            <h2 class="text-5xl md:text-6xl font-extrabold leading-[0.95] tracking-[-2px] text-white mb-6 uppercase">
+                Sua transformação <br><span class="text-primary">começa agora.</span>
+            </h2>
+            <p class="text-textMuted text-[18px] mb-10 max-w-2xl mx-auto leading-[1.5]">
+                Deixe as desculpas para ontem. Agende uma avaliação, entenda onde você pode chegar e vamos juntos construir a sua melhor versão.
+            </p>
+            <a href="https://wa.me/5585992895417" target="_blank" class="inline-flex items-center justify-center bg-primary text-black px-12 py-5 rounded-full font-extrabold text-[16px] uppercase tracking-wider transition-transform hover:scale-105 shadow-[0_0_30px_rgba(255,39,115,0.3)]">
+                Falar com a Brenda
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark border-t border-white/5 h-[100px] flex items-center">
+        <div class="max-w-7xl mx-auto px-10 w-full flex flex-col md:flex-row items-center justify-between gap-4">
+            <div class="font-bold text-[16px] tracking-[-0.5px] text-primary">
+                brenda.rocha
+            </div>
+            <div class="text-textMuted text-[12px] uppercase tracking-widest font-semibold flex gap-4">
+                <span>Foco</span><span>&middot;</span><span>Disciplina</span><span>&middot;</span><span>Resultado</span>
+            </div>
+            <div class="text-textMuted text-[11px] uppercase tracking-wider">
+                &copy; 2024 Consultoria Fitness
+            </div>
+        </div>
+    </footer>
+
+    <!-- Init AOS Animation -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            once: true,
+            offset: 50,
+            duration: 800,
+        });
+    </script>
+</body>
+</html>
