@@ -70,9 +70,10 @@
        fundo diagonal vai num pseudo-elemento para não recortar a dançarina ── */
     #sobre { position:relative; overflow:visible; background:transparent; }
     #sobre::before {
-      content:''; position:absolute; inset:0; z-index:0;
+      content:''; position:absolute; z-index:0;
+      top:-80px; left:0; right:0; bottom:-80px;
       background:#E8E8E8;
-      clip-path: polygon(0 8%, 100% 0, 100% 92%, 0 100%);
+      clip-path: polygon(0 6%, 100% 0, 100% 94%, 0 100%);
     }
     #sobre > * { position:relative; z-index:1; }
     /* dançarina ancorada à coluna DIREITA do grid, sem invadir o texto */
@@ -188,7 +189,7 @@
 
 
 <!-- ═══════════ 3 · SOBRE — FUNDO CLARO + diagonal + dançarina vazando ═══════════ -->
-<section id="sobre" class="gsap-s py-24 md:py-32 md:pb-44" style="margin-top:-30px;margin-bottom:-30px;position:relative;z-index:5">
+<section id="sobre" class="gsap-s py-24 md:py-32 md:pb-44" style="margin-top:-60px;margin-bottom:-60px;position:relative;z-index:5">
   <div class="max-w-7xl mx-auto px-6 md:px-12 relative pt-8">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
       <div class="relative z-20 py-4">
@@ -213,14 +214,9 @@
 
     <!-- dançarina vaza dramaticamente sobre o fundo claro -->
     <div class="dancer-float">
-      <div class="relative w-full h-full">
-        <!-- Substitua o src abaixo pelo caminho da imagem real do estúdio (PNG sem fundo dá o melhor efeito de recorte) -->
-        <img id="foto-estudio-sobre" src="bailarina.png" alt="Bailarina do Dans Studio em pose expressiva de dança" class="w-full h-full object-cover object-top shadow-2xl" />
-        <div class="absolute bottom-5 left-5 right-5">
-          <span class="d font-bold text-white text-xs tracking-widest block mb-1" style="text-shadow:0 1px 4px rgba(0,0,0,0.6)">Apenas o melhor</span>
-          <p class="d font-black text-white text-xl" style="text-shadow:0 1px 6px rgba(0,0,0,0.7)">Sinta a Batida.<br>Movimente-se.</p>
-        </div>
-      </div>
+      <!-- Imagem real: colocar o arquivo na pasta img/ -->
+      <!-- Para o efeito de flutuação, usar PNG com fundo transparente (recortado) -->
+      <img id="foto-estudio-sobre" src="bailarina.png" alt="Dançarino do Dans Studio em pose expressiva" class="w-full h-full object-contain object-top drop-shadow-2xl" />
     </div>
   </div>
 </section>
