@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dans Studio | Espaço de Arte e Dança</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <script>
+    tailwind.config = {
+      theme: { extend: {
+        colors: {
+          s0:'#0A0A0A', s1:'#111111', s2:'#161616', s3:'#1A1A1A',
+          lt:'#E8E8E8', lt2:'#F4F4F4',
+          ac:'#C8102E', ach:'#E8152E',
+          tp:'#FFFFFF', ts:'#9CA3AF',
+        },
+        fontFamily: { dis:['"Barlow Condensed"','sans-serif'], bod:['"DM Sans"','sans-serif'] }
+      }}
+    }
+  </script>
+
+  <style>
+    :root { --ac:#C8102E; --ach:#E8152E; }
+    *,*::before,*::after { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { background:#0A0A0A; color:#fff; font-family:'DM Sans',sans-serif; overflow-x:hidden; }
+
+    .d { font-family:'Barlow Condensed',sans-serif; text-transform:uppercase; letter-spacing:-0.03em; line-height:0.92; }
+    .al { border-left:4px solid var(--ac); }
+
+    /* ── DIAGONAIS LARGAS E AGRESSIVAS entre transições de cor ── */
+    .clip-down-hard { clip-path: polygon(0 0, 100% 0, 100% 82%, 0 100%); }
+    .clip-up-hard   { clip-path: polygon(0 18%, 100% 0, 100% 100%, 0 100%); }
+    .clip-both-hard { clip-path: polygon(0 8%, 100% 0, 100% 92%, 0 100%); }
+    .clip-hero-img  { clip-path: polygon(14% 0%, 100% 0%, 100% 100%, 0% 100%); }
+
+    /* ── TRIÂNGULOS DECORATIVOS ── */
+    .tri { width:0; height:0; border-top:14px solid transparent; border-bottom:14px solid transparent; border-left:22px solid #0A0A0A; display:inline-block; }
+    .tri-ac { border-left-color:var(--ac); }
+    .tri-wt { border-left-color:#0A0A0A; }
+    .tri-lg { border-top-width:26px; border-bottom-width:26px; border-left-width:40px; }
+
+    /* ── HERO cunha diagonal ── */
+    .hero-wedge { position:absolute; inset:0; background:var(--ac); opacity:0.92; clip-path:polygon(0 0, 56% 0, 36% 100%, 0 100%); z-index:1; pointer-events:none; }
+
+    /* ── GALERIA ── */
+    .gallery-item { position:relative; overflow:hidden; transition:transform .35s ease; }
+    .gallery-item:hover { transform:scale(1.03); }
+    .gallery-item img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .5s ease; }
+    .gallery-item:hover img { transform:scale(1.06); }
+    .gal-overlay { position:absolute; inset:0; background:rgba(200,16,46,0.14); opacity:0; transition:opacity .3s; z-index:2; }
+    .gallery-item:hover .gal-overlay { opacity:1; }
+    .gal-ph { background:linear-gradient(135deg,#1a1a1a,#222 50%,#1a1a1a); }
+
+    .srow { border-bottom:1px solid rgba(200,16,46,0.25); }
+    ::-webkit-scrollbar { width:6px; }
+    ::-webkit-scrollbar-track { background:#0A0A0A; }
+    ::-webkit-scrollbar-thumb { background:var(--ac); border-radius:3px; }
+    .pill-outline:hover { background:rgba(200,16,46,0.12); }
+
+    /* ── SOBRE (fundo CLARO) com dançarina vazando ──
+       fundo diagonal vai num pseudo-elemento para não recortar a dançarina ── */
+    #sobre { position:relative; overflow:visible; background:transparent; }
+    #sobre::before {
+      content:''; position:absolute; inset:0; z-index:0;
+      background:#E8E8E8;
+      clip-path: polygon(0 8%, 100% 0, 100% 92%, 0 100%);
+    }
+    #sobre > * { position:relative; z-index:1; }
+    /* dançarina ancorada à coluna DIREITA do grid, sem invadir o texto */
+    .dancer-float {
+      position:absolute;
+      top:-90px; bottom:-110px;
+      right:0;
+      width:clamp(280px, 42%, 460px);
+      z-index:30; pointer-events:none;
+    }
+    .dancer-float img { width:100%; height:100%; object-fit:cover; object-position:top center; }
+    @media (max-width:768px){
+      .dancer-float { position:relative; right:auto; top:auto; bottom:auto; width:100%; max-width:340px; margin:2rem auto 0; pointer-events:auto; }
+      .hero-wedge { clip-path:polygon(0 0, 100% 0, 100% 30%, 0 44%); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════ HEADER ═══════════ -->
+<header class="fixed top-0 left-0 w-full z-50 bg-s0/90 backdrop-blur-md" style="border-bottom:1px solid rgba(255,255,255,0.05)">
+  <div class="max-w-7xl mx-auto px-6 md:px-12 h-16 flex items-center justify-between">
+    <a href="#" id="nav-logo" class="flex items-center gap-3 group">
+      <div class="w-9 h-9 bg-ac text-white d font-black text-xl flex items-center justify-center group-hover:bg-ach transition-colors">D</div>
+      <div class="leading-none">
+        <span class="d font-bold text-base text-white tracking-wider block">DANS STUDIO</span>
+        <span class="text-[9px] tracking-[0.2em] text-ac font-medium uppercase">Arte & Dança</span>
+      </div>
+    </a>
+    <nav class="hidden md:flex items-center gap-7 text-[11px] font-medium tracking-widest uppercase text-ts">
+      <a href="#hero" class="hover:text-white transition-colors">Início</a>
+      <a href="#agenda" class="hover:text-white transition-colors">Agenda</a>
+      <a href="#sobre" class="hover:text-white transition-colors">Sobre</a>
+      <a href="#galeria" class="hover:text-white transition-colors">Galeria</a>
+      <a href="#modalidades" class="hover:text-white transition-colors">Modalidades</a>
+      <a href="#footer" class="hover:text-white transition-colors">Contato</a>
+    </nav>
+    <a href="https://wa.me/5548991235381" target="_blank" rel="noopener" class="hidden sm:block px-5 py-2 bg-ac hover:bg-ach text-white text-[11px] font-bold tracking-wider uppercase transition-colors">Fale Conosco</a>
+  </div>
+</header>
+
+
+<!-- ═══════════ 1 · HERO ═══════════ -->
+<section id="hero" class="relative min-h-screen pt-16 flex items-center overflow-hidden bg-s0">
+  <div class="hero-wedge"></div>
+  <div class="absolute left-[8%] top-[42%] z-10 tri tri-lg hidden md:block opacity-80"></div>
+  <div class="max-w-7xl mx-auto px-6 md:px-12 w-full grid grid-cols-1 md:grid-cols-10 gap-8 items-center relative z-20 py-20">
+    <div class="md:col-span-6 flex flex-col justify-center">
+      <span id="hero-tag" class="inline-flex items-center gap-2 text-white text-[11px] font-bold tracking-widest uppercase mb-5"><span class="w-4 h-px bg-white"></span> Palhoça — Aririú</span>
+      <h1 id="hero-h1" class="d font-black text-white mb-6 flex flex-col gap-1">
+        <span class="text-white/80 text-3xl md:text-4xl font-bold tracking-wide" style="line-height:1">DANS STUDIO</span>
+        <span style="font-size:clamp(3rem,9.5vw,7.8rem);line-height:0.86">Espaço de<br>Arte e Dança</span>
+      </h1>
+      <p class="text-white/85 text-base max-w-lg mb-8 leading-relaxed font-light">❤️ Somos um espaço compartilhado de dança e arte em Palhoça. Um ambiente para expandir horizontes, conectar pessoas e vibrar na frequência do movimento.</p>
+      <div id="hero-pills" class="flex flex-wrap gap-3">
+        <a href="https://wa.me/5548991235381" target="_blank" rel="noopener" class="d font-bold text-sm px-7 py-3 bg-s0 hover:bg-black text-white tracking-wider transition-colors">Fale com a Gente</a>
+        <a href="#modalidades" class="d font-bold text-sm px-7 py-3 border-2 border-s0 text-s0 tracking-wider hover:bg-s0 hover:text-white transition-colors"><!-- PREENCHER: [categoria_pill_2_label] -->Nossas Aulas</a>
+        <a href="#agenda" class="d font-bold text-sm px-7 py-3 border-2 border-white/40 text-white tracking-wider pill-outline transition-colors"><!-- PREENCHER: [categoria_pill_3_label] -->Grade de Horários</a>
+      </div>
+    </div>
+    <div id="hero-img" class="md:col-span-4 relative h-[420px] md:h-[520px]">
+      <div class="absolute top-6 right-4 z-20 tri tri-ac rotate-[10deg] opacity-90"></div>
+      <div class="relative w-full h-full overflow-hidden clip-hero-img shadow-2xl bg-s3">
+        <!-- Imagem real: colocar o arquivo na pasta img/ -->
+        <img id="foto-estudio-hero" src="hero.png" alt="Turma do Dans Studio em movimento durante aula de dança" class="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity duration-500" />
+        <div class="absolute inset-0 bg-gradient-to-t from-s0 via-transparent to-s0/20"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════ 2 · AGENDA — fundo escuro, card vermelho ═══════════ -->
+<section id="agenda" class="gsap-s py-20 md:py-28 bg-s1" style="border-bottom:1px solid rgba(255,255,255,0.05)">
+  <div class="max-w-7xl mx-auto px-6 md:px-12">
+    <div class="mb-12">
+      <p class="text-ac text-[11px] font-bold tracking-widest uppercase mb-2">Programação</p>
+      <h2 class="d font-black text-4xl md:text-5xl text-white">Agenda Semanal</h2>
+      <div class="w-14 h-[3px] bg-ac mt-3"></div>
+    </div>
+    <div class="grid grid-cols-1 lg:grid-cols-10 gap-10 items-start">
+      <div class="lg:col-span-4">
+        <div class="bg-ac p-8 relative overflow-hidden text-s0">
+          <div class="absolute -right-2 top-6 tri tri-lg opacity-90"></div>
+          <span class="text-s0/70 text-[10px] font-bold tracking-widest uppercase">Foco Atual</span>
+          <h3 class="d font-black text-2xl text-s0 mt-2 mb-5">Próxima Aula</h3>
+          <!-- PREENCHER: [horario_proxima_aula] -->
+          <div class="d font-black text-s0 mb-1" style="font-size:5rem;line-height:1">19:30</div>
+          <div class="border-t border-s0/20 pt-4 mt-4 space-y-3 text-sm">
+            <div class="flex justify-between items-center"><span class="text-s0/70">Modalidade</span><!-- PREENCHER: [modalidade_proxima_aula] --><strong class="text-s0 uppercase d font-bold text-base">Dança & Arte</strong></div>
+            <div class="flex justify-between items-center"><span class="text-s0/70">Dia</span><!-- PREENCHER: [dia_proxima_aula] --><strong class="text-s0">Segunda-Feira</strong></div>
+            <div class="flex justify-between items-center"><span class="text-s0/70">Vagas</span><strong class="text-s0">Disponíveis</strong></div>
+          </div>
+          <a href="https://wa.me/5548991235381" target="_blank" rel="noopener" class="mt-7 block w-full text-center py-3 bg-s0 hover:bg-black text-white d font-bold text-sm tracking-wider transition-colors">Quero Minha Aula Gratuita!</a>
+        </div>
+      </div>
+      <div class="lg:col-span-6">
+        <div class="bg-s3/40 border border-white/5 p-6 md:p-8">
+          <h4 class="d font-bold text-xl text-white uppercase tracking-wider border-b border-white/5 pb-4 mb-2">Grade de Horários</h4>
+          <!-- PREENCHER: [dados_completos_agenda_semanal] -->
+          <div class="divide-y divide-ac/20 schedule-table">
+            <div class="srow flex flex-col sm:flex-row justify-between items-start sm:items-center py-4 gap-2"><div class="flex items-center gap-4"><div class="w-11 h-11 bg-ac/10 border border-ac/20 flex items-center justify-center d font-black text-ac text-base">SEG</div><div><p class="text-white font-medium uppercase text-sm">Aula de Dança Tradicional</p><span class="text-ts text-xs">Instalações do Estúdio</span></div></div><div class="flex items-center gap-5 sm:ml-auto"><span class="font-mono text-ac font-semibold">19:30 – 20:30</span><a href="https://wa.me/5548991235381" target="_blank" rel="noopener" class="text-[11px] font-bold text-white hover:text-ac uppercase tracking-wider transition-colors">Reservar</a></div></div>
+            <div class="srow flex flex-col sm:flex-row justify-between items-start sm:items-center py-4 gap-2"><div class="flex items-center gap-4"><div class="w-11 h-11 bg-ac/10 border border-ac/20 flex items-center justify-center d font-black text-ac text-base">TER</div><div><p class="text-white font-medium uppercase text-sm">Dança e Arte Livre</p><span class="text-ts text-xs">Atividade Compartilhada</span></div></div><div class="flex items-center gap-5 sm:ml-auto"><span class="font-mono text-ac font-semibold">18:00 – 19:30</span><a href="https://wa.me/5548991235381" target="_blank" rel="noopener" class="text-[11px] font-bold text-white hover:text-ac uppercase tracking-wider transition-colors">Reservar</a></div></div>
+            <div class="srow flex flex-col sm:flex-row justify-between items-start sm:items-center py-4 gap-2"><div class="flex items-center gap-4"><div class="w-11 h-11 bg-ac/10 border border-ac/20 flex items-center justify-center d font-black text-ac text-base">QUA</div><div><p class="text-white font-medium uppercase text-sm">Ensaios & Coreografias</p><span class="text-ts text-xs">Preparação Espetáculo</span></div></div><div class="flex items-center gap-5 sm:ml-auto"><span class="font-mono text-ac font-semibold">19:30 – 21:00</span><a href="https://wa.me/5548991235381" target="_blank" rel="noopener" class="text-[11px] font-bold text-white hover:text-ac uppercase tracking-wider transition-colors">Reservar</a></div></div>
+            <div class="srow flex flex-col sm:flex-row justify-between items-start sm:items-center py-4 gap-2"><div class="flex items-center gap-4"><div class="w-11 h-11 bg-ac/10 border border-ac/20 flex items-center justify-center d font-black text-ac text-base">QUI</div><div><p class="text-white font-medium uppercase text-sm">Ritmos Urbanos</p><span class="text-ts text-xs">Ritmo e Coordenação</span></div></div><div class="flex items-center gap-5 sm:ml-auto"><span class="font-mono text-ac font-semibold">20:00 – 21:00</span><a href="https://wa.me/5548991235381" target="_blank" rel="noopener" class="text-[11px] font-bold text-white hover:text-ac uppercase tracking-wider transition-colors">Reservar</a></div></div>
+          </div>
+          <p class="text-ts text-xs mt-5 pt-4 border-t border-white/5">📞 Dúvidas? <strong class="text-white font-mono">(48) 99123-5381</strong></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════ 3 · SOBRE — FUNDO CLARO + diagonal + dançarina vazando ═══════════ -->
+<section id="sobre" class="gsap-s py-24 md:py-32 md:pb-44" style="margin-top:-30px;margin-bottom:-30px;position:relative;z-index:5">
+  <div class="max-w-7xl mx-auto px-6 md:px-12 relative pt-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <div class="relative z-20 py-4">
+        <p class="text-ac text-[11px] font-bold tracking-widest uppercase mb-3">Conheça o Espaço</p>
+        <h2 class="d font-black text-s0 mb-4" style="font-size:clamp(2.4rem,6vw,5rem)">Somos o<br>Dans Studio</h2>
+        <div class="w-14 h-[3px] bg-ac mb-7"></div>
+        <div class="space-y-4 text-s0/70 text-base leading-relaxed font-light">
+          <p>O <strong class="text-s0 font-semibold">Dans Studio | Espaço de Arte e Dança</strong> é um centro cultural localizado no coração de Palhoça, no bairro de Aririú. Um espaço integrado e compartilhado focado na instrução, prática e produção de dança e projetos artísticos.</p>
+          <p>Nossa missão é acolher a todos que desejam se expressar por meio do movimento — de iniciantes em busca de bem-estar a dançarinos experientes focados no desenvolvimento coreográfico.</p>
+          <!-- PREENCHER: [historico_e_origem_do_estudio] -->
+          <p class="text-sm al pl-4 py-1 italic text-s0/60"><!-- PREENCHER: [biografia_adicional_fundadores] -->Venha nos visitar na Avenida Bom Jesus de Nazare, 1643, Aririu, Palhoça.</p>
+        </div>
+        <a href="https://wa.me/5548991235381" target="_blank" rel="noopener" class="inline-block mt-7 d font-bold text-sm px-7 py-3 bg-s0 hover:bg-black text-white tracking-wider transition-colors">Saiba Mais</a>
+        <div class="mt-8 flex gap-8">
+          <div><span class="d font-black text-ac block" style="font-size:2.5rem;line-height:1">9K+</span><span class="text-s0/60 text-xs uppercase tracking-wider">Seguidores<br>Instagram</span></div>
+          <div class="w-px bg-s0/15"></div>
+          <div><span class="d font-black text-ac block" style="font-size:2.5rem;line-height:1">48</span><span class="text-s0/60 text-xs uppercase tracking-wider">Posts &<br>Projetos</span></div>
+        </div>
+      </div>
+      <div class="hidden md:block h-[480px]"></div>
+    </div>
+
+    <!-- dançarina vaza dramaticamente sobre o fundo claro -->
+    <div class="dancer-float">
+      <div class="relative w-full h-full">
+        <!-- Substitua o src abaixo pelo caminho da imagem real do estúdio (PNG sem fundo dá o melhor efeito de recorte) -->
+        <img id="foto-estudio-sobre" src="bailarina.png" alt="Bailarina do Dans Studio em pose expressiva de dança" class="w-full h-full object-cover object-top shadow-2xl" />
+        <div class="absolute bottom-5 left-5 right-5">
+          <span class="d font-bold text-white text-xs tracking-widest block mb-1" style="text-shadow:0 1px 4px rgba(0,0,0,0.6)">Apenas o melhor</span>
+          <p class="d font-black text-white text-xl" style="text-shadow:0 1px 6px rgba(0,0,0,0.7)">Sinta a Batida.<br>Movimente-se.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════ 4 · GALERIA — escuro #161616 ═══════════ -->
+<section id="galeria" class="gsap-s py-20 md:py-28" style="background:#161616;position:relative;z-index:10">
+  <div class="max-w-7xl mx-auto px-6 md:px-12">
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-4">
+      <div>
+        <p class="text-ac text-[11px] font-bold tracking-widest uppercase mb-2">Movimento em Foco</p>
+        <h2 class="d font-black text-4xl md:text-5xl text-white">Nosso Vibe<br>no Dia a Dia</h2>
+        <div class="w-14 h-[3px] bg-ac mt-3"></div>
+      </div>
+      <p class="text-ts text-sm max-w-xs font-light leading-relaxed">Vislumbres das nossas turmas, ensaios e momentos de energia no estúdio.</p>
+    </div>
+    <div class="gallery grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div class="gallery-item gal-ph md:row-span-2" data-label="Foto 1" style="min-height:340px"><div class="gal-overlay"></div><!-- Imagem real: colocar o arquivo na pasta img/ --><img id="foto-galeria-1" src="galeria-1.png" alt="Aula de dança urbana no Dans Studio" class="grayscale hover:grayscale-0 transition-all duration-500" style="height:100%" /><div class="absolute bottom-4 left-4 z-10"><span class="d font-bold text-ac text-xs tracking-widest">ENERGIA</span><p class="d font-black text-white text-xl">Aulas Urbanas</p></div></div>
+      <div class="gallery-item gal-ph h-[240px]" data-label="Foto 2"><div class="gal-overlay"></div><!-- Imagem real: colocar o arquivo na pasta img/ --><img id="foto-galeria-2" src="galeria-2.png" alt="Ensaio em espaço compartilhado do Dans Studio" class="grayscale hover:grayscale-0 transition-all duration-500" style="height:100%" /><div class="absolute bottom-4 left-4 z-10"><span class="d font-bold text-ac text-xs tracking-widest">CONEXÃO</span><p class="d font-black text-white text-xl">Compartilhado</p></div></div>
+      <div class="gallery-item gal-ph h-[280px]" data-label="Foto 3"><div class="gal-overlay"></div><!-- Imagem real: colocar o arquivo na pasta img/ --><img id="foto-galeria-3" src="galeria-3.png" alt="Expressão artística em aula de dança" class="grayscale hover:grayscale-0 transition-all duration-500" style="height:100%" /><div class="absolute bottom-4 left-4 z-10"><span class="d font-bold text-ac text-xs tracking-widest">TÉCNICA</span><p class="d font-black text-white text-xl">Expressão & Arte</p></div></div>
+      <div class="gallery-item gal-ph h-[260px]" data-label="Foto 4"><div class="gal-overlay"></div><!-- Imagem real: colocar o arquivo na pasta img/ --><img id="foto-galeria-4" src="galeria-4.png" alt="Aula de dança em grupo no Dans Studio" class="grayscale hover:grayscale-0 transition-all duration-500" style="height:100%" /><div class="absolute bottom-4 left-4 z-10"><span class="d font-bold text-ac text-xs tracking-widest">UNIÃO</span><p class="d font-black text-white text-xl">Aulas em Grupo</p></div></div>
+      <div class="gallery-item gal-ph h-[260px]" data-label="Foto 5"><div class="gal-overlay"></div><!-- Imagem real: colocar o arquivo na pasta img/ --><img id="foto-galeria-5" src="galeria-5.png" alt="Estilos livres de dança no estúdio" class="grayscale hover:grayscale-0 transition-all duration-500" style="height:100%" /><div class="absolute bottom-4 left-4 z-10"><span class="d font-bold text-ac text-xs tracking-widest">PODER</span><p class="d font-black text-white text-xl">Estilos Livres</p></div></div>
+      <div class="gallery-item gal-ph h-[240px]" data-label="Foto 6"><div class="gal-overlay"></div><!-- Imagem real: colocar o arquivo na pasta img/ --><img id="foto-galeria-6" src="galeria-6.png" alt="Coreografia em apresentação do Dans Studio" class="grayscale hover:grayscale-0 transition-all duration-500" style="height:100%" /><div class="absolute bottom-4 left-4 z-10"><span class="d font-bold text-ac text-xs tracking-widest">MOVIMENTO</span><p class="d font-black text-white text-xl">Coreografias</p></div></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════ 5 · MODALIDADES — FUNDO VERMELHO + cards pretos dentro ═══════════ -->
+<section id="modalidades" class="gsap-s relative bg-ac py-20 md:py-28 overflow-hidden">
+  <div class="absolute right-[6%] top-[12%] tri tri-lg opacity-25 hidden md:block"></div>
+  <div class="absolute left-[4%] bottom-[18%] tri tri-lg opacity-20 rotate-180 hidden md:block"></div>
+
+  <div class="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+    <div class="mb-12">
+      <p class="text-s0/60 text-[11px] font-bold tracking-widest uppercase mb-2">Encontre seu Ritmo</p>
+      <h2 class="d font-black text-4xl md:text-5xl text-s0">Modalidades & Turmas</h2>
+      <div class="w-14 h-[3px] bg-s0 mt-3"></div>
+    </div>
+
+    <!-- card escuro grande sobre o vermelho -->
+    <div class="bg-s0 p-8 md:p-12 mb-8 relative">
+      <div class="absolute -left-2 top-10 tri tri-ac tri-lg"></div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+        <div class="space-y-4">
+          <h3 class="d font-black text-3xl text-white">Aulas Gratuitas de Dança</h3>
+          <p class="text-ts font-light leading-relaxed">No Dans Studio, promovemos encontros para que todas as pessoas possam sentir o prazer de dançar livremente. Nossa publicação recente confirma: <strong class="text-white font-medium">1 Mês de Aula Gratuita</strong> para primeiras inscrições.</p>
+          <p class="text-ts text-sm font-light">Teste nossas instalações, crie repertórios coreográficos e integre-se à nossa comunidade sem nenhum custo inicial.</p>
+          <!-- PREENCHER: [outros_estilos_de_aula_como_ballet_jazz_ou_hiphop] -->
+        </div>
+        <div class="space-y-3">
+          <span class="text-ac text-[10px] font-bold tracking-widest uppercase">Por que Dançar Conosco</span>
+          <ul class="space-y-3 text-sm text-ts">
+            <li class="flex items-center gap-3"><span class="tri tri-ac" style="border-left-width:12px;border-top-width:7px;border-bottom-width:7px"></span> Ambiente compartilhado e acolhedor</li>
+            <li class="flex items-center gap-3"><span class="tri tri-ac" style="border-left-width:12px;border-top-width:7px;border-bottom-width:7px"></span> Professores dedicados a cada nível</li>
+            <li class="flex items-center gap-3"><span class="tri tri-ac" style="border-left-width:12px;border-top-width:7px;border-bottom-width:7px"></span> Foco em dança, arte e expressão</li>
+          </ul>
+          <!-- PREENCHER: [detalhes_de_modalidades_adicionais] -->
+        </div>
+      </div>
+    </div>
+
+    <!-- tabela de horários: card escuro sobre o vermelho -->
+    <div class="bg-s0 p-6 md:p-10">
+      <h3 class="d font-black text-2xl text-white uppercase tracking-wider mb-8">Tudo sobre os Horários das Turmas</h3>
+      <div class="schedule-table overflow-x-auto">
+        <table class="w-full text-left" style="min-width:560px">
+          <thead><tr class="border-b border-ac/40 text-ts text-[11px] uppercase tracking-widest"><th class="pb-3 font-bold">Dia</th><th class="pb-3 font-bold">Horário</th><th class="pb-3 font-bold">Modalidade</th><th class="pb-3 font-bold">Status</th></tr></thead>
+          <tbody>
+            <!-- PREENCHER: [dados_completos_grade] -->
+            <tr class="srow text-sm"><td class="py-4 font-semibold text-white">Segunda-Feira</td><td class="py-4 font-mono text-ac">19:30 – 20:30</td><td class="py-4 font-medium text-white uppercase text-xs tracking-wide">Aula Especial de Dança</td><td class="py-4"><span class="px-2 py-1 text-green-400 text-[10px] font-bold border border-green-500/30 bg-green-500/10">Aberto</span></td></tr>
+            <tr class="srow text-sm"><td class="py-4 font-semibold text-white">Terça-Feira</td><td class="py-4 font-mono text-ac">18:00 – 19:30</td><td class="py-4 font-medium text-white uppercase text-xs tracking-wide">Dança e Arte Compartilhada</td><td class="py-4"><span class="px-2 py-1 text-green-400 text-[10px] font-bold border border-green-500/30 bg-green-500/10">Aberto</span></td></tr>
+            <tr class="srow text-sm"><td class="py-4 font-semibold text-white">Quarta-Feira</td><td class="py-4 font-mono text-ac">19:30 – 21:00</td><td class="py-4 font-medium text-white uppercase text-xs tracking-wide">Ensaios Coreográficos</td><td class="py-4"><span class="px-2 py-1 text-amber-400 text-[10px] font-bold border border-amber-500/30 bg-amber-500/10">Últimas Vagas</span></td></tr>
+            <tr class="srow text-sm"><td class="py-4 font-semibold text-white">Quinta-Feira</td><td class="py-4 font-mono text-ac">20:00 – 21:00</td><td class="py-4 font-medium text-white uppercase text-xs tracking-wide">Ritmos Urbanos Avançado</td><td class="py-4"><span class="px-2 py-1 text-green-400 text-[10px] font-bold border border-green-500/30 bg-green-500/10">Aberto</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════ 6 · DESTAQUES INSTAGRAM — escuro ═══════════ -->
+<section id="extras" class="gsap-s py-20 md:py-28" style="background:#0D0D0D;border-top:1px solid rgba(255,255,255,0.05)">
+  <div class="max-w-7xl mx-auto px-6 md:px-12">
+    <div class="mb-12 text-center">
+      <p class="text-ac text-[11px] font-bold tracking-widest uppercase mb-2">Destaques do Instagram</p>
+      <h2 class="d font-black text-4xl md:text-5xl text-white">Explore Nosso Espaço</h2>
+      <div class="w-14 h-[3px] bg-ac mt-3 mx-auto"></div>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="bg-s3 border border-white/5 p-8 group hover:border-ac/40 transition-all duration-300 relative overflow-hidden flex flex-col justify-between"><div class="absolute -right-1 top-6 tri tri-ac opacity-40 group-hover:opacity-80 transition-opacity"></div><div><div class="w-11 h-11 bg-ac/10 flex items-center justify-center d font-black text-ac text-xl mb-5">V</div><h3 class="d font-black text-xl text-white uppercase tracking-wider mb-3">Vibrando</h3><p class="text-ts text-sm font-light leading-relaxed mb-4">Assista à nossa energia em ação. Nosso destaque "Vibrando" reúne as melhores gravações espontâneas das coreografias e a animação contagiante das aulas.</p><!-- PREENCHER: [conteudo_extra_vibrando] --></div><a href="https://linktr.ee/dans.studiodedanca" target="_blank" rel="noopener" class="text-[11px] font-bold text-ts group-hover:text-ac uppercase tracking-widest flex items-center gap-2 transition-colors">Ver Stories Vibrantes <span>→</span></a></div>
+      <div class="bg-s3 border border-white/5 p-8 group hover:border-ac/40 transition-all duration-300 relative overflow-hidden flex flex-col justify-between"><div class="absolute -right-1 top-6 tri tri-ac opacity-40 group-hover:opacity-80 transition-opacity"></div><div><div class="w-11 h-11 bg-ac/10 flex items-center justify-center d font-black text-ac text-xl mb-5">D</div><h3 class="d font-black text-xl text-white uppercase tracking-wider mb-3">Depoimentos de Alunos</h3><p class="text-ts text-sm font-light leading-relaxed mb-4">O carinho e a transformação de quem faz parte da nossa história. Relatos emocionantes e toda a evolução de quem vive a experiência semanal.</p><!-- PREENCHER: [conteudo_extra_depoimentos] --></div><a href="https://linktr.ee/dans.studiodedanca" target="_blank" rel="noopener" class="text-[11px] font-bold text-ts group-hover:text-ac uppercase tracking-widest flex items-center gap-2 transition-colors">Ver Depoimentos no Insta <span>→</span></a></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════ FOOTER — fundo vermelho sólido (como o footer verde do Behance) ═══════════ -->
+<footer id="footer" class="bg-ac py-16 px-6 md:px-12 relative overflow-hidden text-s0">
+  <div class="absolute right-[8%] top-[20%] tri tri-lg opacity-25 hidden md:block"></div>
+  <div class="max-w-7xl mx-auto flex flex-col items-center text-center relative z-10">
+    <a href="#" class="flex flex-col items-center gap-2 mb-8 group">
+      <div class="w-14 h-14 bg-s0 group-hover:bg-black text-white d font-black text-3xl flex items-center justify-center transition-colors">DS</div>
+      <span class="d font-black text-2xl text-s0 tracking-widest mt-1">DANS STUDIO</span>
+      <span class="text-[10px] tracking-[0.25em] text-s0/70 font-medium uppercase -mt-1">Espaço de Arte e Dança</span>
+    </a>
+    <div class="flex flex-wrap justify-center gap-8 mb-8 text-[11px] font-bold tracking-widest uppercase text-s0">
+      <a href="https://instagram.com/dans.studi0" target="_blank" rel="noopener" class="hover:text-white transition-colors">Instagram</a>
+      <a href="https://wa.me/5548991235381" target="_blank" rel="noopener" class="hover:text-white transition-colors">WhatsApp</a>
+      <a href="https://linktr.ee/dans.studiodedanca" target="_blank" rel="noopener" class="hover:text-white transition-colors">Linktree</a>
+    </div>
+    <div class="space-y-2 mb-10 text-sm text-s0/80 font-medium">
+      <p><span class="font-bold">📍</span> Avenida Bom Jesus de Nazare, 1643, Aririu, Palhoça</p>
+      <p><span class="font-bold">📞</span> <span class="font-mono">(48) 99123-5381</span></p>
+      <p><span class="font-bold">💬</span> Somos um espaço compartilhado de dança e arte</p>
+    </div>
+    <div class="w-16 h-px bg-s0/30 mb-6"></div>
+    <p class="text-s0/50 text-xs">&copy; 2026 Dans Studio. Todos os direitos reservados. Palhoça – Aririú.</p>
+  </div>
+</footer>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  gsap.registerPlugin(ScrollTrigger);
+  gsap.from(['#nav-logo','#hero-tag','#hero-h1','#hero-pills','#hero-img'], { opacity:0, y:28, stagger:0.13, duration:0.85, ease:'power3.out' });
+  gsap.utils.toArray('.gsap-s').forEach(function(el){ gsap.from(el, { opacity:0, y:22, duration:0.75, ease:'power2.out', scrollTrigger:{ trigger:el, start:'top 87%' } }); });
+  gsap.from('.srow', { opacity:0, x:-12, stagger:0.07, duration:0.5, ease:'power2.out', scrollTrigger:{ trigger:'.schedule-table', start:'top 82%' } });
+  gsap.from('.gallery-item', { opacity:0, scale:0.96, stagger:0.09, duration:0.6, ease:'power2.out', scrollTrigger:{ trigger:'.gallery', start:'top 82%' } });
+  gsap.from('.dancer-float', { opacity:0, x:30, duration:0.9, ease:'power3.out', scrollTrigger:{ trigger:'#sobre', start:'top 80%' } });
+  gsap.utils.toArray('.tri-lg').forEach(function(t){ gsap.to(t, { rotation:'+=8', duration:4, repeat:-1, yoyo:true, ease:'sine.inOut' }); });
+});
+</script>
+
+<!--
+========================================================================================
+CAMPOS EM ABERTO — preencher com dados reais do estúdio
+========================================================================================
+1. PILLS HERO 2 e 3 — labels e links das categorias rápidas
+2. HORÁRIO PRÓXIMA AULA — confirmado pelo estúdio
+3. MODALIDADE e DIA — da próxima aula
+4. GRADE SEMANAL COMPLETA — dias, horários e nomes reais das turmas (2 tabelas)
+5. MODALIDADES DETALHADAS — ballet, jazz, contemporâneo, hip-hop etc.
+6. IMAGENS — os 8 src já apontam para a pasta img/ (formato PNG):
+   hero.png, bailarina.png, galeria-1.png a galeria-6.png (no MESMO nível do HTML)
+   ⚠️ bailarina.png deve ter FUNDO TRANSPARENTE (recortado) para o efeito de vazamento
+   Os arquivos devem ficar no MESMO nivel/pasta que este HTML.
+7. DESTAQUES INSTAGRAM — conteúdo de VIBRANDO, DEPOIMENTOS, DANS, ESPETÁCULO
+8. HISTÓRICO DO ESTÚDIO — origem e biografia dos fundadores
+========================================================================================
+-->
+</body>
+</html>
