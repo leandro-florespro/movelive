@@ -222,7 +222,7 @@
           <div id="hero-professor" class="relative w-[260px] h-[340px] sm:w-[360px] sm:h-[480px] lg:w-[400px] lg:h-[530px] z-10 filter drop-shadow-[0_20px_50px_rgba(0,0,0,0.65)]">
             <div class="absolute inset-0 rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
               <picture>
-                <img src="./luiz-davy-hero.jpg" <!-- IMAGEM: foto do Luiz Davy em pose de dança/ensino. Ideal: retrato 600x800px --> alt="Professor Luiz Davy orientando coreografia com paixão" class="w-full h-full object-cover brightness-95 hover:brightness-100 transition-all duration-700" referrerpolicy="no-referrer" />
+                <img src="./luiz-davy-hero.jpg" alt="Professor Luiz Davy orientando coreografia com paixão" class="w-full h-full object-cover brightness-95 hover:brightness-100 transition-all duration-700" referrerpolicy="no-referrer" />
               </picture>
               <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none"></div>
               <div class="absolute bottom-6 left-6 text-left">
@@ -298,7 +298,7 @@
 
           <div class="relative w-full max-w-[340px] aspect-[3/4] overflow-hidden rounded-2xl border-4 border-white shadow-2xl z-10 filter drop-shadow-[0_20px_40px_rgba(0,0,0,0.15)] bg-[#1C1C1E]">
             <picture>
-              <img src="./luiz-davy-sobre.jpg" <!-- IMAGEM: foto do Luiz Davy ensinando ou em pose profissional. Ideal: retrato 600x800px --> alt="Professor Luiz Davy Rosar Vieira" id="foto-luiz-davy-sobre" class="w-full h-full object-cover brightness-95 hover:scale-105 transition-all duration-700" referrerpolicy="no-referrer" />
+              <img src="./luiz-davy-sobre.jpg" alt="Professor Luiz Davy Rosar Vieira" id="foto-luiz-davy-sobre" class="w-full h-full object-cover brightness-95 hover:scale-105 transition-all duration-700" referrerpolicy="no-referrer" />
             </picture>
             <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent pointer-events-none"></div>
             <div class="absolute bottom-6 left-6 text-left">
@@ -721,50 +721,16 @@
         <!-- Player container -->
         <div class="relative w-full max-w-3xl mx-auto rounded-2xl overflow-hidden border border-[#C9A87A]/20 shadow-2xl shadow-black/50 bg-[#111111] video-institucional-wrapper">
 
-          <!-- ═══════════════════════════════════════════════════════
-               OPÇÃO A — Vídeo local (arquivo na raiz do projeto)
-               Descomente este bloco e comente o Bloco B para usar.
-               Substitua src por ./nome-do-video-institucional.mp4
-          ═══════════════════════════════════════════════════════ -->
-          <!--
+          <!-- Vídeo institucional — arquivo MP4 local na pasta ./video-institucional.mp4 -->
           <video
             id="video-inst"
             src="./video-institucional.mp4"
             poster="./luiz-davy-sobre.jpg"
             controls
             preload="metadata"
-            class="w-full aspect-video object-cover"
+            playsinline
+            class="w-full aspect-video object-cover bg-[#0D1F26]"
           ></video>
-          -->
-
-          <!-- ═══════════════════════════════════════════════════════
-               OPÇÃO B — Embed do YouTube (padrão ativo)
-               Substitua VIDEO_ID pelo ID do vídeo no YouTube.
-               Ex: https://youtu.be/XXXXXXXXXXX → ID = XXXXXXXXXXX
-          ═══════════════════════════════════════════════════════ -->
-          <div class="relative w-full aspect-video bg-[#0D1F26]">
-            <iframe
-              id="yt-institucional"
-              src="https://www.youtube.com/embed/<!-- PREENCHER: ID do vídeo YouTube -->?rel=0&modestbranding=1&color=white"
-              title="Luiz Davy Coreografias — Vídeo Institucional"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-              loading="lazy"
-              class="absolute inset-0 w-full h-full rounded-2xl"
-            ></iframe>
-
-            <!-- Placeholder visual enquanto o ID não está preenchido -->
-            <div id="yt-placeholder" class="absolute inset-0 flex flex-col items-center justify-center gap-4 bg-[#0D1F26] rounded-2xl">
-              <div class="w-20 h-20 rounded-full bg-[#C9A87A]/15 border border-[#C9A87A]/40 flex items-center justify-center">
-                <i data-lucide="play" class="w-9 h-9 text-[#C9A87A] ml-1"></i>
-              </div>
-              <div class="text-center">
-                <p class="text-white font-sans font-semibold text-sm">Vídeo institucional</p>
-                <p class="text-[#9A9A9A] text-xs mt-1">Substitua o ID do YouTube no código para ativar</p>
-              </div>
-            </div>
-          </div>
 
         </div>
 
@@ -863,13 +829,11 @@
           Vagas altamente limitadas a cada mês no estúdio em Palhoça. Garanta já a reserva da sua data especial para começarmos a criar juntos.
         </p>
 
-        <!-- Floating cutout overlap -->
-        <div class="relative w-full max-w-[280px] h-[150px] overflow-visible my-3">
-          <div class="absolute left-1/2 -translate-x-1/2 -translate-y-16 w-[220px] h-[220px] rounded-full overflow-hidden border-4 border-[#C9A87A] shadow-2xl z-10">
-            <picture>
-              <img src="./luiz-davy-cta.jpg" <!-- IMAGEM: foto de destaque para seção CTA. Ideal: 400x400px --> alt="Expressividade da dança por Luiz Davy" id="foto-cta" class="w-full h-full object-cover brightness-95" referrerpolicy="no-referrer" />
-            </picture>
-            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none"></div>
+        <!-- Foto circular do profissional - posicionada normalmente no fluxo -->
+        <div class="relative w-[220px] h-[220px] mx-auto my-8">
+          <div class="w-full h-full rounded-full overflow-hidden border-4 border-[#C9A87A] shadow-2xl">
+            <img src="./luiz-davy-cta.jpg" alt="Expressividade da dança por Luiz Davy" id="foto-cta" class="w-full h-full object-cover brightness-95" />
+            <div class="absolute inset-0 rounded-full bg-gradient-to-t from-black/30 to-transparent pointer-events-none"></div>
           </div>
         </div>
 
@@ -1899,17 +1863,6 @@ Gostaria de verificar datas disponíveis para começar meus ensaios!`;
         lucide.createIcons();
       }
 
-      // Esconder placeholder do YouTube quando o ID estiver preenchido
-      (function() {
-        const iframe = document.getElementById("yt-institucional");
-        const placeholder = document.getElementById("yt-placeholder");
-        if (iframe && placeholder) {
-          const src = iframe.getAttribute("src") || "";
-          if (!src.includes("PREENCHER")) {
-            placeholder.style.display = "none";
-          }
-        }
-      })();
 
     </script>
   </body>
