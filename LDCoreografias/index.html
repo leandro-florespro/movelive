@@ -1693,160 +1693,37 @@ Gostaria de verificar datas disponíveis para começar meus ensaios!`;
       });
 
       // Simple grid triggers reveals
-      gsap.from(".cards-trigger > *", {
-        scrollTrigger: {
-          trigger: ".cards-trigger",
-          start: "top 85%"
-        },
-        y: 40,
-        opacity: 0,
-        duration: 0.6,
-        stagger: 0.12,
-        ease: "power2.out"
-      });
+      gsap.set(".cards-trigger > *", { opacity: 1, y: 0, x: 0, clearProps: "transform" });
 
       // About triggers
-      gsap.from(".about-trigger-left", {
-        scrollTrigger: {
-          trigger: "#sobre",
-          start: "top 80%"
-        },
-        x: -40,
-        opacity: 0,
-        duration: 0.8,
-        ease: "power2.out"
-      });
-      gsap.from(".about-trigger-right", {
-        scrollTrigger: {
-          trigger: "#sobre",
-          start: "top 80%"
-        },
-        x: 40,
-        opacity: 0,
-        duration: 0.8,
-        ease: "power2.out"
-      });
+      gsap.set(".about-trigger-left", { opacity: 1, y: 0, x: 0, clearProps: "transform" });
+      gsap.set(".about-trigger-right", { opacity: 1, y: 0, x: 0, clearProps: "transform" });
 
       // Calculator fade trigger
-      gsap.from("#calculator-card", {
-        scrollTrigger: {
-          trigger: "#calculadora",
-          start: "top 80%"
-        },
-        y: 35,
-        opacity: 0,
-        duration: 0.7,
-        ease: "power2.out"
-      });
+      gsap.set("#calculator-card", { opacity: 1, y: 0, x: 0, clearProps: "transform" });
 
       // Packages reveals
-      gsap.from(".cards-reveal-trigger > *", {
-        scrollTrigger: {
-          trigger: ".cards-reveal-trigger",
-          start: "top 85%"
-        },
-        y: 40,
-        opacity: 0,
-        duration: 0.6,
-        stagger: 0.15,
-        ease: "power2.out"
-      });
-      gsap.from(".add-ons-trigger", {
-        scrollTrigger: {
-          trigger: ".add-ons-trigger",
-          start: "top 90%"
-        },
-        y: 30,
-        opacity: 0,
-        duration: 0.7,
-        ease: "power2.out"
-      });
+      gsap.set(".cards-reveal-trigger > *", { opacity: 1, y: 0, x: 0, clearProps: "transform" });
+      gsap.set(".add-ons-trigger", { opacity: 1, y: 0, x: 0, clearProps: "transform" });
 
       // Mosaic gallery trigger
-      gsap.from(".gallery-reveal-trigger > *", {
-        scrollTrigger: {
-          trigger: ".gallery-reveal-trigger",
-          start: "top 85%"
-        },
-        scale: 0.95,
-        opacity: 0,
-        duration: 0.5,
-        stagger: 0.08,
-        ease: "power1.out"
-      });
+      gsap.set(".gallery-reveal-trigger > *", { opacity: 1, y: 0, x: 0, clearProps: "transform" });
 
       // Timeline trigger
-      gsap.from(".timeline-reveal-trigger > *", {
-        scrollTrigger: {
-          trigger: ".timeline-reveal-trigger",
-          start: "top 85%"
-        },
-        y: 35,
-        opacity: 0,
-        duration: 0.6,
-        stagger: 0.12,
-        ease: "power2.out"
-      });
+      gsap.set(".timeline-reveal-trigger > *", { opacity: 1, y: 0, x: 0, clearProps: "transform" });
 
       // Testimonials trigger
-      gsap.from(".testimonials-reveal-trigger > *", {
-        scrollTrigger: {
-          trigger: ".testimonials-reveal-trigger",
-          start: "top 85%"
-        },
-        y: 35,
-        opacity: 0,
-        duration: 0.6,
-        stagger: 0.12,
-        ease: "power2.out"
-      });
+      gsap.set(".testimonials-reveal-trigger > *", { opacity: 1, y: 0, x: 0, clearProps: "transform" });
 
       // FAQ sticky & Accordions column trigger
-      gsap.from(".sticky-faq-trigger", {
-        scrollTrigger: {
-          trigger: "#faq",
-          start: "top 80%"
-        },
-        x: -30,
-        opacity: 0,
-        duration: 0.7,
-        ease: "power2.out"
-      });
-      gsap.from(".faq-reveal-trigger > *", {
-        scrollTrigger: {
-          trigger: ".faq-reveal-trigger",
-          start: "top 85%"
-        },
-        y: 20,
-        opacity: 0,
-        duration: 0.5,
-        stagger: 0.08,
-        ease: "power2.out"
-      });
+      gsap.set(".sticky-faq-trigger", { opacity: 1, y: 0, x: 0, clearProps: "transform" });
+      gsap.set(".faq-reveal-trigger > *", { opacity: 1, y: 0, x: 0, clearProps: "transform" });
 
       // Seção vídeo institucional
-      gsap.from(".video-institucional-wrapper", {
-        scrollTrigger: {
-          trigger: "#video-institucional",
-          start: "top 80%"
-        },
-        y: 50,
-        opacity: 0,
-        duration: 0.9,
-        ease: "power3.out"
-      });
+      gsap.set(".video-institucional-wrapper", { opacity: 1, y: 0, x: 0, clearProps: "transform" });
 
       // Ultimate CTA section
-      gsap.from(".cta-reveal-trigger", {
-        scrollTrigger: {
-          trigger: "#contato-cta",
-          start: "top 80%"
-        },
-        y: 30,
-        opacity: 0,
-        duration: 0.8,
-        ease: "power2.out"
-      });
+      gsap.set(".cta-reveal-trigger", { opacity: 1, y: 0, x: 0, clearProps: "transform" });
 
       // ─── Toggle play/pause do vídeo da galeria ───
       function toggleGalleryVideo() {
