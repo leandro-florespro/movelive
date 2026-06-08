@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Luiz Davy Coreografias | Coreógrafo e Ensaios Customizados</title>
+    <title>Luiz Davy Ensaios | Coreógrafo e Ensaios Customizados</title>
     <!-- Google Fonts: Playfair Display & Plus Jakarta Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,13 +30,13 @@
     
     <style>
       :root {
-        --bg-1: #0D1F26;
-        --bg-2: #111111;
-        --bg-3: #161616;
+        --bg-1: #0A0A0A;
+        --bg-2: #0A0A0A;
+        --bg-3: #111111;
         --bg-4: #1C1C1E;
-        --accent-gold: #C9A87A;
-        --accent-purple: #A855C8;
-        --bg-light: #F0EBE3;
+        --accent-gold: #E50914;
+        --accent-purple: #FF3838;
+        --bg-light: #FFFFFF;
       }
       html {
         scroll-behavior: smooth;
@@ -56,11 +56,11 @@
       @keyframes p-pulse {
         0%, 100% {
           transform: scale(1);
-          box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+          box-shadow: 0 0 0 0 rgba(229, 9, 20, 0.7);
         }
         50% {
           transform: scale(1.08);
-          box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+          box-shadow: 0 0 0 15px rgba(229, 9, 20, 0);
         }
       }
       .whatsapp-pulse {
@@ -70,80 +70,80 @@
         width: 8px;
       }
       ::-webkit-scrollbar-track {
-        background: #0d1f26;
+        background: #0A0A0A;
       }
       ::-webkit-scrollbar-thumb {
-        background: #C9A87A;
+        background: #E50914;
         border-radius: 4px;
       }
       ::-webkit-scrollbar-thumb:hover {
-        background: #A855C8;
+        background: #FF3838;
       }
     </style>
   </head>
-  <body class="relative overflow-x-hidden min-h-screen bg-[#111111] text-white">
+  <body class="relative overflow-x-hidden min-h-screen bg-[#0A0A0A] text-white">
 
     <!-- 1. Header (Sticky) -->
     <header id="site-header" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-transparent py-5">
       <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
         <!-- Logo -->
-        <a href="#inicio" class="flex items-center group focus:outline-none" aria-label="Luiz Davy Coreografias — página inicial">
+        <a href="#inicio" class="flex items-center group focus:outline-none" aria-label="Luiz Davy Ensaios — página inicial">
           <!-- Logo versão símbolo (ícone pequeno para header) -->
           <!-- IMAGEM: substitua src por ./logo-simbolo.png — PNG fundo transparente, altura ideal 40px -->
           <img
             src="./logo-simbolo.png"
-            alt="Luiz Davy Coreografias"
+            alt="Luiz Davy Ensaios"
             class="h-10 w-auto object-contain transition-opacity duration-300 group-hover:opacity-80"
             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
           />
           <!-- Fallback texto — exibido enquanto o logo não estiver disponível -->
           <div class="hidden flex-col" id="logo-fallback-header">
-            <span class="font-serif font-black tracking-tighter text-lg leading-none text-white group-hover:text-[#C9A87A] transition-colors uppercase">LUIZ DAVY</span>
-            <span class="font-sans text-[9px] tracking-[0.2em] uppercase text-[#CCCCCC]">Coreografias</span>
+            <span class="font-serif font-black tracking-tighter text-lg leading-none text-white group-hover:text-[#E50914] transition-colors uppercase">LUIZ DAVY</span>
+            <span class="font-sans text-[9px] tracking-[0.2em] uppercase text-[#CCCCCC]">Ensaios</span>
           </div>
         </a>
 
         <!-- Desktop Navbar -->
         <nav class="hidden lg:flex items-center gap-6">
-          <a href="#inicio" class="text-[13px] font-medium tracking-wide uppercase transition-colors hover:text-[#C9A87A] text-[#CCCCCC]">Início</a>
-          <a href="#diferenciais" class="text-[13px] font-medium tracking-wide uppercase transition-colors hover:text-[#C9A87A] text-[#CCCCCC]">Diferenciais</a>
-          <a href="#eventos" class="text-[13px] font-medium tracking-wide uppercase transition-colors hover:text-[#C9A87A] text-[#CCCCCC]">Eventos</a>
-          <a href="#sobre" class="text-[13px] font-medium tracking-wide uppercase transition-colors hover:text-[#C9A87A] text-[#CCCCCC]">Sobre</a>
-          <a href="#calculadora" class="text-[13px] font-medium tracking-wide uppercase transition-colors hover:text-[#C9A87A] text-[#CCCCCC]">Calculadora</a>
-          <a href="#pacotes" class="text-[13px] font-medium tracking-wide uppercase transition-colors hover:text-[#C9A87A] text-[#CCCCCC]">Pacotes</a>
-          <a href="#galeria" class="text-[13px] font-medium tracking-wide uppercase transition-colors hover:text-[#C9A87A] text-[#CCCCCC]">Galeria</a>
-          <a href="#como-funciona" class="text-[13px] font-medium tracking-wide uppercase transition-colors hover:text-[#C9A87A] text-[#CCCCCC]">Como Funciona</a>
-          <a href="#video-institucional" class="text-[13px] font-medium tracking-wide uppercase transition-colors hover:text-[#C9A87A] text-[#CCCCCC]">Vídeo</a>
-          <a href="#faq" class="text-[13px] font-medium tracking-wide uppercase transition-colors hover:text-[#C9A87A] text-[#CCCCCC]">FAQ</a>
+          <a href="#inicio" class="text-[13px] font-medium tracking-wide uppercase transition-colors hover:text-[#E50914] text-[#CCCCCC]">Início</a>
+          <a href="#diferenciais" class="text-[13px] font-medium tracking-wide uppercase transition-colors hover:text-[#E50914] text-[#CCCCCC]">Diferenciais</a>
+          <a href="#eventos" class="text-[13px] font-medium tracking-wide uppercase transition-colors hover:text-[#E50914] text-[#CCCCCC]">Eventos</a>
+          <a href="#sobre" class="text-[13px] font-medium tracking-wide uppercase transition-colors hover:text-[#E50914] text-[#CCCCCC]">Sobre</a>
+          <a href="#calculadora" class="text-[13px] font-medium tracking-wide uppercase transition-colors hover:text-[#E50914] text-[#CCCCCC]">Calculadora</a>
+          <a href="#pacotes" class="text-[13px] font-medium tracking-wide uppercase transition-colors hover:text-[#E50914] text-[#CCCCCC]">Pacotes</a>
+          <a href="#galeria" class="text-[13px] font-medium tracking-wide uppercase transition-colors hover:text-[#E50914] text-[#CCCCCC]">Galeria</a>
+          <a href="#como-funciona" class="text-[13px] font-medium tracking-wide uppercase transition-colors hover:text-[#E50914] text-[#CCCCCC]">Como Funciona</a>
+          <a href="#video-institucional" class="text-[13px] font-medium tracking-wide uppercase transition-colors hover:text-[#E50914] text-[#CCCCCC]">Vídeo</a>
+          <a href="#faq" class="text-[13px] font-medium tracking-wide uppercase transition-colors hover:text-[#E50914] text-[#CCCCCC]">FAQ</a>
         </nav>
 
         <!-- Desktop Call to Action -->
         <div class="hidden lg:flex items-center">
-          <a id="btn-header-whatsapp" href="#" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-5 py-2.5 rounded-full border border-[#C9A87A] bg-[#C9A87A]/10 text-[#C9A87A] hover:bg-[#C9A87A] hover:text-black font-semibold text-xs tracking-wider uppercase transition-all duration-300">
+          <a id="btn-header-whatsapp" href="#" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-5 py-2.5 rounded-full border border-white bg-transparent text-white hover:bg-white hover:text-black font-semibold text-xs tracking-wider uppercase transition-all duration-300">
             <i data-lucide="phone" class="w-3.5 h-3.5"></i>
             <span>FALAR AGORA</span>
           </a>
         </div>
 
         <!-- Mobile menu trigger -->
-        <button id="mobile-menu-trigger" class="lg:hidden text-[#C9A87A] hover:text-white focus:outline-none" aria-label="Toggle Menu">
+        <button id="mobile-menu-trigger" class="lg:hidden text-[#E50914] hover:text-white focus:outline-none" aria-label="Toggle Menu">
           <i data-lucide="menu" class="w-6 h-6"></i>
         </button>
       </div>
 
       <!-- Mobile Drawer -->
-      <div id="mobile-drawer" class="hidden lg:hidden absolute top-full left-0 w-full bg-[#0D1F26]/98 border-b border-[#C9A87A]/20 backdrop-blur-lg flex flex-col py-6 px-6 gap-4 shadow-2xl">
-        <a href="#inicio" class="mobile-nav-link py-2.5 text-sm font-semibold tracking-wide uppercase text-[#CCCCCC] hover:text-[#C9A87A] border-b border-white/5 transition-colors">Início</a>
-        <a href="#diferenciais" class="mobile-nav-link py-2.5 text-sm font-semibold tracking-wide uppercase text-[#CCCCCC] hover:text-[#C9A87A] border-b border-white/5 transition-colors">Diferenciais</a>
-        <a href="#eventos" class="mobile-nav-link py-2.5 text-sm font-semibold tracking-wide uppercase text-[#CCCCCC] hover:text-[#C9A87A] border-b border-white/5 transition-colors">Eventos</a>
-        <a href="#sobre" class="mobile-nav-link py-2.5 text-sm font-semibold tracking-wide uppercase text-[#CCCCCC] hover:text-[#C9A87A] border-b border-white/5 transition-colors">Sobre</a>
-        <a href="#calculadora" class="mobile-nav-link py-2.5 text-sm font-semibold tracking-wide uppercase text-[#CCCCCC] hover:text-[#C9A87A] border-b border-white/5 transition-colors">Calculadora</a>
-        <a href="#pacotes" class="mobile-nav-link py-2.5 text-sm font-semibold tracking-wide uppercase text-[#CCCCCC] hover:text-[#C9A87A] border-b border-white/5 transition-colors">Pacotes</a>
-        <a href="#galeria" class="mobile-nav-link py-2.5 text-sm font-semibold tracking-wide uppercase text-[#CCCCCC] hover:text-[#C9A87A] border-b border-white/5 transition-colors">Galeria</a>
-        <a href="#como-funciona" class="mobile-nav-link py-2.5 text-sm font-semibold tracking-wide uppercase text-[#CCCCCC] hover:text-[#C9A87A] border-b border-white/5 transition-colors">Como Funciona</a>
-        <a href="#video-institucional" class="mobile-nav-link py-2.5 text-sm font-semibold tracking-wide uppercase text-[#CCCCCC] hover:text-[#C9A87A] border-b border-white/5 transition-colors">Vídeo</a>
-        <a href="#faq" class="mobile-nav-link py-2.5 text-sm font-semibold tracking-wide uppercase text-[#CCCCCC] hover:text-[#C9A87A] border-b border-white/5 transition-colors">FAQ</a>
-        <a id="btn-mobile-whatsapp" href="#" target="_blank" rel="noopener noreferrer" class="mt-2 flex items-center justify-center gap-2 w-full py-3 rounded-full bg-[#C9A87A] text-[#0D1F26] hover:bg-[#A855C8] hover:text-white font-bold text-center tracking-wider uppercase transition-all duration-300">
+      <div id="mobile-drawer" class="hidden lg:hidden absolute top-full left-0 w-full bg-[#0A0A0A]/98 border-b border-[#E50914]/20 backdrop-blur-lg flex flex-col py-6 px-6 gap-4 shadow-2xl">
+        <a href="#inicio" class="mobile-nav-link py-2.5 text-sm font-semibold tracking-wide uppercase text-[#CCCCCC] hover:text-[#E50914] border-b border-white/5 transition-colors">Início</a>
+        <a href="#diferenciais" class="mobile-nav-link py-2.5 text-sm font-semibold tracking-wide uppercase text-[#CCCCCC] hover:text-[#E50914] border-b border-white/5 transition-colors">Diferenciais</a>
+        <a href="#eventos" class="mobile-nav-link py-2.5 text-sm font-semibold tracking-wide uppercase text-[#CCCCCC] hover:text-[#E50914] border-b border-white/5 transition-colors">Eventos</a>
+        <a href="#sobre" class="mobile-nav-link py-2.5 text-sm font-semibold tracking-wide uppercase text-[#CCCCCC] hover:text-[#E50914] border-b border-white/5 transition-colors">Sobre</a>
+        <a href="#calculadora" class="mobile-nav-link py-2.5 text-sm font-semibold tracking-wide uppercase text-[#CCCCCC] hover:text-[#E50914] border-b border-white/5 transition-colors">Calculadora</a>
+        <a href="#pacotes" class="mobile-nav-link py-2.5 text-sm font-semibold tracking-wide uppercase text-[#CCCCCC] hover:text-[#E50914] border-b border-white/5 transition-colors">Pacotes</a>
+        <a href="#galeria" class="mobile-nav-link py-2.5 text-sm font-semibold tracking-wide uppercase text-[#CCCCCC] hover:text-[#E50914] border-b border-white/5 transition-colors">Galeria</a>
+        <a href="#como-funciona" class="mobile-nav-link py-2.5 text-sm font-semibold tracking-wide uppercase text-[#CCCCCC] hover:text-[#E50914] border-b border-white/5 transition-colors">Como Funciona</a>
+        <a href="#video-institucional" class="mobile-nav-link py-2.5 text-sm font-semibold tracking-wide uppercase text-[#CCCCCC] hover:text-[#E50914] border-b border-white/5 transition-colors">Vídeo</a>
+        <a href="#faq" class="mobile-nav-link py-2.5 text-sm font-semibold tracking-wide uppercase text-[#CCCCCC] hover:text-[#E50914] border-b border-white/5 transition-colors">FAQ</a>
+        <a id="btn-mobile-whatsapp" href="#" target="_blank" rel="noopener noreferrer" class="mt-2 flex items-center justify-center gap-2 w-full py-3 rounded-full bg-[#E50914] text-white hover:bg-white hover:text-black font-bold text-center tracking-wider uppercase transition-all duration-300">
           <i data-lucide="phone" class="w-4 h-4"></i>
           <span>FALAR AGORA</span>
         </a>
@@ -157,7 +157,7 @@
           content: '';
           position: absolute;
           inset: 0;
-          background: #0D1F26;
+          background: #0A0A0A;
           clip-path: polygon(0 0, 100% 0, 100% 92%, 0 100%);
           z-index: 0;
           pointer-events: none;
@@ -171,41 +171,41 @@
       </div>
       <!-- Triangles -->
       <div class="absolute top-0 right-0 pointer-events-none opacity-[0.12] translate-x-4 -translate-y-4" style="z-index: 2;">
-        <div class="w-0 h-0 border-t-[200px] border-t-[#C9A87A] border-l-[200px] border-l-transparent"></div>
+        <div class="w-0 h-0 border-t-[200px] border-t-[#E50914] border-l-[200px] border-l-transparent"></div>
       </div>
       <div class="absolute bottom-12 left-0 pointer-events-none opacity-[0.15] -translate-x-12" style="z-index: 2;">
-        <div class="w-0 h-0 border-b-[250px] border-b-[#A855C8] border-r-[250px] border-r-transparent animate-[pulse_6s_infinite_ease-in-out]"></div>
+        <div class="w-0 h-0 border-b-[250px] border-b-[#FF3838] border-r-[250px] border-r-transparent animate-[pulse_6s_infinite_ease-in-out]"></div>
       </div>
 
       <div class="relative max-w-7xl mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center" style="z-index: 10;">
         <!-- Left details -->
         <div class="lg:col-span-7 flex flex-col items-start gap-6 text-left hero-reveal">
-          <div class="flex items-center gap-2 px-3 py-1 bg-[#C9A87A]/15 border border-[#C9A87A]/30 rounded-full text-[#C9A87A] text-[11px] font-bold tracking-widest uppercase">
-            <i data-lucide="sparkles" class="w-3 h-3 text-[#C9A87A]"></i>
-            <span>PALHOÇA, SC — ESTÚDIO PRÓPRIO</span>
+          <div class="flex items-center gap-2 px-3 py-1 bg-[#E50914]/15 border border-[#E50914]/30 rounded-full text-white text-[11px] font-bold tracking-widest uppercase">
+            <i data-lucide="sparkles" class="w-3 h-3 text-[#E50914]"></i>
+            <span>PALHOÇA, SC — DANS STUDIO</span>
           </div>
 
           <h1 class="text-4xl sm:text-6xl lg:text-7xl font-serif font-black text-white leading-[0.92] uppercase">
-            Transforme seu grande momento em <span class="text-[#C9A87A] block italic font-normal tracking-wide lowercase py-1">espetáculo</span>
+            Transforme seu grande momento em <span class="text-[#FF3838] block italic font-normal tracking-wide lowercase py-1">espetáculo</span>
           </h1>
 
           <p class="text-[#CCCCCC] font-sans text-sm sm:text-lg font-light leading-relaxed max-w-xl">
-            Coreografias e ensaios personalizados para casamentos, debutantes, formaturas e valsas malucas que seus convidados nunca vão esquecer.
+            Ensaios coreográficos para casamentos, 15 anos, aniversários e apresentações especiais. Cada detalhe pensado para que você viva esse momento com leveza, segurança e diversão.
           </p>
 
-          <div class="inline-flex items-center gap-2.5 px-4.5 py-2.5 rounded-full border border-[#C9A87A]/40 bg-[#1C1C1E]/90 shadow-lg">
-            <div class="w-1.5 h-1.5 rounded-full bg-[#A855C8] animate-ping"></div>
+          <div class="inline-flex items-center gap-2.5 px-4.5 py-2.5 rounded-full border border-[#E50914]/40 bg-[#1C1C1E]/90 shadow-lg">
+            <div class="w-1.5 h-1.5 rounded-full bg-[#FF3838] animate-ping"></div>
             <span class="text-xs uppercase font-bold tracking-wider text-white">
               Professor de Dança | Graduado em Educação Física
             </span>
           </div>
 
           <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto mt-2">
-            <a id="btn-hero-whatsapp" href="#" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 group px-8 py-4 rounded-full bg-[#C9A87A] text-black font-extrabold text-sm tracking-widest uppercase hover:bg-white hover:-translate-y-1 transition-all duration-300 shadow-xl">
+            <a id="btn-hero-whatsapp" href="#" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 group px-8 py-4 rounded-full bg-[#E50914] text-white font-extrabold text-sm tracking-widest uppercase hover:bg-white hover:text-black hover:-translate-y-1 transition-all duration-300 shadow-xl">
               <span>QUERO MINHA COREOGRAFIA</span>
               <i data-lucide="arrow-right" class="w-4 h-4 transition-transform group-hover:translate-x-1"></i>
             </a>
-            <a href="#pacotes" class="text-[#9A9A9A] hover:text-[#C9A87A] text-center sm:text-left transition-colors font-semibold text-xs tracking-wider uppercase py-2 animate-bounce">
+            <a href="#pacotes" class="text-[#9A9A9A] hover:text-[#E50914] text-center sm:text-left transition-colors font-semibold text-xs tracking-wider uppercase py-2 animate-bounce">
               Ver pacotes e preços ↓
             </a>
           </div>
@@ -213,10 +213,10 @@
 
         <!-- Right: Collage Photo Container -->
         <div class="lg:col-span-5 relative w-full h-[320px] sm:h-[450px] lg:h-[550px] flex items-center justify-center hero-image-reveal">
-          <div class="absolute w-[280px] h-[280px] sm:w-[400px] sm:h-[400px] rounded-full bg-gradient-to-tr from-[#0D1F26] via-[#A855C8]/20 to-[#C9A87A]/20 blur-3xl opacity-65"></div>
+          <div class="absolute w-[280px] h-[280px] sm:w-[400px] sm:h-[400px] rounded-full bg-gradient-to-tr from-[#0A0A0A] via-[#FF3838]/20 to-[#E50914]/20 blur-3xl opacity-65"></div>
           <div class="absolute inset-0 flex items-center justify-center pointer-events-none animate-[pulse_4s_infinite]">
-            <div class="w-[200px] h-[340px] border border-[#C9A87A]/25 rounded-full rotate-[35deg]"></div>
-            <div class="w-[220px] h-[320px] border border-[#A855C8]/25 rounded-full -rotate-[45deg]"></div>
+            <div class="w-[200px] h-[340px] border border-[#E50914]/25 rounded-full rotate-[35deg]"></div>
+            <div class="w-[220px] h-[320px] border border-[#FF3838]/25 rounded-full -rotate-[45deg]"></div>
           </div>
 
           <div id="hero-professor" class="relative w-[260px] h-[340px] sm:w-[360px] sm:h-[480px] lg:w-[400px] lg:h-[530px] z-10 filter drop-shadow-[0_20px_50px_rgba(0,0,0,0.65)]">
@@ -226,24 +226,24 @@
               </picture>
               <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none"></div>
               <div class="absolute bottom-6 left-6 text-left">
-                <span class="text-[10px] uppercase tracking-widest text-[#C9A87A] font-bold">PROFISSIONAL DE DANÇA</span>
+                <span class="text-[10px] uppercase tracking-widest text-[#E50914] font-bold">PROFISSIONAL DE DANÇA</span>
                 <span class="font-serif text-xl font-bold uppercase block text-white -mt-0.5">Luiz Davy</span>
               </div>
             </div>
-            <div class="absolute -inset-3.5 border border-[#C9A87A]/40 rounded-2xl -z-10 pointer-events-none rotate-2 translate-x-2 translate-y-1"></div>
+            <div class="absolute -inset-3.5 border border-[#E50914]/40 rounded-2xl -z-10 pointer-events-none rotate-2 translate-x-2 translate-y-1"></div>
           </div>
         </div>
       </div>
     </section>
 
     <!-- 3. Diferenciais Section -->
-    <section id="diferenciais" class="bg-[#C9A87A] py-16 px-6 relative z-20 select-none overflow-hidden">
+    <section id="diferenciais" class="bg-[#E50914] py-16 px-6 relative z-20 select-none overflow-hidden">
       <div class="max-w-7xl mx-auto">
         <div class="flex flex-col items-center mb-10 text-center scale-trigger">
-          <span class="text-[11px] font-extrabold tracking-widest text-[#0D1F26] uppercase">
-            POR QUE ESCOLHER LUIZ DAVY COREOGRAFIAS?
+          <span class="text-[11px] font-extrabold tracking-widest text-[#0A0A0A] uppercase">
+            POR QUE ESCOLHER LUIZ DAVY ENSAIOS?
           </span>
-          <div class="w-12 h-1 bg-[#0D1F26] mt-2 rounded-full"></div>
+          <div class="w-12 h-1 bg-[#0A0A0A] mt-2 rounded-full"></div>
         </div>
 
         <!-- Differentials Grid -->
@@ -254,7 +254,7 @@
     </section>
 
     <!-- 4. Eventos (Catálogo com Tabs) -->
-    <section id="eventos" class="relative bg-[#111111] py-20 px-6 overflow-hidden z-15" style="clip-path: polygon(0 4%, 100% 0, 100% 100%, 0 100%);">
+    <section id="eventos" class="relative bg-[#0A0A0A] py-20 px-6 overflow-hidden z-15" style="clip-path: polygon(0 4%, 100% 0, 100% 100%, 0 100%);">
       <div class="absolute inset-0 flex items-center justify-center select-none pointer-events-none">
         <span class="watermark-text font-serif font-black tracking-widest text-[#FFFFFF] opacity-[0.02] text-[10vw] md:text-[14vw] uppercase -translate-y-6">
           EVENTOS
@@ -262,18 +262,18 @@
       </div>
       <!-- Triangles -->
       <div class="absolute top-24 left-[15%] pointer-events-none opacity-10">
-        <div class="w-0 h-0 border-b-[80px] border-b-[#A855C8] border-r-[80px] border-r-transparent rotate-12"></div>
+        <div class="w-0 h-0 border-b-[80px] border-b-[#E50914] border-r-[80px] border-r-transparent rotate-12"></div>
       </div>
       <div class="absolute bottom-16 right-[10%] pointer-events-none opacity-15">
-        <div class="w-0 h-0 border-t-[120px] border-t-[#A855C8] border-l-[120px] border-l-transparent -rotate-45"></div>
+        <div class="w-0 h-0 border-t-[120px] border-t-[#FF3838] border-l-[120px] border-l-transparent -rotate-45"></div>
       </div>
 
       <div class="max-w-7xl mx-auto relative z-10 text-center">
-        <span class="text-[#C9A87A] text-xs font-black tracking-widest uppercase block mb-3">
+        <span class="text-[#E50914] text-xs font-black tracking-widest uppercase block mb-3">
           ESTILOS & APRESENTAÇÕES
         </span>
         <h2 class="text-3xl sm:text-5xl font-serif font-black text-white tracking-tighter leading-tight uppercase max-w-3xl mx-auto mb-12">
-          Para qual momento você está se <span class="text-[#A855C8] italic font-normal tracking-wide lowercase">preparando?</span>
+          Para qual momento você está se <span class="text-[#FF3838] italic font-normal tracking-wide lowercase">preparando?</span>
         </h2>
 
         <!-- Tabs container -->
@@ -289,21 +289,21 @@
     </section>
 
     <!-- 5. Sobre o Profissional (Clean / Light Background) -->
-    <section id="sobre" class="bg-[#F0EBE3] py-20 px-6 relative z-10 overflow-visible text-[#3A3A3A] select-none">
+    <section id="sobre" class="bg-white py-20 px-6 relative z-10 overflow-visible text-[#3A3A3A] select-none">
       <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
         <!-- Profile Cutout -->
         <div class="lg:col-span-5 relative flex items-center justify-center about-trigger-left">
-          <div class="absolute -inset-4 bg-[#C9A87A]/25 rounded-3xl -rotate-3 translate-x-3 translate-y-3 pointer-events-none" style="z-index: 1;"></div>
-          <div class="absolute w-[220px] h-[220px] sm:w-[320px] sm:h-[320px] bg-[#A855C8]/10 rounded-full blur-3xl pointer-events-none"></div>
+          <div class="absolute -inset-4 bg-[#E50914]/10 rounded-3xl -rotate-3 translate-x-3 translate-y-3 pointer-events-none" style="z-index: 1;"></div>
+          <div class="absolute w-[220px] h-[220px] sm:w-[320px] sm:h-[320px] bg-[#FF3838]/10 rounded-full blur-3xl pointer-events-none"></div>
 
           <div class="relative w-full max-w-[340px] aspect-[3/4] overflow-hidden rounded-2xl border-4 border-white shadow-2xl z-10 filter drop-shadow-[0_20px_40px_rgba(0,0,0,0.15)] bg-[#1C1C1E]">
             <picture>
-              <img src="./luiz-davy-sobre.jpg" alt="Professor Luiz Davy Rosar Vieira" id="foto-luiz-davy-sobre" class="w-full h-full object-cover brightness-95 hover:scale-105 transition-all duration-700" referrerpolicy="no-referrer" />
+              <img src="./luiz-davy-sobre.jpg" alt="Professor Luiz Davy" id="foto-luiz-davy-sobre" class="w-full h-full object-cover brightness-95 hover:scale-105 transition-all duration-700" referrerpolicy="no-referrer" />
             </picture>
             <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent pointer-events-none"></div>
             <div class="absolute bottom-6 left-6 text-left">
-              <span class="text-[10px] uppercase tracking-[0.25em] text-[#C9A87A] font-extrabold block">INSTRUTOR LÍDER</span>
-              <span class="font-serif text-lg font-bold text-white uppercase tracking-tight block">Luiz Davy Rosar</span>
+              <span class="text-[10px] uppercase tracking-[0.25em] text-[#E50914] font-extrabold block">INSTRUTOR LÍDER</span>
+              <span class="font-serif text-lg font-bold text-white uppercase tracking-tight block">Luiz Davy</span>
             </div>
           </div>
         </div>
@@ -311,22 +311,28 @@
         <!-- Bio text/stats -->
         <div class="lg:col-span-7 flex flex-col items-start gap-6 text-left about-trigger-right">
           <div>
-            <span class="text-[#A855C8] text-[11px] font-extrabold tracking-widest uppercase block mb-1">
+            <span class="text-[#E50914] text-[11px] font-extrabold tracking-widest uppercase block mb-1">
               SOBRE O PROFESSOR
             </span>
             <h2 class="text-3xl sm:text-5xl font-serif font-black text-[#1C1C1E] tracking-tighter uppercase leading-[0.95]">
-              Luiz Davy Rosar Vieira
+              Luiz Davy
             </h2>
           </div>
 
           <p class="font-sans text-sm sm:text-base text-[#4E4E4E] leading-relaxed font-normal">
-            Sou especialista em coreografias personalizadas e ensaios artísticos para casamentos, anniversários de 15 anos, formaturas especiais e as consagradas <strong class="text-[#111111]">valsas malucas</strong>. Atuo com uma metodologia inclusiva, projetada para pessoas sem qualquer experiência anterior com dança. Meu estúdio climatizado próprio em Palhoça garante o máximo conforto no seu aprendizado.
+            Sou professor de dança e coreógrafo com anos de experiência na criação de coreografias para casamentos, festas de 15 anos, aniversários, apresentações especiais e vídeos. Trabalho desde a montagem da coreografia até a preparação dos participantes para que se sintam seguros, confiantes e aproveitem ao máximo o grande dia.
+          </p>
+          <p class="font-sans text-sm sm:text-base text-[#4E4E4E] leading-relaxed font-normal mt-2">
+            Os ensaios podem ser realizados no <strong class="text-black">DANS Studio</strong>, um espaço climatizado, com espelhos, iluminação e estrutura adequada para facilitar o aprendizado, ou em outro local escolhido pelo cliente (mediante taxa de deslocamento).
+          </p>
+          <p class="font-sans text-sm sm:text-base text-[#4E4E4E] leading-relaxed font-normal mt-2">
+            Os horários são agendados de forma flexível, conforme a disponibilidade do grupo, normalmente em períodos noturnos e finais de semana.
           </p>
 
           <!-- Badges -->
           <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full">
-            <div class="flex items-center gap-3.5 px-4.5 py-4 rounded-xl bg-white/80 border border-black/5 shadow-sm flex-1">
-              <div class="p-2 rounded-lg bg-[#A855C8]/10 text-[#A855C8]">
+            <div class="flex items-center gap-3.5 px-4.5 py-4 rounded-xl bg-white border border-black/5 shadow-sm flex-1">
+              <div class="p-2 rounded-lg bg-[#E50914]/10 text-[#E50914]">
                 <i data-lucide="graduation-cap" class="w-5 h-5"></i>
               </div>
               <div class="flex flex-col">
@@ -335,8 +341,8 @@
               </div>
             </div>
 
-            <div class="flex items-center gap-3.5 px-4.5 py-4 rounded-xl bg-white/80 border border-black/5 shadow-sm flex-1">
-              <div class="p-2 rounded-lg bg-[#C9A87A]/15 text-[#C9A87A]">
+            <div class="flex items-center gap-3.5 px-4.5 py-4 rounded-xl bg-white border border-black/5 shadow-sm flex-1">
+              <div class="p-2 rounded-lg bg-[#FF3838]/10 text-[#FF3838]">
                 <i data-lucide="award" class="w-5 h-5"></i>
               </div>
               <div class="flex flex-col">
@@ -352,9 +358,9 @@
               PARCEIROS & REDES CREDENCIADAS
             </span>
             <div class="flex flex-wrap items-center gap-3">
-              <span class="px-3.5 py-1.5 rounded-full bg-white text-xs font-bold tracking-wide border border-black/5 text-[#4E4E4E] hover:border-[#C9A87A] hover:bg-[#C9A87A]/10 transition-colors">@pratiquefitness</span>
-              <span class="px-3.5 py-1.5 rounded-full bg-white text-xs font-bold tracking-wide border border-black/5 text-[#4E4E4E] hover:border-[#C9A87A] hover:bg-[#C9A87A]/10 transition-colors">@coreacademia</span>
-              <span class="px-3.5 py-1.5 rounded-full bg-white text-xs font-bold tracking-wide border border-black/5 text-[#4E4E4E] hover:border-[#C9A87A] hover:bg-[#C9A87A]/10 transition-colors">@dans.studi0</span>
+              <span class="px-3.5 py-1.5 rounded-full bg-white text-xs font-bold tracking-wide border border-black/5 text-[#4E4E4E] hover:border-[#E50914] hover:bg-[#E50914]/10 transition-colors">@pratiquefitness</span>
+              <span class="px-3.5 py-1.5 rounded-full bg-white text-xs font-bold tracking-wide border border-black/5 text-[#4E4E4E] hover:border-[#E50914] hover:bg-[#E50914]/10 transition-colors">@coreacademia</span>
+              <span class="px-3.5 py-1.5 rounded-full bg-white text-xs font-bold tracking-wide border border-black/5 text-[#4E4E4E] hover:border-[#E50914] hover:bg-[#E50914]/10 transition-colors animate-pulse">@dans.studi0</span>
             </div>
           </div>
 
@@ -362,22 +368,22 @@
           <div class="grid grid-cols-3 gap-4.5 w-full pt-3.5 border-t border-black/10 mt-2">
             <div class="flex flex-col">
               <div class="flex items-baseline gap-0.5">
-                <span class="font-serif font-black text-3xl sm:text-4.5xl text-[#A855C8] leading-none">8</span>
-                <span class="font-serif font-bold text-xl text-[#C9A87A] leading-none">Anos</span>
+                <span class="font-serif font-black text-3xl sm:text-4.5xl text-[#E50914] leading-none">8</span>
+                <span class="font-serif font-bold text-xl text-[#FF3838] leading-none">Anos</span>
               </div>
               <span class="text-[10px] sm:text-xs font-semibold text-[#828282] uppercase tracking-wide mt-1">Anos de Experiência</span>
             </div>
             <div class="flex flex-col">
               <div class="flex items-baseline gap-0.5">
-                <span class="font-serif font-black text-3xl sm:text-4.5xl text-[#A855C8] leading-none">150</span>
-                <span class="font-serif font-bold text-xl text-[#C9A87A] leading-none">+</span>
+                <span class="font-serif font-black text-3xl sm:text-4.5xl text-[#E50914] leading-none">150</span>
+                <span class="font-serif font-bold text-xl text-[#FF3838] leading-none">+</span>
               </div>
               <span class="text-[10px] sm:text-xs font-semibold text-[#828282] uppercase tracking-wide mt-1">Coreografias Criadas</span>
             </div>
             <div class="flex flex-col">
               <div class="flex items-baseline gap-0.5">
-                <span class="font-serif font-black text-3xl sm:text-4.5xl text-[#A855C8] leading-none">120</span>
-                <span class="font-serif font-bold text-xl text-[#C9A87A] leading-none">+</span>
+                <span class="font-serif font-black text-3xl sm:text-4.5xl text-[#E50914] leading-none">120</span>
+                <span class="font-serif font-bold text-xl text-[#FF3838] leading-none">+</span>
               </div>
               <span class="text-[10px] sm:text-xs font-semibold text-[#828282] uppercase tracking-wide mt-1">Eventos Atendidos</span>
             </div>
@@ -386,14 +392,13 @@
       </div>
     </section>
 
-    <!-- 6. Monte seu espetáculo (Simulador Interativo) -->
-    <section id="calculadora" class="bg-[#161616] py-20 px-6 relative z-10 overflow-hidden select-none">
+       <section id="calculadora" class="bg-[#111111] py-20 px-6 relative z-10 overflow-hidden select-none">
       <div class="absolute top-1/3 right-0 pointer-events-none opacity-5">
-        <div class="w-0 h-0 border-t-[300px] border-t-[#C9A87A] border-l-[300px] border-l-transparent"></div>
+        <div class="w-0 h-0 border-t-[300px] border-t-[#E50914] border-l-[300px] border-l-transparent"></div>
       </div>
 
       <div class="max-w-4xl mx-auto text-center relative z-10">
-        <span class="text-[#C9A87A] text-xs font-black tracking-widest uppercase block mb-3.5">
+        <span class="text-[#E50914] text-xs font-black tracking-widest uppercase block mb-3.5">
           SIMULADOR INTERATIVO
         </span>
         <h2 class="text-3xl sm:text-5xl font-serif font-black text-white tracking-tighter uppercase leading-tight mb-3">
@@ -406,9 +411,9 @@
         <!-- Progress Steps Bar -->
         <div class="flex items-center justify-between max-w-md mx-auto mb-10 gap-2 relative">
           <div class="absolute top-1/2 left-0 right-0 h-0.5 bg-white/5 -translate-y-1/2 -z-10"></div>
-          <div id="calc-progress-line" class="absolute top-1/2 left-0 h-0.5 bg-[#C9A87A] -translate-y-1/2 -z-10 transition-all duration-500" style="width: 0%;"></div>
+          <div id="calc-progress-line" class="absolute top-1/2 left-0 h-0.5 bg-[#E50914] -translate-y-1/2 -z-10 transition-all duration-500" style="width: 0%;"></div>
 
-          <div id="step-dot-1" class="w-9 h-9 rounded-full flex items-center justify-center font-bold text-xs border transition-all duration-500 bg-[#C9A87A] text-black border-[#C9A87A] scale-110 shadow-lg">1</div>
+          <div id="step-dot-1" class="w-9 h-9 rounded-full flex items-center justify-center font-bold text-xs border transition-all duration-500 bg-[#E50914] text-white border-[#E50914] scale-110 shadow-lg">1</div>
           <div id="step-dot-2" class="w-9 h-9 rounded-full flex items-center justify-center font-bold text-xs border transition-all duration-500 bg-[#1C1C1E] text-[#9A9A9A] border-white/10">2</div>
           <div id="step-dot-3" class="w-9 h-9 rounded-full flex items-center justify-center font-bold text-xs border transition-all duration-500 bg-[#1C1C1E] text-[#9A9A9A] border-white/10">3</div>
           <div id="step-dot-4" class="w-9 h-9 rounded-full flex items-center justify-center font-bold text-xs border transition-all duration-500 bg-[#1C1C1E] text-[#9A9A9A] border-white/10">4</div>
@@ -419,10 +424,10 @@
           <!-- STEP 1 Layout -->
           <div id="calc-step-1" class="step-view flex flex-col gap-6">
             <div>
-              <span class="text-xs text-[#A855C8] font-bold uppercase tracking-widest block mb-1">PASSO 1 DE 3</span>
+              <span class="text-xs text-[#FF3838] font-bold uppercase tracking-widest block mb-1">PASSO 1 DE 3</span>
               <h3 class="font-serif text-xl sm:text-2xl font-bold uppercase text-white">Qual tipo de evento você fará?</h3>
             </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
               <button onclick="selectCalcOption('eventType', 'Casamento')" class="opt-btn-eventType p-5 rounded-2xl border text-center transition-all duration-300 flex flex-col justify-center items-center gap-2 font-sans font-bold text-sm border-white/5 bg-[#161616]/40 text-[#CCCCCC] hover:border-white/20">
                 <i data-lucide="sparkles" class="w-5 h-5 text-white/20"></i>
                 <span>Casamento</span>
@@ -439,10 +444,9 @@
                 <i data-lucide="sparkles" class="w-5 h-5 text-white/20"></i>
                 <span>Formatura</span>
               </button>
-
             </div>
             <div class="flex justify-end gap-3 border-t border-white/5 pt-6 mt-4">
-              <button id="calc-next-1" disabled onclick="advanceStep(2)" class="flex items-center gap-2 px-6 py-3 rounded-full bg-[#C9A87A] text-black hover:bg-white font-extrabold text-xs tracking-wider uppercase disabled:opacity-40 disabled:cursor-not-allowed transition-all duration-300">
+              <button id="calc-next-1" disabled onclick="advanceStep(2)" class="flex items-center gap-2 px-6 py-3 rounded-full bg-[#E50914] text-white hover:bg-white hover:text-black font-extrabold text-xs tracking-wider uppercase disabled:opacity-40 disabled:cursor-not-allowed transition-all duration-300">
                 <span>AVANÇAR PASSO</span>
                 <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
               </button>
@@ -452,7 +456,7 @@
           <!-- STEP 2 Layout -->
           <div id="calc-step-2" class="step-view hidden flex flex-col gap-6">
             <div>
-              <span class="text-xs text-[#A855C8] font-bold uppercase tracking-widest block mb-1">PASSO 2 DE 3</span>
+              <span class="text-xs text-[#FF3838] font-bold uppercase tracking-widest block mb-1">PASSO 2 DE 3</span>
               <h3 class="font-serif text-xl sm:text-2xl font-bold uppercase text-white">Quantas pessoas participarão da dança?</h3>
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
@@ -475,7 +479,7 @@
             </div>
             <div class="flex justify-between items-center border-t border-white/5 pt-6 mt-4">
               <button onclick="advanceStep(1)" class="px-5 py-3 border border-white/10 rounded-full text-[#CCCCCC] hover:text-white hover:bg-white/5 text-xs font-bold uppercase tracking-wider transition-colors">Voltar</button>
-              <button id="calc-next-2" disabled onclick="advanceStep(3)" class="flex items-center gap-2 px-6 py-3 rounded-full bg-[#C9A87A] text-black hover:bg-white font-extrabold text-xs tracking-wider uppercase disabled:opacity-40 disabled:cursor-not-allowed transition-all duration-300">
+              <button id="calc-next-2" disabled onclick="advanceStep(3)" class="flex items-center gap-2 px-6 py-3 rounded-full bg-[#E50914] text-white hover:bg-white hover:text-black font-extrabold text-xs tracking-wider uppercase disabled:opacity-40 disabled:cursor-not-allowed transition-all duration-300">
                 <span>AVANÇAR PASSO</span>
                 <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
               </button>
@@ -485,29 +489,29 @@
           <!-- STEP 3 Layout -->
           <div id="calc-step-3" class="step-view hidden flex flex-col gap-6">
             <div>
-              <span class="text-xs text-[#A855C8] font-bold uppercase tracking-widest block mb-1">PASSO 3 DE 3</span>
+              <span class="text-xs text-[#FF3838] font-bold uppercase tracking-widest block mb-1">PASSO 3 DE 3</span>
               <h3 class="font-serif text-xl sm:text-2xl font-bold uppercase text-white">Como prefere organizar a trilha sonora?</h3>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
               <button onclick="selectCalcOption('mixagem', 'prontas')" class="opt-btn-mixagem p-6 rounded-2xl border text-left transition-all duration-300 flex flex-col gap-2 border-white/5 bg-[#161616]/40 hover:border-white/20">
-                <span class="text-xs font-semibold uppercase tracking-wider text-[#A855C8]">Trilha</span>
+                <span class="text-xs font-semibold uppercase tracking-wider text-[#FF3838]">Trilha</span>
                 <span class="text-base font-bold text-white block mt-0.5">Músicas prontas</span>
                 <span class="text-xs text-[#9A9A9A] leading-normal">Já possuo as faixas combinadas e cortadas</span>
               </button>
               <button onclick="selectCalcOption('mixagem', 'personalizada')" class="opt-btn-mixagem p-6 rounded-2xl border text-left transition-all duration-300 flex flex-col gap-2 border-white/5 bg-[#161616]/40 hover:border-white/20">
-                <span class="text-xs font-semibold uppercase tracking-wider text-[#A855C8]">Trilha</span>
+                <span class="text-xs font-semibold uppercase tracking-wider text-[#FF3838]">Trilha</span>
                 <span class="text-base font-bold text-white block mt-0.5">Mixagem personalizada</span>
                 <span class="text-xs text-[#9A9A9A] leading-normal">Preciso da criação de um mix (até 5 músicas)</span>
               </button>
               <button onclick="selectCalcOption('mixagem', 'ilimitada')" class="opt-btn-mixagem p-6 rounded-2xl border text-left transition-all duration-300 flex flex-col gap-2 border-white/5 bg-[#161616]/40 hover:border-white/20">
-                <span class="text-xs font-semibold uppercase tracking-wider text-[#A855C8]">Trilha</span>
+                <span class="text-xs font-semibold uppercase tracking-wider text-[#FF3838]">Trilha</span>
                 <span class="text-base font-bold text-white block mt-0.5">Efeitos & Mix ilimitados</span>
                 <span class="text-xs text-[#9A9A9A] leading-normal">Remix complexo com canções e transições infinitas</span>
               </button>
             </div>
             <div class="flex justify-between items-center border-t border-white/5 pt-6 mt-4">
               <button onclick="advanceStep(2)" class="px-5 py-3 border border-white/10 rounded-full text-[#CCCCCC] hover:text-white hover:bg-white/5 text-xs font-bold uppercase tracking-wider transition-colors">Voltar</button>
-              <button id="calc-next-3" disabled onclick="renderRecomendacao()" class="flex items-center gap-2 px-7 py-3.5 rounded-full bg-[#A855C8] text-white hover:bg-white hover:text-black font-extrabold text-xs tracking-wider uppercase disabled:opacity-40 disabled:cursor-not-allowed transition-all duration-300 shadow-lg">
+              <button id="calc-next-3" disabled onclick="renderRecomendacao()" class="flex items-center gap-2 px-7 py-3.5 rounded-full bg-[#E50914] text-white hover:bg-white hover:text-black font-extrabold text-xs tracking-wider uppercase disabled:opacity-40 disabled:cursor-not-allowed transition-all duration-300 shadow-lg">
                 <span>VER RECOMENDAÇÃO</span>
                 <i data-lucide="sparkles" class="w-4 h-4 ml-1"></i>
               </button>
@@ -516,22 +520,22 @@
 
           <!-- STEP 4 Layout (Recommendation) -->
           <div id="calc-step-4" class="step-view hidden flex flex-col items-center gap-6 py-4">
-            <div class="w-12 h-12 rounded-full bg-[#C9A87A]/20 flex items-center justify-center text-[#C9A87A] mb-1 border border-[#C9A87A]/40 animate-bounce">
+            <div class="w-12 h-12 rounded-full bg-[#E50914]/20 flex items-center justify-center text-[#E50914] mb-1 border border-[#E50914]/40 animate-bounce">
               <i data-lucide="sparkles" class="w-6 h-6"></i>
             </div>
             <div class="text-center">
-              <span class="text-xs uppercase tracking-[0.2em] font-extrabold text-[#A855C8] block mb-1">
+              <span class="text-xs uppercase tracking-[0.2em] font-extrabold text-[#FF3838] block mb-1">
                 RESULTADO DO SIMULADOR
               </span>
               <h3 class="font-serif text-2xl sm:text-3.5xl font-black uppercase text-white">
-                Pacote Sugerido: <span id="r-pack-name" class="text-[#C9A87A] block sm:inline">...</span>
+                Pacote Sugerido: <span id="r-pack-name" class="text-[#E50914] block sm:inline">...</span>
               </h3>
             </div>
 
-            <div class="w-full max-w-lg p-6 rounded-2xl bg-[#161616] border border-[#C9A87A]/35 text-left flex flex-col gap-4 shadow-xl">
+            <div class="w-full max-w-lg p-6 rounded-2xl bg-[#161616] border border-[#E50914]/35 text-left flex flex-col gap-4 shadow-xl">
               <div class="flex items-center justify-between border-b border-white/5 pb-3">
                 <span class="text-xs font-bold tracking-widest text-[#CCCCCC] uppercase">Estimativa base</span>
-                <span id="r-pack-price" class="text-2xl font-serif font-bold text-[#C9A87A]">...</span>
+                <span id="r-pack-price" class="text-2xl font-serif font-bold text-[#E50914]">...</span>
               </div>
               <p id="r-pack-desc" class="text-xs text-[#CCCCCC] font-sans leading-relaxed">...</p>
               <div class="flex flex-col gap-2 mt-2">
@@ -548,7 +552,7 @@
                 <i data-lucide="refresh-cw" class="w-3.5 h-3.5"></i>
                 <span>Reiniciar Filtros</span>
               </button>
-              <a id="r-whatsapp-link" href="#" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 px-8 py-4.5 rounded-full bg-[#A855C8] text-white hover:bg-[#C9A87A] hover:text-black font-extrabold text-xs tracking-wider uppercase transition-all duration-300 w-full sm:w-auto shadow-2xl">
+              <a id="r-whatsapp-link" href="#" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 px-8 py-4.5 rounded-full bg-[#E50914] text-white hover:bg-white hover:text-black font-extrabold text-xs tracking-wider uppercase transition-all duration-300 w-full sm:w-auto shadow-2xl">
                 <span>ENVIAR PROPOSTA NO WHATSAPP</span>
                 <i data-lucide="send" class="w-4 h-4 ml-1"></i>
               </a>
@@ -559,16 +563,18 @@
     </section>
 
     <!-- 7. Pacotes (Cards) -->
-    <section id="pacotes" class="bg-[#111111] py-20 px-6 relative z-10 overflow-hidden select-none">
+    <section id="pacotes" class="bg-[#0A0A0A] py-20 px-6 relative z-10 overflow-hidden select-none">
       <div class="max-w-7xl mx-auto text-center">
-        <span class="text-[#C9A87A] text-xs font-black tracking-widest uppercase block mb-3">
+        <span class="text-[#E50914] text-xs font-black tracking-widest uppercase block mb-3">
           PACOTES DISPONÍVEIS
         </span>
         <h2 class="text-3xl sm:text-5xl font-serif font-black text-white tracking-tighter uppercase mb-4">
           Escolha seu pacote
         </h2>
         <p class="text-[#9A9A9A] font-sans text-sm sm:text-base max-w-xl mx-auto mb-16 font-light">
-          <strong>5 ensaios presenciais incluídos</strong> em todos os pacotes. Ensaios no estúdio climatizado próprio em Palhoça, ou no local de sua preferência.
+          <strong>5 ensaios presenciais incluídos</strong> em todos os pacotes. Os ensaios podem ser realizados no <strong class="text-white">DANS Studio</strong>, espaço climatizado e adequado para o aprendizado em Palhoça, ou em outro local de sua preferência.
+          <br class="hidden sm:inline" />
+          <span class="text-[#FF3838] font-bold block mt-3">📅 As datas costumam ser preenchidas com antecedência, principalmente para casamentos e festas de 15 anos.</span>
         </p>
 
         <!-- Dynamic packages cards -->
@@ -578,10 +584,10 @@
 
         <!-- Adicionais Extras Table -->
         <div class="relative bg-[#1C1C1E] rounded-3xl p-6 sm:p-8 border border-white/5 text-left shadow-xl max-w-4xl mx-auto overflow-hidden add-ons-trigger">
-          <div class="absolute top-0 right-0 w-48 h-48 bg-[#A855C8]/5 rounded-full blur-3xl pointer-events-none"></div>
+          <div class="absolute top-0 right-0 w-48 h-48 bg-[#E50914]/5 rounded-full blur-3xl pointer-events-none"></div>
           <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
             <div class="md:col-span-4 flex flex-col gap-1 border-b md:border-b-0 md:border-r border-white/5 pb-4 md:pb-0 pr-4">
-              <span class="text-[10px] text-[#A855C8] font-bold tracking-widest uppercase">ADICIONAIS EXTRAS</span>
+              <span class="text-[10px] text-[#FF3838] font-bold tracking-widest uppercase">ADICIONAIS EXTRAS</span>
               <h4 class="font-serif text-xl font-bold uppercase text-white">Serviços Avulsos</h4>
               <p class="text-xs text-[#9A9A9A] leading-normal font-sans">
                 Adapte e maximize sua coreografia com recursos de acompanhamento extras.
@@ -590,31 +596,38 @@
             <div class="md:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div class="flex flex-col text-left bg-black/20 p-4 rounded-xl border border-white/5">
                 <div class="flex items-center justify-between gap-2.5 mb-1">
-                  <span class="text-xs font-bold text-white uppercase">Pessoa extra</span>
-                  <span class="text-xs font-bold text-[#C9A87A] font-mono">R$ 15 por ensaio</span>
+                  <span class="text-xs font-bold text-white uppercase">Participante extra</span>
+                  <span class="text-xs font-bold text-[#E50914] font-mono">R$ 20 / ensaio</span>
                 </div>
-                <span class="text-[10px] text-[#828282] font-sans leading-relaxed">Por participante na coreografia</span>
+                <span class="text-[10px] text-[#828282] font-sans leading-relaxed">Por participante adicional em cada ensaio</span>
               </div>
               <div class="flex flex-col text-left bg-black/20 p-4 rounded-xl border border-white/5">
                 <div class="flex items-center justify-between gap-2.5 mb-1">
-                  <span class="text-xs font-bold text-white uppercase">Ensaio extra avulso</span>
-                  <span class="text-xs font-bold text-[#C9A87A] font-mono">R$ 130 / sessão</span>
+                  <span class="text-xs font-bold text-white uppercase">Ensaio extra</span>
+                  <span class="text-xs font-bold text-[#E50914] font-mono">R$ 150</span>
                 </div>
-                <span class="text-[10px] text-[#828282] font-sans leading-relaxed">Até 1h15 adicional no estúdio</span>
+                <span class="text-[10px] text-[#828282] font-sans leading-relaxed">Sessão de ensaio extra para aperfeiçoamento</span>
               </div>
               <div class="flex flex-col text-left bg-black/20 p-4 rounded-xl border border-white/5">
                 <div class="flex items-center justify-between gap-2.5 mb-1">
-                  <span class="text-xs font-bold text-white uppercase">Remix de músicas avulso</span>
-                  <span class="text-xs font-bold text-[#C9A87A] font-mono">R$ 150 / mixagem</span>
+                  <span class="text-xs font-bold text-white uppercase">Mixagem musical avulsa</span>
+                  <span class="text-xs font-bold text-[#E50914] font-mono">R$ 180</span>
                 </div>
-                <span class="text-[10px] text-[#828282] font-sans leading-relaxed">Trabalho de edição de áudio isolado</span>
+                <span class="text-[10px] text-[#828282] font-sans leading-relaxed">Criação, edição e corte de trilha de áudio isolada</span>
               </div>
               <div class="flex flex-col text-left bg-black/20 p-4 rounded-xl border border-white/5">
                 <div class="flex items-center justify-between gap-2.5 mb-1">
-                  <span class="text-xs font-bold text-white uppercase">Deslocamento fora de Palhoça</span>
-                  <span class="text-xs font-bold text-[#C9A87A] font-mono">Taxa Variável</span>
+                  <span class="text-xs font-bold text-white uppercase">Ensaio externo fora de Palhoça</span>
+                  <span class="text-xs font-bold text-[#FF3838] font-mono">Taxa de Deslocamento</span>
                 </div>
-                <span class="text-[10px] text-[#828282] font-sans leading-relaxed">Sob consulta com base em km rodados</span>
+                <span class="text-[10px] text-[#828282] font-sans leading-relaxed">Deslocamento para cidades vizinhas</span>
+              </div>
+              <div class="flex flex-col text-left bg-black/20 p-4 rounded-xl border border-white/5 sm:col-span-2">
+                <div class="flex items-center justify-between gap-2.5 mb-1">
+                  <span class="text-xs font-bold text-white uppercase">Coreografia para grupos grandes</span>
+                  <span class="text-xs font-bold text-[#00E676] font-mono">Orçamento Personalizado</span>
+                </div>
+                <span class="text-[10px] text-[#828282] font-sans leading-relaxed">Projetos sob medida para equipes de dança, eventos empresariais ou grandes grupos</span>
               </div>
             </div>
           </div>
@@ -623,16 +636,16 @@
     </section>
 
     <!-- 8. Galeria (Trabalhos/Mosaic Layout) -->
-    <section id="galeria" class="bg-[#161616] py-20 px-6 relative z-10 select-none">
+    <section id="galeria" class="bg-[#0A0A0A] py-20 px-6 relative z-10 select-none">
       <div class="max-w-7xl mx-auto text-center">
-        <span class="text-[#C9A87A] text-xs font-black tracking-widest uppercase block mb-3">
+        <span class="text-[#E50914] text-xs font-black tracking-widest uppercase block mb-3">
           PORTFÓLIO DE RECORDAÇÕES
         </span>
         <h2 class="text-3xl sm:text-5xl font-serif font-black text-white tracking-tighter uppercase mb-4">
           Momentos reais
         </h2>
         <p class="text-[#9A9A9A] font-sans text-sm sm:text-base max-w-xl mx-auto mb-16 font-light">
-          Registros emocionantes de nossos noivos, debutantes e turmas brilhando após as semanas de ensaios no estúdio em Palhoça, SC.
+          Registros emocionantes de nossos noivos, debutantes e turmas brilhando após as semanas de ensaios no DANS Studio em Palhoça, SC.
         </p>
 
         <!-- Collage Mosaic Grid -->
@@ -643,16 +656,16 @@
     </section>
 
     <!-- 9. Como Funciona (Timeline) -->
-    <section id="como-funciona" class="bg-[#0D1F26] py-20 px-6 relative z-10 overflow-hidden select-none">
+    <section id="como-funciona" class="bg-[#0A0A0A] py-20 px-6 relative z-10 overflow-hidden select-none border-t border-white/5">
       <div class="absolute top-10 right-10 opacity-10 pointer-events-none">
-        <div class="w-0 h-0 border-b-[90px] border-b-[#A855C8] border-r-[90px] border-r-transparent rotate-45"></div>
+        <div class="w-0 h-0 border-b-[90px] border-b-[#E50914] border-r-[90px] border-r-transparent rotate-45"></div>
       </div>
       <div class="absolute bottom-10 left-10 opacity-10 pointer-events-none">
-        <div class="w-0 h-0 border-t-[90px] border-t-[#C9A87A] border-l-[90px] border-l-transparent -rotate-12"></div>
+        <div class="w-0 h-0 border-t-[90px] border-t-[#FF3838] border-l-[90px] border-l-transparent -rotate-12"></div>
       </div>
 
       <div class="max-w-7xl mx-auto text-center relative z-10">
-        <span class="text-[#C9A87A] text-xs font-black tracking-widest uppercase block mb-3">
+        <span class="text-[#E50914] text-xs font-black tracking-widest uppercase block mb-3">
           CRONOGRAMA DE PREPARAÇÃO
         </span>
         <h2 class="text-3xl sm:text-5xl font-serif font-black text-white tracking-tighter uppercase mb-4">
@@ -664,7 +677,7 @@
 
         <!-- Timeline line & items -->
         <div class="relative">
-          <div class="hidden lg:block absolute top-[50px] left-[10%] right-[10%] h-0.5 bg-gradient-to-r from-transparent via-[#C9A87A]/30 to-transparent pointer-events-none"></div>
+          <div class="hidden lg:block absolute top-[50px] left-[10%] right-[10%] h-0.5 bg-gradient-to-r from-transparent via-[#E50914]/30 to-transparent pointer-events-none"></div>
           <div id="timeline-row-container" class="grid grid-cols-1 lg:grid-cols-4 gap-12 lg:gap-8 pr-1 relative timeline-reveal-trigger">
             <!-- Populated via Javascript -->
           </div>
@@ -673,9 +686,9 @@
     </section>
 
     <!-- 10. Depoimentos -->
-    <section id="depoimentos" class="bg-[#1C1C1E] py-20 px-6 relative z-10 overflow-hidden select-none">
+    <section id="depoimentos" class="bg-[#111111] py-20 px-6 relative z-10 overflow-hidden select-none">
       <div class="max-w-7xl mx-auto text-center relative z-10">
-        <span class="text-[#C9A87A] text-xs font-black tracking-widest uppercase block mb-3">
+        <span class="text-[#E50914] text-xs font-black tracking-widest uppercase block mb-3">
           RECONHECIMENTO & SUCESSO
         </span>
         <h2 class="text-3xl sm:text-5xl font-serif font-black text-white tracking-tighter uppercase mb-4">
@@ -692,15 +705,14 @@
       </div>
     </section>
 
-
     <!-- 10.5 — Vídeo Institucional -->
-    <section id="video-institucional" class="bg-[#0D1F26] py-20 px-6 relative z-10 overflow-hidden select-none">
+    <section id="video-institucional" class="bg-[#0A0A0A] py-20 px-6 relative z-10 overflow-hidden select-none border-t border-white/5">
       <!-- Triângulos decorativos -->
       <div class="absolute top-8 right-12 pointer-events-none opacity-[0.08]">
-        <div class="w-0 h-0 border-b-[120px] border-b-[#C9A87A] border-r-[120px] border-r-transparent"></div>
+        <div class="w-0 h-0 border-b-[120px] border-b-[#E50914] border-r-[120px] border-r-transparent"></div>
       </div>
       <div class="absolute bottom-8 left-12 pointer-events-none opacity-[0.08]">
-        <div class="w-0 h-0 border-t-[100px] border-t-[#A855C8] border-l-[100px] border-l-transparent"></div>
+        <div class="w-0 h-0 border-t-[100px] border-t-[#FF3838] border-l-[100px] border-l-transparent"></div>
       </div>
       <!-- Watermark -->
       <div class="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
@@ -708,18 +720,18 @@
       </div>
 
       <div class="max-w-4xl mx-auto text-center relative z-10">
-        <span class="text-[#C9A87A] text-xs font-black tracking-widest uppercase block mb-3">
+        <span class="text-[#E50914] text-xs font-black tracking-widest uppercase block mb-3">
           CONHEÇA O PROFESSOR
         </span>
         <h2 class="text-3xl sm:text-5xl font-serif font-black text-white tracking-tighter uppercase mb-4 leading-[0.92]">
-          Luiz Davy em suas <span class="text-[#A855C8] italic font-normal lowercase tracking-wide">próprias palavras</span>
+          Luiz Davy em suas <span class="text-[#FF3838] italic font-normal lowercase tracking-wide">próprias palavras</span>
         </h2>
         <p class="text-[#9A9A9A] font-sans text-sm sm:text-base max-w-xl mx-auto mb-12 font-light">
-          Assista e entenda a metodologia, o espaço e a paixão por trás de cada ensaio no estúdio em Palhoça.
+          Assista e entenda a metodologia, o espaço e a paixão por trás de cada ensaio no DANS Studio em Palhoça.
         </p>
 
         <!-- Player container -->
-        <div class="relative w-full max-w-3xl mx-auto rounded-2xl overflow-hidden border border-[#C9A87A]/20 shadow-2xl shadow-black/50 bg-[#111111] video-institucional-wrapper">
+        <div class="relative w-full max-w-3xl mx-auto rounded-2xl overflow-hidden border border-[#E50914]/20 shadow-2xl shadow-black/50 bg-[#111111] video-institucional-wrapper">
 
           <!-- Vídeo institucional — arquivo MP4 local na pasta ./video-institucional.mp4 -->
           <video
@@ -729,7 +741,7 @@
             controls
             preload="metadata"
             playsinline
-            class="w-full aspect-video object-cover bg-[#0D1F26]"
+            class="w-full aspect-video object-cover bg-[#0A0A0A]"
           ></video>
 
         </div>
@@ -737,13 +749,13 @@
         <!-- CTA abaixo do vídeo -->
         <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
           <a href="https://www.instagram.com/luizdavy88" target="_blank" rel="noopener noreferrer"
-            class="flex items-center gap-2 px-6 py-3 rounded-full border border-[#C9A87A]/40 text-[#C9A87A] hover:bg-[#C9A87A]/10 font-bold text-xs tracking-widest uppercase transition-all duration-300">
+            class="flex items-center gap-2 px-6 py-3 rounded-full border border-white/40 text-white hover:bg-white/10 font-bold text-xs tracking-widest uppercase transition-all duration-300">
             <i data-lucide="instagram" class="w-4 h-4"></i>
             <span>Ver mais vídeos no Instagram</span>
           </a>
           <a href="https://wa.me/5548991347954?text=Ol%C3%A1%20Luiz%20Davy%21%20Assisti%20seu%20v%C3%ADdeo%20e%20quero%20saber%20mais%20sobre%20as%20coreografias."
             target="_blank" rel="noopener noreferrer"
-            class="flex items-center gap-2 px-6 py-3 rounded-full bg-[#A855C8] text-white hover:bg-[#C9A87A] hover:text-black font-bold text-xs tracking-widest uppercase transition-all duration-300 shadow-lg">
+            class="flex items-center gap-2 px-6 py-3 rounded-full bg-[#E50914] text-white hover:bg-white hover:text-black font-bold text-xs tracking-widest uppercase transition-all duration-300 shadow-lg">
             <i data-lucide="send" class="w-4 h-4"></i>
             <span>Falar com o Luiz Davy</span>
           </a>
@@ -769,11 +781,11 @@
           </div>
 
           <div class="w-full bg-[#1C1C1E] rounded-2xl p-6 border border-white/5 shadow-xl flex flex-col gap-4.5">
-            <span class="text-xs uppercase font-extrabold tracking-wider text-[#A855C8] block border-b border-white/5 pb-2">
+            <span class="text-xs uppercase font-extrabold tracking-wider text-[#FF3838] block border-b border-white/5 pb-2">
               Não encontrou sua resposta?
             </span>
             <div class="flex items-center gap-3">
-              <div class="p-2 bg-[#0D1F26] rounded-lg text-[#C9A87A]">
+              <div class="p-2 bg-[#E50914]/15 rounded-lg text-[#E50914]">
                 <i data-lucide="clock" class="w-4 h-4"></i>
               </div>
               <div class="flex flex-col">
@@ -782,7 +794,7 @@
               </div>
             </div>
             <div class="flex items-center gap-3">
-              <div class="p-2 bg-[#0D1F26] rounded-lg text-[#C9A87A]">
+              <div class="p-2 bg-[#E50914]/15 rounded-lg text-[#E50914]">
                 <i data-lucide="map-pin" class="w-4 h-4"></i>
               </div>
               <div class="flex flex-col">
@@ -792,7 +804,7 @@
             </div>
 
             <!-- support Button -->
-            <a id="btn-support-whatsapp" href="#" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 w-full py-4.5 rounded-xl bg-[#C9A87A]/10 text-[#C9A87A] hover:bg-[#C9A87A] hover:text-black font-sans font-bold text-xs tracking-wider uppercase border border-[#C9A87A]/30 transition-all duration-300">
+            <a id="btn-support-whatsapp" href="#" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 w-full py-4.5 rounded-xl bg-transparent text-white hover:bg-white hover:text-black hover:border-white font-sans font-bold text-xs tracking-wider uppercase border border-white/35 transition-all duration-300">
               <i data-lucide="phone" class="w-3.5 h-3.5"></i>
               <span>Chamar no WhatsApp</span>
             </a>
@@ -807,7 +819,7 @@
     </section>
 
     <!-- 12. CTA Impact -->
-    <section id="contato-cta" class="bg-[#A855C8] py-24 px-6 relative overflow-visible z-20 text-white text-center select-none">
+    <section id="contato-cta" class="bg-[#E50914] py-24 px-6 relative overflow-visible z-20 text-white text-center select-none">
       <!-- Triangle elements -->
       <div class="absolute top-4 left-6 pointer-events-none opacity-[0.15]">
         <div class="w-0 h-0 border-b-[180px] border-b-black border-r-[180px] border-r-transparent"></div>
@@ -817,8 +829,8 @@
       </div>
 
       <div class="max-w-4xl mx-auto relative z-10 flex flex-col items-center gap-6 cta-reveal-trigger">
-        <div class="flex items-center gap-2 px-3 py-1 bg-black/15 border border-white/20 rounded-full text-white text-[11px] font-bold tracking-widest uppercase">
-          <i data-lucide="sparkles" class="w-3.5 h-3.5 text-[#C9A87A]"></i>
+        <div class="flex items-center gap-2 px-3 py-1 bg-black/20 border border-white/10 rounded-full text-white text-[11px] font-bold tracking-widest uppercase">
+          <i data-lucide="sparkles" class="w-3.5 h-3.5 text-[#FF3838]"></i>
           <span>GARANTA SUA DATA COMPATÍVEL</span>
         </div>
 
@@ -826,19 +838,19 @@
           Seu grande dia merece uma coreografia à altura
         </h2>
         <p class="text-white/85 font-sans text-sm sm:text-base max-w-md mx-auto font-light leading-relaxed">
-          Vagas altamente limitadas a cada mês no estúdio em Palhoça. Garanta já a reserva da sua data especial para começarmos a criar juntos.
+          Vagas altamente limitadas a cada mês no DANS Studio em Palhoça. Garanta já a reserva da sua data especial para começarmos a criar juntos.
         </p>
 
         <!-- Foto circular do profissional - posicionada normalmente no fluxo -->
         <div class="relative w-[220px] h-[220px] mx-auto my-8">
-          <div class="w-full h-full rounded-full overflow-hidden border-4 border-[#C9A87A] shadow-2xl">
+          <div class="w-full h-full rounded-full overflow-hidden border-4 border-white shadow-2xl">
             <img src="./luiz-davy-cta.jpg" alt="Expressividade da dança por Luiz Davy" id="foto-cta" class="w-full h-full object-cover brightness-95" />
             <div class="absolute inset-0 rounded-full bg-gradient-to-t from-black/30 to-transparent pointer-events-none"></div>
           </div>
         </div>
 
         <div class="mt-8 w-full sm:w-auto">
-          <a id="btn-cta-whatsapp" href="#" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-3 px-10 py-5 rounded-full bg-[#C9A87A] hover:bg-white text-black font-black text-xs sm:text-sm tracking-widest uppercase transition-all duration-300 shadow-2xl hover:-translate-y-1">
+          <a id="btn-cta-whatsapp" href="#" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-3 px-10 py-5 rounded-full bg-white hover:bg-black hover:text-white text-black font-black text-xs sm:text-sm tracking-widest uppercase transition-all duration-300 shadow-2xl hover:-translate-y-1">
             <span>Falar com Luiz Davy Agora</span>
             <i data-lucide="send" class="w-4 h-4 ml-0.5"></i>
           </a>
@@ -850,26 +862,25 @@
     <footer class="bg-[#0A0A0A] py-16 px-6 relative z-10 text-white select-none border-t border-white/5">
       <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12">
         <div class="lg:col-span-4 flex flex-col items-start gap-4 text-left">
-          <a href="#inicio" class="flex items-start group focus:outline-none" aria-label="Luiz Davy Coreografias — topo da página">
+          <a href="#inicio" class="flex items-start group focus:outline-none" aria-label="Luiz Davy Ensaios — topo da página">
             <!-- Logo versão completa (símbolo + nome) para o footer -->
-            <!-- IMAGEM: substitua src por ./logo-completo.png — PNG fundo transparente, largura ideal 180px -->
             <img
               src="./logo-completo.png"
-              alt="Luiz Davy Coreografias"
+              alt="Luiz Davy Ensaios"
               class="h-14 w-auto object-contain transition-opacity duration-300 group-hover:opacity-80"
               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
             />
             <!-- Fallback texto -->
             <div class="hidden flex-col" id="logo-fallback-footer">
-              <span class="font-serif font-black tracking-tighter text-base leading-none text-white uppercase group-hover:text-[#C9A87A] transition-colors">LUIZ DAVY</span>
-              <span class="font-sans text-[8px] tracking-[0.2em] uppercase text-[#CCCCCC]">Coreografias</span>
+              <span class="font-serif font-black tracking-tighter text-base leading-none text-white uppercase group-hover:text-[#E50914] transition-colors">LUIZ DAVY</span>
+              <span class="font-sans text-[8px] tracking-[0.2em] uppercase text-[#CCCCCC]">Ensaios</span>
             </div>
           </a>
           <p class="text-xs text-[#9A9A9A] font-sans leading-relaxed max-w-sm mt-1">
-            Coreografias e ensaios artísticos personalizados em Palhoça, Santa Catarina. Transformando ansiedade em posts e eventos memoráveis com elegância, técnica e carisma cênico.
+            Luiz Davy Ensaios. Ensaios artísticos personalizados no DANS Studio em Palhoça, Santa Catarina. Transformando sua preparação em momentos memoráveis e elegantes.
           </p>
           <div class="flex items-center gap-3.5 mt-2">
-            <a href="https://www.instagram.com/luizdavy88" target="_blank" rel="noopener noreferrer" class="p-2.5 rounded-full bg-white/5 text-[#CCCCCC] hover:bg-[#C9A87A]/15 hover:text-[#C9A87A] border border-white/5 hover:border-[#C9A87A]/30 transition-all duration-300" aria-label="Instagram de Luiz Davy">
+            <a href="https://www.instagram.com/luizdavy88" target="_blank" rel="noopener noreferrer" class="p-2.5 rounded-full bg-white/5 text-[#CCCCCC] hover:bg-[#E50914]/15 hover:text-[#E50914] border border-white/5 hover:border-[#E50914]/30 transition-all duration-300" aria-label="Instagram de Luiz Davy">
               <i data-lucide="instagram" class="w-4 h-4"></i>
             </a>
           </div>
@@ -877,30 +888,30 @@
 
         <div class="lg:col-span-5 grid grid-cols-2 gap-4 text-left">
           <div class="flex flex-col gap-3">
-            <span class="text-[10px] uppercase font-bold tracking-widest text-[#C9A87A]">Menu Principal</span>
-            <a href="#inicio" class="text-xs text-[#CCCCCC] hover:text-[#C9A87A] transition-colors uppercase font-medium tracking-wider">Início</a>
-            <a href="#diferenciais" class="text-xs text-[#CCCCCC] hover:text-[#C9A87A] transition-colors uppercase font-medium tracking-wider">Diferenciais</a>
-            <a href="#eventos" class="text-xs text-[#CCCCCC] hover:text-[#C9A87A] transition-colors uppercase font-medium tracking-wider">Eventos</a>
-            <a href="#sobre" class="text-xs text-[#CCCCCC] hover:text-[#C9A87A] transition-colors uppercase font-medium tracking-wider">Sobre Luiz Davy</a>
+            <span class="text-[10px] uppercase font-bold tracking-widest text-[#E50914]">Menu Principal</span>
+            <a href="#inicio" class="text-xs text-[#CCCCCC] hover:text-[#E50914] transition-colors uppercase font-medium tracking-wider">Início</a>
+            <a href="#diferenciais" class="text-xs text-[#CCCCCC] hover:text-[#E50914] transition-colors uppercase font-medium tracking-wider">Diferenciais</a>
+            <a href="#eventos" class="text-xs text-[#CCCCCC] hover:text-[#E50914] transition-colors uppercase font-medium tracking-wider">Eventos</a>
+            <a href="#sobre" class="text-xs text-[#CCCCCC] hover:text-[#E50914] transition-colors uppercase font-medium tracking-wider">Sobre Luiz Davy</a>
           </div>
           <div class="flex flex-col gap-3">
-            <span class="text-[10px] uppercase font-bold tracking-widest text-[#A855C8]">Atalhos</span>
-            <a href="#calculadora" class="text-xs text-[#CCCCCC] hover:text-[#C9A87A] transition-colors uppercase font-medium tracking-wider">Calculadora</a>
-            <a href="#pacotes" class="text-xs text-[#CCCCCC] hover:text-[#C9A87A] transition-colors uppercase font-medium tracking-wider">Pacotes</a>
-            <a href="#galeria" class="text-xs text-[#CCCCCC] hover:text-[#C9A87A] transition-colors uppercase font-medium tracking-wider">Galeria</a>
-            <a href="#faq" class="text-xs text-[#CCCCCC] hover:text-[#C9A87A] transition-colors uppercase font-medium tracking-wider">Perguntas FAQ</a>
+            <span class="text-[10px] uppercase font-bold tracking-widest text-[#FF3838]">Atalhos</span>
+            <a href="#calculadora" class="text-xs text-[#CCCCCC] hover:text-[#E50914] transition-colors uppercase font-medium tracking-wider">Calculadora</a>
+            <a href="#pacotes" class="text-xs text-[#CCCCCC] hover:text-[#E50914] transition-colors uppercase font-medium tracking-wider">Pacotes</a>
+            <a href="#galeria" class="text-xs text-[#CCCCCC] hover:text-[#E50914] transition-colors uppercase font-medium tracking-wider">Galeria</a>
+            <a href="#faq" class="text-xs text-[#CCCCCC] hover:text-[#E50914] transition-colors uppercase font-medium tracking-wider">Perguntas FAQ</a>
           </div>
         </div>
 
         <div class="lg:col-span-3 flex flex-col items-start gap-3.5 text-left">
-          <span class="text-[10px] uppercase font-bold tracking-widest text-[#C9A87A]">Contatos & Localização</span>
+          <span class="text-[10px] uppercase font-bold tracking-widest text-[#E50914]">Contatos & Localização</span>
           <div class="flex items-center gap-3 text-xs text-[#CCCCCC]">
-            <i data-lucide="map-pin" class="w-4 h-4 text-[#A855C8] shrink-0"></i>
-            <span>Palhoça, Santa Catarina, SC<br />Estúdio Climatizado Próprio</span>
+            <i data-lucide="map-pin" class="w-4 h-4 text-[#FF3838] shrink-0"></i>
+            <span>Palhoça, Santa Catarina, SC<br />DANS Studio Climatizado</span>
           </div>
           <div class="flex items-center gap-3 text-xs text-[#CCCCCC] mt-1">
-            <i data-lucide="phone" class="w-4 h-4 text-[#C9A87A] shrink-0"></i>
-            <a id="footer-whatsapp-number-link" href="#" target="_blank" rel="noopener noreferrer" class="hover:text-[#C9A87A] transition-colors font-mono">(48) 99134-7954</a>
+            <i data-lucide="phone" class="w-4 h-4 text-[#E50914] shrink-0"></i>
+            <a id="footer-whatsapp-number-link" href="#" target="_blank" rel="noopener noreferrer" class="hover:text-[#E50914] transition-colors font-mono">(48) 99134-7954</a>
           </div>
           <div class="flex items-center gap-3 text-xs text-[#CCCCCC]">
             <i data-lucide="mail" class="w-4 h-4 text-white/30 shrink-0"></i>
@@ -910,7 +921,7 @@
       </div>
 
       <div class="max-w-7xl mx-auto border-t border-white/5 pt-8 mt-12 flex flex-col sm:flex-row items-center justify-between text-xs text-[#9A9A9A] gap-4">
-        <span>&copy; <span id="current-year">2026</span> Luiz Davy Coreografias. Todos os direitos reservados.</span>
+        <span>&copy; <span id="current-year">2026</span> Luiz Davy Ensaios. Todos os direitos reservados.</span>
         <span>Desenvolvido com design premium de alta conversão</span>
       </div>
     </footer>
@@ -936,7 +947,7 @@
         {
           id: "studio",
           icon: "home",
-          title: "Estúdio Próprio",
+          title: "DANS Studio",
           description: "Ambiente climatizado, com som integrado, iluminação cênica e espelhos amplos em Palhoça, SC."
         },
         {
@@ -955,7 +966,7 @@
           id: "travel",
           icon: "map-pin",
           title: "Atendimento Local",
-          description: "Ensaios no estúdio próprio ou possibilidade de deslocamento até o local do seu evento cênico."
+          description: "Ensaios no DANS Studio ou possibilidade de deslocamento até o local do seu evento cênico."
         }
       ];
 
@@ -1007,54 +1018,53 @@
             "Roteiro cênico para descida da escada e poses"
           ],
           imageUrl: "./evento-formatura.jpg"
-        },
-              ];
+        }
+      ];
 
       const PACKAGES = [
         {
-          id: "classico",
-          name: "Clássico",
-          price: 650,
+          id: "essencial",
+          name: "Essencial",
+          price: 790,
           highlightText: "",
-          accentColor: "#C9A87A",
-          description: "Perfeito para casais ou debutantes que desejam uma coreografia elegante, clássica e objetiva.",
+          accentColor: "#E50914",
+          description: "Para quem deseja uma apresentação elegante, organizada e bem ensaiada. Ideal para casais, debutantes e apresentações mais tradicionais.",
           bulletPoints: [
-            "5 ensaios presenciais de até 1h no estúdio próprio",
-            "Até 4 pessoas integradas na coreografia",
-            "Montagem com até 3 músicas selecionadas",
-            "Suas músicas devem ser entregues prontas",
-            "Suporte via WhatsApp para dúvidas e treino"
+            "5 ensaios de até 1 hora",
+            "Até 4 participantes",
+            "Coreografia com até 3 músicas",
+            "Atendimento e suporte durante todo o processo"
           ]
         },
         {
-          id: "mix",
-          name: "Mix",
-          price: 800,
+          id: "premium",
+          name: "Premium",
+          price: 990,
           highlightText: "Mais Popular",
-          accentColor: "#A855C8",
-          description: "Ideal para quem quer surpreender todos os convidados com coreografias dinâmicas e marcantes.",
+          accentColor: "#FFFFFF",
+          description: "Mais criatividade, mais impacto e uma apresentação ainda mais marcante. Ideal para quem deseja surpreender os convidados.",
           bulletPoints: [
-            "5 ensaios presenciais de até 1h15 no estúdio próprio",
-            "Até 6 pessoas integradas na coreografia",
-            "Mixagem profissional de até 5 músicas inclusa",
-            "Criação de transições corporais personalizadas",
-            "Vídeo 'gabarito' gravado no ensaio para treinar"
+            "5 ensaios de até 1h15",
+            "Até 6 participantes",
+            "Mixagem de até 5 músicas incluída",
+            "Coreografia personalizada de acordo com o perfil do evento",
+            "Maior variedade de movimentos e transições"
           ]
         },
         {
-          id: "show",
-          name: "Show",
-          price: 1100,
+          id: "experience",
+          name: "Experience",
+          price: 1390,
           highlightText: "Mais Completo",
-          accentColor: "#C9A87A",
-          description: "Para quem quer transformar a pista de dança em um verdadeiro espetáculo profissional memorável.",
+          accentColor: "#E50914",
+          description: "Uma experiência completa para quem quer transformar a dança em um dos pontos altos do evento. Perfeito para apresentações especiais, valsas malucas e performances com vários participantes.",
           bulletPoints: [
-            "5 ensaios presenciais estendidos de até 1h30",
-            "Até 8 pessoas integradas na coreografia especial",
-            "Mixagem profissional com trilhas e efeitos ilimitados",
-            "Estilos de dança variados com ricas transições",
-            "1 ensaio externo de posicionamento no local ideal",
-            "Orientação de postura cênica para foto e vídeo"
+            "5 ensaios de até 1h30",
+            "Até 8 participantes",
+            "Mixagem musical personalizada",
+            "Quantidade ilimitada de músicas",
+            "Transições criativas entre estilos",
+            "1 ensaio no local da apresentação (Palhoça)"
           ]
         }
       ];
@@ -1074,7 +1084,7 @@
           imageUrl: "./evento-debutante.jpg",
           spanClass: "md:col-span-1 md:row-span-1"
         },
-                {
+        {
           id: "galeria-4",
           title: "Abertura de Pista Formandos",
           category: "Formatura",
@@ -1083,7 +1093,7 @@
         },
         {
           id: "galeria-5",
-          title: "Ensaio em Estúdio Climatizado",
+          title: "Ensaio em DANS Studio Climatizado",
           category: "Bastidores",
           imageUrl: "./galeria-5.jpg",
           spanClass: "md:col-span-1 md:row-span-1"
@@ -1111,7 +1121,7 @@
         {
           num: "03",
           title: "Ensaios & Passos",
-          desc: "Encontros imersivos de aprendizagem no estúdio próprio climatizado em Palhoça até o movimento perfeito."
+          desc: "Encontros imersivos de aprendizagem no DANS Studio climatizado em Palhoça até o movimento perfeito."
         },
         {
           num: "04",
@@ -1126,7 +1136,7 @@
           name: "Mariana & Carlos Silveira",
           role: "Noivos de 2025",
           event: "Casamento em Palhoça",
-          text: "O Luiz transformou o nosso medo de dançar em um momento inesquecível! Fizemos o Pacote Mix e nossos convidados riram, choraram e foram ao delírio com as transições de ritmos. O estúdio dele é perfeito e o suporte foi incrível.",
+          text: "O Luiz transformou o nosso medo de dançar em um momento inesquecível! Fizemos o Pacote Premium e nossos convidados riram, choraram e foram ao delírio com as transições de ritmos. O DANS Studio dele é perfeito e o suporte foi incrível.",
           avatarUrl: "./depoimento-1.jpg",
           rating: 5
         },
@@ -1144,7 +1154,7 @@
           name: "Guilherme & Amigos",
           role: "Líder de Turma",
           event: "Formatura de Administração",
-          text: "Dançar na formatura foi uma super surpresa para a plateia. Contratamos o Show e o Luiz inclusive foi até o conselho ensaiar no palco do teatro. A paciência dele para ensinar 8 pessoas duras de ritmo é de outro mundo! Super recomendado.",
+          text: "Dançar na formatura foi uma super surpresa para a plateia. Contratamos o Pacote Experience e o Luiz inclusive foi até o conselho ensaiar no palco do teatro. A paciência dele para ensinar 8 pessoas duras de ritmo é de outro mundo! Super recomendado.",
           avatarUrl: "./depoimento-3.jpg",
           rating: 5
         }
@@ -1174,7 +1184,7 @@
         {
           id: "faq-5",
           question: "Consigo fazer a mixagem das músicas com você mesmo tendo as faixas separadas?",
-          answer: "Sim! No pacote Mix e Show a mixagem profissional de áudio já está inclusa sem custos extras. Você seleciona as canções, define as marcações de minutos aproximadas que deseja e o Luiz fará o corte profissional, inserindo efeitos cênicos de transição de impacto."
+          answer: "Sim! Nos pacotes Premium e Experience a mixagem profissional de áudio já está inclusa sem custos extras. Você seleciona as canções, define as marcações de minutos aproximadas que deseja e o Luiz fará o corte profissional, inserindo efeitos cênicos de transição de impacto."
         },
         {
           id: "faq-6",
@@ -1187,7 +1197,7 @@
       document.getElementById("btn-header-whatsapp").href = getWhatsAppUrl("Olha, Luiz Davy! Gostei do seu estúdio e gostaria de agendar uma conversa sobre meu evento.");
       document.getElementById("btn-mobile-whatsapp").href = getWhatsAppUrl("Olha, Luiz Davy! Gostei do seu estúdio e gostaria de agendar uma conversa sobre meu evento.");
       document.getElementById("btn-hero-whatsapp").href = getWhatsAppUrl("Olá Luiz Davy! Vi sua página e quero entender como funciona a coreografia para meu evento.");
-      document.getElementById("btn-support-whatsapp").href = getWhatsAppUrl("Olá Luiz Davy! Lir as perguntas freqüentes, mas gostaria de esclarecer dúvidas sobre os planos...");
+      document.getElementById("btn-support-whatsapp").href = getWhatsAppUrl("Olá Luiz Davy! Li as perguntas frequentes, mas gostaria de esclarecer dúvidas sobre os planos...");
       document.getElementById("btn-cta-whatsapp").href = getWhatsAppUrl("Olá Luiz Davy! Vagas limitadas: gostaria de verificar sua disponibilidade de datas e agendar as minhas coreografias!");
       document.getElementById("footer-whatsapp-number-link").href = getWhatsAppUrl("Olá Luiz Davy!");
       document.getElementById("btn-floating-whatsapp").href = getWhatsAppUrl("Olá Luiz Davy! Gostaria de esclarecer algumas dúvidas sobre as coreografias e ensaios.");
@@ -1199,11 +1209,11 @@
       const diffContainer = document.getElementById("differentials-container");
       DIFFERENTIALS.forEach((item) => {
         diffContainer.innerHTML += `
-          <div class="card-item bg-[#1C1C1E] p-8 rounded-2xl border border-[#C9A87A]/30 flex flex-col items-start gap-4 hover:border-white/30 hover:-translate-y-1.5 transition-all duration-300 shadow-2xl">
-            <div class="p-3 bg-[#0D1F26] rounded-xl border border-[#C9A87A]/20">
-              <i data-lucide="${item.icon}" class="w-6 h-6 text-[#C9A87A]"></i>
+          <div class="card-item bg-[#1C1C1E] p-8 rounded-2xl border border-white/5 flex flex-col items-start gap-4 hover:border-[#E50914]/40 hover:-translate-y-1.5 transition-all duration-300 shadow-2xl">
+            <div class="p-3 bg-[#E50914]/10 rounded-xl border border-[#E50914]/20">
+              <i data-lucide="${item.icon}" class="w-6 h-6 text-[#E50914]"></i>
             </div>
-            <h3 class="font-sans font-bold text-lg text-[#C9A87A] tracking-tight uppercase">${item.title}</h3>
+            <h3 class="font-sans font-bold text-lg text-white tracking-tight uppercase">${item.title}</h3>
             <p class="font-sans text-xs sm:text-sm text-[#CCCCCC] leading-relaxed text-left">${item.description}</p>
           </div>
         `;
@@ -1212,54 +1222,70 @@
       // Render Packages Cards
       const packCardsRow = document.getElementById("packages-cards-row");
       PACKAGES.forEach((pack) => {
-        const isMix = pack.id === "mix";
-        const isShow = pack.id === "show";
-        let cardClasses = "relative bg-[#1C1C1E] p-8 sm:p-10 rounded-3xl border text-left flex flex-col justify-between transition-all duration-300 shadow-xl ";
-        if (isShow) {
-          cardClasses += "border-2 border-[#C9A87A] scale-[1.02] shadow-2xl shadow-[#C9A87A]/5";
-        } else if (isMix) {
-          cardClasses += "border-t-[#A855C8] border-t-4 border-white/5 hover:border-white/10";
+        const isMix = pack.id === "premium";
+        const isShow = pack.id === "experience";
+        let cardClasses = "relative p-8 sm:p-10 rounded-3xl border text-left flex flex-col justify-between transition-all duration-300 shadow-xl ";
+        
+        if (isMix) {
+          // SOLID WHITE ACTIVE CARD contrast
+          cardClasses += "bg-white text-black border-none scale-[1.03] shadow-2xl shadow-white/5";
+        } else if (isShow) {
+          cardClasses += "bg-[#1C1C1E] text-white border-2 border-[#E50914] scale-[1.01] shadow-2xl shadow-[#E50914]/5";
         } else {
-          cardClasses += "border-white/5 hover:border-white/10";
+          cardClasses += "bg-[#1C1C1E] text-white border-white/5 hover:border-white/10";
         }
 
         const wpUrl = getWhatsAppUrl(`Olá Luiz Davy! Gostaria de contratar o *Pacote ${pack.name}* (R$ ${pack.price}) para organizar a coreografia do meu evento.`);
 
         let badgeHtml = "";
         if (pack.highlightText) {
-          badgeHtml = `<span class="absolute -top-3.5 left-8 px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest text-white ${isShow ? 'bg-[#C9A87A] text-black font-extrabold' : 'bg-[#A855C8]'}">${pack.highlightText}</span>`;
+          if (isMix) {
+            badgeHtml = `<span class="absolute -top-3.5 left-8 px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest bg-black text-white">${pack.highlightText}</span>`;
+          } else {
+            badgeHtml = `<span class="absolute -top-3.5 left-8 px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest bg-[#E50914] text-white">${pack.highlightText}</span>`;
+          }
         }
 
         let bulletsHtml = "";
         pack.bulletPoints.forEach(bp => {
           bulletsHtml += `
             <div class="flex items-start gap-3">
-              <div class="p-0.5 rounded bg-white/5 text-[#C9A87A] mt-0.5">
-                <i data-lucide="check" class="w-3.5 h-3.5 text-[#C9A87A]"></i>
+              <div class="p-0.5 rounded ${isMix ? 'bg-black/5 text-[#E50914]' : 'bg-white/5 text-[#E50914]'} mt-0.5">
+                <i data-lucide="check" class="w-3.5 h-3.5 text-[#E50914]"></i>
               </div>
-              <span class="text-xs text-[#E0E0E0] font-sans leading-normal">${bp}</span>
+              <span class="text-xs ${isMix ? 'text-black/80' : 'text-[#E0E0E0]'} font-sans leading-normal">${bp}</span>
             </div>
           `;
         });
+
+        const btnClass = isMix 
+          ? "bg-[#0A0A0A] hover:bg-[#E50914] text-white hover:text-white shadow-lg" 
+          : isShow 
+            ? "bg-[#E50914] hover:bg-white text-white hover:text-black shadow-lg" 
+            : "bg-white/5 hover:bg-white/15 text-[#CCCCCC] border border-white/10";
+
+        const headingColor = isMix ? "text-black" : "text-white";
+        const priceColor = "text-[#E50914]";
+        const textMutedColor = isMix ? "text-black/60 border-black/10 pb-5" : "text-[#CCCCCC] border-white/5 pb-5";
 
         packCardsRow.innerHTML += `
           <div class="${cardClasses}">
             ${badgeHtml}
             <div>
               <div class="flex items-center justify-between gap-2 mb-4">
-                <h3 class="font-sans font-extrabold text-xl sm:text-2xl text-white uppercase tracking-tight">${pack.name}</h3>
+                <h3 class="font-sans font-extrabold text-xl sm:text-2xl ${headingColor} uppercase tracking-tight">${pack.name}</h3>
                 <div class="flex flex-col items-end">
-                  <span class="text-[#C9A87A] font-serif font-bold text-2xl sm:text-3xl leading-none">R$ ${pack.price}</span>
-                  <span class="text-[10px] text-[#9A9A9A] uppercase tracking-wider font-semibold mt-0.5">pagamento facilitado</span>
+                  <span class="font-serif font-bold text-2xl sm:text-3xl leading-none ${priceColor}">R$ ${pack.price}</span>
+                  <span class="text-[10px] ${isMix ? 'text-black/40' : 'text-[#9A9A9A]'} uppercase tracking-wider font-semibold mt-0.5">pagamento facilitado</span>
                 </div>
               </div>
-              <p class="text-xs text-[#CCCCCC] font-sans leading-relaxed mb-6 border-b border-white/5 pb-5">${pack.description}</p>
+              <p class="text-xs ${textMutedColor} font-sans leading-relaxed mb-6 border-b">${pack.description}</p>
               <div class="flex flex-col gap-3.5 mb-8">
                 ${bulletsHtml}
               </div>
             </div>
-            <div class="pt-4 border-t border-white/5">
-              <a href="${wpUrl}" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 w-full py-4 rounded-full font-sans font-bold text-xs tracking-wider uppercase transition-all duration-300 ${isMix ? 'bg-[#A855C8] text-white hover:bg-white hover:text-black shadow-lg' : isShow ? 'bg-[#C9A87A] text-black hover:bg-white shadow-lg' : 'bg-white/5 hover:bg-white/15 text-[#CCCCCC] border border-white/10'}">
+            <div class="pt-4 border-t ${isMix ? 'border-black/10' : 'border-white/5'}">
+              <a href="${wpUrl}" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 w-full py-4 rounded-full font-sans font-bold text-xs tracking-wider uppercase transition-all duration-300 ${btnClass}">
                 <span>CONTRATAR PACOTE ${pack.name}</span>
                 <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
               </a>
@@ -1273,14 +1299,12 @@
 
       // Card de vídeo — célula âncora (span 2x2), posição de destaque no mosaico
       galleryGrid.innerHTML += `
-        <div class="relative group overflow-hidden rounded-2xl border border-[#C9A87A]/20 shadow-lg md:col-span-2 md:row-span-2 bg-[#0D1F26] hover:border-[#C9A87A]/50 transition-all duration-300">
-          <!-- Vídeo local em loop mudo — substitua pelo Reel de ensaio/apresentação -->
-          <!-- IMAGEM: para usar vídeo local, coloque o arquivo na raiz e ajuste o src abaixo -->
-          <!-- ALTERNATIVA YouTube: substitua o <video> por <iframe> com src do YouTube embed -->
+        <div class="relative group overflow-hidden rounded-2xl border border-white/5 shadow-lg md:col-span-2 md:row-span-2 bg-[#0A0A0A] hover:border-[#E50914]/45 transition-all duration-300">
           <video
             id="gallery-video-reel"
             src="./reel-ensaio.mp4"
             poster="./galeria-1.jpg"
+            autoplay
             loop
             muted
             playsinline
@@ -1291,23 +1315,28 @@
           <!-- Overlay degradê -->
           <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent pointer-events-none"></div>
 
-          <!-- Botão play/pause central -->
+          <!-- Botão controle de áudio centralizado (cobre todo o card para cliques/toques) -->
           <button
             id="gallery-video-btn"
-            onclick="toggleGalleryVideo()"
-            aria-label="Reproduzir ou pausar vídeo de ensaio"
+            onclick="toggleGalleryAudio()"
+            aria-label="Ativar ou desativar som do ensaio"
             class="absolute inset-0 flex items-center justify-center z-10 focus:outline-none"
           >
-            <span id="gallery-video-icon" class="w-16 h-16 rounded-full bg-[#C9A87A]/20 border border-[#C9A87A]/60 flex items-center justify-center text-[#C9A87A] backdrop-blur-sm transition-all duration-300 group-hover:bg-[#C9A87A]/30 group-hover:scale-110">
-              <i data-lucide="play" class="w-7 h-7 ml-1"></i>
-            </span>
+            <div id="gallery-video-icon" class="flex flex-col items-center gap-2.5">
+              <span class="w-16 h-16 rounded-full bg-black/50 border border-white/20 flex items-center justify-center text-white backdrop-blur-md transition-all duration-300 group-hover:bg-[#E50914] group-hover:border-[#E50914] group-hover:scale-110 shadow-2xl">
+                <i data-lucide="volume-x" class="w-7 h-7 animate-pulse"></i>
+              </span>
+              <span class="text-[10px] font-sans font-bold tracking-widest uppercase bg-black/60 text-white border border-white/10 px-3 py-1.5 rounded-full backdrop-blur-md transition-all duration-300 group-hover:bg-[#E50914]/90 group-hover:border-transparent">
+                Ativar Som
+              </span>
+            </div>
           </button>
 
           <!-- Label inferior -->
           <div class="absolute bottom-6 left-6 right-6 text-left flex flex-col items-start gap-1 pointer-events-none z-20">
-            <span class="text-[10px] uppercase tracking-widest font-extrabold text-[#C9A87A] bg-[#C9A87A]/10 border border-[#C9A87A]/25 px-2.5 py-0.5 rounded-full">Ensaio Real</span>
+            <span class="text-[10px] uppercase tracking-widest font-extrabold text-[#E50914] bg-[#E50914]/10 border border-[#E50914]/25 px-2.5 py-0.5 rounded-full">Ensaio Real</span>
             <h4 class="font-serif text-lg sm:text-xl font-bold uppercase text-white block mt-1 tracking-tight leading-none">Luiz Davy em Ação</h4>
-            <span class="text-[10px] text-[#9A9A9A] tracking-wider uppercase font-sans font-semibold">Assista um ensaio real no estúdio</span>
+            <span class="text-[10px] text-[#9A9A9A] tracking-wider uppercase font-sans font-semibold">Assista um ensaio real no DANS Studio</span>
           </div>
         </div>
       `;
@@ -1315,15 +1344,15 @@
       // Demais itens da galeria (pula galeria-1 que virou o card de vídeo)
       GALLERY_ITEMS.filter(item => item.id !== "galeria-1").forEach((item) => {
         galleryGrid.innerHTML += `
-          <div class="relative group overflow-hidden rounded-2xl border border-white/5 shadow-lg ${item.spanClass} hover:border-[#C9A87A]/25 transition-all duration-300">
+          <div class="relative group overflow-hidden rounded-2xl border border-white/5 shadow-lg ${item.spanClass} hover:border-[#E50914]/25 transition-all duration-300">
             <picture>
               <img src="${item.imageUrl}" alt="${item.title}" class="w-full h-full object-cover brightness-95 group-hover:scale-105 group-hover:brightness-100 transition-all duration-750 ease-out" />
             </picture>
             <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
             <div class="absolute bottom-6 left-6 right-6 text-left flex flex-col items-start gap-1">
-              <span class="text-[10px] uppercase tracking-widest font-extrabold text-[#A855C8] bg-[#A855C8]/10 border border-[#A855C8]/25 px-2.5 py-0.5 rounded-full">${item.category}</span>
+              <span class="text-[10px] uppercase tracking-widest font-extrabold text-[#E50914] bg-[#E50914]/10 border border-[#E50914]/25 px-2.5 py-0.5 rounded-full">${item.category}</span>
               <h4 class="font-serif text-lg sm:text-xl font-bold uppercase text-white block mt-1 tracking-tight leading-none">${item.title}</h4>
-              <span class="text-[10px] text-[#9A9A9A] tracking-wider uppercase font-sans font-semibold">Coreografado por Luiz Davy</span>
+              <span class="text-[10px] text-[#9A9A9A] tracking-wider uppercase font-sans font-semibold">Ensaios no DANS Studio</span>
             </div>
           </div>
         `;
@@ -1333,9 +1362,9 @@
       const timelineRow = document.getElementById("timeline-row-container");
       TIMELINE_STEPS.forEach((step) => {
         timelineRow.innerHTML += `
-          <div class="flex flex-col items-start text-left relative bg-[#1C1C1E]/40 border border-white/5 p-6 rounded-2xl backdrop-blur-sm shadow-xl hover:border-[#C9A87A]/25 transition-all duration-300">
-            <span class="absolute -top-12 -right-2 font-serif font-black text-white text-8xl opacity-[0.06] pointer-events-none leading-none select-none italic">${step.num}</span>
-            <div class="w-10 h-10 rounded-full bg-[#C9A87A]/15 border border-[#C9A87A]/45 text-[#C9A87A] flex items-center justify-center font-bold text-sm tracking-widest mb-4">${step.num}</div>
+          <div class="flex flex-col items-start text-left relative bg-[#1C1C1E]/40 border border-white/5 p-6 rounded-2xl backdrop-blur-sm shadow-xl hover:border-[#E50914]/25 transition-all duration-300">
+            <span class="absolute -top-12 -right-2 font-serif font-black text-[#E50914] text-8xl opacity-[0.05] pointer-events-none leading-none select-none italic">${step.num}</span>
+            <div class="w-10 h-10 rounded-full bg-[#E50914]/15 border border-[#E50914]/40 text-[#E50914] flex items-center justify-center font-bold text-sm tracking-widest mb-4">${step.num}</div>
             <h3 class="font-serif text-lg uppercase font-bold text-white tracking-tight mb-2">${step.title}</h3>
             <p class="font-sans text-xs sm:text-sm text-[#CCCCCC] leading-relaxed">${step.desc}</p>
           </div>
@@ -1347,22 +1376,22 @@
       TESTIMONIALS.forEach((item) => {
         let starsHtml = "";
         for (let i = 0; i < item.rating; i++) {
-          starsHtml += `<i data-lucide="star" class="w-4 h-4 text-[#C9A87A] fill-[#C9A87A]"></i>`;
+          starsHtml += `<i data-lucide="star" class="w-4 h-4 text-[#E50914] fill-[#E50914]"></i>`;
         }
         testimonialsRow.innerHTML += `
-          <div class="flex flex-col justify-between items-start text-left bg-[#111111] border border-white/5 p-8 rounded-3xl relative shadow-xl hover:border-[#C9A87A]/25 transition-all duration-300">
-            <i data-lucide="quote" class="absolute top-6 right-8 w-12 h-12 text-[#C9A87A] opacity-[0.05] pointer-events-none"></i>
+          <div class="flex flex-col justify-between items-start text-left bg-[#111111] border border-white/5 p-8 rounded-3xl relative shadow-xl hover:border-[#E50914]/25 transition-all duration-300">
+            <i data-lucide="quote" class="absolute top-6 right-8 w-12 h-12 text-[#E50914] opacity-[0.05] pointer-events-none"></i>
             <div class="flex items-center gap-1 mb-5">${starsHtml}</div>
             <p class="font-sans text-xs sm:text-sm text-[#CCCCCC] leading-relaxed italic mb-6">&ldquo;${item.text}&rdquo;</p>
             <div class="flex items-center gap-4.5 border-t border-white/5 pt-5 w-full mt-auto">
-              <div class="relative w-12 h-12 rounded-full overflow-hidden border border-[#C9A87A]/30 aspect-square shrink-0">
+              <div class="relative w-12 h-12 rounded-full overflow-hidden border border-[#E50914]/30 aspect-square shrink-0">
                 <picture>
                   <img src="${item.avatarUrl}" alt="${item.name}" class="w-full h-full object-cover scale-102 transition-transform" referrerpolicy="no-referrer" />
                 </picture>
               </div>
               <div class="flex flex-col text-left">
                 <span class="text-sm font-bold text-white uppercase tracking-tight">${item.name}</span>
-                <span class="text-[10px] uppercase font-bold tracking-widest text-[#A855C8] mt-0.5">${item.event}</span>
+                <span class="text-[10px] uppercase font-bold tracking-widest text-[#FF3838] mt-0.5">${item.event}</span>
                 <span class="text-[9px] uppercase font-medium text-white/40 block">${item.role}</span>
               </div>
             </div>
@@ -1377,7 +1406,7 @@
           <div class="faq-item bg-[#1C1C1E]/60 rounded-xl border border-white/5 overflow-hidden transition-all duration-300 shadow-sm hover:border-white/10" data-index="${index}">
             <button onclick="toggleFaqAccordion(${index})" class="w-full px-6 py-5.5 text-left flex items-start justify-between gap-4 focus:outline-none">
               <span class="font-sans font-bold text-sm sm:text-base text-white tracking-tight pr-1">${faq.question}</span>
-              <span class="faq-symbol text-xl font-bold font-mono text-[#A855C8] transition-transform duration-300 leading-none select-none">+</span>
+              <span class="faq-symbol text-xl font-bold font-mono text-[#E50914] transition-transform duration-300 leading-none select-none">+</span>
             </button>
             <div class="faq-panel max-h-0 bg-transparent transition-all duration-500 ease-in-out overflow-hidden border-white/5">
               <div class="px-6 pb-6 pt-1 text-xs sm:text-sm text-[#CCCCCC] font-sans leading-relaxed text-left border-t border-white/5">${faq.answer}</div>
@@ -1387,17 +1416,17 @@
       });
 
 
-      // INITIALIZE ICONS — após todos os renders dinâmicos para capturar ícones injetados via innerHTML
+      // INITIALIZE ICONS
       lucide.createIcons();
 
       // 4. HEADER INTERACTION
       window.addEventListener('scroll', () => {
         const header = document.getElementById('site-header');
         if (window.scrollY > 80) {
-          header.classList.add('bg-[#0D1F26]/95', 'border-b', 'border-[#C9A87A]/20', 'backdrop-blur-md', 'py-3', 'shadow-lg');
+          header.classList.add('bg-[#0A0A0A]/95', 'border-b', 'border-[#E50914]/25', 'backdrop-blur-md', 'py-3', 'shadow-lg');
           header.classList.remove('bg-transparent', 'py-5');
         } else {
-          header.classList.remove('bg-[#0D1F26]/95', 'border-b', 'border-[#C9A87A]/20', 'backdrop-blur-md', 'py-3', 'shadow-lg');
+          header.classList.remove('bg-[#0A0A0A]/95', 'border-b', 'border-[#E50914]/25', 'backdrop-blur-md', 'py-3', 'shadow-lg');
           header.classList.add('bg-transparent', 'py-5');
         }
       });
@@ -1430,8 +1459,8 @@
         EVENT_CATEGORIES.forEach((elem) => {
           const isActive = elem.id === activeTabId;
           const activeClass = isActive 
-            ? "bg-[#A855C8] text-white shadow-lg shadow-[#A855C8]/20 border border-[#A855C8]" 
-            : "bg-[#1C1C1E]/60 text-[#CCCCCC] hover:text-[#C9A87A] border border-white/5";
+            ? "bg-[#E50914] text-white shadow-lg shadow-[#E50914]/20 border border-[#E50914]" 
+            : "bg-[#1C1C1E]/60 text-[#CCCCCC] hover:text-[#E50914] border border-white/5";
 
           tabsRow.innerHTML += `
             <button onclick="setEventTab('${elem.id}')" class="px-6 py-3.5 rounded-full font-sans font-bold text-xs tracking-widest uppercase transition-all duration-300 whitespace-nowrap snap-center focus:outline-none ${activeClass}">
@@ -1446,8 +1475,8 @@
         cat.details.forEach(item => {
           detailsHtml += `
             <div class="flex items-start gap-3">
-              <div class="mt-0.5 p-0.5 rounded bg-[#A855C8]/10 border border-[#A855C8]/30 text-[#A855C8]">
-                <i data-lucide="check" class="w-3.5 h-3.5 text-[#A855C8]"></i>
+              <div class="mt-0.5 p-0.5 rounded bg-[#E50914]/10 border border-[#E50914]/30 text-[#E50914]">
+                <i data-lucide="check" class="w-3.5 h-3.5 text-[#E50914]"></i>
               </div>
               <span class="text-xs text-[#CCCCCC] font-sans leading-normal">${item}</span>
             </div>
@@ -1458,20 +1487,20 @@
 
         contentBox.innerHTML = `
           <!-- Image -->
-          <div class="lg:col-span-5 relative group overflow-hidden rounded-2xl aspect-[4/3] sm:aspect-[16/10] lg:aspect-square border border-white/10 shadow-2xl">
+          <div class="lg:col-span-5 relative group overflow-hidden rounded-2xl aspect-[4/3] sm:aspect-[16/10] lg:aspect-square border border-white/5 shadow-2xl">
             <picture>
               <img src="${cat.imageUrl}" alt="${cat.title}" class="w-full h-full object-cover transition-all duration-500 group-hover:scale-105 brightness-95" referrerpolicy="no-referrer" />
             </picture>
             <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 pointer-events-none"></div>
             <div class="absolute bottom-6 left-6 flex items-center gap-2">
-              <span class="w-2.5 h-2.5 rounded-full bg-[#A855C8] animate-pulse"></span>
-              <span class="text-[10px] uppercase font-bold tracking-widest text-[#C9A87A]">Estúdio em Palhoça</span>
+              <span class="w-2.5 h-2.5 rounded-full bg-[#E50914] animate-pulse"></span>
+              <span class="text-[10px] uppercase font-bold tracking-widest text-[#FF3838]">Ensaios no DANS Studio</span>
             </div>
           </div>
           <!-- Body Text -->
           <div class="lg:col-span-7 flex flex-col items-start gap-6">
             <div>
-              <span class="text-[#A855C8] text-[11px] font-extrabold tracking-widest uppercase block mb-1">CATEGORIA COMEMORATIVA</span>
+              <span class="text-[#FF3838] text-[11px] font-extrabold tracking-widest uppercase block mb-1">CATEGORIA COMEMORATIVA</span>
               <h3 class="font-serif text-2xl sm:text-3.5xl font-black uppercase text-white tracking-tight">${cat.title}</h3>
             </div>
             <p class="text-[#CCCCCC] font-sans text-sm sm:text-base leading-relaxed">${cat.description}</p>
@@ -1479,7 +1508,7 @@
               ${detailsHtml}
             </div>
             <div class="mt-4 w-full sm:w-auto">
-              <a href="${wpMsgUrl}" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-[#A855C8] hover:bg-white text-white hover:text-black font-extrabold text-xs tracking-wider uppercase transition-all duration-300 shadow-lg hover:-translate-y-0.5">
+              <a href="${wpMsgUrl}" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-[#E50914] hover:bg-white text-white hover:text-black font-extrabold text-xs tracking-wider uppercase transition-all duration-300 shadow-lg hover:-translate-y-0.5">
                 <span>Quero este estilo</span>
                 <i data-lucide="arrow-right" class="w-4 h-4 text-white"></i>
               </a>
@@ -1516,20 +1545,20 @@
           const btnText = btn.querySelector("span:last-of-type").innerText;
           
           if (btnText === value || (key === 'mixagem' && btn.querySelector("span:nth-of-type(2)").innerText === value) || (key === 'mixagem' && value === 'prontas' && btnText === 'Músicas prontas') || (key === 'mixagem' && value === 'personalizada' && btnText === 'Mixagem personalizada') || (key === 'mixagem' && value === 'ilimitada' && btnText === 'Efeitos & Mix ilimitados')) {
-            btn.classList.add('border-[#C9A87A]', 'bg-[#C9A87A]/10', 'text-[#C9A87A]');
+            btn.classList.add('border-[#E50914]', 'bg-[#E50914]/10', 'text-[#E50914]');
             btn.classList.remove('border-white/5', 'bg-[#161616]/40', 'text-[#CCCCCC]');
             // Highlight icon too if step 1
             const icon = btn.querySelector("i");
             if (icon) {
-              icon.classList.add('text-[#C9A87A]');
+              icon.classList.add('text-[#E50914]');
               icon.classList.remove('text-white/20');
             }
           } else {
-            btn.classList.remove('border-[#C9A87A]', 'bg-[#C9A87A]/10', 'text-[#C9A87A]');
+            btn.classList.remove('border-[#E50914]', 'bg-[#E50914]/10', 'text-[#E50914]');
             btn.classList.add('border-white/5', 'bg-[#161616]/40', 'text-[#CCCCCC]');
             const icon = btn.querySelector("i");
             if (icon) {
-              icon.classList.remove('text-[#C9A87A]');
+              icon.classList.remove('text-[#E50914]');
               icon.classList.add('text-white/20');
             }
           }
@@ -1557,9 +1586,9 @@
         for (let i = 1; i <= 4; i++) {
           const dot = document.getElementById(`step-dot-${i}`);
           if (i === nextStepValue) {
-            dot.className = "w-9 h-9 rounded-full flex items-center justify-center font-bold text-xs border transition-all duration-500 bg-[#C9A87A] text-black border-[#C9A87A] scale-110 shadow-lg";
+            dot.className = "w-9 h-9 rounded-full flex items-center justify-center font-bold text-xs border transition-all duration-500 bg-white text-black border-white scale-110 shadow-lg shadow-white/10";
           } else if (i < nextStepValue) {
-            dot.className = "w-9 h-9 rounded-full flex items-center justify-center font-bold text-xs border transition-all duration-500 bg-[#A855C8] text-white border-[#A855C8]";
+            dot.className = "w-9 h-9 rounded-full flex items-center justify-center font-bold text-xs border transition-all duration-500 bg-[#E50914] text-white border-[#E50914]";
             dot.innerHTML = `<i data-lucide="check" class="w-4 h-4 text-white"></i>`;
           } else {
             dot.className = "w-9 h-9 rounded-full flex items-center justify-center font-bold text-xs border transition-all duration-500 bg-[#1C1C1E] text-[#9A9A9A] border-white/10";
@@ -1572,11 +1601,11 @@
 
       function renderRecomendacao() {
         // Find match package
-        let recId = "classico";
+        let recId = "essencial";
         if (calcState.pessoas === "Mais de 8 pessoas" || calcState.mixagem === "ilimitada") {
-          recId = "show";
+          recId = "experience";
         } else if (calcState.pessoas === "Até 6 pessoas" || calcState.pessoas === "Até 8 pessoas" || calcState.mixagem === "personalizada") {
-          recId = "mix";
+          recId = "premium";
         }
 
         const pack = PACKAGES.find(p => p.id === recId) || PACKAGES[0];
@@ -1589,7 +1618,7 @@
         pack.bulletPoints.slice(0, 3).forEach(b => {
           bulletsHtml += `
             <div class="flex items-center gap-2.5">
-              <i data-lucide="check" class="w-3.5 h-3.5 text-[#C9A87A]"></i>
+              <i data-lucide="check" class="w-3.5 h-3.5 text-[#E50914]"></i>
               <span class="text-xs text-white/95">${b}</span>
             </div>
           `;
@@ -1625,11 +1654,11 @@ Gostaria de verificar datas disponíveis para começar meus ensaios!`;
 
         // Reset option button highlights
         document.querySelectorAll(".opt-btn-eventType, .opt-btn-pessoas, .opt-btn-mixagem").forEach(btn => {
-          btn.classList.remove('border-[#C9A87A]', 'bg-[#C9A87A]/10', 'text-[#C9A87A]');
+          btn.classList.remove('border-[#E50914]', 'bg-[#E50914]/10', 'text-[#E50914]');
           btn.classList.add('border-white/5', 'bg-[#161616]/40', 'text-[#CCCCCC]');
           const icon = btn.querySelector("i");
           if (icon) {
-            icon.classList.remove('text-[#C9A87A]');
+            icon.classList.remove('text-[#E50914]');
             icon.classList.add('text-white/20');
           }
         });
@@ -1651,29 +1680,27 @@ Gostaria de verificar datas disponíveis para começar meus ensaios!`;
 
         const isOpen = panel.style.maxHeight && panel.style.maxHeight !== "0px";
 
-        // Close all first for neatness
+        // Close all first
         document.querySelectorAll(".faq-panel").forEach(p => {
           p.style.maxHeight = "0px";
         });
         document.querySelectorAll(".faq-symbol").forEach(s => {
           s.innerText = "+";
-          s.classList.remove("text-[#C9A87A]", "rotate-180");
-          s.classList.add("text-[#A855C8]");
+          s.classList.remove("text-[#E50914]", "rotate-180");
+          s.classList.remove("text-[#FF3838]");
+          s.classList.add("text-[#E50914]");
         });
 
         if (!isOpen) {
           panel.style.maxHeight = panel.scrollHeight + "px";
           symbol.innerText = "−";
-          symbol.classList.add("text-[#C9A87A]", "rotate-180");
-          symbol.classList.remove("text-[#A855C8]");
+          symbol.classList.add("text-[#FF3838]", "rotate-180");
+          symbol.classList.remove("text-[#E50914]");
         }
       }
 
 
-      // 8. INITIALIZE ICONS — chamado APÓS todos os renders dinâmicos
-      // (movido para o final do script, após FAQ_ITEMS render)
-
-      // 9. GSAP SCROLLTRIGGERS (High-End Animations)
+      // 9. GSAP SCROLLTRIGGERS
       gsap.registerPlugin(ScrollTrigger);
 
       // Hero animation reveal sequential fade
@@ -1725,60 +1752,40 @@ Gostaria de verificar datas disponíveis para começar meus ensaios!`;
       // Ultimate CTA section
       gsap.set(".cta-reveal-trigger", { opacity: 1, y: 0, x: 0, clearProps: "transform" });
 
-      // ─── Toggle play/pause do vídeo da galeria ───
-      function toggleGalleryVideo() {
+      // Toggle áudio (som/mudo) do vídeo da galeria em autoplay
+      function toggleGalleryAudio() {
         const video = document.getElementById("gallery-video-reel");
-        const icon = document.getElementById("gallery-video-icon");
-        if (!video) return;
+        const iconWrapper = document.getElementById("gallery-video-icon");
+        if (!video || !iconWrapper) return;
+        
+        // Assegurar que o vídeo está reproduzindo caso o navegador tenha pausado
         if (video.paused) {
-          video.play();
-          icon.innerHTML = '<i data-lucide="pause" class="w-7 h-7"></i>';
+          video.play().catch(err => console.log('Autoplay active:', err));
+        }
+
+        video.muted = !video.muted;
+        
+        if (video.muted) {
+          iconWrapper.innerHTML = `
+            <span class="w-16 h-16 rounded-full bg-black/50 border border-white/20 flex items-center justify-center text-white backdrop-blur-md transition-all duration-300 group-hover:bg-[#E50914] group-hover:border-[#E50914] group-hover:scale-110 shadow-2xl">
+              <i data-lucide="volume-x" class="w-7 h-7 animate-pulse"></i>
+            </span>
+            <span class="text-[10px] font-sans font-bold tracking-widest uppercase bg-black/60 text-white border border-white/10 px-3 py-1.5 rounded-full backdrop-blur-md transition-all duration-300 group-hover:bg-[#E50914]/90 group-hover:border-transparent">
+              Ativar Som
+            </span>
+          `;
         } else {
-          video.pause();
-          icon.innerHTML = '<i data-lucide="play" class="w-7 h-7 ml-1"></i>';
+          iconWrapper.innerHTML = `
+            <span class="w-16 h-16 rounded-full bg-[#E50914] border border-[#E50914] flex items-center justify-center text-white backdrop-blur-md transition-all duration-300 group-hover:scale-110 shadow-2xl">
+              <i data-lucide="volume-2" class="w-7 h-7"></i>
+            </span>
+            <span class="text-[10px] font-sans font-bold tracking-widest uppercase bg-[#E50914] text-white px-3 py-1.5 rounded-full backdrop-blur-md transition-all duration-300">
+              Desativar Som
+            </span>
+          `;
         }
         lucide.createIcons();
       }
-
-
     </script>
   </body>
-
-<!--
-=================================================================
-CAMPOS PARA PREENCHER ANTES DE PUBLICAR
-=================================================================
-
-OBRIGATÓRIOS:
-- WHATSAPP_NUMBER (linha JS no script): número com DDI, ex: 5548999999999
-- Número de telefone no footer: buscar "PREENCHER: (XX)"
-- Email de contato no footer: buscar "PREENCHER: email"
-- Números de autoridade (seção Sobre): confirmar/ajustar valores 8, 150, 120
-
-IMAGENS (criar pasta ./ no mesmo nível do index.html):
-- ./luiz-davy-hero.jpg      → foto principal do Luiz Davy (retrato 600x800px)
-- ./luiz-davy-sobre.jpg     → foto profissional/ensino (retrato 600x800px)  
-- ./luiz-davy-cta.jpg       → foto seção CTA (400x400px)
-- ./logo-simbolo.png        → logo versão SÍMBOLO apenas (sem texto) — usado no header. PNG fundo transparente, ~80x80px
-- ./logo-completo.png       → logo versão COMPLETA (símbolo + "LUIZ DAVY COREOGRAFIAS") — usado no footer. PNG fundo transparente, ~400x200px
-- ./evento-casamento.jpg    → coreografia de casamento
-- ./evento-debutante.jpg    → valsa de debutante
-- ./evento-aniversario.jpg  → coreografia de aniversário
-- ./evento-formatura.jpg    → entrada de formatura
-- ./galeria-1.jpg → usada como poster do vídeo da galeria (thumbnail antes de dar play)
-- ./galeria-2.jpg até galeria-6.jpg → fotos reais de ensaios e apresentações
-- ./reel-ensaio.mp4 → Reel curto de ensaio/apresentação para card da galeria
-- ID YouTube do vídeo institucional → buscar "PREENCHER: ID do vídeo YouTube" no código
-- ./depoimento-1.jpg até depoimento-3.jpg → fotos dos alunos (substituir por fotos reais)
-
-CONTEÚDO:
-- Depoimentos: substituir nomes/textos inventados por depoimentos reais de alunos
-- FAQ: revisar respostas e ajustar conforme política real do estúdio
-
-OPCIONAIS:
-- Meta tags OG para compartilhamento social (após <title>)
-- Google Analytics / Meta Pixel (antes do </head>)
-- Horário real de atendimento (bloco de suporte no FAQ)
-=================================================================
--->
 </html>
