@@ -90,6 +90,7 @@
                 <div class="hidden md:flex items-center space-x-8">
                     <a href="#problema" class="text-sm font-medium text-gray-300 hover:text-accent-cyan transition-colors">O Problema</a>
                     <a href="#metodo" class="text-sm font-medium text-gray-300 hover:text-accent-cyan transition-colors">A Solução</a>
+                    <a href="#resultados" class="text-sm font-medium text-gray-300 hover:text-accent-cyan transition-colors">Resultados</a>
                     <a href="#sobre" class="text-sm font-medium text-gray-300 hover:text-accent-cyan transition-colors">Sobre Mim</a>
                     <a href="https://wa.me/5511999999999?text=Olá%20Kaio,%20quero%20saber%20mais%20sobre%20a%20consultoria!" target="_blank" class="bg-brand hover:bg-brand-dark text-dark-900 font-bold py-2.5 px-6 rounded-full transition-all transform hover:scale-105 shadow-[0_0_15px_rgba(224,255,0,0.4)]">
                         Começar Agora
@@ -113,6 +114,7 @@
             <div class="px-4 pt-2 pb-6 space-y-2 shadow-xl">
                 <a href="#problema" @click="mobileMenuOpen = false" class="block px-3 py-3 text-base font-medium text-gray-300 hover:text-white hover:bg-dark-700 rounded-md">O Problema</a>
                 <a href="#metodo" @click="mobileMenuOpen = false" class="block px-3 py-3 text-base font-medium text-gray-300 hover:text-white hover:bg-dark-700 rounded-md">A Solução</a>
+                <a href="#resultados" @click="mobileMenuOpen = false" class="block px-3 py-3 text-base font-medium text-gray-300 hover:text-white hover:bg-dark-700 rounded-md">Resultados</a>
                 <a href="#sobre" @click="mobileMenuOpen = false" class="block px-3 py-3 text-base font-medium text-gray-300 hover:text-white hover:bg-dark-700 rounded-md">Sobre Mim</a>
                 <a href="https://wa.me/5511999999999?text=Olá%20Kaio,%20quero%20saber%20mais%20sobre%20a%20consultoria!" target="_blank" class="block w-full text-center mt-4 bg-brand text-dark-900 font-bold py-3 rounded-md shadow-[0_0_15px_rgba(224,255,0,0.4)]">
                     Falar no WhatsApp
@@ -124,8 +126,8 @@
     <!-- Hero Section -->
     <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-dark-900">
         
-        <!-- Video Background (Desktop Only) -->
-        <!-- Substitua o src pelo seu arquivo de vídeo (ex: hero-bg.mp4) -->
+        <!-- Video Background (Desktop/Mobile) -->
+        <!-- Substitua o src pelo seu arquivo de vídeo (ex: kaiobg.mp4) -->
         <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover opacity-30 mix-blend-luminosity pointer-events-none z-0">
             <source src="kaiobg.mp4" type="video/mp4">
         </video>
@@ -211,12 +213,588 @@
         </div>
     </section>
 
+    <!-- Interactive Quiz Section -->
+    <section id="quiz" class="py-24 bg-dark-900 relative overflow-hidden border-b border-accent-purple/20" x-data="{
+        step: 1,
+        answers: {
+            p1: null,
+            p2: null,
+            p3: null,
+            p4: null,
+            p5: null,
+            p6: null,
+            p7: null
+        },
+        sexo: 'M',
+        idade: '',
+        altura: '',
+        peso: '',
+        scoreTotal: 0,
+        imc: 0,
+        imcClass: '',
+        tmb: 0,
+        gastoCalorico: 0,
+        padrao: '',
+        padraoName: '',
+        padraoTitle: '',
+        padraoIcon: '',
+        padraoText: '',
+        padraoFrase: '',
+        objetivoText: '',
+
+        selectOption(questionKey, option) {
+            this.answers[questionKey] = option;
+            setTimeout(() => {
+                this.step++;
+                this.scrollToTop();
+            }, 200);
+        },
+
+        prevStep() {
+            if (this.step > 1) {
+                this.step--;
+                this.scrollToTop();
+            }
+        },
+
+        scrollToTop() {
+            const el = document.getElementById('quiz-card-anchor');
+            if (el) {
+                el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+        },
+
+        canSubmit() {
+            return this.idade && this.altura && this.peso && this.idade > 0 && this.altura > 0 && this.peso > 0;
+        },
+
+        resetQuiz() {
+            this.step = 1;
+            this.answers = {
+                p1: null,
+                p2: null,
+                p3: null,
+                p4: null,
+                p5: null,
+                p6: null,
+                p7: null
+            };
+            this.sexo = 'M';
+            this.idade = '';
+            this.altura = '';
+            this.peso = '';
+            this.scrollToTop();
+        },
+
+        compute() {
+            let p1Val = parseInt(this.answers.p1?.value || 0);
+            let p2Val = parseInt(this.answers.p2?.value || 0);
+            let p3Val = parseInt(this.answers.p3?.value || 0);
+            let p4Val = parseInt(this.answers.p4?.value || 0);
+            let p5Val = parseInt(this.answers.p5?.value || 0);
+            let p6Val = parseInt(this.answers.p6?.value || 0);
+            
+            this.scoreTotal = p1Val + p2Val + p3Val + p4Val + p5Val + p6Val;
+            
+            let hm = parseFloat(this.altura) / 100;
+            let w = parseFloat(this.peso);
+            let age = parseInt(this.idade);
+            
+            this.imc = (w / (hm * hm)).toFixed(1);
+            if (this.imc < 18.5) {
+                this.imcClass = 'Abaixo do peso';
+            } else if (this.imc <= 24.9) {
+                this.imcClass = 'Peso normal';
+            } else if (this.imc <= 29.9) {
+                this.imcClass = 'Sobrepeso';
+            } else {
+                this.imcClass = 'Obesidade';
+            }
+            
+            if (this.sexo === 'M') {
+                this.tmb = Math.round((10 * w) + (6.25 * parseFloat(this.altura)) - (5 * age) + 5);
+            } else {
+                this.tmb = Math.round((10 * w) + (6.25 * parseFloat(this.altura)) - (5 * age) - 161);
+            }
+            this.gastoCalorico = Math.round(this.tmb * 1.4);
+            
+            let p7Tag = this.answers.p7?.tag || '';
+            if (p7Tag === 'definir') this.objetivoText = 'Perder gordura e definir';
+            else if (p7Tag === 'massa') this.objetivoText = 'Ganhar massa muscular';
+            else if (p7Tag === 'energia') this.objetivoText = 'Ter mais disposição e energia';
+            else if (p7Tag === 'estagnacao') this.objetivoText = 'Sair da estagnação e voltar a evoluir';
+            else this.objetivoText = 'Não especificado';
+
+            let isP4_AB = (this.answers.p4?.key === 'A' || this.answers.p4?.key === 'B');
+            let isP5_AB = (this.answers.p5?.key === 'A' || this.answers.p5?.key === 'B');
+            let isP2_CD = (this.answers.p2?.key === 'C' || this.answers.p2?.key === 'D');
+            let condA = isP4_AB && isP5_AB && isP2_CD;
+            
+            let isP1_CD = (this.answers.p1?.key === 'C' || this.answers.p1?.key === 'D');
+            let isP3_AB = (this.answers.p3?.key === 'A' || this.answers.p3?.key === 'B');
+            let isP5_notD = (this.answers.p5?.key !== 'D');
+            let condB = isP1_CD && isP3_AB && isP5_notD;
+            
+            let isP6_ABD = (this.answers.p6?.key === 'A' || this.answers.p6?.key === 'B' || this.answers.p6?.key === 'D');
+            let isP7_A = (this.answers.p7?.key === 'A');
+            let condC = isP6_ABD && isP7_A;
+            
+            let isP1_AB = (this.answers.p1?.key === 'A' || this.answers.p1?.key === 'B');
+            let isP3_D = (this.answers.p3?.key === 'D');
+            let isP4_B = (this.answers.p4?.key === 'B');
+            let condD = isP1_AB && (isP3_D || isP4_B);
+            
+            let finalPattern = '';
+            if (condC) {
+                finalPattern = 'C';
+            } else if (condA) {
+                finalPattern = 'A';
+            } else if (condB) {
+                finalPattern = 'B';
+            } else if (condD) {
+                finalPattern = 'D';
+            } else {
+                finalPattern = 'GENERIC';
+            }
+            
+            this.padrao = finalPattern;
+            
+            if (finalPattern === 'A') {
+                this.padraoName = 'Treino no Piloto Automático';
+                this.padraoTitle = 'Seu padrão: Treino no Piloto Automático';
+                this.padraoIcon = '🔄';
+                this.padraoText = 'Seu corpo se adaptou ao estímulo que recebe. Quando o treino não muda com lógica de progressão, o corpo para de responder — não importa quanto esforço você coloque. Você não precisa treinar mais. Precisa treinar diferente, com periodização planejada.';
+                this.padraoFrase = 'A consultoria do Kaio troca seu treino com base na sua evolução real — não no calendário.';
+            } else if (finalPattern === 'B') {
+                this.padraoName = 'Esforço Sem Direção';
+                this.padraoTitle = 'Seu padrão: Esforço Sem Direção';
+                this.padraoIcon = '🧭';
+                this.padraoText = 'Você não é preguiçoso — o problema é que ninguém nunca montou um programa de verdade pra você. Ficha de academia e treino de internet não consideram seu histórico, suas limitações e seu objetivo real.';
+                this.padraoFrase = 'A consultoria do Kaio começa com avaliação individual e monta um programa que evolui junto com você.';
+            } else if (finalPattern === 'C') {
+                this.padraoName = 'Treino e Alimentação Desconectados';
+                this.padraoTitle = 'Seu padrão: Treino e Alimentação Desconectados';
+                this.padraoIcon = '🍽️';
+                this.padraoText = 'Seu treino pode até estar razoável, mas sem alimentação alinhada ao objetivo, o resultado fica travado. Com seu gasto calórico estimado de ' + this.gastoCalorico + ' kcal/dia, o ajuste nutricional certo destrava o que o treino sozinho não resolve.';
+                this.padraoFrase = 'A consultoria do Kaio inclui orientação alimentar integrada ao treino — pra um resultado que aparece de verdade.';
+            } else if (finalPattern === 'D') {
+                this.padraoName = 'Fundação Incompleta';
+                this.padraoTitle = 'Seu padrão: Fundação Incompleta';
+                this.padraoIcon = '🧱';
+                this.padraoText = 'Você está na fase onde o mais importante é construir uma base sólida. Pular de treino em treino sem dominar os fundamentos é como construir em areia. Não é sobre treinar pesado — é sobre treinar certo desde o começo.';
+                this.padraoFrase = 'A consultoria do Kaio monta essa base com você e vai progredindo conforme seu corpo responde.';
+            } else {
+                this.padraoName = 'Seu Treino Pode Melhorar';
+                this.padraoTitle = 'Seu padrão: Seu Treino Pode Melhorar';
+                this.padraoIcon = '💪';
+                this.padraoText = 'Seu padrão atual mostra que você já possui alguma estrutura, mas ainda há pontos a serem lapidados. Pequenos ajustes em variáveis como progressão de carga, controle de descanso e harmonia alimentar podem acelerar muito os seus resultados.';
+                this.padraoFrase = 'A consultoria do Kaio vai identificar exatamente essas pequenas falhas e otimizar cada detalhe do seu treino.';
+            }
+        }
+    }">
+        <!-- Anchor for scrolling back to the card dynamically -->
+        <div id="quiz-card-anchor" class="absolute top-10"></div>
+
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <!-- Header of the Section -->
+            <div class="text-center mb-12" data-aos="fade-up">
+                <span class="text-brand font-bold text-sm tracking-widest uppercase block mb-3 drop-shadow-[0_0_8px_rgba(224,255,0,0.3)]">DIAGNÓSTICO EXCLUSIVO</span>
+                <h2 class="text-3xl md:text-5xl font-black mb-4 text-white">
+                    Descubra o que está <span class="text-accent-cyan drop-shadow-[0_0_15px_rgba(0,240,255,0.4)]">sabotando</span> seus resultados
+                </h2>
+                <p class="text-gray-400 max-w-2xl mx-auto text-lg">Responda em 2 minutos e receba um diagnóstico personalizado.</p>
+            </div>
+
+            <!-- Quiz Main Outer Card -->
+            <div class="bg-dark-800 border border-accent-purple/30 rounded-3xl p-6 md:p-10 shadow-[0_0_40px_rgba(138,43,226,0.15)] relative overflow-hidden" data-aos="zoom-in">
+                <!-- Inner glow background decorative -->
+                <div class="absolute -top-24 -right-24 w-48 h-48 bg-accent-purple/10 rounded-full blur-[60px] pointer-events-none"></div>
+
+                <!-- Top Progress Bar (Visible step 1 to 8) -->
+                <div class="mb-8" x-show="step <= 8">
+                    <div class="flex justify-between items-center text-xs text-gray-400 mb-2 font-mono">
+                        <span>PROGRESSO</span>
+                        <span class="text-accent-cyan font-bold" x-text="'Pergunta ' + step + ' de 8'"></span>
+                    </div>
+                    <div class="w-full bg-dark-700 rounded-full h-1 overflow-hidden">
+                        <div class="bg-gradient-to-r from-accent-cyan to-brand h-1 rounded-full transition-all duration-300" :style="'width: ' + (step/8 * 100) + '%'"></div>
+                    </div>
+                </div>
+
+                <!-- QUESTION 1 -->
+                <div x-show="step === 1" x-transition.opacity class="space-y-6">
+                    <div>
+                        <span class="text-accent-cyan text-sm font-bold font-mono uppercase tracking-wider">Pergunta 1 de 8</span>
+                        <h3 class="text-xl md:text-2xl font-bold text-white mt-1 leading-snug">Há quanto tempo você treina com alguma regularidade?</h3>
+                    </div>
+                    <div class="grid gap-3">
+                        <button type="button" @click="selectOption('p1', { key: 'A', text: 'Menos de 3 meses', value: 1 })" 
+                            :class="answers.p1?.key === 'A' ? 'bg-accent-cyan/15 border-accent-cyan text-white shadow-[0_0_15px_rgba(0,240,255,0.15)]' : 'bg-dark-700 border-transparent hover:bg-dark-900 hover:border-accent-cyan text-gray-300'"
+                            class="w-full text-left py-4 px-6 rounded-xl border transition-all duration-200 font-medium flex justify-between items-center group">
+                            <span>Menos de 3 meses</span>
+                            <div :class="answers.p1?.key === 'A' ? 'bg-accent-cyan text-dark-900 border-accent-cyan' : 'bg-dark-900 border-gray-600 text-transparent'" class="w-6 h-6 rounded-full border-2 flex items-center justify-center text-xs font-bold leading-none">A</div>
+                        </button>
+                        <button type="button" @click="selectOption('p1', { key: 'B', text: 'De 3 meses a 1 ano', value: 2 })" 
+                            :class="answers.p1?.key === 'B' ? 'bg-accent-cyan/15 border-accent-cyan text-white shadow-[0_0_15px_rgba(0,240,255,0.15)]' : 'bg-dark-700 border-transparent hover:bg-dark-900 hover:border-accent-cyan text-gray-300'"
+                            class="w-full text-left py-4 px-6 rounded-xl border transition-all duration-200 font-medium flex justify-between items-center group">
+                            <span>De 3 meses a 1 ano</span>
+                            <div :class="answers.p1?.key === 'B' ? 'bg-accent-cyan text-dark-900 border-accent-cyan' : 'bg-dark-900 border-gray-600 text-transparent'" class="w-6 h-6 rounded-full border-2 flex items-center justify-center text-xs font-bold leading-none">B</div>
+                        </button>
+                        <button type="button" @click="selectOption('p1', { key: 'C', text: 'De 1 a 3 anos', value: 3 })" 
+                            :class="answers.p1?.key === 'C' ? 'bg-accent-cyan/15 border-accent-cyan text-white shadow-[0_0_15px_rgba(0,240,255,0.15)]' : 'bg-dark-700 border-transparent hover:bg-dark-900 hover:border-accent-cyan text-gray-300'"
+                            class="w-full text-left py-4 px-6 rounded-xl border transition-all duration-200 font-medium flex justify-between items-center group">
+                            <span>De 1 a 3 anos</span>
+                            <div :class="answers.p1?.key === 'C' ? 'bg-accent-cyan text-dark-900 border-accent-cyan' : 'bg-dark-900 border-gray-600 text-transparent'" class="w-6 h-6 rounded-full border-2 flex items-center justify-center text-xs font-bold leading-none">C</div>
+                        </button>
+                        <button type="button" @click="selectOption('p1', { key: 'D', text: 'Mais de 3 anos', value: 4 })" 
+                            :class="answers.p1?.key === 'D' ? 'bg-accent-cyan/15 border-accent-cyan text-white shadow-[0_0_15px_rgba(0,240,255,0.15)]' : 'bg-dark-700 border-transparent hover:bg-dark-900 hover:border-accent-cyan text-gray-300'"
+                            class="w-full text-left py-4 px-6 rounded-xl border transition-all duration-200 font-medium flex justify-between items-center group">
+                            <span>Mais de 3 anos</span>
+                            <div :class="answers.p1?.key === 'D' ? 'bg-accent-cyan text-dark-900 border-accent-cyan' : 'bg-dark-900 border-gray-600 text-transparent'" class="w-6 h-6 rounded-full border-2 flex items-center justify-center text-xs font-bold leading-none">D</div>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- QUESTION 2 -->
+                <div x-show="step === 2" x-transition.opacity class="space-y-6" style="display: none;">
+                    <div>
+                        <span class="text-accent-cyan text-sm font-bold font-mono uppercase tracking-wider">Pergunta 2 de 8</span>
+                        <h3 class="text-xl md:text-2xl font-bold text-white mt-1 leading-snug">Nos últimos 3 meses, você sentiu que seu corpo mudou?</h3>
+                    </div>
+                    <div class="grid gap-3">
+                        <button type="button" @click="selectOption('p2', { key: 'A', text: 'Sim, estou evoluindo', value: 4 })" 
+                            :class="answers.p2?.key === 'A' ? 'bg-accent-cyan/15 border-accent-cyan text-white shadow-[0_0_15px_rgba(0,240,255,0.15)]' : 'bg-dark-700 border-transparent hover:bg-dark-900 hover:border-accent-cyan text-gray-300'"
+                            class="w-full text-left py-4 px-6 rounded-xl border transition-all duration-200 font-medium flex justify-between items-center group">
+                            <span>Sim, estou evoluindo</span>
+                            <div :class="answers.p2?.key === 'A' ? 'bg-accent-cyan text-dark-900 border-accent-cyan' : 'bg-dark-900 border-gray-600 text-transparent'" class="w-6 h-6 rounded-full border-2 flex items-center justify-center text-xs font-bold leading-none">A</div>
+                        </button>
+                        <button type="button" @click="selectOption('p2', { key: 'B', text: 'Um pouco, mas menos do que esperava', value: 3 })" 
+                            :class="answers.p2?.key === 'B' ? 'bg-accent-cyan/15 border-accent-cyan text-white shadow-[0_0_15px_rgba(0,240,255,0.15)]' : 'bg-dark-700 border-transparent hover:bg-dark-900 hover:border-accent-cyan text-gray-300'"
+                            class="w-full text-left py-4 px-6 rounded-xl border transition-all duration-200 font-medium flex justify-between items-center group">
+                            <span>Um pouco, mas menos do que esperava</span>
+                            <div :class="answers.p2?.key === 'B' ? 'bg-accent-cyan text-dark-900 border-accent-cyan' : 'bg-dark-900 border-gray-600 text-transparent'" class="w-6 h-6 rounded-full border-2 flex items-center justify-center text-xs font-bold leading-none">B</div>
+                        </button>
+                        <button type="button" @click="selectOption('p2', { key: 'C', text: 'Estou igual, parece que estagnou', value: 2 })" 
+                            :class="answers.p2?.key === 'C' ? 'bg-accent-cyan/15 border-accent-cyan text-white shadow-[0_0_15px_rgba(0,240,255,0.15)]' : 'bg-dark-700 border-transparent hover:bg-dark-900 hover:border-accent-cyan text-gray-300'"
+                            class="w-full text-left py-4 px-6 rounded-xl border transition-all duration-200 font-medium flex justify-between items-center group">
+                            <span>Estou igual, parece que estagnou</span>
+                            <div :class="answers.p2?.key === 'C' ? 'bg-accent-cyan text-dark-900 border-accent-cyan' : 'bg-dark-900 border-gray-600 text-transparent'" class="w-6 h-6 rounded-full border-2 flex items-center justify-center text-xs font-bold leading-none">C</div>
+                        </button>
+                        <button type="button" @click="selectOption('p2', { key: 'D', text: 'Piorei ou perdi o que tinha conquistado', value: 1 })" 
+                            :class="answers.p2?.key === 'D' ? 'bg-accent-cyan/15 border-accent-cyan text-white shadow-[0_0_15px_rgba(0,240,255,0.15)]' : 'bg-dark-700 border-transparent hover:bg-dark-900 hover:border-accent-cyan text-gray-300'"
+                            class="w-full text-left py-4 px-6 rounded-xl border transition-all duration-200 font-medium flex justify-between items-center group">
+                            <span>Piorei ou perdi o que tinha conquistado</span>
+                            <div :class="answers.p2?.key === 'D' ? 'bg-accent-cyan text-dark-900 border-accent-cyan' : 'bg-dark-900 border-gray-600 text-transparent'" class="w-6 h-6 rounded-full border-2 flex items-center justify-center text-xs font-bold leading-none">D</div>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- QUESTION 3 -->
+                <div x-show="step === 3" x-transition.opacity class="space-y-6" style="display: none;">
+                    <div>
+                        <span class="text-accent-cyan text-sm font-bold font-mono uppercase tracking-wider">Pergunta 3 de 8</span>
+                        <h3 class="text-xl md:text-2xl font-bold text-white mt-1 leading-snug">Quem montou o treino que você segue hoje?</h3>
+                    </div>
+                    <div class="grid gap-3">
+                        <button type="button" @click="selectOption('p3', { key: 'A', text: 'O instrutor da academia (aquela ficha)', value: 1, tag: 'ficha' })" 
+                            :class="answers.p3?.key === 'A' ? 'bg-accent-cyan/15 border-accent-cyan text-white shadow-[0_0_15px_rgba(0,240,255,0.15)]' : 'bg-dark-700 border-transparent hover:bg-dark-900 hover:border-accent-cyan text-gray-300'"
+                            class="w-full text-left py-4 px-6 rounded-xl border transition-all duration-200 font-medium flex justify-between items-center group">
+                            <span>O instrutor da academia (aquela ficha)</span>
+                            <div :class="answers.p3?.key === 'A' ? 'bg-accent-cyan text-dark-900 border-accent-cyan' : 'bg-dark-900 border-gray-600 text-transparent'" class="w-6 h-6 rounded-full border-2 flex items-center justify-center text-xs font-bold leading-none">A</div>
+                        </button>
+                        <button type="button" @click="selectOption('p3', { key: 'B', text: 'Eu mesmo, baseado em vídeos e internet', value: 1, tag: 'autodidata' })" 
+                            :class="answers.p3?.key === 'B' ? 'bg-accent-cyan/15 border-accent-cyan text-white shadow-[0_0_15px_rgba(0,240,255,0.15)]' : 'bg-dark-700 border-transparent hover:bg-dark-900 hover:border-accent-cyan text-gray-300'"
+                            class="w-full text-left py-4 px-6 rounded-xl border transition-all duration-200 font-medium flex justify-between items-center group">
+                            <span>Eu mesmo, baseado em vídeos e internet</span>
+                            <div :class="answers.p3?.key === 'B' ? 'bg-accent-cyan text-dark-900 border-accent-cyan' : 'bg-dark-900 border-gray-600 text-transparent'" class="w-6 h-6 rounded-full border-2 flex items-center justify-center text-xs font-bold leading-none">B</div>
+                        </button>
+                        <button type="button" @click="selectOption('p3', { key: 'C', text: 'Um personal/profissional montou pra mim', value: 3, tag: 'profissional' })" 
+                            :class="answers.p3?.key === 'C' ? 'bg-accent-cyan/15 border-accent-cyan text-white shadow-[0_0_15px_rgba(0,240,255,0.15)]' : 'bg-dark-700 border-transparent hover:bg-dark-900 hover:border-accent-cyan text-gray-300'"
+                            class="w-full text-left py-4 px-6 rounded-xl border transition-all duration-200 font-medium flex justify-between items-center group">
+                            <span>Um personal/profissional montou pra mim</span>
+                            <div :class="answers.p3?.key === 'C' ? 'bg-accent-cyan text-dark-900 border-accent-cyan' : 'bg-dark-900 border-gray-600 text-transparent'" class="w-6 h-6 rounded-full border-2 flex items-center justify-center text-xs font-bold leading-none">C</div>
+                        </button>
+                        <button type="button" @click="selectOption('p3', { key: 'D', text: 'Não sigo nenhum programa fixo', value: 0, tag: 'sem-programa' })" 
+                            :class="answers.p3?.key === 'D' ? 'bg-accent-cyan/15 border-accent-cyan text-white shadow-[0_0_15px_rgba(0,240,255,0.15)]' : 'bg-dark-700 border-transparent hover:bg-dark-900 hover:border-accent-cyan text-gray-300'"
+                            class="w-full text-left py-4 px-6 rounded-xl border transition-all duration-200 font-medium flex justify-between items-center group">
+                            <span>Não sigo nenhum programa fixo</span>
+                            <div :class="answers.p3?.key === 'D' ? 'bg-accent-cyan text-dark-900 border-accent-cyan' : 'bg-dark-900 border-gray-600 text-transparent'" class="w-6 h-6 rounded-full border-2 flex items-center justify-center text-xs font-bold leading-none">D</div>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- QUESTION 4 -->
+                <div x-show="step === 4" x-transition.opacity class="space-y-6" style="display: none;">
+                    <div>
+                        <span class="text-accent-cyan text-sm font-bold font-mono uppercase tracking-wider">Pergunta 4 de 8</span>
+                        <h3 class="text-xl md:text-2xl font-bold text-white mt-1 leading-snug">Com que frequência seu treino muda?</h3>
+                    </div>
+                    <div class="grid gap-3">
+                        <button type="button" @click="selectOption('p4', { key: 'A', text: 'Nunca mudou, faço o mesmo há meses', value: 1 })" 
+                            :class="answers.p4?.key === 'A' ? 'bg-accent-cyan/15 border-accent-cyan text-white shadow-[0_0_15px_rgba(0,240,255,0.15)]' : 'bg-dark-700 border-transparent hover:bg-dark-900 hover:border-accent-cyan text-gray-300'"
+                            class="w-full text-left py-4 px-6 rounded-xl border transition-all duration-200 font-medium flex justify-between items-center group">
+                            <span>Nunca mudou, faço o mesmo há meses</span>
+                            <div :class="answers.p4?.key === 'A' ? 'bg-accent-cyan text-dark-900 border-accent-cyan' : 'bg-dark-900 border-gray-600 text-transparent'" class="w-6 h-6 rounded-full border-2 flex items-center justify-center text-xs font-bold leading-none">A</div>
+                        </button>
+                        <button type="button" @click="selectOption('p4', { key: 'B', text: 'Mudo quando enjoo, sem critério', value: 1 })" 
+                            :class="answers.p4?.key === 'B' ? 'bg-accent-cyan/15 border-accent-cyan text-white shadow-[0_0_15px_rgba(0,240,255,0.15)]' : 'bg-dark-700 border-transparent hover:bg-dark-900 hover:border-accent-cyan text-gray-300'"
+                            class="w-full text-left py-4 px-6 rounded-xl border transition-all duration-200 font-medium flex justify-between items-center group">
+                            <span>Mudo quando enjoo, sem critério</span>
+                            <div :class="answers.p4?.key === 'B' ? 'bg-accent-cyan text-dark-900 border-accent-cyan' : 'bg-dark-900 border-gray-600 text-transparent'" class="w-6 h-6 rounded-full border-2 flex items-center justify-center text-xs font-bold leading-none">B</div>
+                        </button>
+                        <button type="button" @click="selectOption('p4', { key: 'C', text: 'Mudo todo mês', value: 2 })" 
+                            :class="answers.p4?.key === 'C' ? 'bg-accent-cyan/15 border-accent-cyan text-white shadow-[0_0_15px_rgba(0,240,255,0.15)]' : 'bg-dark-700 border-transparent hover:bg-dark-900 hover:border-accent-cyan text-gray-300'"
+                            class="w-full text-left py-4 px-6 rounded-xl border transition-all duration-200 font-medium flex justify-between items-center group">
+                            <span>Mudo todo mês</span>
+                            <div :class="answers.p4?.key === 'C' ? 'bg-accent-cyan text-dark-900 border-accent-cyan' : 'bg-dark-900 border-gray-600 text-transparent'" class="w-6 h-6 rounded-full border-2 flex items-center justify-center text-xs font-bold leading-none">C</div>
+                        </button>
+                        <button type="button" @click="selectOption('p4', { key: 'D', text: 'Meu profissional troca com base na minha evolução', value: 4 })" 
+                            :class="answers.p4?.key === 'D' ? 'bg-accent-cyan/15 border-accent-cyan text-white shadow-[0_0_15px_rgba(0,240,255,0.15)]' : 'bg-dark-700 border-transparent hover:bg-dark-900 hover:border-accent-cyan text-gray-300'"
+                            class="w-full text-left py-4 px-6 rounded-xl border transition-all duration-200 font-medium flex justify-between items-center group">
+                            <span>Meu profissional troca com base na minha evolução</span>
+                            <div :class="answers.p4?.key === 'D' ? 'bg-accent-cyan text-dark-900 border-accent-cyan' : 'bg-dark-900 border-gray-600 text-transparent'" class="w-6 h-6 rounded-full border-2 flex items-center justify-center text-xs font-bold leading-none">D</div>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- QUESTION 5 -->
+                <div x-show="step === 5" x-transition.opacity class="space-y-6" style="display: none;">
+                    <div>
+                        <span class="text-accent-cyan text-sm font-bold font-mono uppercase tracking-wider">Pergunta 5 de 8</span>
+                        <h3 class="text-xl md:text-2xl font-bold text-white mt-1 leading-snug">A carga que você usa nos exercícios principais...</h3>
+                    </div>
+                    <div class="grid gap-3">
+                        <button type="button" @click="selectOption('p5', { key: 'A', text: 'Não sei, nunca prestei atenção', value: 0 })" 
+                            :class="answers.p5?.key === 'A' ? 'bg-accent-cyan/15 border-accent-cyan text-white shadow-[0_0_15px_rgba(0,240,255,0.15)]' : 'bg-dark-700 border-transparent hover:bg-dark-900 hover:border-accent-cyan text-gray-300'"
+                            class="w-full text-left py-4 px-6 rounded-xl border transition-all duration-200 font-medium flex justify-between items-center group">
+                            <span>Não sei, nunca prestei atenção</span>
+                            <div :class="answers.p5?.key === 'A' ? 'bg-accent-cyan text-dark-900 border-accent-cyan' : 'bg-dark-900 border-gray-600 text-transparent'" class="w-6 h-6 rounded-full border-2 flex items-center justify-center text-xs font-bold leading-none">A</div>
+                        </button>
+                        <button type="button" @click="selectOption('p5', { key: 'B', text: 'É a mesma há meses', value: 1 })" 
+                            :class="answers.p5?.key === 'B' ? 'bg-accent-cyan/15 border-accent-cyan text-white shadow-[0_0_15px_rgba(0,240,255,0.15)]' : 'bg-dark-700 border-transparent hover:bg-dark-900 hover:border-accent-cyan text-gray-300'"
+                            class="w-full text-left py-4 px-6 rounded-xl border transition-all duration-200 font-medium flex justify-between items-center group flex items-center shrink-0">
+                            <span>É a mesma há meses</span>
+                            <div :class="answers.p5?.key === 'B' ? 'bg-accent-cyan text-dark-900 border-accent-cyan' : 'bg-dark-900 border-gray-600 text-transparent'" class="w-6 h-6 rounded-full border-2 flex items-center justify-center text-xs font-bold leading-none">B</div>
+                        </button>
+                        <button type="button" @click="selectOption('p5', { key: 'C', text: 'Sobe de vez em quando', value: 2 })" 
+                            :class="answers.p5?.key === 'C' ? 'bg-accent-cyan/15 border-accent-cyan text-white shadow-[0_0_15px_rgba(0,240,255,0.15)]' : 'bg-dark-700 border-transparent hover:bg-dark-900 hover:border-accent-cyan text-gray-300'"
+                            class="w-full text-left py-4 px-6 rounded-xl border transition-all duration-200 font-medium flex justify-between items-center group">
+                            <span>Sobe de vez em quando</span>
+                            <div :class="answers.p5?.key === 'C' ? 'bg-accent-cyan text-dark-900 border-accent-cyan' : 'bg-dark-900 border-gray-600 text-transparent'" class="w-6 h-6 rounded-full border-2 flex items-center justify-center text-xs font-bold leading-none">C</div>
+                        </button>
+                        <button type="button" @click="selectOption('p5', { key: 'D', text: 'Sobe de forma planejada', value: 4 })" 
+                            :class="answers.p5?.key === 'D' ? 'bg-accent-cyan/15 border-accent-cyan text-white shadow-[0_0_15px_rgba(0,240,255,0.15)]' : 'bg-dark-700 border-transparent hover:bg-dark-900 hover:border-accent-cyan text-gray-300'"
+                            class="w-full text-left py-4 px-6 rounded-xl border transition-all duration-200 font-medium flex justify-between items-center group">
+                            <span>Sobe de forma planejada</span>
+                            <div :class="answers.p5?.key === 'D' ? 'bg-accent-cyan text-dark-900 border-accent-cyan' : 'bg-dark-900 border-gray-600 text-transparent'" class="w-6 h-6 rounded-full border-2 flex items-center justify-center text-xs font-bold leading-none">D</div>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- QUESTION 6 -->
+                <div x-show="step === 6" x-transition.opacity class="space-y-6" style="display: none;">
+                    <div>
+                        <span class="text-accent-cyan text-sm font-bold font-mono uppercase tracking-wider">Pergunta 6 de 8</span>
+                        <h3 class="text-xl md:text-2xl font-bold text-white mt-1 leading-snug">Como está sua alimentação em relação ao seu objetivo?</h3>
+                    </div>
+                    <div class="grid gap-3">
+                        <button type="button" @click="selectOption('p6', { key: 'A', text: 'Como qualquer coisa, não controlo', value: 0, tag: 'sem-controle' })" 
+                            :class="answers.p6?.key === 'A' ? 'bg-accent-cyan/15 border-accent-cyan text-white shadow-[0_0_15px_rgba(0,240,255,0.15)]' : 'bg-dark-700 border-transparent hover:bg-dark-900 hover:border-accent-cyan text-gray-300'"
+                            class="w-full text-left py-4 px-6 rounded-xl border transition-all duration-200 font-medium flex justify-between items-center group">
+                            <span>Como qualquer coisa, não controlo</span>
+                            <div :class="answers.p6?.key === 'A' ? 'bg-accent-cyan text-dark-900 border-accent-cyan' : 'bg-dark-900 border-gray-600 text-transparent'" class="w-6 h-6 rounded-full border-2 flex items-center justify-center text-xs font-bold leading-none">A</div>
+                        </button>
+                        <button type="button" @click="selectOption('p6', { key: 'B', text: 'Tento comer bem mas sem orientação', value: 1, tag: 'sem-orientacao' })" 
+                            :class="answers.p6?.key === 'B' ? 'bg-accent-cyan/15 border-accent-cyan text-white shadow-[0_0_15px_rgba(0,240,255,0.15)]' : 'bg-dark-700 border-transparent hover:bg-dark-900 hover:border-accent-cyan text-gray-300'"
+                            class="w-full text-left py-4 px-6 rounded-xl border transition-all duration-200 font-medium flex justify-between items-center group">
+                            <span>Tento comer bem mas sem orientação</span>
+                            <div :class="answers.p6?.key === 'B' ? 'bg-accent-cyan text-dark-900 border-accent-cyan' : 'bg-dark-900 border-gray-600 text-transparent'" class="w-6 h-6 rounded-full border-2 flex items-center justify-center text-xs font-bold leading-none">B</div>
+                        </button>
+                        <button type="button" @click="selectOption('p6', { key: 'C', text: 'Sigo um plano nutricional', value: 3, tag: 'com-plano' })" 
+                            :class="answers.p6?.key === 'C' ? 'bg-accent-cyan/15 border-accent-cyan text-white shadow-[0_0_15px_rgba(0,240,255,0.15)]' : 'bg-dark-700 border-transparent hover:bg-dark-900 hover:border-accent-cyan text-gray-300'"
+                            class="w-full text-left py-4 px-6 rounded-xl border transition-all duration-200 font-medium flex justify-between items-center group">
+                            <span>Sigo um plano nutricional</span>
+                            <div :class="answers.p6?.key === 'C' ? 'bg-accent-cyan text-dark-900 border-accent-cyan' : 'bg-dark-900 border-gray-600 text-transparent'" class="w-6 h-6 rounded-full border-2 flex items-center justify-center text-xs font-bold leading-none">C</div>
+                        </button>
+                        <button type="button" @click="selectOption('p6', { key: 'D', text: 'Já tentei várias dietas, nenhuma se manteve', value: 1, tag: 'dieta-yoyo' })" 
+                            :class="answers.p6?.key === 'D' ? 'bg-accent-cyan/15 border-accent-cyan text-white shadow-[0_0_15px_rgba(0,240,255,0.15)]' : 'bg-dark-700 border-transparent hover:bg-dark-900 hover:border-accent-cyan text-gray-300'"
+                            class="w-full text-left py-4 px-6 rounded-xl border transition-all duration-200 font-medium flex justify-between items-center group">
+                            <span>Já tentei várias dietas, nenhuma se manteve</span>
+                            <div :class="answers.p6?.key === 'D' ? 'bg-accent-cyan text-dark-900 border-accent-cyan' : 'bg-dark-900 border-gray-600 text-transparent'" class="w-6 h-6 rounded-full border-2 flex items-center justify-center text-xs font-bold leading-none">D</div>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- QUESTION 7 -->
+                <div x-show="step === 7" x-transition.opacity class="space-y-6" style="display: none;">
+                    <div>
+                        <span class="text-accent-cyan text-sm font-bold font-mono uppercase tracking-wider">Pergunta 7 de 8</span>
+                        <h3 class="text-xl md:text-2xl font-bold text-white mt-1 leading-snug">Se pudesse escolher UM resultado nos próximos 90 dias:</h3>
+                    </div>
+                    <div class="grid gap-3">
+                        <button type="button" @click="selectOption('p7', { key: 'A', text: 'Perder gordura e definir', value: 0, tag: 'definir' })" 
+                            :class="answers.p7?.key === 'A' ? 'bg-accent-cyan/15 border-accent-cyan text-white shadow-[0_0_15px_rgba(0,240,255,0.15)]' : 'bg-dark-700 border-transparent hover:bg-dark-900 hover:border-accent-cyan text-gray-300'"
+                            class="w-full text-left py-4 px-6 rounded-xl border transition-all duration-200 font-medium flex justify-between items-center group">
+                            <span>Perder gordura e definir</span>
+                            <div :class="answers.p7?.key === 'A' ? 'bg-accent-cyan text-dark-900 border-accent-cyan' : 'bg-dark-900 border-gray-600 text-transparent'" class="w-6 h-6 rounded-full border-2 flex items-center justify-center text-xs font-bold leading-none">A</div>
+                        </button>
+                        <button type="button" @click="selectOption('p7', { key: 'B', text: 'Ganhar massa muscular', value: 0, tag: 'massa' })" 
+                            :class="answers.p7?.key === 'B' ? 'bg-accent-cyan/15 border-accent-cyan text-white shadow-[0_0_15px_rgba(0,240,255,0.15)]' : 'bg-dark-700 border-transparent hover:bg-dark-900 hover:border-accent-cyan text-gray-300'"
+                            class="w-full text-left py-4 px-6 rounded-xl border transition-all duration-200 font-medium flex justify-between items-center group">
+                            <span>Ganhar massa muscular</span>
+                            <div :class="answers.p7?.key === 'B' ? 'bg-accent-cyan text-dark-900 border-accent-cyan' : 'bg-dark-900 border-gray-600 text-transparent'" class="w-6 h-6 rounded-full border-2 flex items-center justify-center text-xs font-bold leading-none">B</div>
+                        </button>
+                        <button type="button" @click="selectOption('p7', { key: 'C', text: 'Ter mais disposição e energia', value: 0, tag: 'energia' })" 
+                            :class="answers.p7?.key === 'C' ? 'bg-accent-cyan/15 border-accent-cyan text-white shadow-[0_0_15px_rgba(0,240,255,0.15)]' : 'bg-dark-700 border-transparent hover:bg-dark-900 hover:border-accent-cyan text-gray-300'"
+                            class="w-full text-left py-4 px-6 rounded-xl border transition-all duration-200 font-medium flex justify-between items-center group">
+                            <span>Ter mais disposição e energia</span>
+                            <div :class="answers.p7?.key === 'C' ? 'bg-accent-cyan text-dark-900 border-accent-cyan' : 'bg-dark-900 border-gray-600 text-transparent'" class="w-6 h-6 rounded-full border-2 flex items-center justify-center text-xs font-bold leading-none">C</div>
+                        </button>
+                        <button type="button" @click="selectOption('p7', { key: 'D', text: 'Sair da estagnação e voltar a evoluir', value: 0, tag: 'estagnacao' })" 
+                            :class="answers.p7?.key === 'D' ? 'bg-accent-cyan/15 border-accent-cyan text-white shadow-[0_0_15px_rgba(0,240,255,0.15)]' : 'bg-dark-700 border-transparent hover:bg-dark-900 hover:border-accent-cyan text-gray-300'"
+                            class="w-full text-left py-4 px-6 rounded-xl border transition-all duration-200 font-medium flex justify-between items-center group">
+                            <span>Sair da estagnação e voltar a evoluir</span>
+                            <div :class="answers.p7?.key === 'D' ? 'bg-accent-cyan text-dark-900 border-accent-cyan' : 'bg-dark-900 border-gray-600 text-transparent'" class="w-6 h-6 rounded-full border-2 flex items-center justify-center text-xs font-bold leading-none">D</div>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- QUESTION 8 (Campos de Entrada) -->
+                <div x-show="step === 8" x-transition.opacity class="space-y-6" style="display: none;">
+                    <div>
+                        <span class="text-accent-pink text-sm font-bold font-mono uppercase tracking-wider">Passo Final 08/08</span>
+                        <h3 class="text-xl md:text-2xl font-bold text-white mt-1 leading-snug">Personalize seu diagnóstico</h3>
+                        <p class="text-xs text-gray-400 mt-1">Insira seus dados reais para calcularmos o IMC e a TMB (taxa metabólica basal) personalizados.</p>
+                    </div>
+
+                    <div class="space-y-5">
+                        <!-- Sexo -->
+                        <div>
+                            <label class="block text-xs font-bold font-mono text-gray-400 uppercase tracking-wider mb-2">SEXO BIOLÓGICO</label>
+                            <div class="grid grid-cols-2 gap-4">
+                                <button type="button" @click="sexo = 'M'" 
+                                    :class="sexo === 'M' ? 'bg-accent-cyan/15 border-accent-cyan text-white ring-1 ring-accent-cyan shadow-[0_0_15px_rgba(0,240,255,0.15)]' : 'bg-dark-700 border-transparent text-gray-400 hover:bg-dark-900'"
+                                    class="py-3.5 px-4 rounded-xl border font-bold transition-all text-center flex items-center justify-center gap-2">
+                                    <span class="text-lg">♂</span> Masculino
+                                </button>
+                                <button type="button" @click="sexo = 'F'" 
+                                    :class="sexo === 'F' ? 'bg-accent-pink/15 border-accent-pink text-white ring-1 ring-accent-pink shadow-[0_0_15px_rgba(255,0,127,0.15)]' : 'bg-dark-700 border-transparent text-gray-400 hover:bg-dark-900'"
+                                    class="py-3.5 px-4 rounded-xl border font-bold transition-all text-center flex items-center justify-center gap-2">
+                                    <span class="text-lg">♀</span> Feminino
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Age, Height, Weight -->
+                        <div class="grid grid-cols-3 gap-3">
+                            <div>
+                                <label class="block text-xs font-bold font-mono text-gray-450 uppercase tracking-wide mb-1 text-gray-400">Idade (Anos)</label>
+                                <input type="number" min="14" max="100" placeholder="Ex: 27" x-model="idade" 
+                                    class="w-full bg-dark-700 border border-accent-purple/30 focus:border-accent-cyan focus:outline-none focus:ring-1 focus:ring-accent-cyan p-4 text-white rounded-xl placeholder-gray-500 font-bold text-center">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold font-mono text-gray-450 uppercase tracking-wide mb-1 text-gray-400">Altura (cm)</label>
+                                <input type="number" min="100" max="250" placeholder="Ex: 175" x-model="altura" 
+                                    class="w-full bg-dark-700 border border-accent-purple/30 focus:border-accent-cyan focus:outline-none focus:ring-1 focus:ring-accent-cyan p-4 text-white rounded-xl placeholder-gray-500 font-bold text-center">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold font-mono text-gray-450 uppercase tracking-wide mb-1 text-gray-400">Peso (Kg)</label>
+                                <input type="number" min="30" max="300" placeholder="Ex: 80" x-model="peso" 
+                                    class="w-full bg-dark-700 border border-accent-purple/30 focus:border-accent-cyan focus:outline-none focus:ring-1 focus:ring-accent-cyan p-4 text-white rounded-xl placeholder-gray-500 font-bold text-center">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-6 border-t border-accent-purple/20 flex flex-col gap-3">
+                        <button type="button" @click="if (canSubmit()) { compute(); step = 9; }" :disabled="!canSubmit()"
+                            :class="canSubmit() ? 'bg-brand hover:bg-white text-dark-900 shadow-[0_0_20px_rgba(224,255,0,0.4)] hover:scale-[1.01] transform' : 'bg-dark-700 text-gray-500 cursor-not-allowed opacity-50'"
+                            class="w-full py-4 text-center font-black rounded-xl transition-all tracking-wide text-lg flex items-center justify-center gap-2">
+                            Ver meu resultado 🚀
+                        </button>
+                        <button type="button" @click="prevStep" class="text-xs text-gray-450 hover:text-white transition-colors py-1 text-center font-semibold text-gray-400">Voltar à pergunta anterior</button>
+                    </div>
+                </div>
+
+                <!-- TELA DE RESULTADO DINÂMICO (Step 9) -->
+                <div x-show="step === 9" x-transition.opacity class="space-y-8" style="display: none;">
+                    
+                    <!-- Result main body layout with dynamic border -->
+                    <div :class="{
+                        'border-accent-cyan shadow-[0_0_30px_rgba(0,240,255,0.15)]': padrao === 'A' || padrao === 'B' || padrao === 'GENERIC',
+                        'border-accent-pink shadow-[0_0_30px_rgba(255,0,127,0.15)]': padrao === 'C',
+                        'border-brand shadow-[0_0_30px_rgba(224,255,0,0.15)]': padrao === 'D'
+                    }" class="border-2 rounded-3xl bg-dark-900/80 p-6 md:p-8 space-y-6 relative overflow-hidden transition-all duration-300">
+                        
+                        <!-- Floating graphic background accent -->
+                        <div class="absolute -bottom-10 -right-10 w-24 h-24 bg-accent-purple/10 rounded-full blur-3xl pointer-events-none"></div>
+
+                        <!-- Result Title and Icon -->
+                        <div class="flex items-center gap-4">
+                            <div class="text-4xl md:text-5xl shrink-0 filter drop-shadow-[0_0_8px_rgba(255,255,255,0.2)]" x-text="padraoIcon"></div>
+                            <div>
+                                <span class="text-xs font-mono font-bold uppercase text-gray-400 tracking-wider">Diagnóstico Exclusivo</span>
+                                <h4 class="text-xl md:text-2xl font-black text-white mt-0.5" x-text="padraoTitle"></h4>
+                            </div>
+                        </div>
+
+                        <!-- Core text feedback -->
+                        <p class="text-gray-250 text-base md:text-lg leading-relaxed border-l-2 border-accent-purple/40 pl-4 py-1 text-gray-300" x-text="padraoText"></p>
+
+                        <!-- Personalized connect tagline -->
+                        <div class="bg-dark-800/80 p-4 rounded-2xl border border-white/5 shadow-inner">
+                            <p class="text-brand font-bold text-sm md:text-base leading-relaxed" x-text="padraoFrase"></p>
+                        </div>
+                    </div>
+
+                    <!-- Computed details Sub Grid -->
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                        <div class="bg-dark-700/80 p-4 rounded-2xl border border-white/5 text-center flex flex-col justify-center shadow-inner">
+                            <span class="text-[10px] text-gray-400 font-mono font-bold tracking-wider uppercase">SEU IMC</span>
+                            <p class="text-2xl font-black text-white mt-1" x-text="imc + ' kg/m²'"></p>
+                            <span class="text-xs text-accent-cyan font-bold mt-1" x-text="imcClass"></span>
+                        </div>
+                        <div class="bg-dark-700/80 p-4 rounded-2xl border border-white/5 text-center flex flex-col justify-center shadow-inner">
+                            <span class="text-[10px] text-gray-400 font-mono font-bold tracking-wider uppercase">GASTO CALÓRICO ESTIMADO</span>
+                            <p class="text-2xl font-black text-white mt-1" x-text="gastoCalorico + ' kcal'"></p>
+                            <span class="text-[10px] text-gray-500 font-bold mt-0.5 uppercase tracking-wide font-mono">TMB × 1.4 por dia</span>
+                        </div>
+                        <div class="bg-dark-700/80 p-4 rounded-2xl border border-white/5 text-center flex flex-col justify-center shadow-inner">
+                            <span class="text-[10px] text-gray-400 font-mono font-bold tracking-wider uppercase">OBJETIVO REAL</span>
+                            <p class="text-base font-black text-white mt-1.5 leading-tight" x-text="objetivoText"></p>
+                            <span class="text-[10px] text-accent-pink font-bold mt-1 uppercase tracking-wide font-mono">Meta de 90 dias</span>
+                        </div>
+                    </div>
+
+                    <!-- Final Actioncta -->
+                    <div class="text-center pt-6 border-t border-accent-purple/20 space-y-4">
+                        <a :href="'https://wa.me/5511999999999?text=' + encodeURIComponent('Oi Kaio, fiz o diagnóstico na sua página. Meu padrão deu ' + padraoName + '. Quero entender como funciona o acompanhamento.')" 
+                            target="_blank"
+                            class="w-full inline-flex items-center justify-center gap-2 bg-brand hover:bg-white text-dark-900 font-black text-lg py-5 px-8 rounded-full transition-all transform hover:scale-105 shadow-[0_0_25px_rgba(224,255,0,0.5)]">
+                            Quero sair desse padrão → Falar com o Kaio
+                        </a>
+                        <p class="text-gray-400 text-xs font-medium">Primeira conversa sem compromisso. O Kaio vai analisar seu diagnóstico e te mostrar o caminho.</p>
+                        
+                        <button type="button" @click="resetQuiz" class="text-xs text-gray-500 hover:text-white transition-colors block mx-auto pt-2 underline tracking-wider font-bold uppercase font-mono">Refazer Diagnóstico</button>
+                    </div>
+                </div>
+
+                <!-- Footer back button / step indicator during questions -->
+                <div class="mt-6 flex justify-between items-center text-xs text-gray-400 font-mono" x-show="step > 1 && step <= 8">
+                    <button type="button" @click="prevStep" class="hover:text-white transition-colors flex items-center gap-1 font-bold">
+                        ← Voltar anterior
+                    </button>
+                    <span class="font-bold text-gray-500" x-text="'Etapa ' + step + ' de 8'"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- PAS Framework: Solution (Metodologia) -->
     <section id="metodo" class="py-24 relative overflow-hidden bg-dark-900">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-3xl md:text-5xl font-black mb-4 text-white">A Solução: <span class="text-accent-cyan drop-shadow-[0_0_15px_rgba(0,240,255,0.4)]">O Método Digital</span></h2>
-                <p class="text-gray-400 max-w-2xl mx-auto text-lg">Esqueça as fichas de papel e a falta de atenção. Minha consultoria é 100% online, pensada para a sua rotina.</p>
+                <h2 class="text-3xl md:text-5xl font-black mb-4 text-white">A Solução: <span class="text-accent-cyan drop-shadow-[0_0_15px_rgba(0,240,255,0.4)]">O Método KR</span></h2>
+                <p class="text-gray-400 max-w-2xl mx-auto text-lg">Não é só treino no app. É avaliação individual, progressão planejada e correção em tempo real — tudo pelo seu celular.</p>
             </div>
 
             <!-- Alpine.js Tabs for Features -->
@@ -299,7 +877,7 @@
                     <div x-show="activeTab === 'treino'" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 translate-y-4" x-transition:enter-end="opacity-100 translate-y-0" class="grid md:grid-cols-2 gap-8 items-center w-full relative z-10" style="display: none;">
                         <div>
                             <h3 class="text-2xl font-bold text-white mb-4">Feito para o seu corpo</h3>
-                            <p class="text-gray-300 mb-6 leading-relaxed">Antes de montar qualquer treino, faremos uma avaliação completa. Seu treino será desenhado para o seu objetivo (hipertrofia ou emagrecimento), considerando quantos dias você pode treinar e suas limitações.</p>
+                            <p class="text-gray-300 mb-6 leading-relaxed">Antes de montar qualquer treino, eu avalio seu histórico, seus objetivos e suas limitações. O treino muda conforme você evolui — não porque completou 30 dias.</p>
                             <ul class="space-y-3">
                                 <li class="flex items-center gap-3 text-gray-200"><span class="text-accent-cyan font-bold">✓</span> Avaliação inicial detalhada</li>
                                 <li class="flex items-center gap-3 text-gray-200"><span class="text-accent-cyan font-bold">✓</span> Periodização (o treino muda na hora certa)</li>
@@ -341,6 +919,95 @@
         </div>
     </section>
 
+    <!-- Nova Seção: Prova Social (Resultados) -->
+    <section id="resultados" class="py-24 bg-dark-900 relative overflow-hidden border-t border-accent-purple/20">
+        <!-- Background decorative glows -->
+        <div class="absolute top-1/2 left-0 w-80 h-80 bg-accent-pink/10 rounded-full blur-[100px] pointer-events-none"></div>
+        <div class="absolute bottom-0 right-10 w-80 h-80 bg-accent-cyan/10 rounded-full blur-[100px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span class="text-accent-pink font-bold text-sm tracking-widest uppercase block mb-3">Histórias reais de sucesso</span>
+                <h2 class="text-3xl md:text-5xl font-black mb-4 text-white">
+                    Quem treina com o Kaio, <span class="text-gradient-brand">transforma</span>
+                </h2>
+                <p class="text-gray-400 max-w-2xl mx-auto text-lg">Resultados reais de alunos reais que saíram da inércia e alcançaram a sua melhor versão.</p>
+            </div>
+
+            <!-- Grid Depoimentos -->
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div data-aos="fade-up" data-aos-delay="100" class="bg-dark-800/60 backdrop-blur-md border border-accent-purple/30 rounded-3xl p-8 flex flex-col justify-between shadow-[0_0_20px_rgba(138,43,226,0.1)] hover:border-accent-cyan/50 hover:shadow-[0_0_25px_rgba(0,240,255,0.2)] transition-all duration-300">
+                    <div>
+                        <div class="flex items-center gap-4 mb-6">
+                            <!-- Placeholder Foto Sólido -->
+                            <div class="w-14 h-14 rounded-full bg-accent-cyan flex items-center justify-center text-dark-900 font-extrabold text-lg shadow-[0_0_15px_rgba(0,240,255,0.4)]">
+                                TS
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold text-lg leading-tight">Thiago Santana</h4>
+                                <span class="text-gray-400 text-sm">29 anos</span>
+                            </div>
+                        </div>
+                        <p class="text-gray-300 italic leading-relaxed mb-6">
+                            "Eu não conseguia manter uma rotina de treinos por mais de um mês. Com o suporte direto no WhatsApp e as correções de postura, finalmente entendi o que estava fazendo e criei constância."
+                        </p>
+                    </div>
+                    <div class="border-t border-accent-purple/20 pt-4 mt-auto">
+                        <span class="text-xs text-accent-cyan uppercase tracking-wider font-semibold block mb-1">Resultado de Destaque</span>
+                        <p class="text-2xl font-black text-white drop-shadow-[0_0_8px_rgba(0,240,255,0.4)]">-8kg em 3 meses</p>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div data-aos="fade-up" data-aos-delay="200" class="bg-dark-800/60 backdrop-blur-md border border-accent-purple/30 rounded-3xl p-8 flex flex-col justify-between shadow-[0_0_20px_rgba(138,43,226,0.1)] hover:border-accent-pink/50 hover:shadow-[0_0_25px_rgba(255,0,127,0.2)] transition-all duration-300">
+                    <div>
+                        <div class="flex items-center gap-4 mb-6">
+                            <!-- Placeholder Foto Sólido -->
+                            <div class="w-14 h-14 rounded-full bg-accent-pink flex items-center justify-center text-dark-900 font-extrabold text-lg shadow-[0_0_15px_rgba(255,0,127,0.4)]">
+                                MR
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold text-lg leading-tight">Mariana Ribeiro</h4>
+                                <span class="text-gray-400 text-sm">33 anos</span>
+                            </div>
+                        </div>
+                        <p class="text-gray-300 italic leading-relaxed mb-6">
+                            "Tinha medo de me lesionar e não sabia como agachar corretamente. A avaliação constante da minha execução me deu total segurança. Hoje treino sem dor e superando minhas marcas."
+                        </p>
+                    </div>
+                    <div class="border-t border-accent-purple/20 pt-4 mt-auto">
+                        <span class="text-xs text-accent-pink uppercase tracking-wider font-semibold block mb-1">Resultado de Destaque</span>
+                        <p class="text-2xl font-black text-white drop-shadow-[0_0_8px_rgba(255,0,127,0.4)]">Primeiro agachamento livre</p>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div data-aos="fade-up" data-aos-delay="300" class="bg-dark-800/60 backdrop-blur-md border border-accent-purple/30 rounded-3xl p-8 flex flex-col justify-between shadow-[0_0_20px_rgba(138,43,226,0.1)] hover:border-brand/50 hover:shadow-[0_0_25px_rgba(224,255,0,0.2)] transition-all duration-300">
+                    <div>
+                        <div class="flex items-center gap-4 mb-6">
+                            <!-- Placeholder Foto Sólido -->
+                            <div class="w-14 h-14 rounded-full bg-brand flex items-center justify-center text-dark-900 font-extrabold text-lg shadow-[0_0_15px_rgba(224,255,0,0.4)]">
+                                BD
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold text-lg leading-tight">Bruno Duarte</h4>
+                                <span class="text-gray-400 text-sm">26 anos</span>
+                            </div>
+                        </div>
+                        <p class="text-gray-300 italic leading-relaxed mb-6">
+                            "Eu achava que consultoria online era só planilha pronta de e-mail. Mas a atenção que o Kaio dá é diferenciada. Meus treinos mudam quinzenalmente conforme eu mudo de patamar."
+                        </p>
+                    </div>
+                    <div class="border-t border-accent-purple/20 pt-4 mt-auto">
+                        <span class="text-xs text-brand uppercase tracking-wider font-semibold block mb-1">Resultado de Destaque</span>
+                        <p class="text-2xl font-black text-white drop-shadow-[0_0_8px_rgba(224,255,0,0.4)]">+12kg de massa magra em 6 meses</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- About Section -->
     <section id="sobre" class="py-24 bg-dark-800 border-t border-accent-purple/30 relative overflow-hidden">
         <!-- Decorative Glow -->
@@ -351,10 +1018,10 @@
                 <div data-aos="fade-right" class="order-2 md:order-1">
                     <h2 class="text-3xl md:text-5xl font-black mb-6 text-white">Quem é <br><span class="text-gradient-pink">Kaio Ramos?</span></h2>
                     <p class="text-gray-300 text-lg mb-6 leading-relaxed">
-                        Sou personal trainer com uma visão <strong class="text-accent-cyan">digital-first</strong>. Acredito que o fitness não precisa ser complicado, engessado ou tomar horas do seu dia.
+                        Sou educador físico registrado no CREF, com formação em biomecânica aplicada ao treinamento. Já acompanhei mais de 200 alunos de consultoria online e acredito que treino bom é treino individualizado — feito pra você, não copiado de uma ficha genérica.
                     </p>
-                    <p class="text-gray-300 text-lg mb-8 leading-relaxed">
-                        Criei minha consultoria 100% online para ajudar pessoas que têm uma rotina corrida, mas que não abrem mão de ter um corpo estético e saudável. Meu foco é te entregar o caminho mais eficiente, usando a tecnologia a nosso favor.
+                    <p class="text-gray-400 text-sm font-semibold mb-8 uppercase tracking-widest text-accent-cyan border-l-2 border-accent-cyan pl-3">
+                        CREF 012345-G/SP | Pós-graduando em Fisiologia do Exercício
                     </p>
                     <div class="flex items-center gap-4">
                         <a href="https://instagram.com/kaioramos.treino" target="_blank" class="flex items-center gap-2 text-white hover:text-accent-pink transition-colors font-medium">
@@ -366,7 +1033,7 @@
                 <div data-aos="fade-left" class="order-1 md:order-2 flex justify-center">
                     <div class="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-accent-cyan relative shadow-[0_0_30px_rgba(0,240,255,0.4)]">
                         <!-- PLACEHOLDER PARA A IMAGEM WEBP -->
-                        <img src="kaio2.webp" alt="Kaio Ramos" class="object-cover w-full h-full mix-blend-luminosity hover:mix-blend-normal transition-all duration-500" onerror="this.src='https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=800&auto=format&fit=crop'; this.onerror=null;">
+                        <img src="kaio2.webp" alt="Kaio Ramos" class="object-cover w-full h-full mix-blend-luminosity hover:mix-blend-normal transition-all duration-500" onerror="this.src='https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=800&auto=format&fit=crop'; this.onerror=null;">
                         <div class="absolute inset-0 bg-accent-pink/20 mix-blend-overlay pointer-events-none"></div>
                     </div>
                 </div>
@@ -374,16 +1041,103 @@
         </div>
     </section>
 
+    <!-- Nova Seção: FAQ -->
+    <section id="faq" class="py-24 bg-dark-800 relative border-t border-accent-purple/30">
+        <!-- Background decorative glows -->
+        <div class="absolute top-1/4 right-1/4 w-80 h-80 bg-accent-purple/10 rounded-full blur-[100px] pointer-events-none"></div>
+        
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span class="text-accent-cyan font-bold text-sm tracking-widest uppercase block mb-3">Tire todas as suas dúvidas</span>
+                <h2 class="text-3xl md:text-5xl font-black mb-4 text-white">
+                    Perguntas <span class="text-gradient-brand">Frequentes</span>
+                </h2>
+                <p class="text-gray-400 text-lg">Se tem alguma dúvida antes de começar, a resposta pode estar logo abaixo.</p>
+            </div>
+
+            <!-- Accordion List -->
+            <div x-data="{ activeAccordion: null }" class="space-y-4" data-aos="fade-up">
+                <!-- FAQ Item 1 -->
+                <div class="bg-dark-900/60 border border-accent-purple/30 rounded-2xl overflow-hidden transition-all duration-300">
+                    <button @click="activeAccordion = activeAccordion === 1 ? null : 1" class="w-full text-left px-6 py-5 flex justify-between items-center gap-4 hover:bg-dark-700/30 transition-colors">
+                        <span class="font-bold text-lg text-white">Como funciona a consultoria online?</span>
+                        <svg class="w-5 h-5 text-accent-cyan transform transition-transform duration-300" :class="activeAccordion === 1 ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 10l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div x-show="activeAccordion === 1" x-transition class="px-6 pb-6 text-gray-300 leading-relaxed border-t border-accent-purple/10 pt-4" style="display: none;">
+                        Após a contratação, você preenche um formulário detalhado (anamnese). Eu analiso suas metas e crio o treino no aplicativo. O suporte para dúvidas e correção física é contínuo pelo WhatsApp.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="bg-dark-900/60 border border-accent-purple/30 rounded-2xl overflow-hidden transition-all duration-300">
+                    <button @click="activeAccordion = activeAccordion === 2 ? null : 2" class="w-full text-left px-6 py-5 flex justify-between items-center gap-4 hover:bg-dark-700/30 transition-colors">
+                        <span class="font-bold text-lg text-white">Preciso ter equipamentos em casa?</span>
+                        <svg class="w-5 h-5 text-accent-cyan transform transition-transform duration-300" :class="activeAccordion === 2 ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 10l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div x-show="activeAccordion === 2" x-transition class="px-6 pb-6 text-gray-300 leading-relaxed border-t border-accent-purple/10 pt-4" style="display: none;">
+                        Não necessariamente. Eu posso planejar seu treino para ser executado com o peso do corpo (calistenia), elásticos, ou usando a estrutura completa de uma academia de bairro ou condomínio.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="bg-dark-900/60 border border-accent-purple/30 rounded-2xl overflow-hidden transition-all duration-300">
+                    <button @click="activeAccordion = activeAccordion === 3 ? null : 3" class="w-full text-left px-6 py-5 flex justify-between items-center gap-4 hover:bg-dark-700/30 transition-colors">
+                        <span class="font-bold text-lg text-white">O treino serve pra quem nunca treinou?</span>
+                        <svg class="w-5 h-5 text-accent-cyan transform transition-transform duration-300" :class="activeAccordion === 3 ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 10l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div x-show="activeAccordion === 3" x-transition class="px-6 pb-6 text-gray-300 leading-relaxed border-t border-accent-purple/10 pt-4" style="display: none;">
+                        Com certeza. O planejamento é adaptado ao seu nível atual de condicionamento físico. Começamos com foco em técnica, mobilidade e postura, progredindo passo a passo de forma segura.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="bg-dark-900/60 border border-accent-purple/30 rounded-2xl overflow-hidden transition-all duration-300">
+                    <button @click="activeAccordion = activeAccordion === 4 ? null : 4" class="w-full text-left px-6 py-5 flex justify-between items-center gap-4 hover:bg-dark-700/30 transition-colors">
+                        <span class="font-bold text-lg text-white">Como é feito o acompanhamento nutricional?</span>
+                        <svg class="w-5 h-5 text-accent-cyan transform transition-transform duration-300" :class="activeAccordion === 4 ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 10l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div x-show="activeAccordion === 4" x-transition class="px-6 pb-6 text-gray-300 leading-relaxed border-t border-accent-purple/10 pt-4" style="display: none;">
+                        A consultoria fitness foca no seu plano de exercícios e periodização de treinos. No entanto, te dou diretrizes de hábitos e hidratação saudáveis de forma complementar para maximizar seus ganhos.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 5 -->
+                <div class="bg-dark-900/60 border border-accent-purple/30 rounded-2xl overflow-hidden transition-all duration-300">
+                    <button @click="activeAccordion = activeAccordion === 5 ? null : 5" class="w-full text-left px-6 py-5 flex justify-between items-center gap-4 hover:bg-dark-700/30 transition-colors">
+                        <span class="font-bold text-lg text-white">E se eu não gostar, posso cancelar?</span>
+                        <svg class="w-5 h-5 text-accent-cyan transform transition-transform duration-300" :class="activeAccordion === 5 ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 10l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div x-show="activeAccordion === 5" x-transition class="px-6 pb-6 text-gray-300 leading-relaxed border-t border-accent-purple/10 pt-4" style="display: none;">
+                        Sim. Prezo pela transparência e pela sua satisfação. Se nas primeiras semanas você perceber que o método KR não se adapta à sua rotina, ofereço reembolso integral sem burocracia.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Final CTA -->
-    <section class="py-24 relative overflow-hidden bg-dark-900">
+    <section class="py-24 relative overflow-hidden bg-dark-900 border-t border-accent-purple/20">
         <div class="absolute inset-0 bg-accent-purple/10"></div>
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10" data-aos="zoom-in">
             <h2 class="text-4xl md:text-6xl font-black mb-6 text-white">Pronto para o <span class="text-brand drop-shadow-[0_0_10px_rgba(224,255,0,0.4)]">próximo nível?</span></h2>
             <p class="text-xl text-gray-300 mb-10">Pare de perder tempo com treinos que não funcionam. Dê o primeiro passo hoje.</p>
-            <a href="https://wa.me/5511999999999?text=Olá%20Kaio,%20estou%20pronto%20para%20começar%20a%20consultoria!" target="_blank" class="inline-flex items-center gap-3 bg-brand hover:bg-white text-dark-900 font-black text-lg py-5 px-10 rounded-full transition-all transform hover:scale-105 shadow-[0_0_30px_rgba(224,255,0,0.6)]">
-                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-                Falar com Kaio no WhatsApp
-            </a>
+            <div class="flex flex-col items-center gap-4">
+                <a href="https://wa.me/5511999999999?text=Olá%20Kaio,%20estou%20pronto%20para%20começar%20a%20consultoria!" target="_blank" class="inline-flex items-center gap-3 bg-brand hover:bg-white text-dark-900 font-black text-lg py-5 px-10 rounded-full transition-all transform hover:scale-105 shadow-[0_0_30px_rgba(224,255,0,0.6)]">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                    Falar com Kaio no WhatsApp
+                </a>
+                <span class="text-gray-400 text-sm mt-2 font-medium">Primeira conversa sem compromisso. Me conta seu objetivo e eu te mostro como posso ajudar.</span>
+            </div>
         </div>
     </section>
 
