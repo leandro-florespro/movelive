@@ -80,9 +80,10 @@
                 </div>
                 
                 <!-- Desktop Menu -->
-                <div class="hidden md:flex items-center space-x-8">
+                <div class="hidden md:flex items-center space-x-6">
                     <a href="#sobre" class="font-medium transition-colors" :class="scrolled ? 'text-gray-600 hover:text-brand-600' : 'text-gray-200 hover:text-white'">Sobre</a>
-                    <a href="#metodologia" class="font-medium transition-colors" :class="scrolled ? 'text-gray-600 hover:text-brand-600' : 'text-gray-200 hover:text-white'">Metodologia</a>
+                    <a href="#como-funciona" class="font-medium transition-colors" :class="scrolled ? 'text-gray-600 hover:text-brand-600' : 'text-gray-200 hover:text-white'">Como Funciona</a>
+                    <a href="#resultados" class="font-medium transition-colors" :class="scrolled ? 'text-gray-600 hover:text-brand-600' : 'text-gray-200 hover:text-white'">Resultados</a>
                     <a href="#servicos" class="font-medium transition-colors" :class="scrolled ? 'text-gray-600 hover:text-brand-600' : 'text-gray-200 hover:text-white'">Serviços</a>
                     <a href="https://wa.me/5511999999999?text=Olá,%20gostaria%20de%20agendar%20uma%20avaliação!" target="_blank" class="bg-brand-600 hover:bg-brand-700 text-white px-6 py-2.5 rounded-full font-medium transition-all shadow-lg shadow-brand-500/30 hover:shadow-brand-500/50 transform hover:-translate-y-0.5">
                         Agendar Avaliação
@@ -110,7 +111,8 @@
              class="md:hidden bg-white border-t border-gray-100 absolute w-full shadow-lg" x-cloak>
             <div class="px-4 pt-2 pb-6 space-y-2">
                 <a href="#sobre" @click="isOpen = false" class="block px-3 py-3 text-base font-medium text-gray-700 hover:text-brand-600 hover:bg-brand-50 rounded-lg">Sobre</a>
-                <a href="#metodologia" @click="isOpen = false" class="block px-3 py-3 text-base font-medium text-gray-700 hover:text-brand-600 hover:bg-brand-50 rounded-lg">Metodologia</a>
+                <a href="#como-funciona" @click="isOpen = false" class="block px-3 py-3 text-base font-medium text-gray-700 hover:text-brand-600 hover:bg-brand-50 rounded-lg">Como Funciona</a>
+                <a href="#resultados" @click="isOpen = false" class="block px-3 py-3 text-base font-medium text-gray-700 hover:text-brand-600 hover:bg-brand-50 rounded-lg">Resultados</a>
                 <a href="#servicos" @click="isOpen = false" class="block px-3 py-3 text-base font-medium text-gray-700 hover:text-brand-600 hover:bg-brand-50 rounded-lg">Serviços</a>
                 <a href="https://wa.me/5511999999999" target="_blank" class="block w-full text-center mt-4 bg-brand-600 text-white px-6 py-3 rounded-xl font-medium shadow-md">
                     Falar no WhatsApp
@@ -173,7 +175,7 @@
                         <img src="bruna1.webp" alt="Bruna Nunes - Personal Trainer" class="w-full max-w-md mx-auto rounded-[1.5rem] object-cover aspect-[4/5] bg-gray-800" onerror="this.src='https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'; this.alt='Placeholder Image';">
                         
                         <!-- Floating Badge -->
-                        <div class="absolute -bottom-6 -left-6 bg-gray-900 p-4 rounded-2xl shadow-xl border border-gray-800 flex items-center gap-4 animate-bounce" style="animation-duration: 3s;">
+                        <div class="absolute -bottom-6 -left-6 bg-gray-900 p-4 rounded-2xl shadow-xl border border-gray-800 flex items-center gap-4 hover:scale-105 transition-transform duration-300">
                             <div class="w-12 h-12 bg-brand-900/50 rounded-full flex items-center justify-center text-brand-500">
                                 <i class="ph-fill ph-heartbeat text-2xl"></i>
                             </div>
@@ -189,13 +191,370 @@
         </div>
     </section>
 
-    <!-- Sobre Section -->
+    <!-- Mapa Corporal Interativo -->
+    <section id="mapa-corporal" class="py-24 bg-white" data-aos="fade-up"
+             x-data="{
+                gender: 'feminino',
+                selectedRegion: null,
+                regions: {
+                    cervical: {
+                        icon: 'ph-bone',
+                        title: 'Dor Cervical',
+                        subtitle: 'Pescoço, nuca e base do crânio',
+                        problemas: 'Tensão muscular crônica, cervicalgia, hérnia de disco cervical, dor irradiada para braços, cefaleia tensional.',
+                        tratamento: 'O protocolo combina liberação miofascial, exercícios de estabilização cervical profunda e fortalecimento da musculatura escapular. Pilates clínico é a base para reeducar a postura que origina a dor.',
+                        abordagem: 'Pilates Clínico + Musculação Terapêutica para estabilização',
+                        cta_label: 'Dor Cervical'
+                    },
+                    ombros: {
+                        icon: 'ph-hand-grabbing',
+                        title: 'Dor no Ombro',
+                        subtitle: 'Articulação do ombro, manguito rotador, deltoides',
+                        problemas: 'Tendinite do manguito rotador, bursite, síndrome do impacto, instabilidade articular, capsulite adesiva (ombro congelado).',
+                        tratamento: 'Fortalecimento progressivo do manguito rotador e estabilizadores escapulares, com controle rigoroso de amplitude. A musculação terapêutica reconstrói a estabilidade que a articulação perdeu.',
+                        abordagem: 'Musculação Terapêutica com foco em estabilização articular',
+                        cta_label: 'Dor no Ombro'
+                    },
+                    coluna: {
+                        icon: 'ph-align-center-vertical',
+                        title: 'Dor na Coluna',
+                        subtitle: 'Região torácica e dorsal',
+                        problemas: 'Hipercifose torácica, dor entre as escápulas, rigidez torácica, dor postural por trabalho sentado prolongado.',
+                        tratamento: 'Mobilização torácica, exercícios de extensão e rotação, fortalecimento dos extensores de coluna. O Pilates trabalha a consciência postural e a musculação terapêutica constrói o suporte muscular que sustenta a correção.',
+                        abordagem: 'Pilates Clínico + Musculação Terapêutica postural',
+                        cta_label: 'Dor na Coluna'
+                    },
+                    lombar: {
+                        icon: 'ph-warning-circle',
+                        title: 'Dor Lombar',
+                        subtitle: 'Lombar baixa, região sacral',
+                        problemas: 'Lombalgia mecânica, hérnia de disco lombar, protrusão discal, espondilolistese, dor ciática.',
+                        tratamento: 'Estabilização do core profundo (transverso do abdômen, multífidos), reeducação do padrão de movimento, fortalecimento da cadeia posterior. A combinação de Pilates (controle motor) com musculação (força funcional) é a mais indicada pela evidência científica.',
+                        abordagem: 'Protocolo combinado — prioridade em reabilitação',
+                        cta_label: 'Dor Lombar'
+                    },
+                    quadril: {
+                        icon: 'ph-arrows-out-cardinal',
+                        title: 'Dor no Quadril',
+                        subtitle: 'Articulação coxofemoral, região trocantérica',
+                        problemas: 'Bursite trocantérica, impacto femoroacetabular, artrose de quadril, síndrome do piriforme, dor referida da lombar.',
+                        tratamento: 'Avaliação da mobilidade do quadril em todos os planos, fortalecimento dos estabilizadores (glúteo médio, rotadores externos), correção de padrões compensatórios que sobrecarregam a articulação.',
+                        abordagem: 'Musculação Terapêutica com avaliação funcional do quadril',
+                        cta_label: 'Dor no Quadril'
+                    },
+                    joelhos: {
+                        icon: 'ph-person-simple-walk',
+                        title: 'Dor no Joelho',
+                        subtitle: 'Articulação do joelho, patela, ligamentos',
+                        problemas: 'Condromalácia patelar, lesão de menisco, instabilidade ligamentar (LCA, LCM), artrose, tendinite patelar.',
+                        tratamento: 'Fortalecimento do quadríceps (especialmente VMO), isquiotibiais e glúteos para estabilizar o joelho. Controle de carga e amplitude nos exercícios de cadeia fechada. Progressão cuidadosa do agachamento e do leg press.',
+                        abordagem: 'Musculação Terapêutica com progressão controlada de carga',
+                        cta_label: 'Dor no Joelho'
+                    },
+                    tornozelos: {
+                        icon: 'ph-sneaker',
+                        title: 'Dor no Tornozelo e Pé',
+                        subtitle: 'Articulação do tornozelo, planta do pé',
+                        problemas: 'Entorse recorrente, instabilidade crônica, fascite plantar, tendinopatia do Aquiles, rigidez de dorsiflexão.',
+                        tratamento: 'Trabalho de propriocepção e equilíbrio, fortalecimento dos estabilizadores do tornozelo, mobilização da dorsiflexão (que impacta diretamente a biomecânica do joelho e do quadril acima).',
+                        abordagem: 'Pilates Clínico (propriocepção) + Musculação Terapêutica (força)',
+                        cta_label: 'Dor no Tornozelo'
+                    },
+                    prevencao: {
+                        icon: 'ph-shield-check',
+                        title: 'Prevenção e Fortalecimento',
+                        subtitle: 'Você não sente dor — e quer continuar assim',
+                        problemas: '',
+                        tratamento: 'Essa é a decisão mais inteligente: fortalecer antes de precisar reabilitar. O protocolo preventivo combina Pilates (para mobilidade, consciência corporal e equilíbrio) com Musculação Terapêutica (para força e proteção articular). O resultado é um corpo mais resistente a lesões, com melhor postura e mais funcionalidade no dia a dia.',
+                        abordagem: 'Protocolo preventivo — Pilates + Musculação Terapêutica',
+                        cta_label: 'Prevenção'
+                    }
+                }
+             }">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Section Header -->
+            <div class="text-center mb-16" data-aos="fade-up">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-brand-50 text-brand-600 border border-brand-100 mb-4 uppercase tracking-wider">
+                    <i class="ph ph-compass"></i> Mapa Corporal Interativo
+                </div>
+                <h2 class="font-heading font-extrabold text-3xl sm:text-4xl text-brand-950 mb-4">
+                    Onde o seu corpo está pedindo ajuda?
+                </h2>
+                <p class="text-gray-600 max-w-2xl mx-auto text-base sm:text-lg mb-8">
+                    Toque na região que mais incomoda e descubra como o Método Mover pode te ajudar.
+                </p>
+
+                <!-- Toggle de Gênero -->
+                <div class="inline-flex bg-gray-100 rounded-full p-1 shadow-inner relative z-10">
+                    <button @click="gender = 'feminino'" 
+                            :class="gender === 'feminino' ? 'bg-white text-brand-950 shadow-sm font-semibold rounded-full px-6 py-2' : 'text-gray-500 px-6 py-2'"
+                            class="text-sm transition-all duration-200 focus:outline-none cursor-pointer">
+                        Feminino
+                    </button>
+                    <button @click="gender = 'masculino'" 
+                            :class="gender === 'masculino' ? 'bg-white text-brand-950 shadow-sm font-semibold rounded-full px-6 py-2' : 'text-gray-500 px-6 py-2'"
+                            class="text-sm transition-all duration-200 focus:outline-none cursor-pointer">
+                        Masculino
+                    </button>
+                </div>
+            </div>
+
+            <!-- GRID PRINCIPAL -->
+            <div class="grid md:grid-cols-2 gap-8 lg:gap-12 items-start">
+
+                <!-- COLUNA ESQUERDA — IMAGEM + HOTSPOTS -->
+                <div class="flex flex-col items-center">
+                    <div class="relative w-full max-w-[350px] mx-auto bg-gray-50/40 rounded-3xl p-4 border border-gray-100 shadow-sm overflow-visible select-none">
+                        
+                        <!-- Silhueta Feminina -->
+                        <img 
+                          x-show="gender === 'feminino'" 
+                          src="silhueta-feminina.png" 
+                          alt="Corpo feminino" 
+                          class="w-full h-auto object-contain block animate-fade-in"
+                          onerror="this.src='https://via.placeholder.com/350x700/f3f4f6/d1d5db?text=Silhueta+Feminina'"
+                        >
+                        <!-- Silhueta Masculina -->
+                        <img 
+                          x-show="gender === 'masculino'" 
+                          src="silhueta-masculina.png" 
+                          alt="Corpo masculino" 
+                          class="w-full h-auto object-contain block animate-fade-in"
+                          onerror="this.src='https://via.placeholder.com/350x700/f3f4f6/d1d5db?text=Silhueta+Masculina'"
+                        >
+
+                        <!-- SVG Overlay -->
+                        <svg viewBox="0 0 350 700" class="absolute inset-0 w-full h-full pointer-events-none" xmlns="http://www.w3.org/2000/svg">
+                            
+                            <!-- LINES CONNECTIONS -->
+                            <!-- Cervical (Left) -->
+                            <line x1="175" y1="95" x2="75" y2="95" stroke-dasharray="4,4" class="transition-all duration-200 pointer-events-none" :stroke="selectedRegion === 'cervical' ? '#ea580c' : '#d1d5db'" :stroke-width="selectedRegion === 'cervical' ? '1.5' : '1'" />
+                            
+                            <!-- Ombros (Right) -->
+                            <line x1="245" y1="140" x2="275" y2="140" stroke-dasharray="4,4" class="transition-all duration-200 pointer-events-none" :stroke="selectedRegion === 'ombros' ? '#ea580c' : '#d1d5db'" :stroke-width="selectedRegion === 'ombros' ? '1.5' : '1'" />
+                            
+                            <!-- Coluna (Left) -->
+                            <line x1="145" y1="210" x2="75" y2="210" stroke-dasharray="4,4" class="transition-all duration-200 pointer-events-none" :stroke="selectedRegion === 'coluna' ? '#ea580c' : '#d1d5db'" :stroke-width="selectedRegion === 'coluna' ? '1.5' : '1'" />
+
+                            <!-- Lombar (Right) -->
+                            <line x1="210" y1="290" x2="275" y2="290" stroke-dasharray="4,4" class="transition-all duration-200 pointer-events-none" :stroke="selectedRegion === 'lombar' ? '#ea580c' : '#d1d5db'" :stroke-width="selectedRegion === 'lombar' ? '1.5' : '1'" />
+
+                            <!-- Quadril (Left) -->
+                            <line x1="120" y1="350" x2="75" y2="350" stroke-dasharray="4,4" class="transition-all duration-200 pointer-events-none" :stroke="selectedRegion === 'quadril' ? '#ea580c' : '#d1d5db'" :stroke-width="selectedRegion === 'quadril' ? '1.5' : '1'" />
+
+                            <!-- Joelhos (Right) -->
+                            <line x1="220" y1="480" x2="275" y2="480" stroke-dasharray="4,4" class="transition-all duration-200 pointer-events-none" :stroke="selectedRegion === 'joelhos' ? '#ea580c' : '#d1d5db'" :stroke-width="selectedRegion === 'joelhos' ? '1.5' : '1'" />
+
+                            <!-- Tornozelos (Left) -->
+                            <line x1="130" y1="620" x2="115" y2="620" stroke-dasharray="4,4" class="transition-all duration-200 pointer-events-none" :stroke="selectedRegion === 'tornozelos' ? '#ea580c' : '#d1d5db'" :stroke-width="selectedRegion === 'tornozelos' ? '1.5' : '1'" />
+
+
+                            <!-- INTERACTIVE HOTSPOTS -->
+                            <!-- 1. CERVICAL -->
+                            <ellipse cx="175" cy="95" rx="30" ry="20"
+                                     @click="selectedRegion = 'cervical'; $nextTick(() => { if(window.innerWidth < 768) { document.getElementById('painel-resultado').scrollIntoView({ behavior: 'smooth', block: 'start' }) } })"
+                                     :class="selectedRegion === 'cervical' ? 'fill-orange-500/30 stroke-orange-500 stroke-2' : 'fill-transparent hover:fill-orange-500/15 stroke-transparent'"
+                                     class="cursor-pointer transition-all duration-200 pointer-events-auto" />
+                            
+                            <!-- 2. OMBROS (esquerdo) -->
+                            <ellipse cx="105" cy="140" rx="35" ry="25"
+                                     @click="selectedRegion = 'ombros'; $nextTick(() => { if(window.innerWidth < 768) { document.getElementById('painel-resultado').scrollIntoView({ behavior: 'smooth', block: 'start' }) } })"
+                                     :class="selectedRegion === 'ombros' ? 'fill-orange-500/30 stroke-orange-500 stroke-2' : 'fill-transparent hover:fill-orange-500/15 stroke-transparent'"
+                                     class="cursor-pointer transition-all duration-200 pointer-events-auto" />
+
+                            <!-- 3. OMBROS (direito) -->
+                            <ellipse cx="245" cy="140" rx="35" ry="25"
+                                     @click="selectedRegion = 'ombros'; $nextTick(() => { if(window.innerWidth < 768) { document.getElementById('painel-resultado').scrollIntoView({ behavior: 'smooth', block: 'start' }) } })"
+                                     :class="selectedRegion === 'ombros' ? 'fill-orange-500/30 stroke-orange-500 stroke-2' : 'fill-transparent hover:fill-orange-500/15 stroke-transparent'"
+                                     class="cursor-pointer transition-all duration-200 pointer-events-auto" />
+
+                            <!-- 4. COLUNA -->
+                            <rect x="145" y="170" width="60" height="80" rx="10"
+                                  @click="selectedRegion = 'coluna'; $nextTick(() => { if(window.innerWidth < 768) { document.getElementById('painel-resultado').scrollIntoView({ behavior: 'smooth', block: 'start' }) } })"
+                                  :class="selectedRegion === 'coluna' ? 'fill-orange-500/30 stroke-orange-500 stroke-2' : 'fill-transparent hover:fill-orange-500/15 stroke-transparent'"
+                                  class="cursor-pointer transition-all duration-200 pointer-events-auto" />
+
+                            <!-- 5. LOMBAR -->
+                            <rect x="140" y="260" width="70" height="60" rx="10"
+                                  @click="selectedRegion = 'lombar'; $nextTick(() => { if(window.innerWidth < 768) { document.getElementById('painel-resultado').scrollIntoView({ behavior: 'smooth', block: 'start' }) } })"
+                                  :class="selectedRegion === 'lombar' ? 'fill-orange-500/30 stroke-orange-500 stroke-2' : 'fill-transparent hover:fill-orange-500/15 stroke-transparent'"
+                                  class="cursor-pointer transition-all duration-200 pointer-events-auto" />
+
+                            <!-- 6. QUADRIL (esquerdo) -->
+                            <ellipse cx="120" cy="350" rx="35" ry="30"
+                                     @click="selectedRegion = 'quadril'; $nextTick(() => { if(window.innerWidth < 768) { document.getElementById('painel-resultado').scrollIntoView({ behavior: 'smooth', block: 'start' }) } })"
+                                     :class="selectedRegion === 'quadril' ? 'fill-orange-500/30 stroke-orange-500 stroke-2' : 'fill-transparent hover:fill-orange-500/15 stroke-transparent'"
+                                     class="cursor-pointer transition-all duration-200 pointer-events-auto" />
+
+                            <!-- 7. QUADRIL (direito) -->
+                            <ellipse cx="230" cy="350" rx="35" ry="30"
+                                     @click="selectedRegion = 'quadril'; $nextTick(() => { if(window.innerWidth < 768) { document.getElementById('painel-resultado').scrollIntoView({ behavior: 'smooth', block: 'start' }) } })"
+                                     :class="selectedRegion === 'quadril' ? 'fill-orange-500/30 stroke-orange-500 stroke-2' : 'fill-transparent hover:fill-orange-500/15 stroke-transparent'"
+                                     class="cursor-pointer transition-all duration-200 pointer-events-auto" />
+
+                            <!-- 8. JOELHO (esquerdo) -->
+                            <ellipse cx="130" cy="480" rx="22" ry="28"
+                                     @click="selectedRegion = 'joelhos'; $nextTick(() => { if(window.innerWidth < 768) { document.getElementById('painel-resultado').scrollIntoView({ behavior: 'smooth', block: 'start' }) } })"
+                                     :class="selectedRegion === 'joelhos' ? 'fill-orange-500/30 stroke-orange-500 stroke-2' : 'fill-transparent hover:fill-orange-500/15 stroke-transparent'"
+                                     class="cursor-pointer transition-all duration-200 pointer-events-auto" />
+
+                            <!-- 9. JOELHO (direito) -->
+                            <ellipse cx="220" cy="480" rx="22" ry="28"
+                                     @click="selectedRegion = 'joelhos'; $nextTick(() => { if(window.innerWidth < 768) { document.getElementById('painel-resultado').scrollIntoView({ behavior: 'smooth', block: 'start' }) } })"
+                                     :class="selectedRegion === 'joelhos' ? 'fill-orange-500/30 stroke-orange-500 stroke-2' : 'fill-transparent hover:fill-orange-500/15 stroke-transparent'"
+                                     class="cursor-pointer transition-all duration-200 pointer-events-auto" />
+
+                            <!-- 10. TORNOZELO (esquerdo) -->
+                            <ellipse cx="130" cy="620" rx="18" ry="22"
+                                     @click="selectedRegion = 'tornozelos'; $nextTick(() => { if(window.innerWidth < 768) { document.getElementById('painel-resultado').scrollIntoView({ behavior: 'smooth', block: 'start' }) } })"
+                                     :class="selectedRegion === 'tornozelos' ? 'fill-orange-500/30 stroke-orange-500 stroke-2' : 'fill-transparent hover:fill-orange-500/15 stroke-transparent'"
+                                     class="cursor-pointer transition-all duration-200 pointer-events-auto" />
+
+                            <!-- 11. TORNOZELO (direito) -->
+                            <ellipse cx="220" cy="620" rx="18" ry="22"
+                                     @click="selectedRegion = 'tornozelos'; $nextTick(() => { if(window.innerWidth < 768) { document.getElementById('painel-resultado').scrollIntoView({ behavior: 'smooth', block: 'start' }) } })"
+                                     :class="selectedRegion === 'tornozelos' ? 'fill-orange-500/30 stroke-orange-500 stroke-2' : 'fill-transparent hover:fill-orange-500/15 stroke-transparent'"
+                                     class="cursor-pointer transition-all duration-200 pointer-events-auto" />
+
+
+                            <!-- LABELS DE TEXTO -->
+                            <!-- Labels à esquerda: CERVICAL, COLUNA, QUADRIL, TORNOZELOS/PÉS -->
+                            <text x="70" y="99" text-anchor="end" font-size="11" font-family="Inter, sans-serif" font-weight="600"
+                                  :fill="selectedRegion === 'cervical' ? '#ea580c' : '#9ca3af'"
+                                  @click="selectedRegion = 'cervical'; $nextTick(() => { if(window.innerWidth < 768) { document.getElementById('painel-resultado').scrollIntoView({ behavior: 'smooth', block: 'start' }) } })"
+                                  class="cursor-pointer pointer-events-auto select-none transition-colors duration-200">CERVICAL</text>
+
+                            <text x="70" y="214" text-anchor="end" font-size="11" font-family="Inter, sans-serif" font-weight="600"
+                                  :fill="selectedRegion === 'coluna' ? '#ea580c' : '#9ca3af'"
+                                  @click="selectedRegion = 'coluna'; $nextTick(() => { if(window.innerWidth < 768) { document.getElementById('painel-resultado').scrollIntoView({ behavior: 'smooth', block: 'start' }) } })"
+                                  class="cursor-pointer pointer-events-auto select-none transition-colors duration-200">COLUNA</text>
+
+                            <text x="70" y="354" text-anchor="end" font-size="11" font-family="Inter, sans-serif" font-weight="600"
+                                  :fill="selectedRegion === 'quadril' ? '#ea580c' : '#9ca3af'"
+                                  @click="selectedRegion = 'quadril'; $nextTick(() => { if(window.innerWidth < 768) { document.getElementById('painel-resultado').scrollIntoView({ behavior: 'smooth', block: 'start' }) } })"
+                                  class="cursor-pointer pointer-events-auto select-none transition-colors duration-200">QUADRIL</text>
+
+                            <text x="110" y="624" text-anchor="end" font-size="11" font-family="Inter, sans-serif" font-weight="600"
+                                  :fill="selectedRegion === 'tornozelos' ? '#ea580c' : '#9ca3af'"
+                                  @click="selectedRegion = 'tornozelos'; $nextTick(() => { if(window.innerWidth < 768) { document.getElementById('painel-resultado').scrollIntoView({ behavior: 'smooth', block: 'start' }) } })"
+                                  class="cursor-pointer pointer-events-auto select-none transition-colors duration-200">TORNOZELOS/PÉS</text>
+
+
+                            <!-- Labels à direita: OMBROS, LOMBAR, JOELHOS -->
+                            <text x="280" y="144" text-anchor="start" font-size="11" font-family="Inter, sans-serif" font-weight="600"
+                                  :fill="selectedRegion === 'ombros' ? '#ea580c' : '#9ca3af'"
+                                  @click="selectedRegion = 'ombros'; $nextTick(() => { if(window.innerWidth < 768) { document.getElementById('painel-resultado').scrollIntoView({ behavior: 'smooth', block: 'start' }) } })"
+                                  class="cursor-pointer pointer-events-auto select-none transition-colors duration-200">OMBROS</text>
+
+                            <text x="280" y="294" text-anchor="start" font-size="11" font-family="Inter, sans-serif" font-weight="600"
+                                  :fill="selectedRegion === 'lombar' ? '#ea580c' : '#9ca3af'"
+                                  @click="selectedRegion = 'lombar'; $nextTick(() => { if(window.innerWidth < 768) { document.getElementById('painel-resultado').scrollIntoView({ behavior: 'smooth', block: 'start' }) } })"
+                                  class="cursor-pointer pointer-events-auto select-none transition-colors duration-200">LOMBAR</text>
+
+                            <text x="280" y="484" text-anchor="start" font-size="11" font-family="Inter, sans-serif" font-weight="600"
+                                  :fill="selectedRegion === 'joelhos' ? '#ea580c' : '#9ca3af'"
+                                  @click="selectedRegion = 'joelhos'; $nextTick(() => { if(window.innerWidth < 768) { document.getElementById('painel-resultado').scrollIntoView({ behavior: 'smooth', block: 'start' }) } })"
+                                  class="cursor-pointer pointer-events-auto select-none transition-colors duration-200">JOELHOS</text>
+
+                        </svg>
+                    </div>
+
+                    <!-- BOTÃO DE PREVENÇÃO -->
+                    <div class="w-full max-w-[350px] mt-6">
+                        <button @click="selectedRegion = 'prevencao'; $nextTick(() => { if(window.innerWidth < 768) { document.getElementById('painel-resultado').scrollIntoView({ behavior: 'smooth', block: 'start' }) } })"
+                                :class="selectedRegion === 'prevencao' ? 'bg-brand-50 border-brand-500 text-brand-700' : 'bg-gray-50 border-gray-200 hover:bg-brand-50 hover:border-brand-400 text-gray-700'"
+                                class="flex items-center justify-center gap-2 border hover:bg-brand-50 hover:border-brand-400 rounded-xl py-3.5 px-5 w-full text-center font-medium transition-all cursor-pointer">
+                            <i class="ph ph-shield-check text-lg"></i>
+                            Não sinto dor — quero prevenir
+                        </button>
+                    </div>
+
+                </div>
+
+                <!-- COLUNA DIREITA — PAINEL INFORMATIVO -->
+                <div id="painel-resultado" class="w-full min-h-[300px]">
+                    
+                    <!-- ESTADO INICIAL -->
+                    <div x-show="selectedRegion === null" 
+                         class="border border-dashed border-gray-200 rounded-3xl p-8 flex flex-col items-center justify-center min-h-[300px] bg-gray-50/20 text-center">
+                        <i class="ph ph-cursor-click text-5xl text-gray-300 mb-4 animate-pulse"></i>
+                        <h4 class="font-heading font-bold text-lg text-gray-700 mb-2">Conectando Dor e Solução</h4>
+                        <p class="text-gray-400 text-center max-w-xs text-sm">
+                            Selecione uma região do corpo ao lado para visualizar os problemas comuns e descobrir como a Bruna os trata através do método exclusivo.
+                        </p>
+                        <!-- Mobile Tip -->
+                        <p class="text-sm text-gray-300 mt-2 md:hidden block">
+                            ↑ Toque em uma região acima
+                        </p>
+                    </div>
+
+                    <!-- ESTADO COM REGIÃO SELECIONADA -->
+                    <div x-show="selectedRegion !== null" 
+                         x-transition:enter="transition ease-out duration-300" 
+                         x-transition:enter-start="opacity-0 translate-y-4" 
+                         x-transition:enter-end="opacity-100 translate-y-0"
+                         class="bg-white border border-gray-200 rounded-3xl p-6 md:p-8 shadow-sm">
+                        
+                        <!-- Header -->
+                        <div class="flex items-center gap-3 mb-1">
+                            <div class="w-10 h-10 bg-brand-50 rounded-xl flex items-center justify-center text-brand-600 shrink-0">
+                                <i :class="'ph ' + (regions[selectedRegion]?.icon || 'ph-shield-check') + ' text-xl'"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-heading font-bold text-xl text-brand-950" x-text="regions[selectedRegion]?.title"></h3>
+                                <p class="text-sm text-gray-500" x-text="regions[selectedRegion]?.subtitle"></p>
+                            </div>
+                        </div>
+
+                        <hr class="border-gray-100 my-4">
+
+                        <!-- Problemas comuns (ocultar se prevenção) -->
+                        <div x-show="selectedRegion !== null && regions[selectedRegion]?.problemas !== ''">
+                            <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Problemas comuns:</p>
+                            <p class="text-gray-600 leading-relaxed text-sm" x-text="regions[selectedRegion]?.problemas"></p>
+                            <hr class="border-gray-100 my-4">
+                        </div>
+
+                        <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2" x-text="selectedRegion !== 'prevencao' ? 'Como o Método Mover trata:' : 'Por que prevenir:'"></p>
+                        <p class="text-gray-600 leading-relaxed text-sm mb-5" x-text="regions[selectedRegion]?.tratamento"></p>
+
+                        <!-- Badge abordagem -->
+                        <div class="inline-flex items-center gap-2 bg-brand-50 text-brand-700 text-sm font-semibold rounded-full px-4 py-1.5 border border-brand-200 mb-6 max-w-full">
+                            <i class="ph ph-check-circle shrink-0"></i>
+                            <span class="truncate" x-text="'Abordagem recomendada: ' + (regions[selectedRegion]?.abordagem || '')"></span>
+                        </div>
+
+                        <!-- CTA -->
+                        <a :href="'https://wa.me/5511999999999?text=' + encodeURIComponent('Olá Bruna, visitei seu site e tenho interesse em avaliação para ' + (regions[selectedRegion]?.cta_label || '') + '. Gostaria de agendar.')"
+                           target="_blank"
+                           class="flex items-center justify-center gap-2 w-full bg-brand-600 hover:bg-brand-500 text-white rounded-xl py-3.5 px-6 font-semibold transition-all shadow-lg shadow-brand-500/20 hover:shadow-brand-500/40 transform hover:-translate-y-0.5 cursor-pointer">
+                            <i class="ph ph-whatsapp-logo text-xl"></i>
+                            <span x-text="'Agendar avaliação — ' + (regions[selectedRegion]?.cta_label || '')"></span>
+                        </a>
+                        <p class="text-xs text-gray-400 text-center mt-3">Avaliação presencial de 60 minutos. Sem compromisso de continuidade.</p>
+
+                        <!-- Botão resetar -->
+                        <button @click="selectedRegion = null" class="text-sm text-gray-400 hover:text-brand-600 transition-colors mt-4 mx-auto block cursor-pointer">
+                            ← Escolher outra região
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+<!-- Sobre Section -->
     <section id="sobre" class="py-24 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid lg:grid-cols-2 gap-16 items-center">
                 <div class="order-2 lg:order-1 relative" data-aos="fade-up">
                     <div class="aspect-square rounded-3xl overflow-hidden bg-gray-100 relative">
-                        <img src="bruna2.webp" alt="Pilates e Reabilitação" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1518611012118-696072aa579a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80';">
+                        <img src="bruna2.webp" alt="Pilates e Reabilitação" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1599447421416-3414500d18a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80';">
                         <div class="absolute inset-0 bg-brand-900/10 mix-blend-multiply"></div>
                     </div>
                 </div>
@@ -203,13 +562,13 @@
                 <div class="order-1 lg:order-2" data-aos="fade-up" data-aos-delay="200">
                     <h2 class="font-heading font-bold text-3xl sm:text-4xl text-brand-950 mb-6">Muito prazer, <br><span class="text-brand-600">sou Bruna Nunes.</span></h2>
                     <p class="text-lg text-gray-600 mb-6 leading-relaxed">
-                        Sou especialista em movimento, focada em ajudar pessoas a superarem dores e limitações físicas através da união perfeita entre a ciência da reabilitação e o treinamento de força.
+                        Sou educadora física (CREF 098765-G/SC) com pós-graduação em Reabilitação Funcional e certificação em Pilates Clínico pelo método Polestar.
                     </p>
                     <p class="text-lg text-gray-600 mb-8 leading-relaxed">
-                        Meu propósito não é apenas passar um treino, mas sim entender a raiz do seu problema. Utilizando técnicas de <strong>Pilates</strong> e <strong>Musculação Terapêutica</strong>, crio um ambiente seguro para que você recupere sua funcionalidade, trate lesões e volte a ter autonomia sobre o próprio corpo.
+                        Há mais de 7 anos, acompanho pessoas que convivem com dores crônicas, pós-operatórios e limitações articulares. Meu propósito não é apenas passar um treino, mas entender a raiz biomecânica do seu problema. Utilizando a união entre Pilates Clínico e Musculação Terapêutica, construo um protocolo seguro para que você recupere funcionalidade, trate a causa (não só o sintoma) e volte a ter autonomia sobre o próprio corpo.
                     </p>
                     
-                    <div class="grid grid-cols-2 gap-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
                         <div class="border-l-4 border-brand-500 pl-4">
                             <h4 class="font-bold text-xl text-brand-950">Foco</h4>
                             <p class="text-gray-600">Reabilitação e prevenção</p>
@@ -218,6 +577,133 @@
                             <h4 class="font-bold text-xl text-brand-950">Método</h4>
                             <p class="text-gray-600">Pilates + Musculação</p>
                         </div>
+                        <div class="border-l-4 border-brand-500 pl-4">
+                            <h4 class="font-bold text-xl text-brand-950">Formação</h4>
+                            <p class="text-gray-600">Pós em Reabilitação + Polestar Pilates</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Como Funciona Section -->
+    <section id="como-funciona" class="py-24 bg-white border-t border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-20" data-aos="fade-up">
+                <h2 class="font-heading font-bold text-3xl sm:text-4xl text-brand-950 mb-4">Sua jornada com o Método Mover</h2>
+                <p class="text-lg text-gray-600">Um passo a passo estruturado e seguro, focado em devolver a sua liberdade.</p>
+            </div>
+
+            <!-- Steps (Timeline) -->
+            <div class="relative">
+                <!-- Connector Line for Desktop -->
+                <div class="hidden lg:block absolute top-[60px] left-[15%] right-[15%] h-0.5 border-t border-dashed border-brand-200 -z-10"></div>
+                
+                <div class="grid lg:grid-cols-3 gap-12 relative z-10">
+                    <!-- Step 1 -->
+                    <div class="flex flex-col items-center text-center p-8 bg-brand-50/20 rounded-3xl border border-brand-100/50" data-aos="fade-up" data-aos-delay="100">
+                        <div class="relative mb-6">
+                            <div class="w-16 h-16 bg-brand-50 rounded-full flex items-center justify-center text-brand-600 shadow-sm">
+                                <i class="ph ph-clipboard-text text-3xl"></i>
+                            </div>
+                            <span class="absolute -top-2 -right-2 bg-brand-600 text-white text-xs font-bold w-6 h-6 rounded-full flex items-center justify-center">01</span>
+                        </div>
+                        <h3 class="font-heading font-bold text-xl text-brand-950 mb-3">Avaliação Completa</h3>
+                        <p class="text-gray-600 leading-relaxed">Análise do seu histórico, queixas, postura e padrões de movimento. Entendo a raiz do problema antes de propor qualquer exercício.</p>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="flex flex-col items-center text-center p-8 bg-brand-50/20 rounded-3xl border border-brand-100/50" data-aos="fade-up" data-aos-delay="200">
+                        <div class="relative mb-6">
+                            <div class="w-16 h-16 bg-brand-50 rounded-full flex items-center justify-center text-brand-600 shadow-sm">
+                                <i class="ph ph-path text-3xl"></i>
+                            </div>
+                            <span class="absolute -top-2 -right-2 bg-brand-600 text-white text-xs font-bold w-6 h-6 rounded-full flex items-center justify-center">02</span>
+                        </div>
+                        <h3 class="font-heading font-bold text-xl text-brand-950 mb-3">Protocolo Personalizado</h3>
+                        <p class="text-gray-600 leading-relaxed">Com base na avaliação, monto seu programa combinando Pilates e Musculação Terapêutica na proporção ideal para o seu caso.</p>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="flex flex-col items-center text-center p-8 bg-brand-50/20 rounded-3xl border border-brand-100/50" data-aos="fade-up" data-aos-delay="300">
+                        <div class="relative mb-6">
+                            <div class="w-16 h-16 bg-brand-50 rounded-full flex items-center justify-center text-brand-600 shadow-sm">
+                                <i class="ph ph-trend-up text-3xl"></i>
+                            </div>
+                            <span class="absolute -top-2 -right-2 bg-brand-600 text-white text-xs font-bold w-6 h-6 rounded-full flex items-center justify-center">03</span>
+                        </div>
+                        <h3 class="font-heading font-bold text-xl text-brand-950 mb-3">Evolução Acompanhada</h3>
+                        <p class="text-gray-600 leading-relaxed">Reavaliações periódicas para ajustar o protocolo. Você acompanha sua evolução em mobilidade, força e redução de dor.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prova Social Section -->
+    <section id="resultados" class="py-24 bg-brand-50/30 border-t border-b border-brand-100/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+                <h2 class="font-heading font-bold text-3xl sm:text-4xl text-brand-950 mb-4">Histórias de quem voltou a se mover</h2>
+                <p class="text-lg text-gray-600">Veja o impacto real dos protocolos de reabilitação na autonomia de quem confia no Método Mover.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-brand-100/30 flex flex-col justify-between" data-aos="fade-up" data-aos-delay="100">
+                    <div>
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-12 h-12 rounded-full bg-brand-100 flex items-center justify-center font-bold text-brand-600">
+                                MN
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-brand-950">Maria</h4>
+                                <p class="text-xs text-gray-500 font-medium">52 anos</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 leading-relaxed italic mb-6">"Cheguei com hérnia de disco e medo de qualquer exercício. Em 4 meses, voltei a carregar meu neto no colo sem dor."</p>
+                    </div>
+                    <div>
+                        <span class="inline-block bg-brand-100 text-brand-600 text-xs font-bold px-3 py-1.5 rounded-full">Dor lombar eliminada</span>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-brand-100/30 flex flex-col justify-between" data-aos="fade-up" data-aos-delay="200">
+                    <div>
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-12 h-12 rounded-full bg-brand-100 flex items-center justify-center font-bold text-brand-600">
+                                RS
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-brand-950">Roberto</h4>
+                                <p class="text-xs text-gray-500 font-medium">38 anos</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 leading-relaxed italic mb-6">"Pós-operatório de LCA. A Bruna me devolveu a confiança no meu joelho. Hoje corro de novo."</p>
+                    </div>
+                    <div>
+                        <span class="inline-block bg-brand-100 text-brand-600 text-xs font-bold px-3 py-1.5 rounded-full">Volta ao esporte em 6 meses</span>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-brand-100/30 flex flex-col justify-between" data-aos="fade-up" data-aos-delay="300">
+                    <div>
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-12 h-12 rounded-full bg-brand-100 flex items-center justify-center font-bold text-brand-600">
+                                CO
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-brand-950">Cláudia</h4>
+                                <p class="text-xs text-gray-500 font-medium">45 anos</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 leading-relaxed italic mb-6">"Anos de dor no ombro. Depois que comecei o protocolo da Bruna, descobri que o problema era fraqueza no manguito rotador, não a articulação em si."</p>
+                    </div>
+                    <div>
+                        <span class="inline-block bg-brand-100 text-brand-600 text-xs font-bold px-3 py-1.5 rounded-full">Mobilidade total recuperada</span>
                     </div>
                 </div>
             </div>
@@ -269,9 +755,12 @@
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10" data-aos="zoom-in">
             <h2 class="font-heading font-bold text-3xl sm:text-4xl text-white mb-6">Não deixe a dor ditar os limites da sua vida.</h2>
             <p class="text-brand-100 text-lg mb-10 max-w-2xl mx-auto">Dê o primeiro passo para um corpo forte, funcional e livre de dores. Agende uma avaliação detalhada e descubra o plano ideal para você.</p>
-            <a href="https://wa.me/5511999999999" target="_blank" class="inline-flex items-center justify-center gap-2 bg-brand-500 hover:bg-brand-400 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all shadow-lg shadow-brand-500/20 transform hover:-translate-y-1">
-                <i class="ph ph-calendar-plus text-2xl"></i> Quero Agendar Minha Avaliação
-            </a>
+            <div class="flex flex-col items-center">
+                <a href="https://wa.me/5511999999999" target="_blank" class="inline-flex items-center justify-center gap-2 bg-brand-500 hover:bg-brand-400 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all shadow-lg shadow-brand-500/20 transform hover:-translate-y-1">
+                    <i class="ph ph-calendar-plus text-2xl"></i> Quero Agendar Minha Avaliação
+                </a>
+                <p class="text-brand-300 text-sm mt-4 font-medium">Avaliação presencial de 60 minutos. Sem compromisso de continuidade.</p>
+            </div>
         </div>
     </section>
 
@@ -315,6 +804,28 @@
                         A avaliação é o nosso ponto de partida. Analisamos seu histórico, queixas de dor, postura, mobilidade e padrões de movimento. Com esses dados, traçamos a melhor estratégia (Pilates, Musculação ou ambos) para o seu caso.
                     </div>
                 </div>
+
+                <!-- Pergunta 4 -->
+                <div class="border border-gray-200 rounded-2xl overflow-hidden" data-aos="fade-up" data-aos-delay="400">
+                    <button @click="selected !== 4 ? selected = 4 : selected = null" class="w-full flex justify-between items-center p-6 bg-white hover:bg-gray-50 transition-colors">
+                        <span class="font-semibold text-brand-950 text-left">Com que frequência preciso treinar?</span>
+                        <i class="ph ph-caret-down text-xl text-brand-600 transition-transform duration-300" :class="selected === 4 ? 'rotate-180' : ''"></i>
+                    </button>
+                    <div x-show="selected === 4" x-collapse class="px-6 pb-6 text-gray-600">
+                        O ideal varia de 2 a 4 vezes por semana, dependendo do seu caso. Na avaliação, definimos juntos a frequência que se encaixa na sua rotina e que gera resultado sem sobrecarregar.
+                    </div>
+                </div>
+
+                <!-- Pergunta 5 -->
+                <div class="border border-gray-200 rounded-2xl overflow-hidden" data-aos="fade-up" data-aos-delay="500">
+                    <button @click="selected !== 5 ? selected = 5 : selected = null" class="w-full flex justify-between items-center p-6 bg-white hover:bg-gray-50 transition-colors">
+                        <span class="font-semibold text-brand-950 text-left">É presencial ou online?</span>
+                        <i class="ph ph-caret-down text-xl text-brand-600 transition-transform duration-300" :class="selected === 5 ? 'rotate-180' : ''"></i>
+                    </button>
+                    <div x-show="selected === 5" x-collapse class="px-6 pb-6 text-gray-600">
+                        O atendimento é presencial, em estúdio com equipamentos de Pilates e musculação. Acredito que para reabilitação, a supervisão presencial faz diferença na segurança e na qualidade da execução.
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -341,7 +852,7 @@
             </div>
             
             <div class="mt-12 pt-8 border-t border-brand-900 text-center text-sm text-brand-400">
-                <p>&copy; 2024 Bruna Nunes. Todos os direitos reservados.</p>
+                <p>&copy; 2026 Bruna Nunes. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
