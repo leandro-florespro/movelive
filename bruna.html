@@ -332,19 +332,19 @@
                             <line x1="175" y1="95" x2="75" y2="95" stroke-dasharray="4,4" class="transition-all duration-200 pointer-events-none" :stroke="selectedRegion === 'cervical' ? '#ea580c' : '#d1d5db'" :stroke-width="selectedRegion === 'cervical' ? '1.5' : '1'" />
                             
                             <!-- Ombros (Right) -->
-                            <line x1="245" y1="140" x2="275" y2="140" stroke-dasharray="4,4" class="transition-all duration-200 pointer-events-none" :stroke="selectedRegion === 'ombros' ? '#ea580c' : '#d1d5db'" :stroke-width="selectedRegion === 'ombros' ? '1.5' : '1'" />
+                            <line x1="245" y1="140" x2="285" y2="140" stroke-dasharray="4,4" class="transition-all duration-200 pointer-events-none" :stroke="selectedRegion === 'ombros' ? '#ea580c' : '#d1d5db'" :stroke-width="selectedRegion === 'ombros' ? '1.5' : '1'" />
                             
                             <!-- Coluna (Left) -->
                             <line x1="145" y1="210" x2="75" y2="210" stroke-dasharray="4,4" class="transition-all duration-200 pointer-events-none" :stroke="selectedRegion === 'coluna' ? '#ea580c' : '#d1d5db'" :stroke-width="selectedRegion === 'coluna' ? '1.5' : '1'" />
 
                             <!-- Lombar (Right) -->
-                            <line x1="210" y1="290" x2="275" y2="290" stroke-dasharray="4,4" class="transition-all duration-200 pointer-events-none" :stroke="selectedRegion === 'lombar' ? '#ea580c' : '#d1d5db'" :stroke-width="selectedRegion === 'lombar' ? '1.5' : '1'" />
+                            <line x1="210" y1="290" x2="285" y2="290" stroke-dasharray="4,4" class="transition-all duration-200 pointer-events-none" :stroke="selectedRegion === 'lombar' ? '#ea580c' : '#d1d5db'" :stroke-width="selectedRegion === 'lombar' ? '1.5' : '1'" />
 
                             <!-- Quadril (Left) -->
                             <line x1="120" y1="350" x2="75" y2="350" stroke-dasharray="4,4" class="transition-all duration-200 pointer-events-none" :stroke="selectedRegion === 'quadril' ? '#ea580c' : '#d1d5db'" :stroke-width="selectedRegion === 'quadril' ? '1.5' : '1'" />
 
                             <!-- Joelhos (Right) -->
-                            <line x1="220" y1="480" x2="275" y2="480" stroke-dasharray="4,4" class="transition-all duration-200 pointer-events-none" :stroke="selectedRegion === 'joelhos' ? '#ea580c' : '#d1d5db'" :stroke-width="selectedRegion === 'joelhos' ? '1.5' : '1'" />
+                            <line x1="220" y1="480" x2="285" y2="480" stroke-dasharray="4,4" class="transition-all duration-200 pointer-events-none" :stroke="selectedRegion === 'joelhos' ? '#ea580c' : '#d1d5db'" :stroke-width="selectedRegion === 'joelhos' ? '1.5' : '1'" />
 
                             <!-- Tornozelos (Left) -->
                             <line x1="130" y1="620" x2="115" y2="620" stroke-dasharray="4,4" class="transition-all duration-200 pointer-events-none" :stroke="selectedRegion === 'tornozelos' ? '#ea580c' : '#d1d5db'" :stroke-width="selectedRegion === 'tornozelos' ? '1.5' : '1'" />
@@ -420,39 +420,39 @@
 
                             <!-- LABELS DE TEXTO -->
                             <!-- Labels à esquerda: CERVICAL, COLUNA, QUADRIL, TORNOZELOS/PÉS -->
-                            <text x="70" y="99" text-anchor="end" font-size="11" font-family="Inter, sans-serif" font-weight="600"
+                            <text x="15" y="99" text-anchor="start" font-size="11" font-family="Inter, sans-serif" font-weight="600"
                                   :fill="selectedRegion === 'cervical' ? '#ea580c' : '#9ca3af'"
                                   @click="selectedRegion = 'cervical'; $nextTick(() => { if(window.innerWidth < 768) { document.getElementById('painel-resultado').scrollIntoView({ behavior: 'smooth', block: 'start' }) } })"
                                   class="cursor-pointer pointer-events-auto select-none transition-colors duration-200">CERVICAL</text>
 
-                            <text x="70" y="214" text-anchor="end" font-size="11" font-family="Inter, sans-serif" font-weight="600"
+                            <text x="15" y="214" text-anchor="start" font-size="11" font-family="Inter, sans-serif" font-weight="600"
                                   :fill="selectedRegion === 'coluna' ? '#ea580c' : '#9ca3af'"
                                   @click="selectedRegion = 'coluna'; $nextTick(() => { if(window.innerWidth < 768) { document.getElementById('painel-resultado').scrollIntoView({ behavior: 'smooth', block: 'start' }) } })"
                                   class="cursor-pointer pointer-events-auto select-none transition-colors duration-200">COLUNA</text>
 
-                            <text x="70" y="354" text-anchor="end" font-size="11" font-family="Inter, sans-serif" font-weight="600"
+                            <text x="15" y="354" text-anchor="start" font-size="11" font-family="Inter, sans-serif" font-weight="600"
                                   :fill="selectedRegion === 'quadril' ? '#ea580c' : '#9ca3af'"
                                   @click="selectedRegion = 'quadril'; $nextTick(() => { if(window.innerWidth < 768) { document.getElementById('painel-resultado').scrollIntoView({ behavior: 'smooth', block: 'start' }) } })"
                                   class="cursor-pointer pointer-events-auto select-none transition-colors duration-200">QUADRIL</text>
 
-                            <text x="110" y="624" text-anchor="end" font-size="11" font-family="Inter, sans-serif" font-weight="600"
+                            <text x="15" y="624" text-anchor="start" font-size="11" font-family="Inter, sans-serif" font-weight="600"
                                   :fill="selectedRegion === 'tornozelos' ? '#ea580c' : '#9ca3af'"
                                   @click="selectedRegion = 'tornozelos'; $nextTick(() => { if(window.innerWidth < 768) { document.getElementById('painel-resultado').scrollIntoView({ behavior: 'smooth', block: 'start' }) } })"
                                   class="cursor-pointer pointer-events-auto select-none transition-colors duration-200">TORNOZELOS/PÉS</text>
 
 
                             <!-- Labels à direita: OMBROS, LOMBAR, JOELHOS -->
-                            <text x="280" y="144" text-anchor="start" font-size="11" font-family="Inter, sans-serif" font-weight="600"
+                            <text x="335" y="144" text-anchor="end" font-size="11" font-family="Inter, sans-serif" font-weight="600"
                                   :fill="selectedRegion === 'ombros' ? '#ea580c' : '#9ca3af'"
                                   @click="selectedRegion = 'ombros'; $nextTick(() => { if(window.innerWidth < 768) { document.getElementById('painel-resultado').scrollIntoView({ behavior: 'smooth', block: 'start' }) } })"
                                   class="cursor-pointer pointer-events-auto select-none transition-colors duration-200">OMBROS</text>
 
-                            <text x="280" y="294" text-anchor="start" font-size="11" font-family="Inter, sans-serif" font-weight="600"
+                            <text x="335" y="294" text-anchor="end" font-size="11" font-family="Inter, sans-serif" font-weight="600"
                                   :fill="selectedRegion === 'lombar' ? '#ea580c' : '#9ca3af'"
                                   @click="selectedRegion = 'lombar'; $nextTick(() => { if(window.innerWidth < 768) { document.getElementById('painel-resultado').scrollIntoView({ behavior: 'smooth', block: 'start' }) } })"
                                   class="cursor-pointer pointer-events-auto select-none transition-colors duration-200">LOMBAR</text>
 
-                            <text x="280" y="484" text-anchor="start" font-size="11" font-family="Inter, sans-serif" font-weight="600"
+                            <text x="335" y="484" text-anchor="end" font-size="11" font-family="Inter, sans-serif" font-weight="600"
                                   :fill="selectedRegion === 'joelhos' ? '#ea580c' : '#9ca3af'"
                                   @click="selectedRegion = 'joelhos'; $nextTick(() => { if(window.innerWidth < 768) { document.getElementById('painel-resultado').scrollIntoView({ behavior: 'smooth', block: 'start' }) } })"
                                   class="cursor-pointer pointer-events-auto select-none transition-colors duration-200">JOELHOS</text>
@@ -473,14 +473,14 @@
                 </div>
 
                 <!-- COLUNA DIREITA — PAINEL INFORMATIVO -->
-                <div id="painel-resultado" class="w-full min-h-[300px]">
+                <div id="painel-resultado" class="w-full min-h-[300px] max-w-full box-border">
                     
                     <!-- ESTADO INICIAL -->
                     <div x-show="selectedRegion === null" 
-                         class="border border-dashed border-gray-200 rounded-3xl p-8 flex flex-col items-center justify-center min-h-[300px] bg-gray-50/20 text-center">
+                          class="border border-dashed border-gray-200 rounded-3xl p-6 sm:p-8 flex flex-col items-center justify-center min-h-[300px] bg-gray-50/20 text-center w-full max-w-full box-border overflow-hidden break-words">
                         <i class="ph ph-cursor-click text-5xl text-gray-300 mb-4 animate-pulse"></i>
                         <h4 class="font-heading font-bold text-lg text-gray-700 mb-2">Conectando Dor e Solução</h4>
-                        <p class="text-gray-400 text-center max-w-xs text-sm">
+                        <p class="text-gray-400 text-center max-w-xs text-sm break-words">
                             Selecione uma região do corpo ao lado para visualizar os problemas comuns e descobrir como a Bruna os trata através do método exclusivo.
                         </p>
                         <!-- Mobile Tip -->
@@ -491,46 +491,46 @@
 
                     <!-- ESTADO COM REGIÃO SELECIONADA -->
                     <div x-show="selectedRegion !== null" 
-                         x-transition:enter="transition ease-out duration-300" 
-                         x-transition:enter-start="opacity-0 translate-y-4" 
-                         x-transition:enter-end="opacity-100 translate-y-0"
-                         class="bg-white border border-gray-200 rounded-3xl p-6 md:p-8 shadow-sm">
+                          x-transition:enter="transition ease-out duration-300" 
+                          x-transition:enter-start="opacity-0 translate-y-4" 
+                          x-transition:enter-end="opacity-100 translate-y-0"
+                          class="bg-white border border-gray-200 rounded-3xl p-5 sm:p-6 md:p-8 shadow-sm w-full max-w-full box-border overflow-hidden break-words">
                         
                         <!-- Header -->
-                        <div class="flex items-center gap-3 mb-1">
+                        <div class="flex flex-wrap items-center gap-3 mb-1 w-full max-w-full">
                             <div class="w-10 h-10 bg-brand-50 rounded-xl flex items-center justify-center text-brand-600 shrink-0">
                                 <i :class="'ph ' + (regions[selectedRegion]?.icon || 'ph-shield-check') + ' text-xl'"></i>
                             </div>
-                            <div>
-                                <h3 class="font-heading font-bold text-xl text-brand-950" x-text="regions[selectedRegion]?.title"></h3>
-                                <p class="text-sm text-gray-500" x-text="regions[selectedRegion]?.subtitle"></p>
+                            <div class="min-w-0 flex-1">
+                                <h3 class="font-heading font-bold text-lg sm:text-xl text-brand-950 break-words" x-text="regions[selectedRegion]?.title"></h3>
+                                <p class="text-sm text-gray-500 break-words" x-text="regions[selectedRegion]?.subtitle"></p>
                             </div>
                         </div>
 
                         <hr class="border-gray-100 my-4">
 
                         <!-- Problemas comuns (ocultar se prevenção) -->
-                        <div x-show="selectedRegion !== null && regions[selectedRegion]?.problemas !== ''">
+                        <div x-show="selectedRegion !== null && regions[selectedRegion]?.problemas !== ''" class="w-full max-w-full">
                             <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Problemas comuns:</p>
-                            <p class="text-gray-600 leading-relaxed text-sm" x-text="regions[selectedRegion]?.problemas"></p>
+                            <p class="text-gray-600 leading-relaxed text-sm break-words max-w-full" x-text="regions[selectedRegion]?.problemas"></p>
                             <hr class="border-gray-100 my-4">
                         </div>
 
                         <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2" x-text="selectedRegion !== 'prevencao' ? 'Como o Método Mover trata:' : 'Por que prevenir:'"></p>
-                        <p class="text-gray-600 leading-relaxed text-sm mb-5" x-text="regions[selectedRegion]?.tratamento"></p>
+                        <p class="text-gray-600 leading-relaxed text-sm mb-5 break-words max-w-full" x-text="regions[selectedRegion]?.tratamento"></p>
 
                         <!-- Badge abordagem -->
-                        <div class="inline-flex items-center gap-2 bg-brand-50 text-brand-700 text-sm font-semibold rounded-full px-4 py-1.5 border border-brand-200 mb-6 max-w-full">
-                            <i class="ph ph-check-circle shrink-0"></i>
-                            <span class="truncate" x-text="'Abordagem recomendada: ' + (regions[selectedRegion]?.abordagem || '')"></span>
+                        <div class="flex flex-wrap items-center gap-2 bg-brand-50 text-brand-700 text-sm font-semibold rounded-xl px-4 py-2 border border-brand-200 mb-6 max-w-full [overflow-wrap:anywhere] [word-break:break-word] break-words">
+                            <i class="ph ph-check-circle shrink-0 text-brand-600"></i>
+                            <span class="[word-break:break-word] break-words whitespace-normal font-semibold text-brand-700 leading-relaxed" x-text="'Abordagem recomendada: ' + (regions[selectedRegion]?.abordagem || '')"></span>
                         </div>
 
                         <!-- CTA -->
                         <a :href="'https://wa.me/5511999999999?text=' + encodeURIComponent('Olá Bruna, visitei seu site e tenho interesse em avaliação para ' + (regions[selectedRegion]?.cta_label || '') + '. Gostaria de agendar.')"
                            target="_blank"
-                           class="flex items-center justify-center gap-2 w-full bg-brand-600 hover:bg-brand-500 text-white rounded-xl py-3.5 px-6 font-semibold transition-all shadow-lg shadow-brand-500/20 hover:shadow-brand-500/40 transform hover:-translate-y-0.5 cursor-pointer">
-                            <i class="ph ph-whatsapp-logo text-xl"></i>
-                            <span x-text="'Agendar avaliação — ' + (regions[selectedRegion]?.cta_label || '')"></span>
+                           class="flex flex-wrap items-center justify-center gap-2 w-full bg-brand-600 hover:bg-brand-500 text-white rounded-xl py-3.5 px-4 sm:px-6 font-semibold transition-all shadow-lg shadow-brand-500/20 hover:shadow-brand-500/40 transform hover:-translate-y-0.5 cursor-pointer text-center max-w-full">
+                            <i class="ph ph-whatsapp-logo text-xl shrink-0"></i>
+                            <span class="break-words [word-break:break-word] text-center" x-text="'Agendar avaliação — ' + (regions[selectedRegion]?.cta_label || '')"></span>
                         </a>
                         <p class="text-xs text-gray-400 text-center mt-3">Avaliação presencial de 60 minutos. Sem compromisso de continuidade.</p>
 
